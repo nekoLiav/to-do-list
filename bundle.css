@@ -566,6 +566,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-0 {
   right: 0px;
 }
+.col-start-1 {
+  grid-column-start: 1;
+}
 .row-start-1 {
   grid-row-start: 1;
 }
@@ -586,6 +589,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mt-auto {
   margin-top: auto;
+}
+.mr-auto {
+  margin-right: auto;
 }
 .flex {
   display: flex;
