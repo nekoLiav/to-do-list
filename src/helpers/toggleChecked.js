@@ -1,4 +1,4 @@
-import toDoList from './toDoList';
+import toDoList from './globals';
 
 export default function toggleChecked(name) {
   toDoList.forEach((element) => {

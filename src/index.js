@@ -1,9 +1,5 @@
 import './styles/meyer-reset.css';
 import './styles/tailwind.css';
-import projectMenuDropdownToggle from './ui/projectMenuDropdownToggle';
-import populateDefaultProject from './ui/populateDefaultProject';
-import projectRenameUI from './ui/projectRenameUI';
+import createStaticListeners from './ui/createStaticListeners';
 
-projectMenuDropdownToggle();
-populateDefaultProject();
-projectRenameUI();
+createStaticListeners();

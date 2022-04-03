@@ -1,6 +1,6 @@
-import { toDoList } from './globals';
+import toDoList from './globals';
 
-export default function changePriority(name, priority) {
+export default function editPriority(name, priority) {
   toDoList.forEach((element) => {
     if (element.name === name) {
       const project = element;
