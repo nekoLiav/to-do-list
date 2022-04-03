@@ -462,29 +462,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "toDoList": () => (/* binding */ toDoList)
 /* harmony export */ });
-const toDoList = [{ name: 'Default Project', toDos: [] }];
+/* eslint-disable import/prefer-default-export */
+const toDoList = [{ name: 'Default Project', tasks: ['Default Task'] }];
 
 
 /***/ }),
 
-/***/ "./src/ui/updateProjectName.js":
-/*!*************************************!*\
-  !*** ./src/ui/updateProjectName.js ***!
-  \*************************************/
+/***/ "./src/ui/populateDefaultProject.js":
+/*!******************************************!*\
+  !*** ./src/ui/populateDefaultProject.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ updateProjectName)
+/* harmony export */   "default": () => (/* binding */ populateDefaultProject)
 /* harmony export */ });
 /* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
 
 
-function updateProjectName(index) {
-  const projectName = document.getElementById('project-name');
+function populateDefaultProject() {
+  const project = document.getElementById('project-name');
+  const tasks = document.getElementById('tasks');
+  project.textContent = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].name}`;
+  const defaultTask = document.createElement('li');
+  defaultTask.textContent = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].tasks[0]}`;
+  tasks.append(defaultTask);
+}
 
-  projectName.textContent = _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index].name;
+
+/***/ }),
+
+/***/ "./src/ui/projectMenuDropdownToggle.js":
+/*!*********************************************!*\
+  !*** ./src/ui/projectMenuDropdownToggle.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ projectMenuDropdownToggle)
+/* harmony export */ });
+function projectMenuDropdownToggle() {
+  const projectMenuButton = document.getElementById('project-menu-button');
+  const projectMenuDropdown = document.getElementById('project-menu-dropdown');
+  projectMenuButton.addEventListener('click', () => {
+    projectMenuDropdown.classList.toggle('hidden');
+  });
 }
 
 
@@ -568,12 +594,15 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/meyer-reset.css */ "./src/styles/meyer-reset.css");
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
-/* harmony import */ var _ui_updateProjectName__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/updateProjectName */ "./src/ui/updateProjectName.js");
+/* harmony import */ var _ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/projectMenuDropdownToggle */ "./src/ui/projectMenuDropdownToggle.js");
+/* harmony import */ var _ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/populateDefaultProject */ "./src/ui/populateDefaultProject.js");
 
 
 
 
-(0,_ui_updateProjectName__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
+(0,_ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
 })();
 
