@@ -3,10 +3,11 @@ import { toDoList } from './globals';
 export default function toggleChecked(name) {
   toDoList.forEach((element) => {
     if (element.name === name) {
-      if (element.toDos[0].checked === false) {
-        element.toDos[0].checked = true;
+      const project = element;
+      if (element.tasks[0].checked === false) {
+        project.tasks[0].checked = true;
       } else {
-        element.toDos[0].checked = false;
+        project.tasks[0].checked = false;
       }
     }
   });

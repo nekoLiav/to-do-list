@@ -7,23 +7,32 @@
 
 <body class="bg-slate-50 h-screen w-screen">
   <div class="flex flex-col h-screen">
-    <header id="header" class=" flex items-center justify-center bg-slate-900 h-16 w-screen">
+    <header id="header" class=" flex items-center justify-center bg-slate-700 h-16 w-screen">
       <p class="text-white text-2xl font-bold">Minimal To-Do</p>
     </header>
-    <main id="main" class="grid gap-2 pt-2 pb-2 grid-cols-5 grid-rows-6 w-full h-full">
-      <p id="project-name"
-        class="flex justify-center items-center col-start-1 col-span-5 justify-center text-1xl font-bold bg-slate-300">
-        Default Project
-      </p>
-      <div id="to-dos" class="col-start-1 col-span-5 row-start-2 row-span-5 bg-slate-300">
-        <ol class="list-inside list-decimal text-center">
-          <li>
-            Default To-Do
-          </li>
+    <main id="main" class="w-full h-full">
+      <div id="project" class="grid auto-rows-min bg-slate-200 mt-1 mb-1 rounded p-1 drop-shadow-md">
+        <p id="project-name" class="row-start-1 font-bold ml-1 bg-slate-300 rounded p-1 drop-shadow-md">
+        </p>
+        <div id="project-menu" class="row-start-1 justify-self-center drop-shadow-md ml-auto">
+          <button id="project-menu-button" class="bg-slate-300 p-1 rounded font-bold mr-1">Edit</button>
+          <div id="project-menu-dropdown"
+            class="absolute right-0 min-w-max text-sm bg-slate-300 drop-shadow-md mr-1 font-bold rounded hidden">
+            <ul>
+              <li>
+                Rename Project
+              </li>
+              <li>
+                Delete Project
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ol id="tasks" class="list-inside list-decimal text-sm ml-2 p-1">
         </ol>
       </div>
     </main>
-    <footer id="footer" class="flex bg-slate-900 mt-auto h-16 w-screen">
+    <footer id="footer" class="flex bg-slate-700 mt-auto h-16 w-screen">
     </footer>
   </div>
 </body>
