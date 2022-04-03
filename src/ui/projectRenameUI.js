@@ -1,7 +1,7 @@
-import { toDoList } from '../helpers/globals';
+import projectRename from '../helpers/projectRename';
 import closeProjectMenu from './closeProjectMenu';
 
-export default function projectRename() {
+export default function projectRenameUI() {
   const projectRenameButton = document.getElementById('project-rename');
   const projectName = document.getElementById('project-name');
   projectRenameButton.addEventListener('click', () => {
@@ -10,8 +10,7 @@ export default function projectRename() {
     projectName.focus();
   });
   projectName.addEventListener('blur', (e) => {
-    toDoList[e.target.getAttribute('data-index')].name = e.target.value;
-    console.log(toDoList);
+    projectRename(e.target.getAttribute('data-index'), e.target.value);
     e.target.disabled = true;
   });
 }

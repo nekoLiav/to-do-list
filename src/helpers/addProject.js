@@ -1,4 +1,4 @@
-import { toDoList } from './globals';
+import toDoList from './toDoList';
 import Project from '../factories/Project';
 
 export default function addProject(name) {

@@ -1,4 +1,4 @@
-import { toDoList } from '../helpers/globals';
+import toDoList from '../helpers/toDoList';
 
 export default function populateDefaultProject() {
   const project = document.getElementById('project-name');

@@ -451,19 +451,39 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/helpers/globals.js":
-/*!********************************!*\
-  !*** ./src/helpers/globals.js ***!
-  \********************************/
+/***/ "./src/helpers/projectRename.js":
+/*!**************************************!*\
+  !*** ./src/helpers/projectRename.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "toDoList": () => (/* binding */ toDoList)
+/* harmony export */   "default": () => (/* binding */ projectRename)
 /* harmony export */ });
-/* eslint-disable import/prefer-default-export */
-const toDoList = [{ name: 'Default Project', tasks: ['Default Task'] }];
+/* harmony import */ var _toDoList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toDoList */ "./src/helpers/toDoList.js");
+
+
+function projectRename(index, newName) {
+  _toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][index].name = newName;
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/toDoList.js":
+/*!*********************************!*\
+  !*** ./src/helpers/toDoList.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{ name: 'Default Project', tasks: ['Default Task'] }]);
 
 
 /***/ }),
@@ -500,16 +520,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ populateDefaultProject)
 /* harmony export */ });
-/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/toDoList */ "./src/helpers/toDoList.js");
 
 
 function populateDefaultProject() {
   const project = document.getElementById('project-name');
   const tasks = document.getElementById('tasks');
-  project.setAttribute('placeholder', `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].name}`);
+  project.setAttribute('placeholder', `${_helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][0].name}`);
   project.setAttribute('data-index', 0);
   const defaultTask = document.createElement('li');
-  defaultTask.textContent = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].tasks[0]}`;
+  defaultTask.textContent = `${_helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][0].tasks[0]}`;
   tasks.append(defaultTask);
 }
 
@@ -538,23 +558,23 @@ function projectMenuDropdownToggle() {
 
 /***/ }),
 
-/***/ "./src/ui/projectRename.js":
-/*!*********************************!*\
-  !*** ./src/ui/projectRename.js ***!
-  \*********************************/
+/***/ "./src/ui/projectRenameUI.js":
+/*!***********************************!*\
+  !*** ./src/ui/projectRenameUI.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ projectRename)
+/* harmony export */   "default": () => (/* binding */ projectRenameUI)
 /* harmony export */ });
-/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _helpers_projectRename__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/projectRename */ "./src/helpers/projectRename.js");
 /* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
 
 
 
-function projectRename() {
+function projectRenameUI() {
   const projectRenameButton = document.getElementById('project-rename');
   const projectName = document.getElementById('project-name');
   projectRenameButton.addEventListener('click', () => {
@@ -563,8 +583,7 @@ function projectRename() {
     projectName.focus();
   });
   projectName.addEventListener('blur', (e) => {
-    _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[e.target.getAttribute('data-index')].name = e.target.value;
-    console.log(_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+    (0,_helpers_projectRename__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target.getAttribute('data-index'), e.target.value);
     e.target.disabled = true;
   });
 }
@@ -652,7 +671,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
 /* harmony import */ var _ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/projectMenuDropdownToggle */ "./src/ui/projectMenuDropdownToggle.js");
 /* harmony import */ var _ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/populateDefaultProject */ "./src/ui/populateDefaultProject.js");
-/* harmony import */ var _ui_projectRename__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/projectRename */ "./src/ui/projectRename.js");
+/* harmony import */ var _ui_projectRenameUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/projectRenameUI */ "./src/ui/projectRenameUI.js");
 
 
 
@@ -661,7 +680,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_ui_projectRename__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_ui_projectRenameUI__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 })();
 
