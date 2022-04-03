@@ -451,31 +451,52 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/helpers/projectRename.js":
+/***/ "./src/helpers/deleteProject.js":
 /*!**************************************!*\
-  !*** ./src/helpers/projectRename.js ***!
+  !*** ./src/helpers/deleteProject.js ***!
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ projectRename)
+/* harmony export */   "default": () => (/* binding */ deleteProject)
 /* harmony export */ });
-/* harmony import */ var _toDoList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toDoList */ "./src/helpers/toDoList.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
 
 
-function projectRename(index, newName) {
-  _toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][index].name = newName;
+function deleteProject(index) {
+  _globals__WEBPACK_IMPORTED_MODULE_0__["default"].splice(index, 1);
 }
 
 
 /***/ }),
 
-/***/ "./src/helpers/toDoList.js":
-/*!*********************************!*\
-  !*** ./src/helpers/toDoList.js ***!
-  \*********************************/
+/***/ "./src/helpers/editProject.js":
+/*!************************************!*\
+  !*** ./src/helpers/editProject.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editProject)
+/* harmony export */ });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+
+
+function editProject(index, newName) {
+  _globals__WEBPACK_IMPORTED_MODULE_0__["default"][index].name = newName;
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/globals.js":
+/*!********************************!*\
+  !*** ./src/helpers/globals.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -500,7 +521,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ closeProjectMenu)
 /* harmony export */ });
 function closeProjectMenu() {
-  const projectMenu = document.getElementById('project-menu-dropdown');
+  const projectMenu = document.getElementById('project-menu');
   if (!projectMenu.classList.contains('hidden')) {
     projectMenu.classList.toggle('hidden');
   }
@@ -509,83 +530,114 @@ function closeProjectMenu() {
 
 /***/ }),
 
-/***/ "./src/ui/populateDefaultProject.js":
-/*!******************************************!*\
-  !*** ./src/ui/populateDefaultProject.js ***!
-  \******************************************/
+/***/ "./src/ui/createStaticListeners.js":
+/*!*****************************************!*\
+  !*** ./src/ui/createStaticListeners.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ populateDefaultProject)
+/* harmony export */   "default": () => (/* binding */ createStaticListeners)
 /* harmony export */ });
-/* harmony import */ var _helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/toDoList */ "./src/helpers/toDoList.js");
+/* harmony import */ var _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectMenuOpen */ "./src/ui/projectMenuOpen.js");
 
 
-function populateDefaultProject() {
-  const project = document.getElementById('project-name');
-  const tasks = document.getElementById('tasks');
-  project.setAttribute('placeholder', `${_helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][0].name}`);
-  project.setAttribute('data-index', 0);
-  const defaultTask = document.createElement('li');
-  defaultTask.textContent = `${_helpers_toDoList__WEBPACK_IMPORTED_MODULE_0__["default"][0].tasks[0]}`;
-  tasks.append(defaultTask);
-}
-
-
-/***/ }),
-
-/***/ "./src/ui/projectMenuDropdownToggle.js":
-/*!*********************************************!*\
-  !*** ./src/ui/projectMenuDropdownToggle.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ projectMenuDropdownToggle)
-/* harmony export */ });
-function projectMenuDropdownToggle() {
+function createStaticListeners() {
   const projectMenuButton = document.getElementById('project-menu-button');
-  const projectMenuDropdown = document.getElementById('project-menu-dropdown');
-  projectMenuButton.addEventListener('click', () => {
-    projectMenuDropdown.classList.toggle('hidden');
-  });
+  projectMenuButton.addEventListener('click', _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__["default"]);
 }
 
 
 /***/ }),
 
-/***/ "./src/ui/projectRenameUI.js":
+/***/ "./src/ui/projectMenuDelete.js":
+/*!*************************************!*\
+  !*** ./src/ui/projectMenuDelete.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ projectMenuDelete)
+/* harmony export */ });
+/* harmony import */ var _helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/deleteProject */ "./src/helpers/deleteProject.js");
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
+
+
+
+
+function projectMenuDelete(event) {
+  const projectName = document.getElementById('project-name');
+  const tasks = document.querySelectorAll('#tasks li');
+  tasks.forEach((element) => element.remove());
+  projectName.value = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_1__["default"][0].name}`;
+  (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectName.getAttribute('data-index'));
+  (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  event.target.removeEventListener('click', projectMenuDelete);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/projectMenuEdit.js":
 /*!***********************************!*\
-  !*** ./src/ui/projectRenameUI.js ***!
+  !*** ./src/ui/projectMenuEdit.js ***!
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ projectRenameUI)
+/* harmony export */   "default": () => (/* binding */ projectMenuEdit)
 /* harmony export */ });
-/* harmony import */ var _helpers_projectRename__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/projectRename */ "./src/helpers/projectRename.js");
+/* harmony import */ var _helpers_editProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/editProject */ "./src/helpers/editProject.js");
 /* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
 
 
 
-function projectRenameUI() {
-  const projectRenameButton = document.getElementById('project-rename');
+function projectMenuEdit(event1) {
   const projectName = document.getElementById('project-name');
-  projectRenameButton.addEventListener('click', () => {
-    (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    projectName.disabled = false;
-    projectName.focus();
+  projectName.disabled = false;
+  projectName.focus();
+  projectName.addEventListener('blur', function blurred(event2) {
+    projectName.disabled = true;
+    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(event2.target.getAttribute('data-index'), event2.target.value);
+    projectName.removeEventListener('blur', blurred);
   });
-  projectName.addEventListener('blur', (e) => {
-    (0,_helpers_projectRename__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target.getAttribute('data-index'), e.target.value);
-    e.target.disabled = true;
-  });
+  (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  event1.target.removeEventListener('click', projectMenuEdit);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/projectMenuOpen.js":
+/*!***********************************!*\
+  !*** ./src/ui/projectMenuOpen.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ projectMenuOpen)
+/* harmony export */ });
+/* harmony import */ var _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectMenuEdit */ "./src/ui/projectMenuEdit.js");
+/* harmony import */ var _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectMenuDelete */ "./src/ui/projectMenuDelete.js");
+
+
+
+function projectMenuOpen() {
+  const projectMenu = document.getElementById('project-menu');
+  const projectEditButton = document.getElementById('project-edit-button');
+  const projectDeleteButton = document.getElementById('project-delete-button');
+  projectMenu.classList.toggle('hidden');
+  projectEditButton.addEventListener('click', _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  projectDeleteButton.addEventListener('click', _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__["default"]);
 }
 
 
@@ -669,18 +721,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/meyer-reset.css */ "./src/styles/meyer-reset.css");
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
-/* harmony import */ var _ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/projectMenuDropdownToggle */ "./src/ui/projectMenuDropdownToggle.js");
-/* harmony import */ var _ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/populateDefaultProject */ "./src/ui/populateDefaultProject.js");
-/* harmony import */ var _ui_projectRenameUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/projectRenameUI */ "./src/ui/projectRenameUI.js");
+/* harmony import */ var _ui_createStaticListeners__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/createStaticListeners */ "./src/ui/createStaticListeners.js");
 
 
 
 
-
-
-(0,_ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_ui_projectRenameUI__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_ui_createStaticListeners__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 })();
 
