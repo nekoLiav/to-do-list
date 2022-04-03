@@ -1,11 +1,11 @@
-import ToDo from '../factories/ToDo';
+import Task from '../factories/Task';
 import { toDoList } from './globals';
 
 export default function addToDo(name) {
   toDoList.forEach((element) => {
     if (element.name === name) {
       element.tasks.push(
-        new ToDo('shopping', 'shopping stuff', 'soon', 'high', 'shirt', false)
+        new Task('shopping', 'shopping stuff', 'soon', 'high', 'shirt', false)
       );
     }
   });

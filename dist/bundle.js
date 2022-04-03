@@ -468,6 +468,27 @@ const toDoList = [{ name: 'Default Project', tasks: ['Default Task'] }];
 
 /***/ }),
 
+/***/ "./src/ui/closeProjectMenu.js":
+/*!************************************!*\
+  !*** ./src/ui/closeProjectMenu.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ closeProjectMenu)
+/* harmony export */ });
+function closeProjectMenu() {
+  const projectMenu = document.getElementById('project-menu-dropdown');
+  if (!projectMenu.classList.contains('hidden')) {
+    projectMenu.classList.toggle('hidden');
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/ui/populateDefaultProject.js":
 /*!******************************************!*\
   !*** ./src/ui/populateDefaultProject.js ***!
@@ -485,7 +506,8 @@ __webpack_require__.r(__webpack_exports__);
 function populateDefaultProject() {
   const project = document.getElementById('project-name');
   const tasks = document.getElementById('tasks');
-  project.textContent = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].name}`;
+  project.setAttribute('placeholder', `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].name}`);
+  project.setAttribute('data-index', 0);
   const defaultTask = document.createElement('li');
   defaultTask.textContent = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[0].tasks[0]}`;
   tasks.append(defaultTask);
@@ -510,6 +532,40 @@ function projectMenuDropdownToggle() {
   const projectMenuDropdown = document.getElementById('project-menu-dropdown');
   projectMenuButton.addEventListener('click', () => {
     projectMenuDropdown.classList.toggle('hidden');
+  });
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/projectRename.js":
+/*!*********************************!*\
+  !*** ./src/ui/projectRename.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ projectRename)
+/* harmony export */ });
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
+
+
+
+function projectRename() {
+  const projectRenameButton = document.getElementById('project-rename');
+  const projectName = document.getElementById('project-name');
+  projectRenameButton.addEventListener('click', () => {
+    (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    projectName.disabled = false;
+    projectName.focus();
+  });
+  projectName.addEventListener('blur', (e) => {
+    _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[e.target.getAttribute('data-index')].name = e.target.value;
+    console.log(_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+    e.target.disabled = true;
   });
 }
 
@@ -596,6 +652,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
 /* harmony import */ var _ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/projectMenuDropdownToggle */ "./src/ui/projectMenuDropdownToggle.js");
 /* harmony import */ var _ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/populateDefaultProject */ "./src/ui/populateDefaultProject.js");
+/* harmony import */ var _ui_projectRename__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/projectRename */ "./src/ui/projectRename.js");
+
 
 
 
@@ -603,6 +661,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_ui_projectMenuDropdownToggle__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_ui_populateDefaultProject__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_ui_projectRename__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 })();
 
