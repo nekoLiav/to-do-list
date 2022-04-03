@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script defer src="bundle.js"></script><link href="bundle.css" rel="stylesheet"></head>
 
-<body class="w-screen h-screen bg-slate-50">
-  <div class="flex flex-col h-screen">
-    <header id="header" class="flex items-center justify-center w-screen h-16 bg-slate-700">
-      <p class="text-2xl font-bold text-white">Minimal To-Do</p>
-    </header>
-    <main id="main" class="w-full h-full">
-      <div id="project-container" class="grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md">
-        <input disabled type="text" id="project-name"
-          class="row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md"></input>
-        <div id="project-menu-container" class="row-start-1 min-w-max drop-shadow-md">
-          <button id="project-menu-button" class="min-w-full p-1 mr-1 font-bold rounded bg-slate-300">Edit</button>
-          <div id="project-menu"
-            class="absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md">
-            <ul>
-              <li id="project-edit-button" class="p-1 rounded">
-                Rename Project
-              </li>
-              <li id="project-delete-button" class="p-1 bg-red-300 rounded">
-                Delete Project
-              </li>
-            </ul>
-          </div>
+<body class="flex flex-col w-screen h-screen bg-slate-50">
+  <header id="header" class="flex items-center justify-center w-screen h-16 bg-slate-700">
+    <p id="header-text" class="text-2xl font-bold text-white">Minimal To-Do</p>
+  </header>
+  <main id="main" class="w-full h-full">
+    <div class="grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md project-container">
+      <input disabled type="text"
+        class="row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md project-name"></input>
+      <div class="row-start-1 min-w-max drop-shadow-md project-menu-container">
+        <button class="min-w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button">Edit</button>
+        <div
+          class="absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu">
+          <ul class="project-menu-buttons">
+            <li class="p-1 rounded project-edit-button">
+              Rename Project
+            </li>
+            <li class="p-1 bg-red-300 rounded project-delete-button">
+              Delete Project
+            </li>
+          </ul>
         </div>
-        <ol id="tasks" class="p-1 ml-2 text-sm list-decimal list-inside">
-        </ol>
       </div>
-    </main>
-    <footer id="footer" class="flex w-screen h-16 mt-auto bg-slate-700">
-    </footer>
-  </div>
+      <ol class="p-1 ml-2 text-sm list-decimal list-inside project-task">
+      </ol>
+      <button class="col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 project-task-add-button">Add New
+        Task</button>
+    </div>
+  </main>
+  <footer id="footer" class="flex w-screen h-16 mt-auto bg-slate-700">
+  </footer>
 </body>
 
 </html>
