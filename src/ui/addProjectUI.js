@@ -1,4 +1,4 @@
-export default function addProjectUI(name, tasks) {
+export default function addProjectUI(name, tasks, index) {
   const main = document.getElementById('main');
   const projectContainer = document.createElement('div');
   const projectName = document.createElement('input');
@@ -13,9 +13,11 @@ export default function addProjectUI(name, tasks) {
 
   projectContainer.className =
     'grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md project-container';
+  projectContainer.setAttribute('data-index', index);
   projectName.className =
     'row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md project-name';
   projectName.value = name;
+  projectName.disabled = true;
   projectMenuContainer.className =
     'row-start-1 min-w-max drop-shadow-md project-menu-container';
   projectMenuButton.className =
@@ -40,8 +42,9 @@ export default function addProjectUI(name, tasks) {
 
   tasks.forEach((element) => {
     const taskListItem = document.createElement('li');
-    const task = element;
-    taskListItem.textContent = task;
+    const taskTitle = element.title;
+    const taskDueDate = element.dueDate;
+    taskListItem.textContent = `${taskTitle} - ${taskDueDate}`;
     projectTasks.append(taskListItem);
   });
 
