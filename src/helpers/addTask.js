@@ -1,7 +1,7 @@
 import Task from '../factories/Task';
 import toDoList from './globals';
 
-export default function createTask(name) {
+export default function addTask(name) {
   toDoList.forEach((element) => {
     if (element.name === name) {
       element.tasks.push(

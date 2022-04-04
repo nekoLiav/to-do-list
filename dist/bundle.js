@@ -449,6 +449,112 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/helpers/globals.js":
+/*!********************************!*\
+  !*** ./src/helpers/globals.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toDoList": () => (/* binding */ toDoList)
+/* harmony export */ });
+/* eslint-disable import/prefer-default-export */
+const toDoList = [{ name: 'Default Project', tasks: ['Default Task'] }];
+
+
+/***/ }),
+
+/***/ "./src/ui/addProjectUI.js":
+/*!********************************!*\
+  !*** ./src/ui/addProjectUI.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addProjectUI)
+/* harmony export */ });
+function addProjectUI(name, tasks) {
+  const main = document.getElementById('main');
+  const projectContainer = document.createElement('div');
+  const projectName = document.createElement('input');
+  const projectMenuContainer = document.createElement('div');
+  const projectMenuButton = document.createElement('button');
+  const projectMenu = document.createElement('div');
+  const projectMenuButtons = document.createElement('ul');
+  const projectEditButton = document.createElement('li');
+  const projectDeleteButton = document.createElement('li');
+  const projectTasks = document.createElement('ol');
+  const projectTaskAddButton = document.createElement('button');
+
+  projectContainer.className =
+    'grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md project-container';
+  projectName.className =
+    'row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md project-name';
+  projectName.value = name;
+  projectMenuContainer.className =
+    'row-start-1 min-w-max drop-shadow-md project-menu-container';
+  projectMenuButton.className =
+    'min-w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
+  projectMenuButton.textContent = 'Edit';
+  projectMenu.className =
+    'absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu';
+  projectMenuButtons.className = 'project-menu-buttons';
+  projectEditButton.className = 'p-1 rounded project-edit-button';
+  projectDeleteButton.className =
+    'p-1 bg-red-300 rounded project-delete-button';
+  projectTasks.className =
+    'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
+  projectTaskAddButton.className =
+    'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 project-task-add-button';
+
+  projectContainer.append(projectName, projectMenuContainer, projectTasks);
+  projectMenuContainer.append(projectMenuButton);
+  projectMenuButton.append(projectMenu);
+  projectMenu.append(projectMenuButtons);
+  projectMenuButtons.append(projectEditButton, projectDeleteButton);
+
+  tasks.forEach((element) => {
+    const taskListItem = document.createElement('li');
+    const task = element;
+    taskListItem.textContent = task;
+    projectTasks.append(taskListItem);
+  });
+
+  main.append(projectContainer);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/populateProjects.js":
+/*!************************************!*\
+  !*** ./src/ui/populateProjects.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ populateProjects)
+/* harmony export */ });
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _addProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addProjectUI */ "./src/ui/addProjectUI.js");
+
+
+
+function populateProjects() {
+  _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((element) => {
+    (0,_addProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"])(element.name, element.tasks);
+  });
+}
+
+
 /***/ })
 
 /******/ 	});
@@ -529,8 +635,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/meyer-reset.css */ "./src/styles/meyer-reset.css");
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
+/* harmony import */ var _ui_populateProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/populateProjects */ "./src/ui/populateProjects.js");
 
 
+
+
+(0,_ui_populateProjects__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 })();
 

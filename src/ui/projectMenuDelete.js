@@ -1,5 +1,5 @@
 import deleteProject from '../helpers/deleteProject';
-import toDoList from '../helpers/globals';
+import { toDoList } from '../helpers/globals';
 import closeProjectMenu from './closeProjectMenu';
 
 export default function projectMenuDelete(event) {
