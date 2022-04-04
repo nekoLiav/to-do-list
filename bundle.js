@@ -607,9 +607,15 @@ function addProjectUI(name, tasks, index) {
   projectTasks.className =
     'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
   projectTaskAddButton.className =
-    'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 project-task-add-button';
+    'col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 project-task-add-button';
+  projectTaskAddButton.textContent = '+ Add Task';
 
-  projectContainer.append(projectName, projectMenuContainer, projectTasks);
+  projectContainer.append(
+    projectName,
+    projectMenuContainer,
+    projectTasks,
+    projectTaskAddButton
+  );
   projectMenuContainer.append(projectMenuButton);
   projectMenuButton.append(projectMenu);
   projectMenu.append(projectMenuButtons);
