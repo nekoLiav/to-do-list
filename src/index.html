@@ -10,6 +10,47 @@
     <p id="header-text" class="text-2xl font-bold text-white">Minimal To-Do</p>
   </header>
   <main id="main" class="w-full h-full">
+    <div id="overlay" class="absolute z-10 flex items-center justify-center hidden w-full h-full bg-slate-900/50">
+      <div class="rounded bg-slate-700 task-add-modal">
+        <form class="grid p-1 auto-cols-auto">
+          <fieldset class="col-span-2 col-start-1">
+            <legend class="w-full font-bold text-center text-white">New Task Details</legend>
+            <p class="flex flex-col">
+              <label for="title" class="text-sm text-white">Title:</label>
+              <input type="text" name="title" id="title" required>
+            </p>
+            <p class="flex flex-col">
+              <label for="description" class="text-sm text-white">Description:</label>
+              <input type="text" name="description" id="description" required>
+            </p>
+            <p class="flex flex-col">
+              <label for="due-date" class="text-sm text-white">Due Date:</label>
+              <input type="text" name="due-date" id="due-date" required>
+            </p>
+          </fieldset>
+          <fieldset class="col-start-1">
+            <legend class="text-sm text-white">Priority:</legend>
+            <ul class="flex flex-col-reverse">
+              <li>
+                <input type="radio" name="priority" id="low" required>
+                <label for="low" class="text-sm text-white">Low</label>
+              </li>
+              <li>
+                <input type="radio" name="priority" id="med" required>
+                <label for="med" class="text-sm text-white">Medium</label>
+              </li>
+              <li>
+                <input type="radio" name="priority" id="high" required>
+                <label for="high" class="text-sm text-white">High</label>
+              </li>
+            </ul>
+          </fieldset>
+          <p class="col-start-2 mt-auto ml-auto">
+            <button type="submit" class="p-1 rounded bg-slate-300">Confirm</button>
+          </p>
+        </form>
+      </div>
+    </div>
   </main>
   <footer id="footer" class="flex w-screen h-16 mt-auto bg-slate-700">
   </footer>

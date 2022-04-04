@@ -1,3 +1,6 @@
+import projectMenuOpen from './projectMenuOpen';
+import projectTaskAddModal from './projectTaskAddModal';
+
 export default function addProjectUI(name, tasks, index) {
   const main = document.getElementById('main');
   const projectContainer = document.createElement('div');
@@ -23,6 +26,7 @@ export default function addProjectUI(name, tasks, index) {
   projectMenuButton.className =
     'min-w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
   projectMenuButton.textContent = 'Edit';
+  projectMenuButton.addEventListener('click', projectMenuOpen);
   projectMenu.className =
     'absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu';
   projectMenuButtons.className = 'project-menu-buttons';
@@ -32,8 +36,9 @@ export default function addProjectUI(name, tasks, index) {
   projectTasks.className =
     'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
   projectTaskAddButton.className =
-    'col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 project-task-add-button';
+    'col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 drop-shadow-md project-task-add-button';
   projectTaskAddButton.textContent = '+ Add Task';
+  projectTaskAddButton.addEventListener('click', projectTaskAddModal);
 
   projectContainer.append(
     projectName,
@@ -49,8 +54,7 @@ export default function addProjectUI(name, tasks, index) {
   tasks.forEach((element) => {
     const taskListItem = document.createElement('li');
     const taskTitle = element.title;
-    const taskDueDate = element.dueDate;
-    taskListItem.textContent = `${taskTitle} - ${taskDueDate}`;
+    taskListItem.textContent = `${taskTitle}`;
     projectTasks.append(taskListItem);
   });
 
