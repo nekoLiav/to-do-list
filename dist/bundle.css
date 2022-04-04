@@ -572,6 +572,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .row-start-1 {
   grid-row-start: 1;
 }
+.mt-auto {
+  margin-top: auto;
+}
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -586,9 +589,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .ml-2 {
   margin-left: 0.5rem;
-}
-.mt-auto {
-  margin-top: auto;
 }
 .mr-auto {
   margin-right: auto;
