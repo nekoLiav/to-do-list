@@ -65,6 +65,7 @@ export default function addProjectDisplay(name, tasks, id) {
       const taskListItem = document.createElement('li');
       const taskTitle = element.title;
       taskListItem.textContent = `${taskTitle}`;
+      taskListItem.className = 'rounded hover:bg-slate-300 drop-shadow-md';
       projectTasks.append(taskListItem);
     });
   }
