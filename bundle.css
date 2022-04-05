@@ -560,11 +560,35 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
 .right-0 {
   right: 0px;
+}
+.-left-10 {
+  left: -2.5rem;
+}
+.-left-1 {
+  left: -0.25rem;
+}
+.-left-0 {
+  left: -0px;
+}
+.-bottom-10 {
+  bottom: -2.5rem;
+}
+.-bottom-20 {
+  bottom: -5rem;
+}
+.bottom-20 {
+  bottom: 5rem;
+}
+.bottom-16 {
+  bottom: 4rem;
 }
 .z-10 {
   z-index: 10;
@@ -601,6 +625,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .row-end-2 {
   grid-row-end: 2;
+}
+.float-left {
+  float: left;
 }
 .mt-auto {
   margin-top: auto;
@@ -643,6 +670,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-full {
   height: 100%;
+}
+.h-fit {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.h-max {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.h-\[inherit\] {
+  height: inherit;
+}
+.max-h-\[inherit\] {
+  max-height: inherit;
 }
 .w-screen {
   width: 100vw;
@@ -764,6 +807,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .drop-shadow-md {
   --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.hover\:bg-slate-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
 
