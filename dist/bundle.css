@@ -1,139 +1,6 @@
-/*!****************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/meyer-reset.css ***!
-  \****************************************************************************************************************************************************/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/*!*************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/styles/tailwind.css ***!
-  \*************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/tailwind.css ***!
+  \******************************************************************************************************************************************/
 /*
 ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
 *//*
@@ -569,27 +436,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-0 {
   right: 0px;
 }
-.-left-10 {
-  left: -2.5rem;
-}
-.-left-1 {
-  left: -0.25rem;
-}
-.-left-0 {
-  left: -0px;
-}
-.-bottom-10 {
-  bottom: -2.5rem;
-}
-.-bottom-20 {
-  bottom: -5rem;
-}
-.bottom-20 {
-  bottom: 5rem;
-}
-.bottom-16 {
-  bottom: 4rem;
-}
 .z-10 {
   z-index: 10;
 }
@@ -602,32 +448,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-start-2 {
   grid-column-start: 2;
 }
-.col-start-3 {
-  grid-column-start: 3;
-}
-.col-end-3 {
-  grid-column-end: 3;
-}
-.row-span-2 {
-  grid-row: span 2 / span 2;
-}
-.row-span-1 {
-  grid-row: span 1 / span 1;
-}
 .row-start-1 {
   grid-row-start: 1;
-}
-.row-start-3 {
-  grid-row-start: 3;
-}
-.row-start-2 {
-  grid-row-start: 2;
-}
-.row-end-2 {
-  grid-row-end: 2;
-}
-.float-left {
-  float: left;
 }
 .mt-auto {
   margin-top: auto;
@@ -671,44 +493,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-full {
   height: 100%;
 }
-.h-fit {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.h-\[inherit\] {
-  height: inherit;
-}
-.max-h-\[inherit\] {
-  max-height: inherit;
-}
 .w-screen {
   width: 100vw;
 }
 .w-full {
   width: 100%;
 }
-.w-16 {
-  width: 4rem;
-}
-.w-9 {
-  width: 2.25rem;
-}
-.w-4 {
-  width: 1rem;
-}
 .min-w-max {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
-}
-.min-w-full {
-  min-width: 100%;
 }
 .list-inside {
   list-style-position: inside;
@@ -719,25 +513,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .auto-cols-auto {
   grid-auto-columns: auto;
 }
-.auto-cols-max {
-  grid-auto-columns: -webkit-max-content;
-  grid-auto-columns: max-content;
-}
-.auto-cols-min {
-  grid-auto-columns: -webkit-min-content;
-  grid-auto-columns: min-content;
-}
-.auto-rows-min {
-  grid-auto-rows: -webkit-min-content;
-  grid-auto-rows: min-content;
-}
-.auto-rows-max {
-  grid-auto-rows: -webkit-max-content;
-  grid-auto-rows: max-content;
-}
-.auto-rows-auto {
-  grid-auto-rows: auto;
-}
 .flex-col {
   flex-direction: column;
 }
@@ -746,9 +521,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .items-center {
   align-items: center;
-}
-.justify-end {
-  justify-content: flex-end;
 }
 .justify-center {
   justify-content: center;

@@ -1,5 +1,4 @@
-import './styles/meyer-reset.css';
-import './styles/tailwind.css';
+import './tailwind.css';
 import renderSavedProjects from './ui/renderSavedProjects';
 import projectAddOpen from './ui/projectAddOpen';
 
