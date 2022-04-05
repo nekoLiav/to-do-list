@@ -451,6 +451,51 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/factories/Project.js":
+/*!**********************************!*\
+  !*** ./src/factories/Project.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Project)
+/* harmony export */ });
+class Project {
+  constructor(name) {
+    this.name = name;
+    this.tasks = [];
+    this.id = Date.now();
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/addProject.js":
+/*!***********************************!*\
+  !*** ./src/helpers/addProject.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addProject)
+/* harmony export */ });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+/* harmony import */ var _factories_Project__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../factories/Project */ "./src/factories/Project.js");
+
+
+
+function addProject() {
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_1__["default"]());
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/editProject.js":
 /*!************************************!*\
   !*** ./src/helpers/editProject.js ***!
@@ -465,9 +510,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
 
 
-function editProject(index, newName) {
+function editProject(id, newName) {
+  const index = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
   _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index].name = newName;
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index]);
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
 }
 
 
@@ -497,6 +543,7 @@ const toDoList = [
         checked: false,
       },
     ],
+    id: 69,
   },
 ];
 
@@ -519,8 +566,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addProjectDisplay(name, tasks, index) {
-  const main = document.getElementById('main');
+function addProjectDisplay(name, tasks, id) {
   const projectContainer = document.createElement('div');
   const projectName = document.createElement('input');
   const projectMenuContainer = document.createElement('div');
@@ -531,40 +577,42 @@ function addProjectDisplay(name, tasks, index) {
   const projectDeleteButton = document.createElement('li');
   const projectTasks = document.createElement('ol');
   const projectTaskAddButton = document.createElement('button');
+  const projectAddButton = document.getElementById('project-add-button');
 
   projectContainer.className =
-    'grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md project-container';
+    'grid w-full p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
   projectName.className =
-    'row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md project-name';
+    'row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
   projectName.disabled = true;
   projectName.value = name;
-  projectName.setAttribute('data-index', index);
+  projectName.setAttribute('data-id', id);
   projectMenuContainer.className =
-    'row-start-1 min-w-max drop-shadow-md project-menu-container';
+    'row-start-1 drop-shadow-md project-menu-container';
   projectMenuButton.className =
-    'min-w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
+    'w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
   projectMenuButton.textContent = 'Edit';
-  projectMenuButton.setAttribute('data-index', index);
+  projectMenuButton.setAttribute('data-id', id);
   projectMenuButton.addEventListener('click', _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectMenu.className =
     'absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu';
-  projectMenu.setAttribute('data-index', index);
+  projectMenu.setAttribute('data-id', id);
   projectMenuButtons.className = 'project-menu-buttons';
   projectEditButton.className = 'p-1 rounded project-edit-button';
   projectEditButton.textContent = 'Edit Project';
-  projectEditButton.setAttribute('data-index', index);
+  projectEditButton.setAttribute('data-id', id);
   projectDeleteButton.className =
     'p-1 bg-red-300 rounded project-delete-button';
   projectDeleteButton.textContent = 'Delete Project';
-  projectDeleteButton.setAttribute('data-index', index);
+  projectDeleteButton.setAttribute('data-id', id);
   projectTasks.className =
     'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
-  projectTasks.setAttribute('data-index', index);
+  projectTasks.setAttribute('data-id', id);
   projectTaskAddButton.className =
-    'col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 drop-shadow-md project-task-add-button';
+    'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 drop-shadow-md project-task-add-button';
   projectTaskAddButton.textContent = '+ Add Task';
-  projectTaskAddButton.setAttribute('data-index', index);
+  projectTaskAddButton.setAttribute('data-id', id);
   projectTaskAddButton.addEventListener('click', _taskModalOpen__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
   projectContainer.append(
     projectName,
     projectMenuContainer,
@@ -576,14 +624,43 @@ function addProjectDisplay(name, tasks, index) {
   projectMenu.append(projectMenuButtons);
   projectMenuButtons.append(projectEditButton, projectDeleteButton);
 
-  tasks.forEach((element) => {
-    const taskListItem = document.createElement('li');
-    const taskTitle = element.title;
-    taskListItem.textContent = `${taskTitle}`;
-    projectTasks.append(taskListItem);
-  });
+  if (tasks.length > 0) {
+    tasks.forEach((element) => {
+      const taskListItem = document.createElement('li');
+      const taskTitle = element.title;
+      taskListItem.textContent = `${taskTitle}`;
+      projectTasks.append(taskListItem);
+    });
+  }
 
-  main.append(projectContainer);
+  projectAddButton.insertAdjacentElement('beforebegin', projectContainer);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/projectAddOpen.js":
+/*!**********************************!*\
+  !*** ./src/ui/projectAddOpen.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ projectAddOpen)
+/* harmony export */ });
+/* harmony import */ var _helpers_addProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/addProject */ "./src/helpers/addProject.js");
+/* harmony import */ var _addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addProjectDisplay */ "./src/ui/addProjectDisplay.js");
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+
+
+
+
+function projectAddOpen() {
+  (0,_helpers_addProject__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  const { id } = _helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[_helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.length - 1];
+  (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])('', '', id);
 }
 
 
@@ -620,16 +697,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function projectMenuEdit(e) {
-  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const id = parseInt(e.target.getAttribute('data-id'), 10);
   const projectName = document.querySelectorAll(
-    `.project-name[data-index='${index}']`
+    `.project-name[data-id='${id}']`
   );
   projectName[0].disabled = false;
   projectName[0].focus();
   const setNewName = (e2) => {
     e2.stopImmediatePropagation();
     projectName[0].disabled = true;
-    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(index, projectName[0].value);
+    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id, projectName[0].value);
     projectName[0].removeEventListener('blur', setNewName);
   };
   projectName[0].addEventListener('blur', setNewName);
@@ -657,15 +734,15 @@ __webpack_require__.r(__webpack_exports__);
 
 function projectMenuOpen(e) {
   e.stopImmediatePropagation();
-  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const id = parseInt(e.target.getAttribute('data-id'), 10);
   const projectMenu = document.querySelectorAll(
-    `.project-menu[data-index='${index}']`
+    `.project-menu[data-id='${id}']`
   );
   const projectEditButton = document.querySelectorAll(
-    `.project-edit-button[data-index='${index}']`
+    `.project-edit-button[data-id='${id}']`
   );
   const projectDeleteButton = document.querySelectorAll(
-    `.project-delete-button[data-index='${index}']`
+    `.project-delete-button[data-id='${id}']`
   );
   projectEditButton[0].addEventListener('click', _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectDeleteButton[0].addEventListener('click', _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -692,8 +769,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function renderSavedProjects() {
-  _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((toDo, index) => {
-    (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(toDo.name, toDo.tasks, index);
+  _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((toDo) => {
+    (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(toDo.name, toDo.tasks, toDo.id);
   });
 }
 
@@ -795,10 +872,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/meyer-reset.css */ "./src/styles/meyer-reset.css");
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
 /* harmony import */ var _ui_renderSavedProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/renderSavedProjects */ "./src/ui/renderSavedProjects.js");
+/* harmony import */ var _ui_projectAddOpen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/projectAddOpen */ "./src/ui/projectAddOpen.js");
 
 
 
 
+
+const projectAddButton = document.getElementById('project-add-button');
+
+projectAddButton.addEventListener('click', _ui_projectAddOpen__WEBPACK_IMPORTED_MODULE_3__["default"]);
 (0,_ui_renderSavedProjects__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 })();

@@ -578,8 +578,29 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-start-2 {
   grid-column-start: 2;
 }
+.col-start-3 {
+  grid-column-start: 3;
+}
+.col-end-3 {
+  grid-column-end: 3;
+}
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
 .row-start-1 {
   grid-row-start: 1;
+}
+.row-start-3 {
+  grid-row-start: 3;
+}
+.row-start-2 {
+  grid-row-start: 2;
+}
+.row-end-2 {
+  grid-row-end: 2;
 }
 .mt-auto {
   margin-top: auto;
@@ -629,6 +650,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full {
   width: 100%;
 }
+.w-16 {
+  width: 4rem;
+}
+.w-9 {
+  width: 2.25rem;
+}
+.w-4 {
+  width: 1rem;
+}
 .min-w-max {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
@@ -646,9 +676,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 .auto-cols-auto {
   grid-auto-columns: auto;
 }
+.auto-cols-max {
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+}
+.auto-cols-min {
+  grid-auto-columns: -webkit-min-content;
+  grid-auto-columns: min-content;
+}
 .auto-rows-min {
   grid-auto-rows: -webkit-min-content;
   grid-auto-rows: min-content;
+}
+.auto-rows-max {
+  grid-auto-rows: -webkit-max-content;
+  grid-auto-rows: max-content;
+}
+.auto-rows-auto {
+  grid-auto-rows: auto;
 }
 .flex-col {
   flex-direction: column;
@@ -658,6 +703,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .items-center {
   align-items: center;
+}
+.justify-end {
+  justify-content: flex-end;
 }
 .justify-center {
   justify-content: center;
