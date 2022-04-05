@@ -489,8 +489,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addProject() {
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_1__["default"]());
+function addProject(name) {
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_1__["default"](name));
   console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
 }
 
@@ -683,9 +683,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function projectAddOpen() {
-  (0,_helpers_addProject__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  (0,_helpers_addProject__WEBPACK_IMPORTED_MODULE_0__["default"])('New Project');
   const { id } = _helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[_helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.length - 1];
-  (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])('', '', id);
+  (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])('New Project', '', id);
 }
 
 
