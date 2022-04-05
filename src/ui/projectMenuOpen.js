@@ -3,15 +3,15 @@ import projectMenuDelete from './projectMenuDelete';
 
 export default function projectMenuOpen(e) {
   e.stopImmediatePropagation();
-  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const id = parseInt(e.target.getAttribute('data-id'), 10);
   const projectMenu = document.querySelectorAll(
-    `.project-menu[data-index='${index}']`
+    `.project-menu[data-id='${id}']`
   );
   const projectEditButton = document.querySelectorAll(
-    `.project-edit-button[data-index='${index}']`
+    `.project-edit-button[data-id='${id}']`
   );
   const projectDeleteButton = document.querySelectorAll(
-    `.project-delete-button[data-index='${index}']`
+    `.project-delete-button[data-id='${id}']`
   );
   projectEditButton[0].addEventListener('click', projectMenuEdit);
   projectDeleteButton[0].addEventListener('click', projectMenuDelete);
