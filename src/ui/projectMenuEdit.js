@@ -1,15 +1,18 @@
 import editProject from '../helpers/editProject';
-import closeProjectMenu from './closeProjectMenu';
 
-export default function projectMenuEdit(event1) {
-  const projectName = document.getElementById('project-name');
-  projectName.disabled = false;
-  projectName.focus();
-  projectName.addEventListener('blur', function blurred(event2) {
-    projectName.disabled = true;
-    editProject(event2.target.getAttribute('data-index'), event2.target.value);
-    projectName.removeEventListener('blur', blurred);
-  });
-  closeProjectMenu();
-  event1.target.removeEventListener('click', projectMenuEdit);
+export default function projectMenuEdit(e) {
+  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const projectName = document.querySelectorAll(
+    `.project-name[data-index='${index}']`
+  );
+  projectName[0].disabled = false;
+  projectName[0].focus();
+  const setNewName = (e2) => {
+    e2.stopImmediatePropagation();
+    projectName[0].disabled = true;
+    editProject(index, projectName[0].value);
+    projectName[0].removeEventListener('blur', setNewName);
+  };
+  projectName[0].addEventListener('blur', setNewName);
+  e.target.removeEventListener('click', projectMenuEdit);
 }

@@ -12,7 +12,7 @@
   <main id="main" class="w-full h-full">
     <div id="overlay" class="absolute z-10 flex items-center justify-center hidden w-full h-full bg-slate-900/50">
       <div class="rounded bg-slate-700 task-add-modal">
-        <form class="grid p-1 auto-cols-auto">
+        <form id="task-add-form" class="grid p-1 auto-cols-auto">
           <fieldset class="col-span-2 col-start-1">
             <legend class="w-full font-bold text-center text-white">New Task Details</legend>
             <p class="flex flex-col">
@@ -46,7 +46,7 @@
             </ul>
           </fieldset>
           <p class="col-start-2 mt-auto ml-auto">
-            <button type="submit" class="p-1 rounded bg-slate-300">Confirm</button>
+            <button type="button" id="confirm-task-add" class="p-1 rounded bg-slate-300">Confirm</button>
           </p>
         </form>
       </div>

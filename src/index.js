@@ -1,5 +1,5 @@
 import './styles/meyer-reset.css';
 import './styles/tailwind.css';
-import populateExistingProjects from './ui/populateExistingProjects';
+import renderSavedProjects from './ui/renderSavedProjects';
 
-populateExistingProjects();
+renderSavedProjects();
