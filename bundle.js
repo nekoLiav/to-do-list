@@ -491,6 +491,30 @@ __webpack_require__.r(__webpack_exports__);
 
 function addProject() {
   _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_1__["default"]());
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/deleteProject.js":
+/*!**************************************!*\
+  !*** ./src/helpers/deleteProject.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ deleteProject)
+/* harmony export */ });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+
+
+function deleteProject(id) {
+  const index = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.splice(index, 1);
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
 }
 
 
@@ -581,6 +605,7 @@ function addProjectDisplay(name, tasks, id) {
 
   projectContainer.className =
     'grid w-full p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
+  projectContainer.setAttribute('data-id', id);
   projectName.className =
     'row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
   projectName.disabled = true;
@@ -677,7 +702,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ projectMenuDelete)
 /* harmony export */ });
-function projectMenuDelete() {}
+/* harmony import */ var _helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/deleteProject */ "./src/helpers/deleteProject.js");
+
+
+function projectMenuDelete(e) {
+  e.stopImmediatePropagation();
+  const id = parseInt(e.target.getAttribute('data-id'), 10);
+  const projectContainer = document.querySelectorAll(
+    `.project-container[data-id='${id}']`
+  );
+  (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id);
+  projectContainer[0].remove();
+  e.target.removeEventListener('click', projectMenuDelete);
+}
 
 
 /***/ }),
