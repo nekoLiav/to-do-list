@@ -451,27 +451,6 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/helpers/deleteProject.js":
-/*!**************************************!*\
-  !*** ./src/helpers/deleteProject.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ deleteProject)
-/* harmony export */ });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
-
-
-function deleteProject(index) {
-  _globals__WEBPACK_IMPORTED_MODULE_0__["default"].splice(index, 1);
-}
-
-
-/***/ }),
-
 /***/ "./src/helpers/editProject.js":
 /*!************************************!*\
   !*** ./src/helpers/editProject.js ***!
@@ -487,7 +466,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function editProject(index, newName) {
-  _globals__WEBPACK_IMPORTED_MODULE_0__["default"][index].name = newName;
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index].name = newName;
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index]);
 }
 
 
@@ -523,23 +503,23 @@ const toDoList = [
 
 /***/ }),
 
-/***/ "./src/ui/addProjectUI.js":
-/*!********************************!*\
-  !*** ./src/ui/addProjectUI.js ***!
-  \********************************/
+/***/ "./src/ui/addProjectDisplay.js":
+/*!*************************************!*\
+  !*** ./src/ui/addProjectDisplay.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addProjectUI)
+/* harmony export */   "default": () => (/* binding */ addProjectDisplay)
 /* harmony export */ });
 /* harmony import */ var _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectMenuOpen */ "./src/ui/projectMenuOpen.js");
-/* harmony import */ var _projectTaskAddModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./projectTaskAddModal */ "./src/ui/projectTaskAddModal.js");
+/* harmony import */ var _taskModalOpen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./taskModalOpen */ "./src/ui/taskModalOpen.js");
 
 
 
-function addProjectUI(name, tasks, index) {
+function addProjectDisplay(name, tasks, index) {
   const main = document.getElementById('main');
   const projectContainer = document.createElement('div');
   const projectName = document.createElement('input');
@@ -554,30 +534,37 @@ function addProjectUI(name, tasks, index) {
 
   projectContainer.className =
     'grid p-1 mt-1 mb-1 rounded auto-rows-min bg-slate-200 drop-shadow-md project-container';
-  projectContainer.setAttribute('data-index', index);
   projectName.className =
     'row-start-1 p-1 ml-1 font-bold rounded bg-slate-300 drop-shadow-md project-name';
-  projectName.value = name;
   projectName.disabled = true;
+  projectName.value = name;
+  projectName.setAttribute('data-index', index);
   projectMenuContainer.className =
     'row-start-1 min-w-max drop-shadow-md project-menu-container';
   projectMenuButton.className =
     'min-w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
   projectMenuButton.textContent = 'Edit';
+  projectMenuButton.setAttribute('data-index', index);
   projectMenuButton.addEventListener('click', _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectMenu.className =
     'absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu';
+  projectMenu.setAttribute('data-index', index);
   projectMenuButtons.className = 'project-menu-buttons';
   projectEditButton.className = 'p-1 rounded project-edit-button';
+  projectEditButton.textContent = 'Edit Project';
+  projectEditButton.setAttribute('data-index', index);
   projectDeleteButton.className =
     'p-1 bg-red-300 rounded project-delete-button';
+  projectDeleteButton.textContent = 'Delete Project';
+  projectDeleteButton.setAttribute('data-index', index);
   projectTasks.className =
     'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
+  projectTasks.setAttribute('data-index', index);
   projectTaskAddButton.className =
     'col-start-1 p-1 ml-1 mr-auto text-sm rounded bg-slate-300 drop-shadow-md project-task-add-button';
   projectTaskAddButton.textContent = '+ Add Task';
-  projectTaskAddButton.addEventListener('click', _projectTaskAddModal__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
+  projectTaskAddButton.setAttribute('data-index', index);
+  projectTaskAddButton.addEventListener('click', _taskModalOpen__WEBPACK_IMPORTED_MODULE_1__["default"]);
   projectContainer.append(
     projectName,
     projectMenuContainer,
@@ -602,61 +589,6 @@ function addProjectUI(name, tasks, index) {
 
 /***/ }),
 
-/***/ "./src/ui/closeProjectMenu.js":
-/*!************************************!*\
-  !*** ./src/ui/closeProjectMenu.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ closeProjectMenu)
-/* harmony export */ });
-function closeProjectMenu() {
-  const projectMenu = document.getElementById('project-menu');
-  if (!projectMenu.classList.contains('hidden')) {
-    projectMenu.classList.toggle('hidden');
-  }
-}
-
-
-/***/ }),
-
-/***/ "./src/ui/populateExistingProjects.js":
-/*!********************************************!*\
-  !*** ./src/ui/populateExistingProjects.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ populateExistingProjects)
-/* harmony export */ });
-/* harmony import */ var _addProjectUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addProjectUI */ "./src/ui/addProjectUI.js");
-/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
-
-
-
-function populateExistingProjects() {
-  // addProject('Concert Prep');
-  // addTask(
-  //   'Shopping',
-  //   'completely new outfit',
-  //   'soon lol',
-  //   'high',
-  //   'make sure to get a green shirt',
-  //   false
-  // );
-  _helpers_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.forEach((element) => {
-    (0,_addProjectUI__WEBPACK_IMPORTED_MODULE_0__["default"])(element.name, element.tasks, _helpers_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.indexOf(element));
-  });
-}
-
-
-/***/ }),
-
 /***/ "./src/ui/projectMenuDelete.js":
 /*!*************************************!*\
   !*** ./src/ui/projectMenuDelete.js ***!
@@ -668,22 +600,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ projectMenuDelete)
 /* harmony export */ });
-/* harmony import */ var _helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/deleteProject */ "./src/helpers/deleteProject.js");
-/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
-/* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
-
-
-
-
-function projectMenuDelete(event) {
-  const projectName = document.getElementById('project-name');
-  const tasks = document.querySelectorAll('#tasks li');
-  tasks.forEach((element) => element.remove());
-  projectName.value = `${_helpers_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[0].name}`;
-  (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectName.getAttribute('data-index'));
-  (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  event.target.removeEventListener('click', projectMenuDelete);
-}
+function projectMenuDelete() {}
 
 
 /***/ }),
@@ -700,21 +617,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ projectMenuEdit)
 /* harmony export */ });
 /* harmony import */ var _helpers_editProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/editProject */ "./src/helpers/editProject.js");
-/* harmony import */ var _closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./closeProjectMenu */ "./src/ui/closeProjectMenu.js");
 
 
-
-function projectMenuEdit(event1) {
-  const projectName = document.getElementById('project-name');
-  projectName.disabled = false;
-  projectName.focus();
-  projectName.addEventListener('blur', function blurred(event2) {
-    projectName.disabled = true;
-    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(event2.target.getAttribute('data-index'), event2.target.value);
-    projectName.removeEventListener('blur', blurred);
-  });
-  (0,_closeProjectMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  event1.target.removeEventListener('click', projectMenuEdit);
+function projectMenuEdit(e) {
+  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const projectName = document.querySelectorAll(
+    `.project-name[data-index='${index}']`
+  );
+  projectName[0].disabled = false;
+  projectName[0].focus();
+  const setNewName = (e2) => {
+    e2.stopImmediatePropagation();
+    projectName[0].disabled = true;
+    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(index, projectName[0].value);
+    projectName[0].removeEventListener('blur', setNewName);
+  };
+  projectName[0].addEventListener('blur', setNewName);
+  e.target.removeEventListener('click', projectMenuEdit);
 }
 
 
@@ -736,33 +655,63 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function projectMenuOpen() {
-  const projectMenu = document.getElementById('project-menu');
-  const projectEditButton = document.getElementById('project-edit-button');
-  const projectDeleteButton = document.getElementById('project-delete-button');
-  projectMenu.classList.toggle('hidden');
-  projectEditButton.addEventListener('click', _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  projectDeleteButton.addEventListener('click', _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__["default"]);
+function projectMenuOpen(e) {
+  e.stopImmediatePropagation();
+  const index = parseInt(e.target.getAttribute('data-index'), 10);
+  const projectMenu = document.querySelectorAll(
+    `.project-menu[data-index='${index}']`
+  );
+  const projectEditButton = document.querySelectorAll(
+    `.project-edit-button[data-index='${index}']`
+  );
+  const projectDeleteButton = document.querySelectorAll(
+    `.project-delete-button[data-index='${index}']`
+  );
+  projectEditButton[0].addEventListener('click', _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  projectDeleteButton[0].addEventListener('click', _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  projectMenu[0].classList.toggle('hidden');
 }
 
 
 /***/ }),
 
-/***/ "./src/ui/projectTaskAddModal.js":
+/***/ "./src/ui/renderSavedProjects.js":
 /*!***************************************!*\
-  !*** ./src/ui/projectTaskAddModal.js ***!
+  !*** ./src/ui/renderSavedProjects.js ***!
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ projectTaskAddModal)
+/* harmony export */   "default": () => (/* binding */ renderSavedProjects)
 /* harmony export */ });
-function projectTaskAddModal() {
-  const overlayModal = document.getElementById('overlay');
-  overlayModal.classList.toggle('hidden');
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addProjectDisplay */ "./src/ui/addProjectDisplay.js");
+
+
+
+function renderSavedProjects() {
+  _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((toDo, index) => {
+    (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(toDo.name, toDo.tasks, index);
+  });
 }
+
+
+/***/ }),
+
+/***/ "./src/ui/taskModalOpen.js":
+/*!*********************************!*\
+  !*** ./src/ui/taskModalOpen.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ taskModalOpen)
+/* harmony export */ });
+function taskModalOpen() {}
 
 
 /***/ })
@@ -845,12 +794,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_meyer_reset_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/meyer-reset.css */ "./src/styles/meyer-reset.css");
 /* harmony import */ var _styles_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/tailwind.css */ "./src/styles/tailwind.css");
-/* harmony import */ var _ui_populateExistingProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/populateExistingProjects */ "./src/ui/populateExistingProjects.js");
+/* harmony import */ var _ui_renderSavedProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/renderSavedProjects */ "./src/ui/renderSavedProjects.js");
 
 
 
 
-(0,_ui_populateExistingProjects__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_ui_renderSavedProjects__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 })();
 
