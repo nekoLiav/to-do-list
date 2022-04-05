@@ -1,6 +1,6 @@
 import { toDoList } from './globals';
 import Project from '../factories/Project';
 
-export default function addProject(name) {
-  toDoList.push(new Project(name));
+export default function addProject() {
+  toDoList.push(new Project());
 }
