@@ -1,4 +1,5 @@
 import editTask from '../helpers/editTask';
+import deleteTask from '../helpers/deleteTask';
 
 export default function editTaskUI(e) {
   const projectId = parseInt(
@@ -59,6 +60,8 @@ export default function editTaskUI(e) {
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
+    deleteTask(projectId, taskId);
+
     e3.target.parentNode.remove();
 
     task[0].remove();

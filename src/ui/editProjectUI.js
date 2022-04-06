@@ -1,4 +1,5 @@
 import editProject from '../helpers/editProject';
+import deleteProject from '../helpers/deleteProject';
 
 export default function editProjectUI(e) {
   const projectId = parseInt(e.target.getAttribute('data-id'), 10);
@@ -41,6 +42,8 @@ export default function editProjectUI(e) {
   });
 
   deleteProjectButton.addEventListener('click', () => {
+    deleteProject(projectId);
+
     projectContainer[0].remove();
   });
 
