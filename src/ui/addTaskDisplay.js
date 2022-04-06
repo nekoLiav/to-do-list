@@ -1,5 +1,5 @@
 import { toDoList } from '../helpers/globals';
-import taskEditMenu from './taskEditMenu';
+import editTaskUI from './editTaskUI';
 
 export default function addTaskDisplay(id) {
   const projectIndex = toDoList.map((element) => element.id).indexOf(id);
@@ -33,7 +33,7 @@ export default function addTaskDisplay(id) {
   taskDueDate.textContent = taskIndex.dueDate;
   taskPriority.textContent = taskIndex.priority;
 
-  task.addEventListener('click', taskEditMenu);
+  task.addEventListener('click', editTaskUI);
 
   task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
   tasks[0].append(task);

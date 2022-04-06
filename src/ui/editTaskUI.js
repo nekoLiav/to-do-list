@@ -1,6 +1,6 @@
 import editTask from '../helpers/editTask';
 
-export default function taskEditMenu(e) {
+export default function editTaskUI(e) {
   const projectId = parseInt(
     e.target.parentNode.parentNode.getAttribute('data-id'),
     10

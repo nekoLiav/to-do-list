@@ -1,7 +1,7 @@
-import projectMenuEdit from './projectMenuEdit';
-import projectMenuDelete from './projectMenuDelete';
+import editProjectUI from './editProjectUI';
+import deleteProjectUI from './deleteProjectUI';
 
-export default function projectMenuOpen(e) {
+export default function editProjectMenu(e) {
   e.stopImmediatePropagation();
 
   const id = parseInt(e.target.getAttribute('data-id'), 10);
@@ -16,8 +16,8 @@ export default function projectMenuOpen(e) {
     `.project-delete-button[data-id='${id}']`
   );
 
-  projectEditButton[0].addEventListener('click', projectMenuEdit);
-  projectDeleteButton[0].addEventListener('click', projectMenuDelete);
+  projectEditButton[0].addEventListener('click', editProjectUI);
+  projectDeleteButton[0].addEventListener('click', deleteProjectUI);
 
   projectMenu[0].classList.toggle('hidden');
 }

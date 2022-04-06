@@ -1,6 +1,6 @@
 import editProject from '../helpers/editProject';
 
-export default function projectMenuEdit(e) {
+export default function editProjectUI(e) {
   e.stopImmediatePropagation();
 
   const id = parseInt(e.target.getAttribute('data-id'), 10);
@@ -20,5 +20,5 @@ export default function projectMenuEdit(e) {
   };
 
   projectName[0].addEventListener('blur', setNewName);
-  e.target.removeEventListener('click', projectMenuEdit);
+  e.target.removeEventListener('click', editProjectUI);
 }

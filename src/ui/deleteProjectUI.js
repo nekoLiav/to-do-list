@@ -1,6 +1,6 @@
 import deleteProject from '../helpers/deleteProject';
 
-export default function projectMenuDelete(e) {
+export default function deleteProjectUI(e) {
   e.stopImmediatePropagation();
 
   const id = parseInt(e.target.getAttribute('data-id'), 10);
@@ -12,5 +12,5 @@ export default function projectMenuDelete(e) {
   deleteProject(id);
   projectContainer[0].remove();
 
-  e.target.removeEventListener('click', projectMenuDelete);
+  e.target.removeEventListener('click', deleteProjectUI);
 }

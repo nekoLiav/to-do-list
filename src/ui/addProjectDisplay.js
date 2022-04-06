@@ -1,6 +1,6 @@
-import projectMenuOpen from './projectMenuOpen';
 import taskModalOpen from './taskModalOpen';
-import taskEditMenu from './taskEditMenu';
+import editProjectMenu from './editProjectMenu';
+import editTaskUI from './editTaskUI';
 
 export default function addProjectDisplay(name, tasks, id) {
   const projectAddButton = document.getElementById('project-add-button');
@@ -51,7 +51,7 @@ export default function addProjectDisplay(name, tasks, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectTaskAddButton.textContent = '+ Add Task';
 
-  projectMenuButton.addEventListener('click', projectMenuOpen);
+  projectMenuButton.addEventListener('click', editProjectMenu);
   projectTaskAddButton.addEventListener('click', taskModalOpen);
 
   projectName.disabled = true;
@@ -94,7 +94,7 @@ export default function addProjectDisplay(name, tasks, id) {
       taskDueDate.textContent = element.dueDate;
       taskPriority.textContent = element.priority;
 
-      task.addEventListener('click', taskEditMenu);
+      task.addEventListener('click', editTaskUI);
 
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
