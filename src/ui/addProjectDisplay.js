@@ -10,7 +10,7 @@ export default function addProjectDisplay(name, tasks, id) {
   const projectMenuButtons = document.createElement('ul');
   const projectEditButton = document.createElement('li');
   const projectDeleteButton = document.createElement('li');
-  const projectTasks = document.createElement('ol');
+  const projectTasks = document.createElement('ul');
   const projectTaskAddButton = document.createElement('button');
   const projectAddButton = document.getElementById('project-add-button');
 
@@ -18,7 +18,7 @@ export default function addProjectDisplay(name, tasks, id) {
     'grid w-full p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
   projectContainer.setAttribute('data-id', id);
   projectName.className =
-    'row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
+    'col-span-3 row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
   projectName.disabled = true;
   projectName.value = name;
   projectName.setAttribute('data-id', id);
@@ -41,7 +41,7 @@ export default function addProjectDisplay(name, tasks, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectDeleteButton.setAttribute('data-id', id);
   projectTasks.className =
-    'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
+    'grid col-span-3 p-1 ml-2 text-sm list-inside project-tasks';
   projectTasks.setAttribute('data-id', id);
   projectTaskAddButton.className =
     'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 drop-shadow-md project-task-add-button';
@@ -62,11 +62,23 @@ export default function addProjectDisplay(name, tasks, id) {
 
   if (tasks.length > 0) {
     tasks.forEach((element) => {
-      const taskListItem = document.createElement('li');
-      const taskTitle = element.title;
-      taskListItem.textContent = `${taskTitle}`;
-      taskListItem.className = 'rounded hover:bg-slate-300 drop-shadow-md';
-      projectTasks.append(taskListItem);
+      const task = document.createElement('ul');
+      const taskTitle = document.createElement('li');
+      const taskDueDate = document.createElement('li');
+      const taskPriority = document.createElement('li');
+      const taskChecked = document.createElement('input');
+      taskTitle.textContent = element.title;
+      taskDueDate.textContent = element.dueDate;
+      taskPriority.textContent = element.priority;
+      taskChecked.type = 'checkbox';
+      taskTitle.className = 'col-start-1 row-start-1 ml-4';
+      taskDueDate.className = 'col-span-2 col-start-1 row-start-2';
+      taskPriority.className = 'col-start-3 row-start-2';
+      taskChecked.className = 'col-start-1 row-start-1 mt-1';
+      task.className = 'grid rounded hover:bg-slate-300 drop-shadow-md';
+      taskTitle.setAttribute('data-id', element.id);
+      task.append(taskTitle, taskDueDate, taskPriority, taskChecked);
+      projectTasks.append(task);
     });
   }
 

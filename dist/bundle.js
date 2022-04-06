@@ -416,12 +416,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Task)
 /* harmony export */ });
 class Task {
-  constructor(title, description, dueDate, priority, checked) {
+  constructor(title, dueDate, priority, checked) {
     this.title = title;
-    this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.checked = checked;
+    this.id = Date.now();
   }
 }
 
@@ -468,9 +468,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addTask(id, title, description, dueDate, priority) {
+function addTask(id, title, dueDate, priority) {
   const index = _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.map((element) => element.id).indexOf(id);
-  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[index].tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, description, dueDate, priority));
+  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[index].tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority));
   console.log(_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList);
 }
 
@@ -541,10 +541,10 @@ const toDoList = [
     tasks: [
       {
         title: 'Default Task Title',
-        description: 'Default Task Description',
         dueDate: 'Default Task Due Date',
         priority: 'Default Task Priority',
         checked: false,
+        id: 420,
       },
     ],
     id: 69,
@@ -579,7 +579,7 @@ function addProjectDisplay(name, tasks, id) {
   const projectMenuButtons = document.createElement('ul');
   const projectEditButton = document.createElement('li');
   const projectDeleteButton = document.createElement('li');
-  const projectTasks = document.createElement('ol');
+  const projectTasks = document.createElement('ul');
   const projectTaskAddButton = document.createElement('button');
   const projectAddButton = document.getElementById('project-add-button');
 
@@ -587,7 +587,7 @@ function addProjectDisplay(name, tasks, id) {
     'grid w-full p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
   projectContainer.setAttribute('data-id', id);
   projectName.className =
-    'row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
+    'col-span-3 row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
   projectName.disabled = true;
   projectName.value = name;
   projectName.setAttribute('data-id', id);
@@ -610,7 +610,7 @@ function addProjectDisplay(name, tasks, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectDeleteButton.setAttribute('data-id', id);
   projectTasks.className =
-    'p-1 ml-2 text-sm list-decimal list-inside project-tasks';
+    'grid col-span-3 p-1 ml-2 text-sm list-inside project-tasks';
   projectTasks.setAttribute('data-id', id);
   projectTaskAddButton.className =
     'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 drop-shadow-md project-task-add-button';
@@ -631,11 +631,23 @@ function addProjectDisplay(name, tasks, id) {
 
   if (tasks.length > 0) {
     tasks.forEach((element) => {
-      const taskListItem = document.createElement('li');
-      const taskTitle = element.title;
-      taskListItem.textContent = `${taskTitle}`;
-      taskListItem.className = 'rounded hover:bg-slate-300 drop-shadow-md';
-      projectTasks.append(taskListItem);
+      const task = document.createElement('ul');
+      const taskTitle = document.createElement('li');
+      const taskDueDate = document.createElement('li');
+      const taskPriority = document.createElement('li');
+      const taskChecked = document.createElement('input');
+      taskTitle.textContent = element.title;
+      taskDueDate.textContent = element.dueDate;
+      taskPriority.textContent = element.priority;
+      taskChecked.type = 'checkbox';
+      taskTitle.className = 'col-start-1 row-start-1 ml-4';
+      taskDueDate.className = 'col-span-2 col-start-1 row-start-2';
+      taskPriority.className = 'col-start-3 row-start-2';
+      taskChecked.className = 'col-start-1 row-start-1 mt-1';
+      task.className = 'grid rounded hover:bg-slate-300 drop-shadow-md';
+      taskTitle.setAttribute('data-id', element.id);
+      task.append(taskTitle, taskDueDate, taskPriority, taskChecked);
+      projectTasks.append(task);
     });
   }
 
@@ -656,11 +668,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ addTaskDisplay)
 /* harmony export */ });
-function addTaskDisplay(id, title) {
+/* harmony import */ var _helpers_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/globals */ "./src/helpers/globals.js");
+/* harmony import */ var _taskEditMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./taskEditMenu */ "./src/ui/taskEditMenu.js");
+
+
+
+function addTaskDisplay(id) {
   const tasks = document.querySelectorAll(`.project-tasks[data-id='${id}']`);
-  const task = document.createElement('li');
-  task.textContent = title;
-  task.className = 'rounded hover:bg-slate-300 drop-shadow-md';
+  const task = document.createElement('ul');
+  const taskTitle = document.createElement('li');
+  const taskDueDate = document.createElement('li');
+  const taskPriority = document.createElement('li');
+  const taskChecked = document.createElement('input');
+  const projectIndex = _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
+  const taskIndex =
+    _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks.length - 1];
+  taskTitle.textContent = taskIndex.title;
+  taskDueDate.textContent = taskIndex.dueDate;
+  taskPriority.textContent = taskIndex.priority;
+  taskChecked.type = 'checkbox';
+  taskTitle.className = 'col-start-1 row-start-1 ml-4';
+  taskDueDate.className = 'col-span-2 col-start-1 row-start-2';
+  taskPriority.className = 'col-start-3 row-start-2';
+  taskChecked.className = 'col-start-1 row-start-1 mt-1';
+  task.className = 'grid rounded hover:bg-slate-300 drop-shadow-md';
+  task.setAttribute('data-id', taskIndex.id);
+  task.addEventListener('click', _taskEditMenu__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  task.append(taskTitle, taskDueDate, taskPriority, taskChecked);
   tasks[0].append(task);
 }
 
@@ -687,8 +721,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function projectAddOpen() {
   (0,_helpers_addProject__WEBPACK_IMPORTED_MODULE_0__["default"])('New Project');
-  const { id } = _helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[_helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.length - 1];
-  (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])('New Project', '', id);
+  const projectIndex = _helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[_helpers_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.length - 1];
+  (0,_addProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(projectIndex.name, '', projectIndex.id);
 }
 
 
@@ -817,6 +851,22 @@ function renderSavedProjects() {
 
 /***/ }),
 
+/***/ "./src/ui/taskEditMenu.js":
+/*!********************************!*\
+  !*** ./src/ui/taskEditMenu.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ taskEditMenu)
+/* harmony export */ });
+function taskEditMenu() {}
+
+
+/***/ }),
+
 /***/ "./src/ui/taskModalOpen.js":
 /*!*********************************!*\
   !*** ./src/ui/taskModalOpen.js ***!
@@ -839,7 +889,6 @@ function taskModalOpen(e) {
   const confirmTaskAdd = document.getElementById('confirm-task-add');
   const confirm = () => {
     const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
     const dueDate = document.getElementById('due-date').value;
     let priority;
     document.querySelectorAll('input[name="priority"]').forEach((button) => {
@@ -847,7 +896,7 @@ function taskModalOpen(e) {
         priority = button.id;
       }
     });
-    (0,_helpers_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(id, title, description, dueDate, priority);
+    (0,_helpers_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(id, title, dueDate, priority);
     (0,_addTaskDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(id, title);
     confirmTaskAdd.removeEventListener('click', confirm);
     overlayWithTaskModal.classList.toggle('hidden');
