@@ -545,6 +545,7 @@ function editTask(
   priority,
   checked
 ) {
+  console.log(projectId, taskId, title, dueDate, priority);
   const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(projectId);
   const taskIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks
     .map((element) => element.id)
@@ -609,6 +610,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addProjectDisplay(name, tasks, id) {
+  const projectAddButton = document.getElementById('project-add-button');
+
   const projectContainer = document.createElement('div');
   const projectName = document.createElement('input');
   const projectMenuContainer = document.createElement('div');
@@ -619,42 +622,46 @@ function addProjectDisplay(name, tasks, id) {
   const projectDeleteButton = document.createElement('li');
   const projectTasks = document.createElement('ul');
   const projectTaskAddButton = document.createElement('button');
-  const projectAddButton = document.getElementById('project-add-button');
+
+  projectContainer.setAttribute('data-id', id);
+  projectName.setAttribute('data-id', id);
+  projectMenuButton.setAttribute('data-id', id);
+  projectMenu.setAttribute('data-id', id);
+  projectEditButton.setAttribute('data-id', id);
+  projectDeleteButton.setAttribute('data-id', id);
+  projectTasks.setAttribute('data-id', id);
+  projectTaskAddButton.setAttribute('data-id', id);
 
   projectContainer.className =
     'grid w-full gap-5 p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
-  projectContainer.setAttribute('data-id', id);
   projectName.className =
     'col-span-3 row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';
-  projectName.disabled = true;
-  projectName.value = name;
-  projectName.setAttribute('data-id', id);
   projectMenuContainer.className =
     'row-start-1 drop-shadow-md project-menu-container';
   projectMenuButton.className =
     'w-full p-1 mr-1 font-bold rounded bg-slate-300 project-menu-button';
-  projectMenuButton.textContent = 'Edit';
-  projectMenuButton.setAttribute('data-id', id);
-  projectMenuButton.addEventListener('click', _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectMenu.className =
     'absolute right-0 hidden mr-1 text-sm font-bold text-center rounded min-w-max bg-slate-300 drop-shadow-md project-menu';
-  projectMenu.setAttribute('data-id', id);
   projectMenuButtons.className = 'project-menu-buttons';
   projectEditButton.className = 'p-1 rounded project-edit-button';
-  projectEditButton.textContent = 'Edit Project';
-  projectEditButton.setAttribute('data-id', id);
   projectDeleteButton.className =
     'p-1 bg-red-300 rounded project-delete-button';
-  projectDeleteButton.textContent = 'Delete Project';
-  projectDeleteButton.setAttribute('data-id', id);
   projectTasks.className =
     'grid col-span-4 p-1 text-sm list-inside project-tasks';
-  projectTasks.setAttribute('data-id', id);
   projectTaskAddButton.className =
     'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 drop-shadow-md project-task-add-button';
+
+  projectName.value = name;
+
+  projectMenuButton.textContent = 'Edit';
+  projectEditButton.textContent = 'Edit Project';
+  projectDeleteButton.textContent = 'Delete Project';
   projectTaskAddButton.textContent = '+ Add Task';
-  projectTaskAddButton.setAttribute('data-id', id);
+
+  projectMenuButton.addEventListener('click', _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectTaskAddButton.addEventListener('click', _taskModalOpen__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+  projectName.disabled = true;
 
   projectContainer.append(
     projectName,
@@ -670,28 +677,32 @@ function addProjectDisplay(name, tasks, id) {
   if (tasks.length > 0) {
     tasks.forEach((element) => {
       const task = document.createElement('ul');
-      const taskTitle = document.createElement('input');
+      const taskTitle = document.createElement('li');
       const taskDueDate = document.createElement('li');
       const taskPriority = document.createElement('li');
       const taskChecked = document.createElement('input');
-      taskTitle.type = 'text';
-      taskTitle.className = 'task-title';
-      taskChecked.type = 'checkbox';
-      taskChecked.className = 'task-checked';
-      taskTitle.setAttribute('data-id', element.id);
-      taskTitle.value = element.title;
-      taskTitle.disabled = true;
-      taskDueDate.setAttribute('data-id', element.id);
-      taskDueDate.textContent = element.dueDate;
-      taskDueDate.className = 'task-due-date';
-      taskPriority.setAttribute('data-id', element.id);
-      taskPriority.textContent = element.priority;
-      taskPriority.className = 'task-priority';
-      taskChecked.setAttribute('data-id', element.id);
+
       task.setAttribute('data-id', element.id);
+      taskTitle.setAttribute('data-id', element.id);
+      taskDueDate.setAttribute('data-id', element.id);
+      taskPriority.setAttribute('data-id', element.id);
+      taskChecked.setAttribute('data-id', element.id);
+
+      taskChecked.type = 'checkbox';
+
+      taskTitle.className = 'task-title';
+      taskChecked.className = 'task-checked';
+      taskDueDate.className = 'task-due-date';
+      taskPriority.className = 'task-priority';
       task.className =
-        'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
+        'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md task';
+
+      taskTitle.textContent = element.title;
+      taskDueDate.textContent = element.dueDate;
+      taskPriority.textContent = element.priority;
+
       task.addEventListener('click', _taskEditMenu__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
     });
@@ -720,33 +731,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addTaskDisplay(id) {
-  const tasks = document.querySelectorAll(`.project-tasks[data-id='${id}']`);
-  const task = document.createElement('ul');
-  const taskTitle = document.createElement('input');
-  const taskDueDate = document.createElement('li');
-  const taskPriority = document.createElement('li');
-  const taskChecked = document.createElement('input');
   const projectIndex = _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
   const taskIndex =
     _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks.length - 1];
-  taskTitle.value = taskIndex.title;
-  taskTitle.disabled = true;
-  taskDueDate.textContent = taskIndex.dueDate;
-  taskPriority.textContent = taskIndex.priority;
-  taskTitle.type = 'text';
-  taskChecked.type = 'checkbox';
-  taskTitle.className = 'task-title';
-  taskChecked.className = 'task-checked';
-  taskDueDate.className = 'task-due-date';
-  taskPriority.className = 'task-priority';
+
+  const tasks = document.querySelectorAll(`.project-tasks[data-id='${id}']`);
+
+  const task = document.createElement('ul');
+  const taskTitle = document.createElement('li');
+  const taskDueDate = document.createElement('li');
+  const taskPriority = document.createElement('li');
+  const taskChecked = document.createElement('input');
+
+  task.setAttribute('data-id', taskIndex.id);
   taskTitle.setAttribute('data-id', taskIndex.id);
   taskDueDate.setAttribute('data-id', taskIndex.id);
   taskPriority.setAttribute('data-id', taskIndex.id);
   taskChecked.setAttribute('data-id', taskIndex.id);
+
+  taskChecked.type = 'checkbox';
+
   task.className =
-    'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
-  task.setAttribute('data-id', taskIndex.id);
+    'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md task';
+  taskTitle.className = 'task-title';
+  taskChecked.className = 'task-checked';
+  taskDueDate.className = 'task-due-date';
+  taskPriority.className = 'task-priority';
+
+  taskTitle.textContent = taskIndex.title;
+  taskDueDate.textContent = taskIndex.dueDate;
+  taskPriority.textContent = taskIndex.priority;
+
   task.addEventListener('click', _taskEditMenu__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
   task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
   tasks[0].append(task);
 }
@@ -797,12 +814,16 @@ __webpack_require__.r(__webpack_exports__);
 
 function projectMenuDelete(e) {
   e.stopImmediatePropagation();
+
   const id = parseInt(e.target.getAttribute('data-id'), 10);
+
   const projectContainer = document.querySelectorAll(
     `.project-container[data-id='${id}']`
   );
+
   (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id);
   projectContainer[0].remove();
+
   e.target.removeEventListener('click', projectMenuDelete);
 }
 
@@ -825,18 +846,23 @@ __webpack_require__.r(__webpack_exports__);
 
 function projectMenuEdit(e) {
   e.stopImmediatePropagation();
+
   const id = parseInt(e.target.getAttribute('data-id'), 10);
+
   const projectName = document.querySelectorAll(
     `.project-name[data-id='${id}']`
   );
+
   projectName[0].disabled = false;
   projectName[0].focus();
+
   const setNewName = (e2) => {
     e2.stopImmediatePropagation();
     projectName[0].disabled = true;
     (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id, projectName[0].value);
     projectName[0].removeEventListener('blur', setNewName);
   };
+
   projectName[0].addEventListener('blur', setNewName);
   e.target.removeEventListener('click', projectMenuEdit);
 }
@@ -862,7 +888,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function projectMenuOpen(e) {
   e.stopImmediatePropagation();
+
   const id = parseInt(e.target.getAttribute('data-id'), 10);
+
   const projectMenu = document.querySelectorAll(
     `.project-menu[data-id='${id}']`
   );
@@ -872,8 +900,10 @@ function projectMenuOpen(e) {
   const projectDeleteButton = document.querySelectorAll(
     `.project-delete-button[data-id='${id}']`
   );
+
   projectEditButton[0].addEventListener('click', _projectMenuEdit__WEBPACK_IMPORTED_MODULE_0__["default"]);
   projectDeleteButton[0].addEventListener('click', _projectMenuDelete__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
   projectMenu[0].classList.toggle('hidden');
 }
 
@@ -925,33 +955,76 @@ function taskEditMenu(e) {
     10
   );
   const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+
+  const task = document.querySelectorAll(`.task[data-id='${taskId}'`);
   const taskTitle = document.querySelectorAll(
-    `.task-title[data-id='${taskId}']`
+    `.task-title[data-id='${taskId}'`
   );
   const taskDueDate = document.querySelectorAll(
     `.task-due-date[data-id='${taskId}']`
   );
   const taskPriority = document.querySelectorAll(
-    `.task-checked[data-id='${taskId}']`
+    `.task-priority[data-id='${taskId}']`
   );
-  const taskChecked = document.querySelectorAll(
-    `.task-checked[data-id='${taskId}']`
-  );
-  const setNewTitle = () => {
+
+  const editTaskPanel = document.createElement('ul');
+  const confirmTaskEditButton = document.createElement('button');
+  const deleteTaskButton = document.createElement('button');
+  const editTitleInput = document.createElement('input');
+  const editTitle = document.createElement('li');
+  const editDueDate = document.createElement('li');
+  const editDueDateInput = document.createElement('input');
+  const editPriority = document.createElement('li');
+  const editPriorityInput = document.createElement('input');
+
+  editTaskPanel.className = 'flex justify-between';
+  confirmTaskEditButton.className = 'p-1 bg-slate-300';
+  deleteTaskButton.className = 'p-1 bg-red-300';
+
+  editTitleInput.type = 'text';
+  editDueDateInput.type = 'text';
+  editPriorityInput.type = 'text';
+
+  confirmTaskEditButton.textContent = 'Confirm Edit';
+  deleteTaskButton.textContent = 'Delete Task';
+
+  editTitleInput.value = taskTitle[0].textContent;
+  editDueDateInput.value = taskDueDate[0].textContent;
+  editPriorityInput.value = taskPriority[0].textContent;
+
+  confirmTaskEditButton.addEventListener('click', (e2) => {
     (0,_helpers_editTask__WEBPACK_IMPORTED_MODULE_0__["default"])(
       projectId,
       taskId,
-      taskTitle[0].value,
-      taskDueDate[0].value,
-      taskPriority[0].value,
-      taskChecked[0].value
+      editTitleInput.value,
+      editDueDateInput.value,
+      editPriorityInput.value
     );
-    taskTitle[0].disabled = true;
-    taskTitle[0].removeEventListener('blur', setNewTitle);
-  };
-  taskTitle[0].disabled = false;
-  taskTitle[0].focus();
-  taskTitle[0].addEventListener('blur', setNewTitle);
+    taskTitle[0].textContent = editTitleInput.value;
+    taskDueDate[0].textContent = editDueDateInput.value;
+    taskPriority[0].textContent = editPriorityInput.value;
+    e2.target.parentNode.remove();
+    task[0].classList.toggle('hidden');
+  });
+
+  deleteTaskButton.addEventListener('click', (e3) => {
+    e3.target.parentNode.remove();
+    task[0].remove();
+  });
+
+  editTitle.append(editTitleInput);
+  editDueDate.append(editDueDateInput);
+  editPriority.append(editPriorityInput);
+  editTaskPanel.append(
+    confirmTaskEditButton,
+    editTitle,
+    editDueDate,
+    editPriority,
+    deleteTaskButton
+  );
+
+  task[0].insertAdjacentElement('afterend', editTaskPanel);
+  task[0].classList.toggle('hidden');
 }
 
 
@@ -975,8 +1048,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function taskModalOpen(e) {
   const id = parseInt(e.target.getAttribute('data-id'), 10);
+
   const overlayWithTaskModal = document.getElementById('overlay');
   const confirmTaskAdd = document.getElementById('confirm-task-add');
+
   const confirm = () => {
     const title = document.getElementById('title').value;
     const dueDate = document.getElementById('due-date').value;
@@ -991,6 +1066,7 @@ function taskModalOpen(e) {
     confirmTaskAdd.removeEventListener('click', confirm);
     overlayWithTaskModal.classList.toggle('hidden');
   };
+
   confirmTaskAdd.addEventListener('click', confirm);
   overlayWithTaskModal.classList.toggle('hidden');
 }
