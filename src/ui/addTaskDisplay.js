@@ -1,40 +1,31 @@
-import { toDoList } from '../helpers/globals';
-import editTaskUI from './editTaskUI';
+export default function addTaskDisplay(project, task) {
+  const tasks = document.querySelectorAll(
+    `.project-tasks[data-id='${project.id}']`
+  );
 
-export default function addTaskDisplay(id) {
-  const projectIndex = toDoList.map((element) => element.id).indexOf(id);
-  const taskIndex =
-    toDoList[projectIndex].tasks[toDoList[projectIndex].tasks.length - 1];
-
-  const tasks = document.querySelectorAll(`.project-tasks[data-id='${id}']`);
-
-  const task = document.createElement('ul');
+  const taskInfo = document.createElement('ul');
   const taskTitle = document.createElement('li');
   const taskDueDate = document.createElement('li');
   const taskPriority = document.createElement('li');
-  const taskChecked = document.createElement('input');
+  const taskEditButton = document.createElement('button');
 
-  task.setAttribute('data-id', taskIndex.id);
-  taskTitle.setAttribute('data-id', taskIndex.id);
-  taskDueDate.setAttribute('data-id', taskIndex.id);
-  taskPriority.setAttribute('data-id', taskIndex.id);
-  taskChecked.setAttribute('data-id', taskIndex.id);
+  taskInfo.setAttribute('data-id', task.id);
+  taskTitle.setAttribute('data-id', task.id);
+  taskDueDate.setAttribute('data-id', task.id);
+  taskPriority.setAttribute('data-id', task.id);
+  taskEditButton.setAttribute('data-id', task.id);
 
-  taskChecked.type = 'checkbox';
-
-  task.className =
-    'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md task';
+  taskInfo.className = 'flex items-center gap-5 task';
   taskTitle.className = 'task-title';
-  taskChecked.className = 'task-checked';
   taskDueDate.className = 'task-due-date';
   taskPriority.className = 'task-priority';
+  taskEditButton.className = 'task-edit-button bg-slate-300';
 
-  taskTitle.textContent = taskIndex.title;
-  taskDueDate.textContent = taskIndex.dueDate;
-  taskPriority.textContent = taskIndex.priority;
+  taskTitle.textContent = task.title;
+  taskDueDate.textContent = task.dueDate;
+  taskPriority.textContent = task.priority;
+  taskEditButton.textContent = 'Edit Task';
 
-  task.addEventListener('click', editTaskUI);
-
-  task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
-  tasks[0].append(task);
+  taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);
+  tasks[0].append(taskInfo);
 }
