@@ -1,3 +1,5 @@
+import editTaskUI from './editTaskUI';
+
 export default function addTaskDisplay(project, task) {
   const tasks = document.querySelectorAll(
     `.project-tasks[data-id='${project.id}']`
@@ -25,6 +27,8 @@ export default function addTaskDisplay(project, task) {
   taskDueDate.textContent = task.dueDate;
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
+
+  taskEditButton.addEventListener('click', editTaskUI);
 
   taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);
   tasks[0].append(taskInfo);

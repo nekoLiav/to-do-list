@@ -28,9 +28,9 @@ export default function editTaskUI(e) {
   const editPriority = document.createElement('li');
   const editPriorityInput = document.createElement('input');
 
-  editTaskPanel.className = 'flex justify-between';
-  confirmTaskEditButton.className = 'p-1 bg-slate-300';
-  deleteTaskButton.className = 'p-1 bg-red-300';
+  editTaskPanel.className = 'flex';
+  confirmTaskEditButton.className = 'bg-slate-300';
+  deleteTaskButton.className = 'bg-red-300';
 
   editTitleInput.type = 'text';
   editDueDateInput.type = 'text';
@@ -67,10 +67,10 @@ export default function editTaskUI(e) {
   editDueDate.append(editDueDateInput);
   editPriority.append(editPriorityInput);
   editTaskPanel.append(
-    confirmTaskEditButton,
     editTitle,
     editDueDate,
     editPriority,
+    confirmTaskEditButton,
     deleteTaskButton
   );
 

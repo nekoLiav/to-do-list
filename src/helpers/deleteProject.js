@@ -1,7 +1,7 @@
 import { toDoList } from './globals';
 
-export default function deleteProject(id) {
-  const index = toDoList.map((element) => element.id).indexOf(id);
-  toDoList.splice(index, 1);
+export default function deleteProject(projectId) {
+  const projectIndex = toDoList.map((element) => element.id).indexOf(projectId);
+  toDoList.splice(projectIndex, 1);
   console.log(toDoList);
 }
