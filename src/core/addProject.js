@@ -1,12 +1,12 @@
-import { toDoList } from './globals';
 import Project from '../factories/Project';
+import mostRecentProject from '../helpers/mostRecentProject';
 import addProjectDisplay from '../ui/addProjectDisplay';
+import { toDoList } from './globals';
 
 export default function addProject(projectName) {
   toDoList.push(new Project(projectName));
 
-  // Fetch most recently added project to display
-  const project = toDoList[toDoList.length - 1];
+  const project = mostRecentProject();
 
   addProjectDisplay(project.name, project.id);
 

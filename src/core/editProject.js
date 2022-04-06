@@ -1,8 +1,9 @@
 import editProjectDisplay from '../ui/editProjectDisplay';
+import findProjectIndex from '../helpers/findProjectIndex';
 import { toDoList } from './globals';
 
 export default function editProject(projectId, name) {
-  const projectIndex = toDoList.map((project) => project.id).indexOf(projectId);
+  const projectIndex = findProjectIndex(projectId);
 
   toDoList[projectIndex].name = name;
 

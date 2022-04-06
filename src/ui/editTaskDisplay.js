@@ -1,10 +1,4 @@
-export default function editTaskDisplay(
-  title,
-  dueDate,
-  priority,
-  projectId,
-  taskId
-) {
+export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
     `.task-title[data-id='${taskId}']`
   );

@@ -1,4 +1,4 @@
-import addProject from '../helpers/addProject';
+import addProject from '../core/addProject';
 
 export default function addProjectUI() {
   addProject('New Project');
