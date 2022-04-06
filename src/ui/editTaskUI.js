@@ -1,5 +1,5 @@
-import editTask from '../helpers/editTask';
-import deleteTask from '../helpers/deleteTask';
+import editTask from '../core/editTask';
+import deleteTask from '../core/deleteTask';
 
 export default function editTaskUI(e) {
   const projectId = parseInt(

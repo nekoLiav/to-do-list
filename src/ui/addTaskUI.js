@@ -1,4 +1,4 @@
-import addTask from '../helpers/addTask';
+import addTask from '../core/addTask';
 
 export default function addTaskUI(e) {
   const projectId = parseInt(e.target.getAttribute('data-id'), 10);

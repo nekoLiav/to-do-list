@@ -1,6 +1,6 @@
-import { toDoList } from '../helpers/globals';
 import addProjectDisplay from './addProjectDisplay';
 import addTaskDisplay from './addTaskDisplay';
+import { toDoList } from '../core/globals';
 
 export default function renderStoredProjects() {
   toDoList.forEach((project) => {

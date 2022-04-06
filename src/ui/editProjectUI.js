@@ -1,5 +1,5 @@
-import editProject from '../helpers/editProject';
-import deleteProject from '../helpers/deleteProject';
+import editProject from '../core/editProject';
+import deleteProject from '../core/deleteProject';
 
 export default function editProjectUI(e) {
   const projectId = parseInt(e.target.getAttribute('data-id'), 10);

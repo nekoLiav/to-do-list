@@ -1,6 +1,6 @@
 import Task from '../factories/Task';
-import findProjectIndex from './findProjectIndex';
-import mostRecentTask from './mostRecentTask';
+import findProjectIndex from '../helpers/findProjectIndex';
+import mostRecentTask from '../helpers/mostRecentTask';
 import addTaskDisplay from '../ui/addTaskDisplay';
 import { toDoList } from './globals';
 
