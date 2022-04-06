@@ -64,17 +64,27 @@ export default function addProjectDisplay(name, tasks, id) {
   if (tasks.length > 0) {
     tasks.forEach((element) => {
       const task = document.createElement('ul');
-      const taskTitle = document.createElement('li');
+      const taskTitle = document.createElement('input');
       const taskDueDate = document.createElement('li');
       const taskPriority = document.createElement('li');
       const taskChecked = document.createElement('input');
-      taskTitle.textContent = element.title;
-      taskDueDate.textContent = element.dueDate;
-      taskPriority.textContent = element.priority;
+      taskTitle.type = 'text';
+      taskTitle.className = 'task-title';
       taskChecked.type = 'checkbox';
+      taskChecked.className = 'task-checked';
+      taskTitle.setAttribute('data-id', element.id);
+      taskTitle.value = element.title;
+      taskTitle.disabled = true;
+      taskDueDate.setAttribute('data-id', element.id);
+      taskDueDate.textContent = element.dueDate;
+      taskDueDate.className = 'task-due-date';
+      taskPriority.setAttribute('data-id', element.id);
+      taskPriority.textContent = element.priority;
+      taskPriority.className = 'task-priority';
+      taskChecked.setAttribute('data-id', element.id);
+      task.setAttribute('data-id', element.id);
       task.className =
         'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
-      taskTitle.setAttribute('data-id', element.id);
       task.addEventListener('click', taskEditMenu);
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);

@@ -523,6 +523,42 @@ function editProject(id, newName) {
 
 /***/ }),
 
+/***/ "./src/helpers/editTask.js":
+/*!*********************************!*\
+  !*** ./src/helpers/editTask.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editTask)
+/* harmony export */ });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+
+
+function editTask(
+  projectId,
+  taskId,
+  title,
+  dueDate,
+  priority,
+  checked
+) {
+  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(projectId);
+  const taskIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks
+    .map((element) => element.id)
+    .indexOf(taskId);
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].title = title;
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].dueDate = dueDate;
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].priority = priority;
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].checked = checked;
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/globals.js":
 /*!********************************!*\
   !*** ./src/helpers/globals.js ***!
@@ -634,17 +670,27 @@ function addProjectDisplay(name, tasks, id) {
   if (tasks.length > 0) {
     tasks.forEach((element) => {
       const task = document.createElement('ul');
-      const taskTitle = document.createElement('li');
+      const taskTitle = document.createElement('input');
       const taskDueDate = document.createElement('li');
       const taskPriority = document.createElement('li');
       const taskChecked = document.createElement('input');
-      taskTitle.textContent = element.title;
-      taskDueDate.textContent = element.dueDate;
-      taskPriority.textContent = element.priority;
+      taskTitle.type = 'text';
+      taskTitle.className = 'task-title';
       taskChecked.type = 'checkbox';
+      taskChecked.className = 'task-checked';
+      taskTitle.setAttribute('data-id', element.id);
+      taskTitle.value = element.title;
+      taskTitle.disabled = true;
+      taskDueDate.setAttribute('data-id', element.id);
+      taskDueDate.textContent = element.dueDate;
+      taskDueDate.className = 'task-due-date';
+      taskPriority.setAttribute('data-id', element.id);
+      taskPriority.textContent = element.priority;
+      taskPriority.className = 'task-priority';
+      taskChecked.setAttribute('data-id', element.id);
+      task.setAttribute('data-id', element.id);
       task.className =
         'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
-      taskTitle.setAttribute('data-id', element.id);
       task.addEventListener('click', _taskEditMenu__WEBPACK_IMPORTED_MODULE_2__["default"]);
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
@@ -676,17 +722,27 @@ __webpack_require__.r(__webpack_exports__);
 function addTaskDisplay(id) {
   const tasks = document.querySelectorAll(`.project-tasks[data-id='${id}']`);
   const task = document.createElement('ul');
-  const taskTitle = document.createElement('li');
+  const taskTitle = document.createElement('input');
   const taskDueDate = document.createElement('li');
   const taskPriority = document.createElement('li');
   const taskChecked = document.createElement('input');
   const projectIndex = _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
   const taskIndex =
     _helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[_helpers_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks.length - 1];
-  taskTitle.textContent = taskIndex.title;
+  taskTitle.value = taskIndex.title;
+  taskTitle.disabled = true;
   taskDueDate.textContent = taskIndex.dueDate;
   taskPriority.textContent = taskIndex.priority;
+  taskTitle.type = 'text';
   taskChecked.type = 'checkbox';
+  taskTitle.className = 'task-title';
+  taskChecked.className = 'task-checked';
+  taskDueDate.className = 'task-due-date';
+  taskPriority.className = 'task-priority';
+  taskTitle.setAttribute('data-id', taskIndex.id);
+  taskDueDate.setAttribute('data-id', taskIndex.id);
+  taskPriority.setAttribute('data-id', taskIndex.id);
+  taskChecked.setAttribute('data-id', taskIndex.id);
   task.className =
     'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
   task.setAttribute('data-id', taskIndex.id);
@@ -860,8 +916,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskEditMenu)
 /* harmony export */ });
-function taskEditMenu() {
-  console.log('hey');
+/* harmony import */ var _helpers_editTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/editTask */ "./src/helpers/editTask.js");
+
+
+function taskEditMenu(e) {
+  const projectId = parseInt(
+    e.target.parentNode.parentNode.getAttribute('data-id'),
+    10
+  );
+  const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+  const taskTitle = document.querySelectorAll(
+    `.task-title[data-id='${taskId}']`
+  );
+  const taskDueDate = document.querySelectorAll(
+    `.task-due-date[data-id='${taskId}']`
+  );
+  const taskPriority = document.querySelectorAll(
+    `.task-checked[data-id='${taskId}']`
+  );
+  const taskChecked = document.querySelectorAll(
+    `.task-checked[data-id='${taskId}']`
+  );
+  const setNewTitle = () => {
+    (0,_helpers_editTask__WEBPACK_IMPORTED_MODULE_0__["default"])(
+      projectId,
+      taskId,
+      taskTitle[0].value,
+      taskDueDate[0].value,
+      taskPriority[0].value,
+      taskChecked[0].value
+    );
+    taskTitle[0].disabled = true;
+    taskTitle[0].removeEventListener('blur', setNewTitle);
+  };
+  taskTitle[0].disabled = false;
+  taskTitle[0].focus();
+  taskTitle[0].addEventListener('blur', setNewTitle);
 }
 
 
