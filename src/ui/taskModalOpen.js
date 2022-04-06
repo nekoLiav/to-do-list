@@ -7,7 +7,6 @@ export default function taskModalOpen(e) {
   const confirmTaskAdd = document.getElementById('confirm-task-add');
   const confirm = () => {
     const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
     const dueDate = document.getElementById('due-date').value;
     let priority;
     document.querySelectorAll('input[name="priority"]').forEach((button) => {
@@ -15,7 +14,7 @@ export default function taskModalOpen(e) {
         priority = button.id;
       }
     });
-    addTask(id, title, description, dueDate, priority);
+    addTask(id, title, dueDate, priority);
     addTaskDisplay(id, title);
     confirmTaskAdd.removeEventListener('click', confirm);
     overlayWithTaskModal.classList.toggle('hidden');
