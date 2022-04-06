@@ -5,10 +5,10 @@ export const toDoList = [
     tasks: [
       {
         title: 'Default Task Title',
-        description: 'Default Task Description',
         dueDate: 'Default Task Due Date',
         priority: 'Default Task Priority',
         checked: false,
+        id: 420,
       },
     ],
     id: 69,
