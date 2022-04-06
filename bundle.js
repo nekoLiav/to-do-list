@@ -567,6 +567,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _projectMenuOpen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projectMenuOpen */ "./src/ui/projectMenuOpen.js");
 /* harmony import */ var _taskModalOpen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./taskModalOpen */ "./src/ui/taskModalOpen.js");
+/* harmony import */ var _taskEditMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./taskEditMenu */ "./src/ui/taskEditMenu.js");
+
 
 
 
@@ -643,6 +645,7 @@ function addProjectDisplay(name, tasks, id) {
       task.className =
         'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
       taskTitle.setAttribute('data-id', element.id);
+      task.addEventListener('click', _taskEditMenu__WEBPACK_IMPORTED_MODULE_2__["default"]);
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
     });
@@ -857,7 +860,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ taskEditMenu)
 /* harmony export */ });
-function taskEditMenu() {}
+function taskEditMenu() {
+  console.log('hey');
+}
 
 
 /***/ }),
