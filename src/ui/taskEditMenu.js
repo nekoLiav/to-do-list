@@ -1,1 +1,3 @@
-export default function taskEditMenu() {}
+export default function taskEditMenu() {
+  console.log('hey');
+}

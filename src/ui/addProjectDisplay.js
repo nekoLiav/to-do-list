@@ -1,5 +1,6 @@
 import projectMenuOpen from './projectMenuOpen';
 import taskModalOpen from './taskModalOpen';
+import taskEditMenu from './taskEditMenu';
 
 export default function addProjectDisplay(name, tasks, id) {
   const projectContainer = document.createElement('div');
@@ -74,6 +75,7 @@ export default function addProjectDisplay(name, tasks, id) {
       task.className =
         'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
       taskTitle.setAttribute('data-id', element.id);
+      task.addEventListener('click', taskEditMenu);
       task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
     });
