@@ -15,7 +15,7 @@ export default function addProjectDisplay(name, tasks, id) {
   const projectAddButton = document.getElementById('project-add-button');
 
   projectContainer.className =
-    'grid w-full p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
+    'grid w-full gap-5 p-1 mt-1 mb-1 roundedauto-rows-min bg-slate-200 drop-shadow-md project-container';
   projectContainer.setAttribute('data-id', id);
   projectName.className =
     'col-span-3 row-start-1 p-1 ml-1 font-bold rounded col-start-1row-span-1 bg-slate-300 drop-shadow-md project-name';

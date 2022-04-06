@@ -19,6 +19,6 @@ export default function addTaskDisplay(id) {
     'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
   task.setAttribute('data-id', taskIndex.id);
   task.addEventListener('click', taskEditMenu);
-  task.append(taskTitle, taskDueDate, taskPriority, taskChecked);
+  task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
   tasks[0].append(task);
 }
