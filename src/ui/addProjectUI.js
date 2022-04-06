@@ -4,6 +4,6 @@ import { toDoList } from '../helpers/globals';
 
 export default function addProjectUI() {
   addProject('New Project');
-  const projectIndex = toDoList[toDoList.length - 1];
-  addProjectDisplay(projectIndex.name, '', projectIndex.id);
+  const project = toDoList[toDoList.length - 1];
+  addProjectDisplay(project.name, project.id);
 }
