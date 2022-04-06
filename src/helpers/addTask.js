@@ -3,12 +3,14 @@ import addTaskDisplay from '../ui/addTaskDisplay';
 import { toDoList } from './globals';
 
 export default function addTask(projectId, title, dueDate, priority) {
-  const projectIndex = toDoList.map((element) => element.id).indexOf(projectId);
+  const projectIndex = toDoList.map((project) => project.id).indexOf(projectId);
+
   toDoList[projectIndex].tasks.push(new Task(title, dueDate, priority));
-  // Update UI with new task information
+
+  // Fetch most recently added task to display
   const project = toDoList[projectIndex];
-  const task =
-    toDoList[projectIndex].tasks[toDoList[projectIndex].tasks.length - 1];
+  const task = project.tasks[project.tasks.length - 1];
+
   addTaskDisplay(project, task);
 
   console.log(toDoList);

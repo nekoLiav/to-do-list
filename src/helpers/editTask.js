@@ -8,9 +8,9 @@ export default function editTask(
   priority,
   checked
 ) {
-  const projectIndex = toDoList.map((element) => element.id).indexOf(projectId);
+  const projectIndex = toDoList.map((project) => project.id).indexOf(projectId);
   const taskIndex = toDoList[projectIndex].tasks
-    .map((element) => element.id)
+    .map((task) => task.id)
     .indexOf(taskId);
 
   toDoList[projectIndex].tasks[taskIndex].title = title;
