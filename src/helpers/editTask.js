@@ -8,6 +8,7 @@ export default function editTask(
   priority,
   checked
 ) {
+  console.log(projectId, taskId, title, dueDate, priority);
   const projectIndex = toDoList.map((element) => element.id).indexOf(projectId);
   const taskIndex = toDoList[projectIndex].tasks
     .map((element) => element.id)

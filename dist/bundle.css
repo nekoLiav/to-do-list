@@ -439,9 +439,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .z-10 {
   z-index: 10;
 }
-.z-50 {
-  z-index: 50;
-}
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -457,17 +454,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-start-2 {
   grid-column-start: 2;
 }
-.col-start-3 {
-  grid-column-start: 3;
-}
-.col-start-4 {
-  grid-column-start: 4;
-}
 .row-start-1 {
   grid-row-start: 1;
-}
-.row-start-2 {
-  grid-row-start: 2;
 }
 .mt-auto {
   margin-top: auto;
@@ -487,14 +475,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-1 {
   margin-right: 0.25rem;
 }
-.ml-2 {
-  margin-left: 0.5rem;
-}
 .mr-auto {
   margin-right: auto;
-}
-.ml-4 {
-  margin-left: 1rem;
 }
 .flex {
   display: flex;
@@ -527,9 +509,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .list-inside {
   list-style-position: inside;
-}
-.list-decimal {
-  list-style-type: decimal;
 }
 .auto-cols-auto {
   grid-auto-columns: auto;

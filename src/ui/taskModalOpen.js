@@ -3,8 +3,10 @@ import addTaskDisplay from './addTaskDisplay';
 
 export default function taskModalOpen(e) {
   const id = parseInt(e.target.getAttribute('data-id'), 10);
+
   const overlayWithTaskModal = document.getElementById('overlay');
   const confirmTaskAdd = document.getElementById('confirm-task-add');
+
   const confirm = () => {
     const title = document.getElementById('title').value;
     const dueDate = document.getElementById('due-date').value;
@@ -19,6 +21,7 @@ export default function taskModalOpen(e) {
     confirmTaskAdd.removeEventListener('click', confirm);
     overlayWithTaskModal.classList.toggle('hidden');
   };
+
   confirmTaskAdd.addEventListener('click', confirm);
   overlayWithTaskModal.classList.toggle('hidden');
 }

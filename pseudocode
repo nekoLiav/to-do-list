@@ -1,0 +1,5 @@
+-UI displays only text
+-Upon click on project or task, input fields created
+-Upon blur or confirmation button click, input sent to edit functions
+-Input fields are 'destroyed'
+-New information retrieved from array using IDs to be displayed in UI
