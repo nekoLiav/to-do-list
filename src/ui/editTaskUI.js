@@ -18,62 +18,60 @@ export default function editTaskUI(e) {
     `.task-priority[data-id='${taskId}']`
   );
 
-  const editTaskPanel = document.createElement('ul');
-  const confirmTaskEditButton = document.createElement('button');
+  const editTaskPanel = document.createElement('div');
+  const confirmTaskButton = document.createElement('button');
   const deleteTaskButton = document.createElement('button');
-  const editTitleInput = document.createElement('input');
-  const editTitle = document.createElement('li');
-  const editDueDate = document.createElement('li');
-  const editDueDateInput = document.createElement('input');
-  const editPriority = document.createElement('li');
-  const editPriorityInput = document.createElement('input');
+  const editTitle = document.createElement('input');
+  const editDueDate = document.createElement('input');
+  const editPriority = document.createElement('input');
 
   editTaskPanel.className = 'flex';
-  confirmTaskEditButton.className = 'bg-slate-300';
+  confirmTaskButton.className = 'bg-slate-300';
   deleteTaskButton.className = 'bg-red-300';
 
-  editTitleInput.type = 'text';
-  editDueDateInput.type = 'text';
-  editPriorityInput.type = 'text';
+  editTitle.type = 'text';
+  editDueDate.type = 'text';
+  editPriority.type = 'text';
 
-  confirmTaskEditButton.textContent = 'Confirm Edit';
+  confirmTaskButton.textContent = 'Confirm Edit';
   deleteTaskButton.textContent = 'Delete Task';
 
-  editTitleInput.value = taskTitle[0].textContent;
-  editDueDateInput.value = taskDueDate[0].textContent;
-  editPriorityInput.value = taskPriority[0].textContent;
+  editTitle.value = taskTitle[0].textContent;
+  editDueDate.value = taskDueDate[0].textContent;
+  editPriority.value = taskPriority[0].textContent;
 
-  confirmTaskEditButton.addEventListener('click', (e2) => {
+  confirmTaskButton.addEventListener('click', (e2) => {
     editTask(
       projectId,
       taskId,
-      editTitleInput.value,
-      editDueDateInput.value,
-      editPriorityInput.value
+      editTitle.value,
+      editDueDate.value,
+      editPriority.value
     );
-    taskTitle[0].textContent = editTitleInput.value;
-    taskDueDate[0].textContent = editDueDateInput.value;
-    taskPriority[0].textContent = editPriorityInput.value;
+
+    taskTitle[0].textContent = editTitle.value;
+    taskDueDate[0].textContent = editDueDate.value;
+    taskPriority[0].textContent = editPriority.value;
+
     e2.target.parentNode.remove();
-    task[0].classList.toggle('hidden');
+
+    task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     e3.target.parentNode.remove();
+
     task[0].remove();
   });
 
-  editTitle.append(editTitleInput);
-  editDueDate.append(editDueDateInput);
-  editPriority.append(editPriorityInput);
   editTaskPanel.append(
     editTitle,
     editDueDate,
     editPriority,
-    confirmTaskEditButton,
+    confirmTaskButton,
     deleteTaskButton
   );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
-  task[0].classList.toggle('hidden');
+  task[0].classList.add('hidden');
 }

@@ -1,5 +1,5 @@
-import editProjectMenu from './editProjectMenu';
 import addTaskUI from './addTaskUI';
+import editProjectUI from './editProjectUI';
 
 export default function addProjectDisplay(name, id) {
   const projectAddButton = document.getElementById('project-add-button');
@@ -24,7 +24,7 @@ export default function addProjectDisplay(name, id) {
 
   projectContainer.className =
     'w-full auto-rows-min bg-slate-200 project-container';
-  projectInfo.className = 'flex gap-5';
+  projectInfo.className = 'flex gap-5 project-info';
   projectName.className = 'project-name';
   projectEditButton.className = 'bg-slate-300 project-edit-button';
   projectMenu.className = 'absolute hidden min-w-max bg-slate-300 project-menu';
@@ -37,7 +37,7 @@ export default function addProjectDisplay(name, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectTaskAddButton.textContent = '+ Add Task';
 
-  projectEditButton.addEventListener('click', editProjectMenu);
+  projectEditButton.addEventListener('click', editProjectUI);
   projectTaskAddButton.addEventListener('click', addTaskUI);
 
   projectInfo.append(projectName, projectEditButton);

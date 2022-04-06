@@ -1,24 +1,51 @@
 import editProject from '../helpers/editProject';
 
 export default function editProjectUI(e) {
-  e.stopImmediatePropagation();
+  const projectId = parseInt(e.target.getAttribute('data-id'), 10);
 
-  const id = parseInt(e.target.getAttribute('data-id'), 10);
-
-  const projectName = document.querySelectorAll(
-    `.project-name[data-id='${id}']`
+  const projectContainer = document.querySelectorAll(
+    `.project-container[data-id='${projectId}']`
+  );
+  const projectInfo = document.querySelectorAll(
+    `.project-info[data-id='${projectId}']`
   );
 
-  projectName[0].disabled = false;
-  projectName[0].focus();
+  const projectName = document.querySelectorAll(
+    `.project-name[data-id='${projectId}']`
+  );
 
-  const setNewName = (e2) => {
-    e2.stopImmediatePropagation();
-    projectName[0].disabled = true;
-    editProject(id, projectName[0].value);
-    projectName[0].removeEventListener('blur', setNewName);
-  };
+  const projectEditPanel = document.createElement('div');
+  const editName = document.createElement('input');
+  const confirmProjectButton = document.createElement('button');
+  const deleteProjectButton = document.createElement('button');
 
-  projectName[0].addEventListener('blur', setNewName);
-  e.target.removeEventListener('click', editProjectUI);
+  projectEditPanel.className = 'flex';
+  confirmProjectButton.className = 'bg-slate-300';
+  deleteProjectButton.className = 'bg-red-300';
+
+  editName.type = 'text';
+
+  editName.value = projectName[0].textContent;
+
+  confirmProjectButton.textContent = 'Confirm Edit';
+  deleteProjectButton.textContent = 'Delete Project';
+
+  confirmProjectButton.addEventListener('click', (e2) => {
+    editProject(projectId, editName.value);
+
+    projectName[0].textContent = editName.value;
+
+    e2.target.parentNode.remove();
+
+    projectInfo[0].classList.remove('hidden');
+  });
+
+  deleteProjectButton.addEventListener('click', () => {
+    projectContainer[0].remove();
+  });
+
+  projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
+
+  projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
+  projectInfo[0].classList.add('hidden');
 }

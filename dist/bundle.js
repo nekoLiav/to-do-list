@@ -491,29 +491,6 @@ function addTask(projectId, title, dueDate, priority) {
 
 /***/ }),
 
-/***/ "./src/helpers/deleteProject.js":
-/*!**************************************!*\
-  !*** ./src/helpers/deleteProject.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ deleteProject)
-/* harmony export */ });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
-
-
-function deleteProject(projectId) {
-  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(projectId);
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.splice(projectIndex, 1);
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
-}
-
-
-/***/ }),
-
 /***/ "./src/helpers/editProject.js":
 /*!************************************!*\
   !*** ./src/helpers/editProject.js ***!
@@ -528,9 +505,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
 
 
-function editProject(id, newName) {
-  const index = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(id);
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index].name = newName;
+function editProject(projectId, name) {
+  const index = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((element) => element.id).indexOf(projectId);
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[index].name = name;
   console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
 }
 
@@ -617,8 +594,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ addProjectDisplay)
 /* harmony export */ });
-/* harmony import */ var _editProjectMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editProjectMenu */ "./src/ui/editProjectMenu.js");
-/* harmony import */ var _addTaskUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addTaskUI */ "./src/ui/addTaskUI.js");
+/* harmony import */ var _addTaskUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTaskUI */ "./src/ui/addTaskUI.js");
+/* harmony import */ var _editProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editProjectUI */ "./src/ui/editProjectUI.js");
 
 
 
@@ -645,7 +622,7 @@ function addProjectDisplay(name, id) {
 
   projectContainer.className =
     'w-full auto-rows-min bg-slate-200 project-container';
-  projectInfo.className = 'flex gap-5';
+  projectInfo.className = 'flex gap-5 project-info';
   projectName.className = 'project-name';
   projectEditButton.className = 'bg-slate-300 project-edit-button';
   projectMenu.className = 'absolute hidden min-w-max bg-slate-300 project-menu';
@@ -658,8 +635,8 @@ function addProjectDisplay(name, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectTaskAddButton.textContent = '+ Add Task';
 
-  projectEditButton.addEventListener('click', _editProjectMenu__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  projectTaskAddButton.addEventListener('click', _addTaskUI__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  projectEditButton.addEventListener('click', _editProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  projectTaskAddButton.addEventListener('click', _addTaskUI__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
   projectInfo.append(projectName, projectEditButton);
   projectContainer.append(projectInfo, projectTasks, projectTaskAddButton);
@@ -769,78 +746,6 @@ function addTaskUI(e) {
 
 /***/ }),
 
-/***/ "./src/ui/deleteProjectUI.js":
-/*!***********************************!*\
-  !*** ./src/ui/deleteProjectUI.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ deleteProjectUI)
-/* harmony export */ });
-/* harmony import */ var _helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/deleteProject */ "./src/helpers/deleteProject.js");
-
-
-function deleteProjectUI(e) {
-  e.stopImmediatePropagation();
-
-  const id = parseInt(e.target.getAttribute('data-id'), 10);
-
-  const projectContainer = document.querySelectorAll(
-    `.project-container[data-id='${id}']`
-  );
-
-  (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id);
-  projectContainer[0].remove();
-
-  e.target.removeEventListener('click', deleteProjectUI);
-}
-
-
-/***/ }),
-
-/***/ "./src/ui/editProjectMenu.js":
-/*!***********************************!*\
-  !*** ./src/ui/editProjectMenu.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ editProjectMenu)
-/* harmony export */ });
-/* harmony import */ var _editProjectUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editProjectUI */ "./src/ui/editProjectUI.js");
-/* harmony import */ var _deleteProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./deleteProjectUI */ "./src/ui/deleteProjectUI.js");
-
-
-
-function editProjectMenu(e) {
-  e.stopImmediatePropagation();
-
-  const id = parseInt(e.target.getAttribute('data-id'), 10);
-
-  const projectMenu = document.querySelectorAll(
-    `.project-menu[data-id='${id}']`
-  );
-  const projectEditButton = document.querySelectorAll(
-    `.project-edit-button[data-id='${id}']`
-  );
-  const projectDeleteButton = document.querySelectorAll(
-    `.project-delete-button[data-id='${id}']`
-  );
-
-  projectEditButton[0].addEventListener('click', _editProjectUI__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  projectDeleteButton[0].addEventListener('click', _deleteProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
-  projectMenu[0].classList.toggle('hidden');
-}
-
-
-/***/ }),
-
 /***/ "./src/ui/editProjectUI.js":
 /*!*********************************!*\
   !*** ./src/ui/editProjectUI.js ***!
@@ -856,26 +761,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function editProjectUI(e) {
-  e.stopImmediatePropagation();
+  const projectId = parseInt(e.target.getAttribute('data-id'), 10);
 
-  const id = parseInt(e.target.getAttribute('data-id'), 10);
-
-  const projectName = document.querySelectorAll(
-    `.project-name[data-id='${id}']`
+  const projectContainer = document.querySelectorAll(
+    `.project-container[data-id='${projectId}']`
+  );
+  const projectInfo = document.querySelectorAll(
+    `.project-info[data-id='${projectId}']`
   );
 
-  projectName[0].disabled = false;
-  projectName[0].focus();
+  const projectName = document.querySelectorAll(
+    `.project-name[data-id='${projectId}']`
+  );
 
-  const setNewName = (e2) => {
-    e2.stopImmediatePropagation();
-    projectName[0].disabled = true;
-    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(id, projectName[0].value);
-    projectName[0].removeEventListener('blur', setNewName);
-  };
+  const projectEditPanel = document.createElement('div');
+  const editName = document.createElement('input');
+  const confirmProjectButton = document.createElement('button');
+  const deleteProjectButton = document.createElement('button');
 
-  projectName[0].addEventListener('blur', setNewName);
-  e.target.removeEventListener('click', editProjectUI);
+  projectEditPanel.className = 'flex';
+  confirmProjectButton.className = 'bg-slate-300';
+  deleteProjectButton.className = 'bg-red-300';
+
+  editName.type = 'text';
+
+  editName.value = projectName[0].textContent;
+
+  confirmProjectButton.textContent = 'Confirm Edit';
+  deleteProjectButton.textContent = 'Delete Project';
+
+  confirmProjectButton.addEventListener('click', (e2) => {
+    (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, editName.value);
+
+    projectName[0].textContent = editName.value;
+
+    e2.target.parentNode.remove();
+
+    projectInfo[0].classList.remove('hidden');
+  });
+
+  deleteProjectButton.addEventListener('click', () => {
+    projectContainer[0].remove();
+  });
+
+  projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
+
+  projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
+  projectInfo[0].classList.add('hidden');
 }
 
 
@@ -913,64 +845,62 @@ function editTaskUI(e) {
     `.task-priority[data-id='${taskId}']`
   );
 
-  const editTaskPanel = document.createElement('ul');
-  const confirmTaskEditButton = document.createElement('button');
+  const editTaskPanel = document.createElement('div');
+  const confirmTaskButton = document.createElement('button');
   const deleteTaskButton = document.createElement('button');
-  const editTitleInput = document.createElement('input');
-  const editTitle = document.createElement('li');
-  const editDueDate = document.createElement('li');
-  const editDueDateInput = document.createElement('input');
-  const editPriority = document.createElement('li');
-  const editPriorityInput = document.createElement('input');
+  const editTitle = document.createElement('input');
+  const editDueDate = document.createElement('input');
+  const editPriority = document.createElement('input');
 
   editTaskPanel.className = 'flex';
-  confirmTaskEditButton.className = 'bg-slate-300';
+  confirmTaskButton.className = 'bg-slate-300';
   deleteTaskButton.className = 'bg-red-300';
 
-  editTitleInput.type = 'text';
-  editDueDateInput.type = 'text';
-  editPriorityInput.type = 'text';
+  editTitle.type = 'text';
+  editDueDate.type = 'text';
+  editPriority.type = 'text';
 
-  confirmTaskEditButton.textContent = 'Confirm Edit';
+  confirmTaskButton.textContent = 'Confirm Edit';
   deleteTaskButton.textContent = 'Delete Task';
 
-  editTitleInput.value = taskTitle[0].textContent;
-  editDueDateInput.value = taskDueDate[0].textContent;
-  editPriorityInput.value = taskPriority[0].textContent;
+  editTitle.value = taskTitle[0].textContent;
+  editDueDate.value = taskDueDate[0].textContent;
+  editPriority.value = taskPriority[0].textContent;
 
-  confirmTaskEditButton.addEventListener('click', (e2) => {
+  confirmTaskButton.addEventListener('click', (e2) => {
     (0,_helpers_editTask__WEBPACK_IMPORTED_MODULE_0__["default"])(
       projectId,
       taskId,
-      editTitleInput.value,
-      editDueDateInput.value,
-      editPriorityInput.value
+      editTitle.value,
+      editDueDate.value,
+      editPriority.value
     );
-    taskTitle[0].textContent = editTitleInput.value;
-    taskDueDate[0].textContent = editDueDateInput.value;
-    taskPriority[0].textContent = editPriorityInput.value;
+
+    taskTitle[0].textContent = editTitle.value;
+    taskDueDate[0].textContent = editDueDate.value;
+    taskPriority[0].textContent = editPriority.value;
+
     e2.target.parentNode.remove();
-    task[0].classList.toggle('hidden');
+
+    task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     e3.target.parentNode.remove();
+
     task[0].remove();
   });
 
-  editTitle.append(editTitleInput);
-  editDueDate.append(editDueDateInput);
-  editPriority.append(editPriorityInput);
   editTaskPanel.append(
     editTitle,
     editDueDate,
     editPriority,
-    confirmTaskEditButton,
+    confirmTaskButton,
     deleteTaskButton
   );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
-  task[0].classList.toggle('hidden');
+  task[0].classList.add('hidden');
 }
 
 
