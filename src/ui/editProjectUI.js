@@ -33,17 +33,12 @@ export default function editProjectUI(e) {
 
   confirmProjectButton.addEventListener('click', (e2) => {
     editProject(projectId, editName.value);
-
-    projectName[0].textContent = editName.value;
-
     e2.target.parentNode.remove();
-
     projectInfo[0].classList.remove('hidden');
   });
 
   deleteProjectButton.addEventListener('click', () => {
     deleteProject(projectId);
-
     projectContainer[0].remove();
   });
 

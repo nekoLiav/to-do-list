@@ -535,7 +535,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function deleteTask(projectId, taskId) {
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectId].tasks.splice(taskId, 1);
+  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((project) => project.id).indexOf(projectId);
+  const taskIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks
+    .map((task) => task.id)
+    .indexOf(taskId);
+
+  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks.splice(taskIndex, 1);
 
   console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
 }
@@ -554,15 +559,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ editProject)
 /* harmony export */ });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+/* harmony import */ var _ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ui/editProjectDisplay */ "./src/ui/editProjectDisplay.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+
 
 
 function editProject(projectId, name) {
-  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((project) => project.id).indexOf(projectId);
+  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.map((project) => project.id).indexOf(projectId);
 
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].name = name;
+  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[projectIndex].name = name;
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+  (0,_ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_0__["default"])(name, projectId);
+
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList);
 }
 
 
@@ -579,28 +588,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ editTask)
 /* harmony export */ });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
+/* harmony import */ var _ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ui/editTaskDisplay */ "./src/ui/editTaskDisplay.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/helpers/globals.js");
 
 
-function editTask(
-  projectId,
-  taskId,
-  title,
-  dueDate,
-  priority,
-  checked
-) {
-  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.map((project) => project.id).indexOf(projectId);
-  const taskIndex = _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks
+
+function editTask(projectId, taskId, title, dueDate, priority) {
+  const projectIndex = _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.map((project) => project.id).indexOf(projectId);
+  const taskIndex = _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[projectIndex].tasks
     .map((task) => task.id)
     .indexOf(taskId);
 
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].title = title;
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].dueDate = dueDate;
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].priority = priority;
-  _globals__WEBPACK_IMPORTED_MODULE_0__.toDoList[projectIndex].tasks[taskIndex].checked = checked;
+  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[projectIndex].tasks[taskIndex].title = title;
+  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[projectIndex].tasks[taskIndex].dueDate = dueDate;
+  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList[projectIndex].tasks[taskIndex].priority = priority;
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList);
+  (0,_ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_0__["default"])(title, dueDate, priority, projectId, taskId);
+
+  console.log(_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList);
 }
 
 
@@ -800,6 +805,28 @@ function addTaskUI(e) {
 
 /***/ }),
 
+/***/ "./src/ui/editProjectDisplay.js":
+/*!**************************************!*\
+  !*** ./src/ui/editProjectDisplay.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editProjectDisplay)
+/* harmony export */ });
+function editProjectDisplay(name, projectId) {
+  const projectName = document.querySelectorAll(
+    `.project-name[data-id='${projectId}']`
+  );
+
+  projectName[0].textContent = name;
+}
+
+
+/***/ }),
+
 /***/ "./src/ui/editProjectUI.js":
 /*!*********************************!*\
   !*** ./src/ui/editProjectUI.js ***!
@@ -848,17 +875,12 @@ function editProjectUI(e) {
 
   confirmProjectButton.addEventListener('click', (e2) => {
     (0,_helpers_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, editName.value);
-
-    projectName[0].textContent = editName.value;
-
     e2.target.parentNode.remove();
-
     projectInfo[0].classList.remove('hidden');
   });
 
   deleteProjectButton.addEventListener('click', () => {
     (0,_helpers_deleteProject__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId);
-
     projectContainer[0].remove();
   });
 
@@ -866,6 +888,42 @@ function editProjectUI(e) {
 
   projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
   projectInfo[0].classList.add('hidden');
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/editTaskDisplay.js":
+/*!***********************************!*\
+  !*** ./src/ui/editTaskDisplay.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ editTaskDisplay)
+/* harmony export */ });
+function editTaskDisplay(
+  title,
+  dueDate,
+  priority,
+  projectId,
+  taskId
+) {
+  const taskTitle = document.querySelectorAll(
+    `.task-title[data-id='${taskId}']`
+  );
+  const taskDueDate = document.querySelectorAll(
+    `.task-due-date[data-id='${taskId}']`
+  );
+  const taskPriority = document.querySelectorAll(
+    `.task-priority[data-id='${taskId}']`
+  );
+
+  taskTitle[0].textContent = title;
+  taskDueDate[0].textContent = dueDate;
+  taskPriority[0].textContent = priority;
 }
 
 
@@ -935,21 +993,13 @@ function editTaskUI(e) {
       editDueDate.value,
       editPriority.value
     );
-
-    taskTitle[0].textContent = editTitle.value;
-    taskDueDate[0].textContent = editDueDate.value;
-    taskPriority[0].textContent = editPriority.value;
-
     e2.target.parentNode.remove();
-
     task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     (0,_helpers_deleteTask__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId, taskId);
-
     e3.target.parentNode.remove();
-
     task[0].remove();
   });
 

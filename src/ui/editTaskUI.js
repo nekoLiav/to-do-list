@@ -49,21 +49,13 @@ export default function editTaskUI(e) {
       editDueDate.value,
       editPriority.value
     );
-
-    taskTitle[0].textContent = editTitle.value;
-    taskDueDate[0].textContent = editDueDate.value;
-    taskPriority[0].textContent = editPriority.value;
-
     e2.target.parentNode.remove();
-
     task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     deleteTask(projectId, taskId);
-
     e3.target.parentNode.remove();
-
     task[0].remove();
   });
 
