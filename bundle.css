@@ -442,14 +442,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
 .col-start-1 {
   grid-column-start: 1;
 }
 .col-start-2 {
   grid-column-start: 2;
 }
+.col-start-3 {
+  grid-column-start: 3;
+}
 .row-start-1 {
   grid-row-start: 1;
+}
+.row-start-2 {
+  grid-row-start: 2;
 }
 .mt-auto {
   margin-top: auto;
@@ -474,6 +483,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mr-auto {
   margin-right: auto;
+}
+.ml-4 {
+  margin-left: 1rem;
 }
 .flex {
   display: flex;
