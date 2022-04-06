@@ -15,11 +15,8 @@ export default function addTaskDisplay(id) {
   taskDueDate.textContent = taskIndex.dueDate;
   taskPriority.textContent = taskIndex.priority;
   taskChecked.type = 'checkbox';
-  taskTitle.className = 'col-start-1 row-start-1 ml-4';
-  taskDueDate.className = 'col-span-2 col-start-1 row-start-2';
-  taskPriority.className = 'col-start-3 row-start-2';
-  taskChecked.className = 'col-start-1 row-start-1 mt-1';
-  task.className = 'grid rounded hover:bg-slate-300 drop-shadow-md';
+  task.className =
+    'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
   task.setAttribute('data-id', taskIndex.id);
   task.addEventListener('click', taskEditMenu);
   task.append(taskTitle, taskDueDate, taskPriority, taskChecked);

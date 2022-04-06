@@ -41,7 +41,7 @@ export default function addProjectDisplay(name, tasks, id) {
   projectDeleteButton.textContent = 'Delete Project';
   projectDeleteButton.setAttribute('data-id', id);
   projectTasks.className =
-    'grid col-span-3 p-1 ml-2 text-sm list-inside project-tasks';
+    'grid col-span-4 p-1 text-sm list-inside project-tasks';
   projectTasks.setAttribute('data-id', id);
   projectTaskAddButton.className =
     'col-start-1 p-1 ml-1 mr-auto text-sm font-bold rounded bg-slate-300 drop-shadow-md project-task-add-button';
@@ -71,13 +71,10 @@ export default function addProjectDisplay(name, tasks, id) {
       taskDueDate.textContent = element.dueDate;
       taskPriority.textContent = element.priority;
       taskChecked.type = 'checkbox';
-      taskTitle.className = 'col-start-1 row-start-1 ml-4';
-      taskDueDate.className = 'col-span-2 col-start-1 row-start-2';
-      taskPriority.className = 'col-start-3 row-start-2';
-      taskChecked.className = 'col-start-1 row-start-1 mt-1';
-      task.className = 'grid rounded hover:bg-slate-300 drop-shadow-md';
+      task.className =
+        'flex items-center justify-between rounded hover:bg-slate-300 drop-shadow-md';
       taskTitle.setAttribute('data-id', element.id);
-      task.append(taskTitle, taskDueDate, taskPriority, taskChecked);
+      task.append(taskChecked, taskTitle, taskDueDate, taskPriority);
       projectTasks.append(task);
     });
   }

@@ -1,6 +1,7 @@
 import editProject from '../helpers/editProject';
 
 export default function projectMenuEdit(e) {
+  e.stopImmediatePropagation();
   const id = parseInt(e.target.getAttribute('data-id'), 10);
   const projectName = document.querySelectorAll(
     `.project-name[data-id='${id}']`
