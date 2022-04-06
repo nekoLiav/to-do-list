@@ -454,6 +454,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .col-start-2 {
   grid-column-start: 2;
 }
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
 .row-start-1 {
   grid-row-start: 1;
 }
@@ -512,6 +515,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .auto-cols-auto {
   grid-auto-columns: auto;
+}
+.auto-rows-min {
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
 }
 .flex-col {
   flex-direction: column;
