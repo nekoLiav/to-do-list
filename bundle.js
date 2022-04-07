@@ -2165,7 +2165,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ addTaskDisplay)
 /* harmony export */ });
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
 /* harmony import */ var _editTaskUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editTaskUI */ "./src/ui/editTaskUI.js");
+
 
 
 function addTaskDisplay(project, task) {
@@ -2192,7 +2194,9 @@ function addTaskDisplay(project, task) {
   taskEditButton.className = 'task-edit-button bg-slate-300';
 
   taskTitle.textContent = task.title;
-  taskDueDate.textContent = task.dueDate;
+  taskDueDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(task.dueDate), {
+    addSuffix: true,
+  });
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
 
