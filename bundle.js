@@ -2067,19 +2067,21 @@ function createLocalStorage() {
   if (!localStorage.getItem('toDoList')) {
     localStorage.setItem(
       'toDoList',
-      JSON.stringify({
-        name: 'Default Project',
-        tasks: [
-          {
-            title: 'Default Task Title',
-            dueDate: 'Default Task Due Date',
-            priority: 'Default Task Priority',
-            checked: false,
-            id: 420,
-          },
-        ],
-        id: 69,
-      })
+      JSON.stringify([
+        {
+          name: 'Default Project',
+          tasks: [
+            {
+              title: 'Default Title',
+              dueDate: '',
+              priority: 'Default Priority',
+              checked: false,
+              id: 420,
+            },
+          ],
+          id: 69,
+        },
+      ])
     );
   }
 }
@@ -2376,12 +2378,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function addTaskUI(e) {
   const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-  (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(
-    projectId,
-    'Default Task Title Button',
-    '',
-    'Default Task Priority Button'
-  );
+  (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'Title', '', 'Priority');
 }
 
 
