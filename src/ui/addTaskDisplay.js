@@ -36,7 +36,12 @@ export default function addTaskDisplay(project, task) {
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
 
-  taskEditButton.addEventListener('click', editTaskUI);
+  taskEditButton.addEventListener('click', (e) => {
+    editTaskUI(
+      parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
+      parseInt(e.target.getAttribute('data-id'), 10)
+    );
+  });
 
   taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);
   tasks[0].append(taskInfo);

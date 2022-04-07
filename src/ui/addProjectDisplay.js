@@ -1,7 +1,7 @@
 import addTaskUI from './addTaskUI';
 import editProjectUI from './editProjectUI';
 
-export default function addProjectDisplay(projectName, projectId) {
+export default function addProjectDisplay(project) {
   const projectAddButton = document.getElementById('project-add-button');
 
   const projectContainer = document.createElement('div');
@@ -13,14 +13,14 @@ export default function addProjectDisplay(projectName, projectId) {
   const projectTasks = document.createElement('ul');
   const projectTaskAddButton = document.createElement('button');
 
-  projectContainer.setAttribute('data-id', projectId);
-  projectInfo.setAttribute('data-id', projectId);
-  projectNameDisplay.setAttribute('data-id', projectId);
-  projectEditButton.setAttribute('data-id', projectId);
-  projectMenu.setAttribute('data-id', projectId);
-  projectDeleteButton.setAttribute('data-id', projectId);
-  projectTasks.setAttribute('data-id', projectId);
-  projectTaskAddButton.setAttribute('data-id', projectId);
+  projectContainer.setAttribute('data-id', project.id);
+  projectInfo.setAttribute('data-id', project.id);
+  projectNameDisplay.setAttribute('data-id', project.id);
+  projectEditButton.setAttribute('data-id', project.id);
+  projectMenu.setAttribute('data-id', project.id);
+  projectDeleteButton.setAttribute('data-id', project.id);
+  projectTasks.setAttribute('data-id', project.id);
+  projectTaskAddButton.setAttribute('data-id', project.id);
 
   projectContainer.className =
     'w-full auto-rows-min bg-slate-200 project-container';
@@ -32,13 +32,18 @@ export default function addProjectDisplay(projectName, projectId) {
   projectTasks.className = 'project-tasks';
   projectTaskAddButton.className = 'bg-slate-300 project-task-add-button';
 
-  projectNameDisplay.textContent = projectName;
+  projectNameDisplay.textContent = project.name;
   projectEditButton.textContent = 'Edit Project';
   projectDeleteButton.textContent = 'Delete Project';
   projectTaskAddButton.textContent = '+ Add Task';
 
-  projectEditButton.addEventListener('click', editProjectUI);
-  projectTaskAddButton.addEventListener('click', addTaskUI);
+  projectEditButton.addEventListener('click', (e) => {
+    editProjectUI(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  projectTaskAddButton.addEventListener('click', (e) => {
+    addTaskUI(parseInt(e.target.getAttribute('data-id'), 10));
+  });
 
   projectInfo.append(projectNameDisplay, projectEditButton);
   projectContainer.append(projectInfo, projectTasks, projectTaskAddButton);

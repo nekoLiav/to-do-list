@@ -4,7 +4,7 @@ import { toDoList } from '../core/globals';
 
 export default function renderStoredProjects() {
   toDoList.forEach((project) => {
-    addProjectDisplay(project.name, project.id);
+    addProjectDisplay(project);
     project.tasks.forEach((task) => {
       addTaskDisplay(project, task);
     });

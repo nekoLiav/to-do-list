@@ -14,6 +14,7 @@ projectAddButton.addEventListener('click', addProjectUI);
 
 main.append(projectAddButton);
 
+localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();

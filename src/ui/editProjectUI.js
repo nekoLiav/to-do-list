@@ -1,9 +1,7 @@
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
 
-export default function editProjectUI(e) {
-  const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-
+export default function editProjectUI(projectId) {
   const projectContainer = document.querySelectorAll(
     `.project-container[data-id='${projectId}']`
   );
@@ -46,4 +44,5 @@ export default function editProjectUI(e) {
 
   projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
   projectInfo[0].classList.add('hidden');
+  editName.focus();
 }

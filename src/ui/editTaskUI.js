@@ -1,13 +1,7 @@
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
 
-export default function editTaskUI(e) {
-  const projectId = parseInt(
-    e.target.parentNode.parentNode.getAttribute('data-id'),
-    10
-  );
-  const taskId = parseInt(e.target.getAttribute('data-id'), 10);
-
+export default function editTaskUI(projectId, taskId) {
   const task = document.querySelectorAll(`.task[data-id='${taskId}'`);
   const taskTitle = document.querySelectorAll(
     `.task-title[data-id='${taskId}'`
@@ -38,7 +32,7 @@ export default function editTaskUI(e) {
   deleteTaskButton.textContent = 'Delete Task';
 
   editTitle.value = taskTitle[0].textContent;
-  editDueDate.value = taskDueDate.textContent;
+  editDueDate.value = taskDueDate[0].textContent;
   editPriority.value = taskPriority[0].textContent;
 
   confirmTaskButton.addEventListener('click', (e2) => {
@@ -69,4 +63,5 @@ export default function editTaskUI(e) {
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
   task[0].classList.add('hidden');
+  editTitle.focus();
 }
