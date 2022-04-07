@@ -1,3 +1,4 @@
+import { formatDistanceToNowStrict } from 'date-fns';
 import editTaskUI from './editTaskUI';
 
 export default function addTaskDisplay(project, task) {
@@ -24,7 +25,9 @@ export default function addTaskDisplay(project, task) {
   taskEditButton.className = 'task-edit-button bg-slate-300';
 
   taskTitle.textContent = task.title;
-  taskDueDate.textContent = task.dueDate;
+  taskDueDate.textContent = formatDistanceToNowStrict(new Date(task.dueDate), {
+    addSuffix: true,
+  });
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
 
