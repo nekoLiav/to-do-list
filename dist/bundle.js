@@ -679,7 +679,6 @@ function createLocalStorage() {
       })
     );
   }
-  console.log(localStorage);
 }
 
 
@@ -1293,8 +1292,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
 /* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
 /* harmony import */ var _ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/renderStoredProjects */ "./src/ui/renderStoredProjects.js");
-/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/globals */ "./src/core/globals.js");
-
 
 
 
@@ -1314,7 +1311,6 @@ main.append(projectAddButton);
 (0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__["default"])();
-console.log(_core_globals__WEBPACK_IMPORTED_MODULE_5__.toDoList);
 
 })();
 
