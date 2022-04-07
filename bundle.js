@@ -536,6 +536,151 @@ function formatDistanceToNowStrict(dirtyDate, dirtyOptions) {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/esm/isDate/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/date-fns/esm/isDate/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isDate)
+/* harmony export */ });
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+/**
+ * @name isDate
+ * @category Common Helpers
+ * @summary Is the given value a date?
+ *
+ * @description
+ * Returns true if the given value is an instance of Date. The function works for dates transferred across iframes.
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * @param {*} value - the value to check
+ * @returns {boolean} true if the given value is a date
+ * @throws {TypeError} 1 arguments required
+ *
+ * @example
+ * // For a valid date:
+ * const result = isDate(new Date())
+ * //=> true
+ *
+ * @example
+ * // For an invalid date:
+ * const result = isDate(new Date(NaN))
+ * //=> true
+ *
+ * @example
+ * // For some value:
+ * const result = isDate('2014-02-31')
+ * //=> false
+ *
+ * @example
+ * // For an object:
+ * const result = isDate({})
+ * //=> false
+ */
+
+function isDate(value) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+  return value instanceof Date || typeof value === 'object' && Object.prototype.toString.call(value) === '[object Date]';
+}
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/esm/isValid/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/esm/isValid/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isValid)
+/* harmony export */ });
+/* harmony import */ var _isDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isDate/index.js */ "./node_modules/date-fns/esm/isDate/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name isValid
+ * @category Common Helpers
+ * @summary Is the given date valid?
+ *
+ * @description
+ * Returns false if argument is Invalid Date and true otherwise.
+ * Argument is converted to Date using `toDate`. See [toDate]{@link https://date-fns.org/docs/toDate}
+ * Invalid Date is a Date, whose time value is NaN.
+ *
+ * Time value of Date: http://es5.github.io/#x15.9.1.1
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * - Now `isValid` doesn't throw an exception
+ *   if the first argument is not an instance of Date.
+ *   Instead, argument is converted beforehand using `toDate`.
+ *
+ *   Examples:
+ *
+ *   | `isValid` argument        | Before v2.0.0 | v2.0.0 onward |
+ *   |---------------------------|---------------|---------------|
+ *   | `new Date()`              | `true`        | `true`        |
+ *   | `new Date('2016-01-01')`  | `true`        | `true`        |
+ *   | `new Date('')`            | `false`       | `false`       |
+ *   | `new Date(1488370835081)` | `true`        | `true`        |
+ *   | `new Date(NaN)`           | `false`       | `false`       |
+ *   | `'2016-01-01'`            | `TypeError`   | `false`       |
+ *   | `''`                      | `TypeError`   | `false`       |
+ *   | `1488370835081`           | `TypeError`   | `true`        |
+ *   | `NaN`                     | `TypeError`   | `false`       |
+ *
+ *   We introduce this change to make *date-fns* consistent with ECMAScript behavior
+ *   that try to coerce arguments to the expected type
+ *   (which is also the case with other *date-fns* functions).
+ *
+ * @param {*} date - the date to check
+ * @returns {Boolean} the date is valid
+ * @throws {TypeError} 1 argument required
+ *
+ * @example
+ * // For the valid date:
+ * const result = isValid(new Date(2014, 1, 31))
+ * //=> true
+ *
+ * @example
+ * // For the value, convertable into a date:
+ * const result = isValid(1393804800000)
+ * //=> true
+ *
+ * @example
+ * // For the invalid date:
+ * const result = isValid(new Date(''))
+ * //=> false
+ */
+
+function isValid(dirtyDate) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+
+  if (!(0,_isDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate) && typeof dirtyDate !== 'number') {
+    return false;
+  }
+
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+  return !isNaN(Number(date));
+}
+
+/***/ }),
+
 /***/ "./node_modules/date-fns/esm/locale/_lib/buildFormatLongFn/index.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/date-fns/esm/locale/_lib/buildFormatLongFn/index.js ***!
@@ -2165,7 +2310,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ addTaskDisplay)
 /* harmony export */ });
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
 /* harmony import */ var _editTaskUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editTaskUI */ "./src/ui/editTaskUI.js");
 
 
@@ -2194,9 +2340,14 @@ function addTaskDisplay(project, task) {
   taskEditButton.className = 'task-edit-button bg-slate-300';
 
   taskTitle.textContent = task.title;
-  taskDueDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(task.dueDate), {
-    addSuffix: true,
-  });
+  if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(task.dueDate))) {
+    taskDueDate.textContent = (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_2__["default"])(
+      new Date(task.dueDate),
+      {
+        addSuffix: true,
+      }
+    );
+  }
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
 
@@ -2228,7 +2379,7 @@ function addTaskUI(e) {
   (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(
     projectId,
     'Default Task Title Button',
-    'Default Task Due Date Button',
+    '',
     'Default Task Priority Button'
   );
 }
@@ -2335,7 +2486,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ editTaskDisplay)
 /* harmony export */ });
-/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/formatDistanceToNowStrict/index.js");
 
 
 function editTaskDisplay(title, dueDate, priority, taskId) {
@@ -2350,9 +2502,11 @@ function editTaskDisplay(title, dueDate, priority, taskId) {
   );
 
   taskTitle[0].textContent = title;
-  taskDueDate[0].textContent = (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_0__["default"])(new Date(dueDate), {
-    addSuffix: true,
-  });
+  if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_0__["default"])(new Date(dueDate))) {
+    taskDueDate[0].textContent = (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(dueDate), {
+      addSuffix: true,
+    });
+  }
   taskPriority[0].textContent = priority;
 }
 
