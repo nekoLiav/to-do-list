@@ -1,13 +1,12 @@
-import findProjectIndex from '../helpers/findProjectIndex';
-import findTaskIndex from '../helpers/findTaskIndex';
+import findProject from '../helpers/findProject';
+import findTask from '../helpers/findTask';
 import updateLocalStorage from '../helpers/updateLocalStorage';
-import { toDoList } from './globals';
 
 export default function deleteTask(projectId, taskId) {
-  const project = toDoList[findProjectIndex(projectId)];
-  const taskIndex = findTaskIndex(project, taskId);
+  const project = findProject(projectId);
+  const task = findTask(projectId, taskId);
 
-  project.tasks.splice(taskIndex, 1);
+  project.tasks.splice(project.tasks.indexOf(task), 1);
 
   updateLocalStorage();
 }

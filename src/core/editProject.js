@@ -1,12 +1,11 @@
-import findProjectIndex from '../helpers/findProjectIndex';
+import findProject from '../helpers/findProject';
 import editProjectDisplay from '../ui/editProjectDisplay';
 import updateLocalStorage from '../helpers/updateLocalStorage';
-import { toDoList } from './globals';
 
 export default function editProject(projectId, name) {
-  const projectIndex = findProjectIndex(projectId);
+  const project = findProject(projectId);
 
-  toDoList[projectIndex].name = name;
+  project.name = name;
 
   editProjectDisplay(name, projectId);
 

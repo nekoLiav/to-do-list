@@ -1,9 +1,10 @@
-import findProjectIndex from '../helpers/findProjectIndex';
+import findProject from '../helpers/findProject';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 
 export default function deleteProject(projectId) {
-  toDoList.splice(findProjectIndex(projectId), 1);
+  const project = findProject(projectId);
+  toDoList.splice(toDoList.indexOf(project), 1);
 
   updateLocalStorage();
 }

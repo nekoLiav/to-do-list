@@ -1,16 +1,13 @@
-import findProjectIndex from '../helpers/findProjectIndex';
-import findTaskIndex from '../helpers/findTaskIndex';
+import findTask from '../helpers/findTask';
 import editTaskDisplay from '../ui/editTaskDisplay';
 import updateLocalStorage from '../helpers/updateLocalStorage';
-import { toDoList } from './globals';
 
 export default function editTask(projectId, taskId, title, dueDate, priority) {
-  const project = toDoList[findProjectIndex(projectId)];
-  const taskIndex = findTaskIndex(project, taskId);
+  const task = findTask(projectId, taskId);
 
-  project.tasks[taskIndex].title = title;
-  project.tasks[taskIndex].dueDate = dueDate;
-  project.tasks[taskIndex].priority = priority;
+  task.title = title;
+  task.dueDate = dueDate;
+  task.priority = priority;
 
   editTaskDisplay(title, dueDate, priority, taskId);
 
