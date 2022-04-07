@@ -5,7 +5,7 @@ export default function addTaskUI(e) {
   addTask(
     projectId,
     'Default Task Title Button',
-    'Default Task Due Date Button',
+    '',
     'Default Task Priority Button'
   );
 }

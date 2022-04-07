@@ -1,4 +1,4 @@
-import { formatDistanceToNowStrict } from 'date-fns/esm';
+import { isValid, formatDistanceToNowStrict } from 'date-fns/esm';
 
 export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
@@ -12,8 +12,10 @@ export default function editTaskDisplay(title, dueDate, priority, taskId) {
   );
 
   taskTitle[0].textContent = title;
-  taskDueDate[0].textContent = formatDistanceToNowStrict(new Date(dueDate), {
-    addSuffix: true,
-  });
+  if (isValid(new Date(dueDate))) {
+    taskDueDate[0].textContent = formatDistanceToNowStrict(new Date(dueDate), {
+      addSuffix: true,
+    });
+  }
   taskPriority[0].textContent = priority;
 }
