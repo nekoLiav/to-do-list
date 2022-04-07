@@ -396,20 +396,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _factories_Project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../factories/Project */ "./src/factories/Project.js");
 /* harmony import */ var _helpers_mostRecentProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/mostRecentProject */ "./src/helpers/mostRecentProject.js");
 /* harmony import */ var _ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/addProjectDisplay */ "./src/ui/addProjectDisplay.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 
 
 function addProject(projectName) {
-  _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_0__["default"](projectName));
+  _globals__WEBPACK_IMPORTED_MODULE_4__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_0__["default"](projectName));
 
   const project = (0,_helpers_mostRecentProject__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
   (0,_ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_2__["default"])(project.name, project.id);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_3__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 
@@ -430,7 +432,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
 /* harmony import */ var _helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/mostRecentTask */ "./src/helpers/mostRecentTask.js");
 /* harmony import */ var _ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/addTaskDisplay */ "./src/ui/addTaskDisplay.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
@@ -438,7 +442,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addTask(projectId, title, dueDate, priority) {
-  const project = _globals__WEBPACK_IMPORTED_MODULE_4__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId)];
+  const project = _globals__WEBPACK_IMPORTED_MODULE_5__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId)];
 
   project.tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority));
 
@@ -446,7 +450,7 @@ function addTask(projectId, title, dueDate, priority) {
 
   (0,_ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_3__["default"])(project, task);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_4__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])();
 }
 
 
@@ -464,14 +468,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ deleteProject)
 /* harmony export */ });
 /* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 function deleteProject(projectId) {
-  _globals__WEBPACK_IMPORTED_MODULE_1__.toDoList.splice((0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId), 1);
+  _globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.splice((0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId), 1);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_1__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
 }
 
 
@@ -490,18 +496,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
 /* harmony import */ var _helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findTaskIndex */ "./src/helpers/findTaskIndex.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 
 function deleteTask(projectId, taskId) {
-  const project = _globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId)];
+  const project = _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId)];
   const taskIndex = (0,_helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(project, taskId);
 
   project.tasks.splice(taskIndex, 1);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
@@ -518,21 +526,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ editProject)
 /* harmony export */ });
-/* harmony import */ var _ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ui/editProjectDisplay */ "./src/ui/editProjectDisplay.js");
-/* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
+/* harmony import */ var _ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/editProjectDisplay */ "./src/ui/editProjectDisplay.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 
 function editProject(projectId, name) {
-  const projectIndex = (0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId);
+  const projectIndex = (0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId);
 
-  _globals__WEBPACK_IMPORTED_MODULE_2__.toDoList[projectIndex].name = name;
+  _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList[projectIndex].name = name;
 
-  (0,_ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_0__["default"])(name, projectId);
+  (0,_ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(name, projectId);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
@@ -549,26 +559,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ editTask)
 /* harmony export */ });
-/* harmony import */ var _ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ui/editTaskDisplay */ "./src/ui/editTaskDisplay.js");
-/* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
-/* harmony import */ var _helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/findTaskIndex */ "./src/helpers/findTaskIndex.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProjectIndex */ "./src/helpers/findProjectIndex.js");
+/* harmony import */ var _helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findTaskIndex */ "./src/helpers/findTaskIndex.js");
+/* harmony import */ var _ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/editTaskDisplay */ "./src/ui/editTaskDisplay.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 
 
 function editTask(projectId, taskId, title, dueDate, priority) {
-  const project = _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId)];
-  const taskIndex = (0,_helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_2__["default"])(project, taskId);
+  const project = _globals__WEBPACK_IMPORTED_MODULE_4__.toDoList[(0,_helpers_findProjectIndex__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId)];
+  const taskIndex = (0,_helpers_findTaskIndex__WEBPACK_IMPORTED_MODULE_1__["default"])(project, taskId);
 
   project.tasks[taskIndex].title = title;
   project.tasks[taskIndex].dueDate = dueDate;
   project.tasks[taskIndex].priority = priority;
 
-  (0,_ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_0__["default"])(title, dueDate, priority, taskId);
+  (0,_ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_2__["default"])(title, dueDate, priority, taskId);
 
-  console.log(_globals__WEBPACK_IMPORTED_MODULE_3__.toDoList);
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 
@@ -586,21 +598,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "toDoList": () => (/* binding */ toDoList)
 /* harmony export */ });
 /* eslint-disable import/prefer-default-export */
-const toDoList = [
-  {
-    name: 'Default Project',
-    tasks: [
-      {
-        title: 'Default Task Title',
-        dueDate: 'Default Task Due Date',
-        priority: 'Default Task Priority',
-        checked: false,
-        id: 420,
-      },
-    ],
-    id: 69,
-  },
-];
+const toDoList = [];
 
 
 /***/ }),
@@ -646,6 +644,42 @@ class Task {
     this.checked = checked;
     this.id = Date.now();
   }
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/createLocalStorage.js":
+/*!*******************************************!*\
+  !*** ./src/helpers/createLocalStorage.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createLocalStorage)
+/* harmony export */ });
+function createLocalStorage() {
+  if (!localStorage.getItem('toDoList')) {
+    localStorage.setItem(
+      'toDoList',
+      JSON.stringify({
+        name: 'Default Project',
+        tasks: [
+          {
+            title: 'Default Task Title',
+            dueDate: 'Default Task Due Date',
+            priority: 'Default Task Priority',
+            checked: false,
+            id: 420,
+          },
+        ],
+        id: 69,
+      })
+    );
+  }
+  console.log(localStorage);
 }
 
 
@@ -724,6 +758,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function mostRecentTask(project) {
   return project.tasks[project.tasks.length - 1];
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/retrieveLocalStorage.js":
+/*!*********************************************!*\
+  !*** ./src/helpers/retrieveLocalStorage.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ retrieveLocalStorage)
+/* harmony export */ });
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+
+
+function retrieveLocalStorage() {
+  if (localStorage.getItem('toDoList')) {
+    const localProjects = JSON.parse(localStorage.getItem('toDoList'));
+    localProjects.forEach((project) => {
+      _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.push(project);
+    });
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/updateLocalStorage.js":
+/*!*******************************************!*\
+  !*** ./src/helpers/updateLocalStorage.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateLocalStorage)
+/* harmony export */ });
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+
+
+function updateLocalStorage() {
+  if (localStorage.getItem('toDoList')) {
+    localStorage.setItem('toDoList', JSON.stringify(_core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList));
+  }
 }
 
 
@@ -833,10 +916,10 @@ function addTaskDisplay(project, task) {
     `.project-tasks[data-id='${project.id}']`
   );
 
-  const taskInfo = document.createElement('ul');
-  const taskTitle = document.createElement('li');
-  const taskDueDate = document.createElement('li');
-  const taskPriority = document.createElement('li');
+  const taskInfo = document.createElement('div');
+  const taskTitle = document.createElement('p');
+  const taskDueDate = document.createElement('p');
+  const taskPriority = document.createElement('p');
   const taskEditButton = document.createElement('button');
 
   taskInfo.setAttribute('data-id', task.id);
@@ -1056,7 +1139,7 @@ function editTaskUI(e) {
   deleteTaskButton.className = 'bg-red-300';
 
   editTitle.type = 'text';
-  editDueDate.type = 'text';
+  editDueDate.type = 'datetime-local';
   editPriority.type = 'text';
 
   confirmTaskButton.textContent = 'Confirm Edit';
@@ -1207,7 +1290,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ "./src/tailwind.css");
 /* harmony import */ var _ui_addProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui/addProjectUI */ "./src/ui/addProjectUI.js");
-/* harmony import */ var _ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui/renderStoredProjects */ "./src/ui/renderStoredProjects.js");
+/* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
+/* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
+/* harmony import */ var _ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ui/renderStoredProjects */ "./src/ui/renderStoredProjects.js");
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/globals */ "./src/core/globals.js");
+
+
+
 
 
 
@@ -1222,7 +1311,10 @@ projectAddButton.addEventListener('click', _ui_addProjectUI__WEBPACK_IMPORTED_MO
 
 main.append(projectAddButton);
 
-(0,_ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_ui_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__["default"])();
+console.log(_core_globals__WEBPACK_IMPORTED_MODULE_5__.toDoList);
 
 })();
 

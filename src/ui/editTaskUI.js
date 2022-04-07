@@ -31,7 +31,7 @@ export default function editTaskUI(e) {
   deleteTaskButton.className = 'bg-red-300';
 
   editTitle.type = 'text';
-  editDueDate.type = 'text';
+  editDueDate.type = 'datetime-local';
   editPriority.type = 'text';
 
   confirmTaskButton.textContent = 'Confirm Edit';

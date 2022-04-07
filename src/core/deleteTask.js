@@ -1,5 +1,6 @@
 import findProjectIndex from '../helpers/findProjectIndex';
 import findTaskIndex from '../helpers/findTaskIndex';
+import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 
 export default function deleteTask(projectId, taskId) {
@@ -8,5 +9,5 @@ export default function deleteTask(projectId, taskId) {
 
   project.tasks.splice(taskIndex, 1);
 
-  console.log(toDoList);
+  updateLocalStorage();
 }

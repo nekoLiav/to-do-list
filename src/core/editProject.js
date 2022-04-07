@@ -1,5 +1,6 @@
-import editProjectDisplay from '../ui/editProjectDisplay';
 import findProjectIndex from '../helpers/findProjectIndex';
+import editProjectDisplay from '../ui/editProjectDisplay';
+import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 
 export default function editProject(projectId, name) {
@@ -9,5 +10,5 @@ export default function editProject(projectId, name) {
 
   editProjectDisplay(name, projectId);
 
-  console.log(toDoList);
+  updateLocalStorage();
 }

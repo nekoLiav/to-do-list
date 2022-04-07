@@ -1,6 +1,9 @@
 import './tailwind.css';
 import addProjectUI from './ui/addProjectUI';
+import createLocalStorage from './helpers/createLocalStorage';
+import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './ui/renderStoredProjects';
+import { toDoList } from './core/globals';
 
 const main = document.getElementById('main');
 
@@ -12,4 +15,7 @@ projectAddButton.addEventListener('click', addProjectUI);
 
 main.append(projectAddButton);
 
+createLocalStorage();
+retrieveLocalStorage();
 renderStoredProjects();
+console.log(toDoList);

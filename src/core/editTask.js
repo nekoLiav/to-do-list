@@ -1,6 +1,7 @@
-import editTaskDisplay from '../ui/editTaskDisplay';
 import findProjectIndex from '../helpers/findProjectIndex';
 import findTaskIndex from '../helpers/findTaskIndex';
+import editTaskDisplay from '../ui/editTaskDisplay';
+import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 
 export default function editTask(projectId, taskId, title, dueDate, priority) {
@@ -13,5 +14,5 @@ export default function editTask(projectId, taskId, title, dueDate, priority) {
 
   editTaskDisplay(title, dueDate, priority, taskId);
 
-  console.log(toDoList);
+  updateLocalStorage();
 }

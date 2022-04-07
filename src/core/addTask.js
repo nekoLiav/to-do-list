@@ -2,6 +2,7 @@ import Task from '../factories/Task';
 import findProjectIndex from '../helpers/findProjectIndex';
 import mostRecentTask from '../helpers/mostRecentTask';
 import addTaskDisplay from '../ui/addTaskDisplay';
+import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 
 export default function addTask(projectId, title, dueDate, priority) {
@@ -13,5 +14,5 @@ export default function addTask(projectId, title, dueDate, priority) {
 
   addTaskDisplay(project, task);
 
-  console.log(toDoList);
+  updateLocalStorage();
 }

@@ -5,10 +5,10 @@ export default function addTaskDisplay(project, task) {
     `.project-tasks[data-id='${project.id}']`
   );
 
-  const taskInfo = document.createElement('ul');
-  const taskTitle = document.createElement('li');
-  const taskDueDate = document.createElement('li');
-  const taskPriority = document.createElement('li');
+  const taskInfo = document.createElement('div');
+  const taskTitle = document.createElement('p');
+  const taskDueDate = document.createElement('p');
+  const taskPriority = document.createElement('p');
   const taskEditButton = document.createElement('button');
 
   taskInfo.setAttribute('data-id', task.id);
