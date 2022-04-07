@@ -1,4 +1,5 @@
 import { isValid, formatDistanceToNowStrict } from 'date-fns/esm';
+import priorityColors from './priorityColors';
 
 export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
@@ -17,5 +18,6 @@ export default function editTaskDisplay(title, dueDate, priority, taskId) {
       addSuffix: true,
     });
   }
+  priorityColors(priority, taskPriority[0]);
   taskPriority[0].textContent = priority;
 }

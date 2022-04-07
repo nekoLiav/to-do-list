@@ -1,5 +1,6 @@
 import { isValid, formatDistanceToNowStrict } from 'date-fns/esm';
 import editTaskUI from './editTaskUI';
+import priorityColors from './priorityColors';
 
 export default function addTaskDisplay(project, task) {
   const tasks = document.querySelectorAll(
@@ -33,6 +34,7 @@ export default function addTaskDisplay(project, task) {
       }
     );
   }
+  priorityColors(task.priority, taskPriority);
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
 

@@ -9,7 +9,7 @@ export default function createLocalStorage() {
             {
               title: 'Default Title',
               dueDate: '',
-              priority: 'Default Priority',
+              priority: 'Low',
               checked: false,
               id: 420,
             },
