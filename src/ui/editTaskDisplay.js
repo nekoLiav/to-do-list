@@ -1,6 +1,6 @@
-import formatDates from './formatDates';
-import priorityColor from './priorityColor';
-import checkEmptyDueDate from './checkEmptyDueDate';
+import formatDates from '../helpers/formatDates';
+import priorityColor from '../helpers/priorityColor';
+import checkEmptyDueDate from '../helpers/dueDateCheck';
 
 export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(

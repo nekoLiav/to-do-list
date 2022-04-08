@@ -1,7 +1,7 @@
 import editTaskUI from './editTaskUI';
-import formatDates from './formatDates';
-import priorityColor from './priorityColor';
-import checkEmptyDueDate from './checkEmptyDueDate';
+import formatDates from '../helpers/formatDates';
+import priorityColor from '../helpers/priorityColor';
+import dueDateCheck from '../helpers/dueDateCheck';
 
 export default function addTaskDisplay(project, task) {
   const tasks = document.querySelectorAll(
@@ -31,7 +31,7 @@ export default function addTaskDisplay(project, task) {
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
   priorityColor(task.priority, taskPriority);
-  checkEmptyDueDate(taskDueDate);
+  dueDateCheck(taskDueDate);
 
   const mouseLeft = () => {
     taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');

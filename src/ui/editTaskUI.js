@@ -1,6 +1,6 @@
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
-import priorityCheck from './priorityCheck';
+import priorityCheck from '../helpers/priorityCheck';
 
 export default function editTaskUI(projectId, taskId) {
   const task = document.querySelectorAll(`.task[data-id='${taskId}'`);

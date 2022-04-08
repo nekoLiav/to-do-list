@@ -2,7 +2,7 @@ import './tailwind.css';
 import addProjectUI from './ui/addProjectUI';
 import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
-import renderStoredProjects from './ui/renderStoredProjects';
+import renderStoredProjects from './helpers/renderStoredProjects';
 
 const main = document.getElementById('main');
 

@@ -1,5 +1,5 @@
-import addProjectDisplay from './addProjectDisplay';
-import addTaskDisplay from './addTaskDisplay';
+import addProjectDisplay from '../ui/addProjectDisplay';
+import addTaskDisplay from '../ui/addTaskDisplay';
 import { toDoList } from '../core/globals';
 
 export default function renderStoredProjects() {

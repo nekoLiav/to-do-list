@@ -1,4 +1,4 @@
-export default function checkEmptyDueDate(dueDate) {
+export default function dueDateCheck(dueDate) {
   if (dueDate.textContent === '') {
     dueDate.classList.add('hidden');
   } else {
