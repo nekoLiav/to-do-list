@@ -1,13 +1,10 @@
-export default function priorityCheck(low, med, high) {
-  let checkedPriority;
-  if (low.checked) {
-    checkedPriority = 'Low';
-  }
-  if (med.checked) {
-    checkedPriority = 'Medium';
-  }
-  if (high.checked) {
-    checkedPriority = 'High';
-  }
-  return checkedPriority;
+export default function priorityCheck() {
+  const priorities = document.querySelectorAll(`input[name='priority']`);
+  let priorityText;
+  priorities.forEach((priority) => {
+    if (priority.checked) {
+      priorityText = priority.id;
+    }
+  });
+  return priorityText;
 }

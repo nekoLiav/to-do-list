@@ -10,9 +10,6 @@ export default function editTaskUI(projectId, taskId) {
   const taskDueDate = document.querySelectorAll(
     `.task-due-date[data-id='${taskId}']`
   );
-  const taskPriority = document.querySelectorAll(
-    `.task-priority[data-id='${taskId}']`
-  );
 
   const editTaskPanel = document.createElement('div');
   const confirmTaskButton = document.createElement('button');
@@ -39,12 +36,15 @@ export default function editTaskUI(projectId, taskId) {
   priorityMed.name = 'priority';
   priorityHigh.name = 'priority';
 
+  priorityLow.id = 'Low';
+  priorityMed.id = 'Medium';
+  priorityHigh.id = 'High';
+
   confirmTaskButton.textContent = 'Confirm Edit';
   deleteTaskButton.textContent = 'Delete Task';
 
   editTitle.value = taskTitle[0].textContent;
   editDueDate.value = taskDueDate[0].textContent;
-  editPriority.value = taskPriority[0].textContent;
 
   confirmTaskButton.addEventListener('click', (e2) => {
     editTask(
@@ -52,7 +52,7 @@ export default function editTaskUI(projectId, taskId) {
       taskId,
       editTitle.value,
       editDueDate.value,
-      priorityCheck(priorityLow, priorityMed, priorityHigh)
+      priorityCheck()
     );
     e2.target.parentNode.remove();
     task[0].classList.remove('hidden');
@@ -75,6 +75,7 @@ export default function editTaskUI(projectId, taskId) {
   );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
+
   task[0].classList.add('hidden');
   editTitle.focus();
 }
