@@ -47,7 +47,7 @@ export default function editTaskUI(projectId, taskId) {
   deleteTaskButton.textContent = 'Delete Task';
 
   editTitle.value = taskTitle[0].textContent;
-  editDueDate.value = taskDueDate[0].textContent;
+  editDueDate.value = taskDueDate[0].getAttribute('data-date');
 
   confirmTaskButton.addEventListener('click', (e2) => {
     editTask(

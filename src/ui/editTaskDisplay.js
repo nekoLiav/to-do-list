@@ -16,6 +16,7 @@ export default function editTaskDisplay(title, dueDate, priority, taskId) {
   taskTitle[0].textContent = title;
   taskPriority[0].textContent = priority;
   taskDueDate[0].textContent = formatDates(dueDate, 'relativeWords');
+  taskDueDate[0].setAttribute('data-date', dueDate);
   priorityColor(priority, taskPriority[0]);
   checkEmptyDueDate(taskDueDate[0]);
 }
