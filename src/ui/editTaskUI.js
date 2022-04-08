@@ -10,6 +10,9 @@ export default function editTaskUI(projectId, taskId) {
   const taskDueDate = document.querySelectorAll(
     `.task-due-date[data-id='${taskId}']`
   );
+  const taskPriority = document.querySelectorAll(
+    `.task-priority[data-id='${taskId}']`
+  );
 
   const editTaskPanel = document.createElement('div');
   const confirmTaskButton = document.createElement('button');
@@ -75,6 +78,10 @@ export default function editTaskUI(projectId, taskId) {
   );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
+
+  document.querySelector(
+    `input[id='${taskPriority[0].textContent}']`
+  ).checked = true;
 
   task[0].classList.add('hidden');
   editTitle.focus();
