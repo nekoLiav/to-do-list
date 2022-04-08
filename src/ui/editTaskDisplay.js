@@ -1,5 +1,6 @@
 import formatDates from './formatDates';
 import priorityColor from './priorityColor';
+import checkEmptyDueDate from './checkEmptyDueDate';
 
 export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
@@ -16,4 +17,5 @@ export default function editTaskDisplay(title, dueDate, priority, taskId) {
   taskPriority[0].textContent = priority;
   taskDueDate[0].textContent = formatDates(dueDate, 'relativeWords');
   priorityColor(priority, taskPriority[0]);
+  checkEmptyDueDate(taskDueDate[0]);
 }
