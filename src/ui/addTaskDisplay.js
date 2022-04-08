@@ -1,6 +1,6 @@
-import { isValid, formatDistanceToNowStrict } from 'date-fns/esm';
 import editTaskUI from './editTaskUI';
-import priorityColors from './priorityColors';
+import formatDates from './formatDates';
+import priorityColor from './priorityColor';
 
 export default function addTaskDisplay(project, task) {
   const tasks = document.querySelectorAll(
@@ -26,23 +26,26 @@ export default function addTaskDisplay(project, task) {
   taskEditButton.className = 'task-edit-button bg-slate-300';
 
   taskTitle.textContent = task.title;
-  if (isValid(new Date(task.dueDate))) {
-    taskDueDate.textContent = formatDistanceToNowStrict(
-      new Date(task.dueDate),
-      {
-        addSuffix: true,
-      }
-    );
-  }
-  priorityColors(task.priority, taskPriority);
+  taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
+  priorityColor(task.priority, taskPriority);
+
+  const mouseLeft = () => {
+    taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
+    taskDueDate.removeEventListener('mouseleave', mouseLeft);
+  };
 
   taskEditButton.addEventListener('click', (e) => {
     editTaskUI(
       parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
       parseInt(e.target.getAttribute('data-id'), 10)
     );
+  });
+
+  taskDueDate.addEventListener('mouseenter', () => {
+    taskDueDate.textContent = formatDates(task.dueDate);
+    taskDueDate.addEventListener('mouseleave', mouseLeft);
   });
 
   taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);

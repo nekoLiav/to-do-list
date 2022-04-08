@@ -1,5 +1,5 @@
-import { isValid, formatDistanceToNowStrict } from 'date-fns/esm';
-import priorityColors from './priorityColors';
+import formatDates from './formatDates';
+import priorityColor from './priorityColor';
 
 export default function editTaskDisplay(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
@@ -13,11 +13,7 @@ export default function editTaskDisplay(title, dueDate, priority, taskId) {
   );
 
   taskTitle[0].textContent = title;
-  if (isValid(new Date(dueDate))) {
-    taskDueDate[0].textContent = formatDistanceToNowStrict(new Date(dueDate), {
-      addSuffix: true,
-    });
-  }
-  priorityColors(priority, taskPriority[0]);
   taskPriority[0].textContent = priority;
+  taskDueDate[0].textContent = formatDates(dueDate, 'relativeWords');
+  priorityColor(priority, taskPriority[0]);
 }
