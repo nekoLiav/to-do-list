@@ -4,26 +4,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
-      chunkFilename: '[id].css',
     }),
   ],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
-  devServer: {
-    open: true,
-    historyApiFallback: true,
-    hot: true,
-    watchFiles: ['src/**/*.html', 'public/**/*'],
-  },
   module: {
     rules: [
       {
@@ -48,6 +41,12 @@ module.exports = {
         ],
       },
     ],
+  },
+  devServer: {
+    open: true,
+    historyApiFallback: true,
+    hot: true,
+    watchFiles: ['src/**/*.html', 'public/**/*'],
   },
   mode: 'development',
   devtool: 'source-map',
