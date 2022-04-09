@@ -4613,7 +4613,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addTaskUI(projectId) {
-  (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'Title', '', 'Priority');
+  (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'New Task', '', 'Low');
 }
 
 
