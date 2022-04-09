@@ -8,7 +8,8 @@ const projectTaskContainer = document.getElementById('project-task-container');
 
 const projectAddButton = document.createElement('button');
 projectAddButton.id = 'project-add-button';
-projectAddButton.className = 'col-span-3 col-start-2 row-start-1 bg-slate-300';
+projectAddButton.className =
+  'w-24 col-span-3 col-start-2 row-start-1 w-max bg-slate-300';
 projectAddButton.textContent = '+ Add Project';
 projectAddButton.addEventListener('click', addProjectUI);
 

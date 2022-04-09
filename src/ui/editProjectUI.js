@@ -19,6 +19,7 @@ export default function editProjectUI(projectId) {
   const deleteProjectButton = document.createElement('button');
 
   projectEditPanel.className = 'flex';
+  editName.className = 'max-h-6';
   confirmProjectButton.className = 'bg-slate-300';
   deleteProjectButton.className = 'bg-red-300';
 

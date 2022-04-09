@@ -11,8 +11,18 @@
     <p id="header-text" class="text-white">Minimal To-Do</p>
   </header>
   <div id="main" class="grid items-center w-full h-full grid-cols-8 auto-rows-fr">
-    <div id="side-nav" class="w-full h-full col-span-2 col-start-1 row-span-3 bg-slate-400"></div>
-    <div id="project-task-container" class="flex flex-col w-full h-full col-span-4 col-start-4 row-span-3 row-start-1">
+    <div id="side-nav" class="w-full h-full col-span-2 col-start-1 row-span-3 bg-slate-200">
+      <div id="side-nav-buttons" class="flex flex-col items-center gap-5">
+        <button id="overview-button" class="w-1/2 bg-slate-300">Overview</button>
+        <button id="today-button" class="w-1/2 bg-slate-300">Today</button>
+        <button id="this-week-button" class="w-1/2 bg-slate-300">This Week</button>
+        <button id="this-month-button" class="w-1/2 bg-slate-300">This Month</button>
+        <button id="projects-button" class="w-1/2 bg-slate-300">Projects -</button>
+      </div>
+      <div id="project-list" class="flex flex-col text-sm bg-slate-300"></div>
+    </div>
+    <div id="project-task-container"
+      class="flex flex-col w-full h-full col-span-4 col-start-4 row-span-3 row-start-1 gap-5">
     </div>
   </div>
   <footer id="footer" class="flex w-screen h-16 mt-auto bg-slate-700">

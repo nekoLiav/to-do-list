@@ -24,7 +24,8 @@ export default function editTaskUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex';
+  editTaskPanel.className = 'flex items-center';
+  editTitle.className = 'max-h-5';
   confirmTaskButton.className = 'bg-slate-300';
   deleteTaskButton.className = 'bg-red-300';
   editPriority.className = 'flex items-center';

@@ -20,11 +20,11 @@ export default function addTaskDisplay(project, task) {
   taskPriority.setAttribute('data-id', task.id);
   taskEditButton.setAttribute('data-id', task.id);
 
-  taskInfo.className = 'flex items-center justify-between gap-5 task';
+  taskInfo.className = 'flex items-center justify-between gap-5 text-sm task';
   taskTitle.className = 'task-title';
   taskDueDate.className = 'task-due-date';
   taskPriority.className = 'task-priority';
-  taskEditButton.className = 'task-edit-button bg-slate-300';
+  taskEditButton.className = 'task-edit-button w-max bg-slate-300';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
