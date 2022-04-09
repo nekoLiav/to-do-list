@@ -2,6 +2,9 @@ import addTaskUI from './addTaskUI';
 import editProjectUI from './editProjectUI';
 
 export default function addProjectDisplay(project) {
+  const projectTaskContainer = document.getElementById(
+    'project-task-container'
+  );
   const projectAddButton = document.getElementById('project-add-button');
 
   const projectContainer = document.createElement('div');
@@ -22,9 +25,8 @@ export default function addProjectDisplay(project) {
   projectTasks.setAttribute('data-id', project.id);
   projectTaskAddButton.setAttribute('data-id', project.id);
 
-  projectContainer.className =
-    'w-full auto-rows-min bg-slate-200 project-container';
-  projectInfo.className = 'flex gap-5 project-info';
+  projectContainer.className = 'project-container bg-slate-200';
+  projectInfo.className = 'flex justify-between project-info';
   projectNameDisplay.className = 'project-name';
   projectEditButton.className = 'bg-slate-300 project-edit-button';
   projectMenu.className = 'absolute hidden min-w-max bg-slate-300 project-menu';
@@ -47,6 +49,7 @@ export default function addProjectDisplay(project) {
 
   projectInfo.append(projectNameDisplay, projectEditButton);
   projectContainer.append(projectInfo, projectTasks, projectTaskAddButton);
+  projectTaskContainer.append(projectContainer);
 
   projectAddButton.insertAdjacentElement('beforebegin', projectContainer);
 }
