@@ -8,11 +8,7 @@ import renderSideNavInfo from './helpers/renderSideNavInfo';
 import renderToday from './helpers/renderToday';
 
 const sideNavProjects = document.getElementById('side-nav-projects');
-
-const projectAddButton = document.createElement('button');
-projectAddButton.id = 'project-add-button';
-projectAddButton.className = 'p-1 rounded bg-slate-300';
-projectAddButton.textContent = '+ Add Task';
+const projectAddButton = document.getElementById('project-add-button');
 projectAddButton.addEventListener('click', () => addProject('New Project'));
 
 const overviewButton = document.getElementById('overview-button');
@@ -25,10 +21,9 @@ const sideNavProjectsButton = document.getElementById(
   'side-nav-projects-button'
 );
 sideNavProjectsButton.addEventListener('click', () => {
+  projectAddButton.classList.toggle('hidden');
   sideNavProjects.classList.toggle('hidden');
 });
-
-sideNavProjects.append(projectAddButton);
 
 createLocalStorage();
 retrieveLocalStorage();

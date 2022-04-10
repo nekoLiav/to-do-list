@@ -15,12 +15,12 @@ export default function renderMainProjects(project) {
   projectTasks.setAttribute('data-id', project.id);
   projectTaskAddButton.setAttribute('data-id', project.id);
 
-  projectContainer.className = 'flex flex-col w-full gap-5 project-container';
+  projectContainer.className = 'flex flex-col w-full mt-5 project-container';
   projectInfo.className = 'flex project-info';
   projectNameDisplay.className = 'w-full bg-slate-200 project-name';
   projectTasks.className = 'project-tasks';
   projectTaskAddButton.className =
-    'p-1 text-sm rounded bg-slate-300 project-task-add-button';
+    'p-1 text-sm rounded bg-slate-300 project-task-add-button w-max';
 
   projectNameDisplay.textContent = project.name;
   projectTaskAddButton.textContent = '+ Add Task';
