@@ -19,7 +19,8 @@ export default function renderMainProjects(project) {
   projectInfo.className = 'flex gap-5 project-info';
   projectNameDisplay.className = 'w-full bg-slate-200 project-name';
   projectTasks.className = 'project-tasks';
-  projectTaskAddButton.className = 'bg-slate-300 project-task-add-button';
+  projectTaskAddButton.className =
+    'text-sm bg-slate-300 project-task-add-button';
 
   projectNameDisplay.textContent = project.name;
   projectTaskAddButton.textContent = '+ Add Task';
