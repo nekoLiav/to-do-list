@@ -17,10 +17,10 @@ export default function renderProjectEditUI(projectId) {
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = '';
+  projectEditPanel.className = 'flex flex-col items-center';
   editName.className = 'max-h-6';
-  confirmProjectButton.className = 'bg-slate-300';
-  deleteProjectButton.className = 'bg-red-300';
+  confirmProjectButton.className = 'p-1 rounded bg-slate-300 w-max';
+  deleteProjectButton.className = 'p-1 bg-red-300 rounded w-max';
 
   editName.type = 'text';
 

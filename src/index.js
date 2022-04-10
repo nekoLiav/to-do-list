@@ -1,19 +1,19 @@
 import './tailwind.css';
-import addProjectUI from './ui/addProjectUI';
+import addProject from './core/addProject';
 import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
-import renderSideNavInfo from './ui/renderSideNavInfo';
+import renderSideNavInfo from './helpers/renderSideNavInfo';
 import renderToday from './helpers/renderToday';
 
 const sideNavProjects = document.getElementById('side-nav-projects');
 
 const projectAddButton = document.createElement('button');
 projectAddButton.id = 'project-add-button';
-projectAddButton.className = 'bg-slate-300';
-projectAddButton.textContent = '+';
-projectAddButton.addEventListener('click', addProjectUI);
+projectAddButton.className = 'p-1 rounded bg-slate-300';
+projectAddButton.textContent = '+ Add Task';
+projectAddButton.addEventListener('click', () => addProject('New Project'));
 
 const overviewButton = document.getElementById('overview-button');
 overviewButton.addEventListener('click', renderOverview);
@@ -28,7 +28,7 @@ sideNavProjectsButton.addEventListener('click', () => {
   sideNavProjects.classList.toggle('hidden');
 });
 
-sideNavProjectsButton.append(projectAddButton);
+sideNavProjects.append(projectAddButton);
 
 createLocalStorage();
 retrieveLocalStorage();

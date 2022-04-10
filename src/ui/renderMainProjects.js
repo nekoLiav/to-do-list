@@ -1,4 +1,4 @@
-import addTaskUI from './addTaskUI';
+import addTask from '../core/addTask';
 
 export default function renderMainProjects(project) {
   const taskContainer = document.getElementById('task-container');
@@ -15,18 +15,19 @@ export default function renderMainProjects(project) {
   projectTasks.setAttribute('data-id', project.id);
   projectTaskAddButton.setAttribute('data-id', project.id);
 
-  projectContainer.className = 'w-full auto-rows-min project-container';
-  projectInfo.className = 'flex gap-5 project-info';
+  projectContainer.className = 'flex flex-col w-full gap-5 project-container';
+  projectInfo.className = 'flex project-info';
   projectNameDisplay.className = 'w-full bg-slate-200 project-name';
   projectTasks.className = 'project-tasks';
   projectTaskAddButton.className =
-    'text-sm bg-slate-300 project-task-add-button';
+    'p-1 text-sm rounded bg-slate-300 project-task-add-button';
 
   projectNameDisplay.textContent = project.name;
   projectTaskAddButton.textContent = '+ Add Task';
 
   projectTaskAddButton.addEventListener('click', (e) => {
-    addTaskUI(parseInt(e.target.getAttribute('data-id'), 10));
+    const projectId = parseInt(e.target.getAttribute('data-id'), 10);
+    addTask(projectId, 'New Task', '', 'Low');
   });
 
   projectInfo.append(projectNameDisplay);

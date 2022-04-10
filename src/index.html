@@ -6,23 +6,26 @@
   <script src="https://kit.fontawesome.com/1b4e6ab51b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="flex flex-col w-screen h-screen bg-slate-50">
-  <header id="header" class="flex items-center justify-center w-screen h-16 bg-slate-700">
+<body class="flex flex-col w-full h-full bg-slate-100">
+  <header id="header" class="w-full h-20 bg-slate-700">
     <p id="header-text" class="text-white">Minimal To-Do</p>
   </header>
-  <div id="main" class="grid items-center w-full h-full grid-cols-8 auto-rows-fr">
-    <div id="side-nav" class="w-full h-full col-span-2 col-start-1 row-span-3 bg-slate-200">
-      <div id="side-nav-buttons" class="flex flex-col items-center gap-5">
-        <button id="overview-button" class="w-full bg-slate-300">Overview</button>
-        <button id="today-button" class="w-full bg-slate-300">Today</button>
-        <button id="side-nav-projects-button" class="w-full bg-slate-300">Projects</button>
+  <div id="main" class="flex h-full gap-5 overflow-clip">
+    <div id="side-nav" class="w-64 h-full col-span-1 col-start-1 row-span-3 min-w-max bg-slate-200">
+      <div id="side-nav-buttons" class="flex flex-col items-center gap-5 mt-5">
+        <button id="overview-button" class="w-1/2 p-1 rounded bg-slate-300">Overview</button>
+        <button id="today-button" class="w-1/2 p-1 rounded bg-slate-300">Today</button>
+        <button id="side-nav-projects-button" class="w-1/2 p-1 rounded br-5 bg-slate-300">Projects</button>
       </div>
-      <div id="side-nav-projects" class="flex flex-col items-center hidden gap-5 text-sm"></div>
+      <div id="side-nav-projects" class="flex flex-col items-center hidden gap-1 p-1 text-sm"></div>
     </div>
-    <div id="task-container" class="flex flex-col w-full h-full col-span-4 col-start-4 row-span-3 row-start-1 gap-5">
+    <div id="main-content" class="w-1/2 bg-slate-200">
+      <div id="task-container"
+        class="flex flex-col w-full h-full col-span-2 col-start-3 row-start-1 row-end-2 gap-5 mt-5 overflow-y-auto bg-slate-200">
+      </div>
     </div>
   </div>
-  <footer id="footer" class="flex w-screen h-16 mt-auto bg-slate-700">
+  <footer id="footer" class="w-full h-20 bg-slate-700">
   </footer>
 </body>
 
