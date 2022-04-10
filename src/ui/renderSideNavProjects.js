@@ -1,0 +1,28 @@
+import editProjectUI from './editProjectUI';
+
+export default function renderSideNavProjects(project) {
+  const sideNavProjects = document.getElementById('side-nav-projects');
+
+  const sideNavProject = document.createElement('side-nav-project');
+  const sideNavProjectName = document.createElement('p');
+  const projectEditButton = document.createElement('button');
+
+  sideNavProject.setAttribute('data-id', project.id);
+  sideNavProjectName.setAttribute('data-id', project.id);
+  projectEditButton.setAttribute('data-id', project.id);
+
+  sideNavProject.className =
+    'flex justify-between w-full bg-slate-300 side-nav-project';
+  sideNavProjectName.className = 'side-nav-project-name';
+  projectEditButton.className = 'bg-slate-300 w-max project-edit-button';
+
+  sideNavProjectName.textContent = project.name;
+  projectEditButton.textContent = 'Edit Project';
+
+  projectEditButton.addEventListener('click', (e) => {
+    editProjectUI(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  sideNavProject.append(sideNavProjectName, projectEditButton);
+  sideNavProjects.append(sideNavProject);
+}

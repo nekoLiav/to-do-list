@@ -3,6 +3,7 @@ import addProjectUI from './ui/addProjectUI';
 import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
+import renderOverview from './helpers/renderOverview';
 
 const sideNavProjects = document.getElementById('side-nav-projects');
 
@@ -11,6 +12,9 @@ projectAddButton.id = 'project-add-button';
 projectAddButton.className = 'w-1/2 bg-slate-300';
 projectAddButton.textContent = '+ Add Project';
 projectAddButton.addEventListener('click', addProjectUI);
+
+const overviewButton = document.getElementById('overview-button');
+overviewButton.addEventListener('click', renderOverview);
 
 const sideNavProjectsButton = document.getElementById(
   'side-nav-projects-button'
