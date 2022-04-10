@@ -25,7 +25,6 @@ sideNavProjectsButton.addEventListener('click', () => {
 
 sideNavProjects.append(projectAddButton);
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();

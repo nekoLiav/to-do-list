@@ -1,5 +1,5 @@
 import findProject from '../helpers/findProject';
-import editProjectDisplay from '../ui/editProjectDisplay';
+import renderProjectUpdate from '../ui/renderProjectUpdate';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 
 export default function editProject(projectId, name) {
@@ -7,7 +7,7 @@ export default function editProject(projectId, name) {
 
   project.name = name;
 
-  editProjectDisplay(name, projectId);
+  renderProjectUpdate(name, projectId);
 
   updateLocalStorage();
 }

@@ -2,7 +2,7 @@ import formatDates from '../helpers/formatDates';
 import priorityColor from '../helpers/priorityColor';
 import checkEmptyDueDate from '../helpers/dueDateCheck';
 
-export default function editTaskDisplay(title, dueDate, priority, taskId) {
+export default function renderTaskUpdate(title, dueDate, priority, taskId) {
   const taskTitle = document.querySelectorAll(
     `.task-title[data-id='${taskId}']`
   );

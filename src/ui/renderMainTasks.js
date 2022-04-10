@@ -1,9 +1,9 @@
-import editTaskUI from './editTaskUI';
 import formatDates from '../helpers/formatDates';
 import priorityColor from '../helpers/priorityColor';
 import dueDateCheck from '../helpers/dueDateCheck';
+import renderTaskEditUI from './renderTaskEditUI';
 
-export default function addTaskDisplay(project, task) {
+export default function renderMainTasks(project, task) {
   const tasks = document.querySelectorAll(
     `.project-tasks[data-id='${project.id}']`
   );
@@ -39,7 +39,7 @@ export default function addTaskDisplay(project, task) {
   };
 
   taskEditButton.addEventListener('click', (e) => {
-    editTaskUI(
+    renderTaskEditUI(
       parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
       parseInt(e.target.getAttribute('data-id'), 10)
     );

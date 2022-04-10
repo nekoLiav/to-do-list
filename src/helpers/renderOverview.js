@@ -1,14 +1,14 @@
 import { toDoList } from '../core/globals';
-import addProjectDisplay from '../ui/addProjectDisplay';
-import addTaskDisplay from '../ui/addTaskDisplay';
+import renderMainProjects from '../ui/renderMainProjects';
+import renderMainTasks from '../ui/renderMainTasks';
 import clearView from './clearView';
 
 export default function renderOverview() {
   clearView();
   toDoList.forEach((project) => {
-    addProjectDisplay(project);
+    renderMainProjects(project);
     project.tasks.forEach((task) => {
-      addTaskDisplay(project, task);
+      renderMainTasks(project, task);
     });
   });
 }

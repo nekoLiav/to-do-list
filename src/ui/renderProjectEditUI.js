@@ -1,7 +1,7 @@
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
 
-export default function editProjectUI(projectId) {
+export default function renderProjectEditUI(projectId) {
   const sideNavProject = document.querySelectorAll(
     `.side-nav-project[data-id='${projectId}']`
   );

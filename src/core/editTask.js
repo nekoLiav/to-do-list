@@ -1,5 +1,5 @@
 import findTask from '../helpers/findTask';
-import editTaskDisplay from '../ui/editTaskDisplay';
+import renderTaskUpdate from '../ui/renderTaskUpdate';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 
 export default function editTask(projectId, taskId, title, dueDate, priority) {
@@ -9,7 +9,7 @@ export default function editTask(projectId, taskId, title, dueDate, priority) {
   task.dueDate = dueDate;
   task.priority = priority;
 
-  editTaskDisplay(title, dueDate, priority, taskId);
+  renderTaskUpdate(title, dueDate, priority, taskId);
 
   updateLocalStorage();
 }

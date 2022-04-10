@@ -1,4 +1,4 @@
-import editProjectUI from './editProjectUI';
+import renderProjectEditUI from './renderProjectEditUI';
 
 export default function renderSideNavProjects(project) {
   const sideNavProjects = document.getElementById('side-nav-projects');
@@ -20,7 +20,7 @@ export default function renderSideNavProjects(project) {
   projectEditButton.textContent = 'Edit Project';
 
   projectEditButton.addEventListener('click', (e) => {
-    editProjectUI(parseInt(e.target.getAttribute('data-id'), 10));
+    renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
   });
 
   sideNavProject.append(sideNavProjectName, projectEditButton);

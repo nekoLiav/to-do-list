@@ -1,8 +1,8 @@
 import Project from '../factories/Project';
 import mostRecentProject from '../helpers/mostRecentProject';
-import editProjectUI from '../ui/editProjectUI';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
+import renderProjectEditUI from '../ui/renderProjectEditUI';
 import renderSideNavProjects from '../ui/renderSideNavProjects';
 
 export default function addProject(projectName) {
@@ -11,7 +11,7 @@ export default function addProject(projectName) {
   const project = mostRecentProject();
 
   renderSideNavProjects(project);
-  editProjectUI(project.id);
+  renderProjectEditUI(project.id);
 
   updateLocalStorage();
 }
