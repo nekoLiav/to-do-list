@@ -3871,10 +3871,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _factories_Project__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../factories/Project */ "./src/factories/Project.js");
 /* harmony import */ var _helpers_mostRecentProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/mostRecentProject */ "./src/helpers/mostRecentProject.js");
-/* harmony import */ var _ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/addProjectDisplay */ "./src/ui/addProjectDisplay.js");
-/* harmony import */ var _ui_editProjectUI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/editProjectUI */ "./src/ui/editProjectUI.js");
-/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _ui_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ui/renderProjectEditUI */ "./src/ui/renderProjectEditUI.js");
+/* harmony import */ var _ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ui/renderSideNavProjects */ "./src/ui/renderSideNavProjects.js");
 
 
 
@@ -3883,54 +3883,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function addProject(projectName) {
-  _globals__WEBPACK_IMPORTED_MODULE_5__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_0__["default"](projectName));
+  _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList.push(new _factories_Project__WEBPACK_IMPORTED_MODULE_0__["default"](projectName));
 
   const project = (0,_helpers_mostRecentProject__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
-  (0,_ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_2__["default"])(project);
-  (0,_ui_editProjectUI__WEBPACK_IMPORTED_MODULE_3__["default"])(project.id);
+  (0,_ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_5__["default"])(project);
+  (0,_ui_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_4__["default"])(project.id);
 
-  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])();
-}
-
-
-/***/ }),
-
-/***/ "./src/core/addTask.js":
-/*!*****************************!*\
-  !*** ./src/core/addTask.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addTask)
-/* harmony export */ });
-/* harmony import */ var _factories_Task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../factories/Task */ "./src/factories/Task.js");
-/* harmony import */ var _helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/mostRecentTask */ "./src/helpers/mostRecentTask.js");
-/* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
-/* harmony import */ var _ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/addTaskDisplay */ "./src/ui/addTaskDisplay.js");
-/* harmony import */ var _ui_editTaskUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ui/editTaskUI */ "./src/ui/editTaskUI.js");
-/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
-
-
-
-
-
-
-
-function addTask(projectId, title, dueDate, priority) {
-  const project = (0,_helpers_findProject__WEBPACK_IMPORTED_MODULE_2__["default"])(projectId);
-
-  project.tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority));
-
-  const task = (0,_helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
-
-  (0,_ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_3__["default"])(project, task);
-  (0,_ui_editTaskUI__WEBPACK_IMPORTED_MODULE_4__["default"])(project.id, task.id);
-
-  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
@@ -4006,7 +3966,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ editProject)
 /* harmony export */ });
 /* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
-/* harmony import */ var _ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/editProjectDisplay */ "./src/ui/editProjectDisplay.js");
+/* harmony import */ var _ui_renderProjectUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderProjectUpdate */ "./src/ui/renderProjectUpdate.js");
 /* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
 
 
@@ -4017,7 +3977,7 @@ function editProject(projectId, name) {
 
   project.name = name;
 
-  (0,_ui_editProjectDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(name, projectId);
+  (0,_ui_renderProjectUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(name, projectId);
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
@@ -4037,7 +3997,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ editTask)
 /* harmony export */ });
 /* harmony import */ var _helpers_findTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findTask */ "./src/helpers/findTask.js");
-/* harmony import */ var _ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/editTaskDisplay */ "./src/ui/editTaskDisplay.js");
+/* harmony import */ var _ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderTaskUpdate */ "./src/ui/renderTaskUpdate.js");
 /* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
 
 
@@ -4050,7 +4010,7 @@ function editTask(projectId, taskId, title, dueDate, priority) {
   task.dueDate = dueDate;
   task.priority = priority;
 
-  (0,_ui_editTaskDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(title, dueDate, priority, taskId);
+  (0,_ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(title, dueDate, priority, taskId);
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
@@ -4097,25 +4057,24 @@ class Project {
 
 /***/ }),
 
-/***/ "./src/factories/Task.js":
-/*!*******************************!*\
-  !*** ./src/factories/Task.js ***!
-  \*******************************/
+/***/ "./src/helpers/clearView.js":
+/*!**********************************!*\
+  !*** ./src/helpers/clearView.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Task)
+/* harmony export */   "default": () => (/* binding */ clearView)
 /* harmony export */ });
-class Task {
-  constructor(title, dueDate, priority, checked) {
-    this.title = title;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.checked = checked;
-    this.id = Date.now();
-  }
+function clearView() {
+  const taskContainer = Array.from(
+    document.getElementById('task-container').children
+  );
+  taskContainer.forEach((child) => {
+    child.remove();
+  });
 }
 
 
@@ -4282,24 +4241,6 @@ function mostRecentProject() {
 
 /***/ }),
 
-/***/ "./src/helpers/mostRecentTask.js":
-/*!***************************************!*\
-  !*** ./src/helpers/mostRecentTask.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ mostRecentTask)
-/* harmony export */ });
-function mostRecentTask(project) {
-  return project.tasks[project.tasks.length - 1];
-}
-
-
-/***/ }),
-
 /***/ "./src/helpers/priorityCheck.js":
 /*!**************************************!*\
   !*** ./src/helpers/priorityCheck.js ***!
@@ -4355,6 +4296,39 @@ function priorityColor(taskPriority, taskPriorityElement) {
 
 /***/ }),
 
+/***/ "./src/helpers/renderOverview.js":
+/*!***************************************!*\
+  !*** ./src/helpers/renderOverview.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderOverview)
+/* harmony export */ });
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderMainProjects */ "./src/ui/renderMainProjects.js");
+/* harmony import */ var _ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/renderMainTasks */ "./src/ui/renderMainTasks.js");
+/* harmony import */ var _clearView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./clearView */ "./src/helpers/clearView.js");
+
+
+
+
+
+function renderOverview() {
+  (0,_clearView__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    (0,_ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
+    project.tasks.forEach((task) => {
+      (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_2__["default"])(project, task);
+    });
+  });
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/renderStoredProjects.js":
 /*!*********************************************!*\
   !*** ./src/helpers/renderStoredProjects.js ***!
@@ -4366,19 +4340,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ renderStoredProjects)
 /* harmony export */ });
-/* harmony import */ var _ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ui/addProjectDisplay */ "./src/ui/addProjectDisplay.js");
-/* harmony import */ var _ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/addTaskDisplay */ "./src/ui/addTaskDisplay.js");
-/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
-
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderSideNavProjects */ "./src/ui/renderSideNavProjects.js");
 
 
 
 function renderStoredProjects() {
-  _core_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.forEach((project) => {
-    (0,_ui_addProjectDisplay__WEBPACK_IMPORTED_MODULE_0__["default"])(project);
-    project.tasks.forEach((task) => {
-      (0,_ui_addTaskDisplay__WEBPACK_IMPORTED_MODULE_1__["default"])(project, task);
-    });
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    (0,_ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
   });
 }
 
@@ -4434,75 +4403,6 @@ function updateLocalStorage() {
 
 /***/ }),
 
-/***/ "./src/ui/addProjectDisplay.js":
-/*!*************************************!*\
-  !*** ./src/ui/addProjectDisplay.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addProjectDisplay)
-/* harmony export */ });
-/* harmony import */ var _addTaskUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTaskUI */ "./src/ui/addTaskUI.js");
-/* harmony import */ var _editProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editProjectUI */ "./src/ui/editProjectUI.js");
-
-
-
-function addProjectDisplay(project) {
-  const projectAddButton = document.getElementById('project-add-button');
-
-  const projectContainer = document.createElement('div');
-  const projectInfo = document.createElement('div');
-  const projectNameDisplay = document.createElement('p');
-  const projectEditButton = document.createElement('button');
-  const projectMenu = document.createElement('div');
-  const projectDeleteButton = document.createElement('li');
-  const projectTasks = document.createElement('ul');
-  const projectTaskAddButton = document.createElement('button');
-
-  projectContainer.setAttribute('data-id', project.id);
-  projectInfo.setAttribute('data-id', project.id);
-  projectNameDisplay.setAttribute('data-id', project.id);
-  projectEditButton.setAttribute('data-id', project.id);
-  projectMenu.setAttribute('data-id', project.id);
-  projectDeleteButton.setAttribute('data-id', project.id);
-  projectTasks.setAttribute('data-id', project.id);
-  projectTaskAddButton.setAttribute('data-id', project.id);
-
-  projectContainer.className =
-    'w-full auto-rows-min bg-slate-200 project-container';
-  projectInfo.className = 'flex gap-5 project-info';
-  projectNameDisplay.className = 'project-name';
-  projectEditButton.className = 'bg-slate-300 project-edit-button';
-  projectMenu.className = 'absolute hidden min-w-max bg-slate-300 project-menu';
-  projectDeleteButton.className = 'bg-red-300 project-delete-button';
-  projectTasks.className = 'project-tasks';
-  projectTaskAddButton.className = 'bg-slate-300 project-task-add-button';
-
-  projectNameDisplay.textContent = project.name;
-  projectEditButton.textContent = 'Edit Project';
-  projectDeleteButton.textContent = 'Delete Project';
-  projectTaskAddButton.textContent = '+ Add Task';
-
-  projectEditButton.addEventListener('click', (e) => {
-    (0,_editProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
-  });
-
-  projectTaskAddButton.addEventListener('click', (e) => {
-    (0,_addTaskUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
-  });
-
-  projectInfo.append(projectNameDisplay, projectEditButton);
-  projectContainer.append(projectInfo, projectTasks, projectTaskAddButton);
-
-  projectAddButton.insertAdjacentElement('beforebegin', projectContainer);
-}
-
-
-/***/ }),
-
 /***/ "./src/ui/addProjectUI.js":
 /*!********************************!*\
   !*** ./src/ui/addProjectUI.js ***!
@@ -4524,27 +4424,78 @@ function addProjectUI() {
 
 /***/ }),
 
-/***/ "./src/ui/addTaskDisplay.js":
-/*!**********************************!*\
-  !*** ./src/ui/addTaskDisplay.js ***!
-  \**********************************/
+/***/ "./src/ui/renderMainProjects.js":
+/*!**************************************!*\
+  !*** ./src/ui/renderMainProjects.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addTaskDisplay)
+/* harmony export */   "default": () => (/* binding */ renderMainProjects)
 /* harmony export */ });
-/* harmony import */ var _editTaskUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editTaskUI */ "./src/ui/editTaskUI.js");
-/* harmony import */ var _helpers_formatDates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/formatDates */ "./src/helpers/formatDates.js");
-/* harmony import */ var _helpers_priorityColor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/priorityColor */ "./src/helpers/priorityColor.js");
-/* harmony import */ var _helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/dueDateCheck */ "./src/helpers/dueDateCheck.js");
+/* harmony import */ var _renderTaskEditUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
+
+
+function renderMainProjects(project) {
+  const taskContainer = document.getElementById('task-container');
+
+  const projectContainer = document.createElement('div');
+  const projectInfo = document.createElement('div');
+  const projectNameDisplay = document.createElement('p');
+  const projectTasks = document.createElement('ul');
+  const projectTaskAddButton = document.createElement('button');
+
+  projectContainer.setAttribute('data-id', project.id);
+  projectInfo.setAttribute('data-id', project.id);
+  projectNameDisplay.setAttribute('data-id', project.id);
+  projectTasks.setAttribute('data-id', project.id);
+  projectTaskAddButton.setAttribute('data-id', project.id);
+
+  projectContainer.className = 'w-full auto-rows-min project-container';
+  projectInfo.className = 'flex gap-5 project-info';
+  projectNameDisplay.className = 'w-full bg-slate-200 project-name';
+  projectTasks.className = 'project-tasks';
+  projectTaskAddButton.className = 'bg-slate-300 project-task-add-button';
+
+  projectNameDisplay.textContent = project.name;
+  projectTaskAddButton.textContent = '+ Add Task';
+
+  projectTaskAddButton.addEventListener('click', (e) => {
+    (0,_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  projectInfo.append(projectNameDisplay);
+  projectContainer.append(projectInfo, projectTasks, projectTaskAddButton);
+
+  taskContainer.append(projectContainer);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/renderMainTasks.js":
+/*!***********************************!*\
+  !*** ./src/ui/renderMainTasks.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderMainTasks)
+/* harmony export */ });
+/* harmony import */ var _helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/formatDates */ "./src/helpers/formatDates.js");
+/* harmony import */ var _helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/priorityColor */ "./src/helpers/priorityColor.js");
+/* harmony import */ var _helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/dueDateCheck */ "./src/helpers/dueDateCheck.js");
+/* harmony import */ var _renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
 
 
 
 
 
-function addTaskDisplay(project, task) {
+function renderMainTasks(project, task) {
   const tasks = document.querySelectorAll(
     `.project-tasks[data-id='${project.id}']`
   );
@@ -4561,33 +4512,33 @@ function addTaskDisplay(project, task) {
   taskPriority.setAttribute('data-id', task.id);
   taskEditButton.setAttribute('data-id', task.id);
 
-  taskInfo.className = 'flex items-center gap-5 task';
+  taskInfo.className = 'flex items-center justify-between gap-5 text-sm task';
   taskTitle.className = 'task-title';
   taskDueDate.className = 'task-due-date';
   taskPriority.className = 'task-priority';
-  taskEditButton.className = 'task-edit-button bg-slate-300';
+  taskEditButton.className = 'task-edit-button w-max bg-slate-300';
 
   taskTitle.textContent = task.title;
-  taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_1__["default"])(task.dueDate, 'relativeWords');
+  taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(task.dueDate, 'relativeWords');
   taskPriority.textContent = task.priority;
   taskEditButton.textContent = 'Edit Task';
-  (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_2__["default"])(task.priority, taskPriority);
-  (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(taskDueDate);
+  (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(task.priority, taskPriority);
+  (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate);
 
   const mouseLeft = () => {
-    taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_1__["default"])(task.dueDate, 'relativeWords');
+    taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(task.dueDate, 'relativeWords');
     taskDueDate.removeEventListener('mouseleave', mouseLeft);
   };
 
   taskEditButton.addEventListener('click', (e) => {
-    (0,_editTaskUI__WEBPACK_IMPORTED_MODULE_0__["default"])(
+    (0,_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__["default"])(
       parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
       parseInt(e.target.getAttribute('data-id'), 10)
     );
   });
 
   taskDueDate.addEventListener('mouseenter', () => {
-    taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_1__["default"])(task.dueDate);
+    taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(task.dueDate);
     taskDueDate.addEventListener('mouseleave', mouseLeft);
   });
 
@@ -4598,75 +4549,28 @@ function addTaskDisplay(project, task) {
 
 /***/ }),
 
-/***/ "./src/ui/addTaskUI.js":
-/*!*****************************!*\
-  !*** ./src/ui/addTaskUI.js ***!
-  \*****************************/
+/***/ "./src/ui/renderProjectEditUI.js":
+/*!***************************************!*\
+  !*** ./src/ui/renderProjectEditUI.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addTaskUI)
-/* harmony export */ });
-/* harmony import */ var _core_addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/addTask */ "./src/core/addTask.js");
-
-
-function addTaskUI(projectId) {
-  (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'New Task', '', 'Low');
-}
-
-
-/***/ }),
-
-/***/ "./src/ui/editProjectDisplay.js":
-/*!**************************************!*\
-  !*** ./src/ui/editProjectDisplay.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ editProjectDisplay)
-/* harmony export */ });
-function editProjectDisplay(name, projectId) {
-  const projectName = document.querySelectorAll(
-    `.project-name[data-id='${projectId}']`
-  );
-
-  projectName[0].textContent = name;
-}
-
-
-/***/ }),
-
-/***/ "./src/ui/editProjectUI.js":
-/*!*********************************!*\
-  !*** ./src/ui/editProjectUI.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ editProjectUI)
+/* harmony export */   "default": () => (/* binding */ renderProjectEditUI)
 /* harmony export */ });
 /* harmony import */ var _core_editProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/editProject */ "./src/core/editProject.js");
 /* harmony import */ var _core_deleteProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/deleteProject */ "./src/core/deleteProject.js");
 
 
 
-function editProjectUI(projectId) {
-  const projectContainer = document.querySelectorAll(
-    `.project-container[data-id='${projectId}']`
+function renderProjectEditUI(projectId) {
+  const sideNavProject = document.querySelectorAll(
+    `.side-nav-project[data-id='${projectId}']`
   );
-  const projectInfo = document.querySelectorAll(
-    `.project-info[data-id='${projectId}']`
-  );
-
-  const projectName = document.querySelectorAll(
-    `.project-name[data-id='${projectId}']`
+  const sideNavProjectName = document.querySelectorAll(
+    `.side-nav-project-name[data-id='${projectId}']`
   );
 
   const projectEditPanel = document.createElement('div');
@@ -4674,88 +4578,116 @@ function editProjectUI(projectId) {
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = 'flex';
+  projectEditPanel.className = '';
+  editName.className = 'max-h-6';
   confirmProjectButton.className = 'bg-slate-300';
   deleteProjectButton.className = 'bg-red-300';
 
   editName.type = 'text';
 
-  editName.value = projectName[0].textContent;
+  editName.value = sideNavProjectName[0].textContent;
 
-  confirmProjectButton.textContent = 'Confirm Edit';
-  deleteProjectButton.textContent = 'Delete Project';
+  confirmProjectButton.textContent = 'Confirm';
+  deleteProjectButton.textContent = 'Delete';
 
   confirmProjectButton.addEventListener('click', (e2) => {
     (0,_core_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, editName.value);
     e2.target.parentNode.remove();
-    projectInfo[0].classList.remove('hidden');
+    sideNavProject[0].classList.remove('hidden');
   });
 
-  deleteProjectButton.addEventListener('click', () => {
+  deleteProjectButton.addEventListener('click', (e3) => {
     (0,_core_deleteProject__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId);
-    projectContainer[0].remove();
+    e3.target.parentNode.remove();
+    sideNavProject[0].remove();
   });
 
   projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
 
-  projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
-  projectInfo[0].classList.add('hidden');
+  sideNavProject[0].insertAdjacentElement('afterend', projectEditPanel);
+  sideNavProject[0].classList.add('hidden');
   editName.focus();
 }
 
 
 /***/ }),
 
-/***/ "./src/ui/editTaskDisplay.js":
-/*!***********************************!*\
-  !*** ./src/ui/editTaskDisplay.js ***!
-  \***********************************/
+/***/ "./src/ui/renderProjectUpdate.js":
+/*!***************************************!*\
+  !*** ./src/ui/renderProjectUpdate.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ editTaskDisplay)
+/* harmony export */   "default": () => (/* binding */ renderProjectUpdate)
 /* harmony export */ });
-/* harmony import */ var _helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/formatDates */ "./src/helpers/formatDates.js");
-/* harmony import */ var _helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/priorityColor */ "./src/helpers/priorityColor.js");
-/* harmony import */ var _helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/dueDateCheck */ "./src/helpers/dueDateCheck.js");
-
-
-
-
-function editTaskDisplay(title, dueDate, priority, taskId) {
-  const taskTitle = document.querySelectorAll(
-    `.task-title[data-id='${taskId}']`
-  );
-  const taskDueDate = document.querySelectorAll(
-    `.task-due-date[data-id='${taskId}']`
-  );
-  const taskPriority = document.querySelectorAll(
-    `.task-priority[data-id='${taskId}']`
+function renderProjectUpdate(name, projectId) {
+  const sideNavProjectName = document.querySelectorAll(
+    `.side-nav-project-name[data-id='${projectId}']`
   );
 
-  taskTitle[0].textContent = title;
-  taskPriority[0].textContent = priority;
-  taskDueDate[0].textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(dueDate, 'relativeWords');
-  taskDueDate[0].setAttribute('data-date', dueDate);
-  (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(priority, taskPriority[0]);
-  (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate[0]);
+  sideNavProjectName[0].textContent = name;
 }
 
 
 /***/ }),
 
-/***/ "./src/ui/editTaskUI.js":
-/*!******************************!*\
-  !*** ./src/ui/editTaskUI.js ***!
-  \******************************/
+/***/ "./src/ui/renderSideNavProjects.js":
+/*!*****************************************!*\
+  !*** ./src/ui/renderSideNavProjects.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ editTaskUI)
+/* harmony export */   "default": () => (/* binding */ renderSideNavProjects)
+/* harmony export */ });
+/* harmony import */ var _renderProjectEditUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderProjectEditUI */ "./src/ui/renderProjectEditUI.js");
+
+
+function renderSideNavProjects(project) {
+  const sideNavProjects = document.getElementById('side-nav-projects');
+
+  const sideNavProject = document.createElement('side-nav-project');
+  const sideNavProjectName = document.createElement('p');
+  const projectEditButton = document.createElement('button');
+
+  sideNavProject.setAttribute('data-id', project.id);
+  sideNavProjectName.setAttribute('data-id', project.id);
+  projectEditButton.setAttribute('data-id', project.id);
+
+  sideNavProject.className =
+    'flex justify-between w-full bg-slate-300 side-nav-project';
+  sideNavProjectName.className = 'side-nav-project-name';
+  projectEditButton.className = 'bg-slate-300 w-max project-edit-button';
+
+  sideNavProjectName.textContent = project.name;
+  projectEditButton.textContent = 'Edit Project';
+
+  projectEditButton.addEventListener('click', (e) => {
+    (0,_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  sideNavProject.append(sideNavProjectName, projectEditButton);
+  sideNavProjects.append(sideNavProject);
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/renderTaskEditUI.js":
+/*!************************************!*\
+  !*** ./src/ui/renderTaskEditUI.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderTaskEditUI)
 /* harmony export */ });
 /* harmony import */ var _core_editTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/editTask */ "./src/core/editTask.js");
 /* harmony import */ var _core_deleteTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/deleteTask */ "./src/core/deleteTask.js");
@@ -4764,7 +4696,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function editTaskUI(projectId, taskId) {
+function renderTaskEditUI(projectId, taskId) {
   const task = document.querySelectorAll(`.task[data-id='${taskId}'`);
   const taskTitle = document.querySelectorAll(
     `.task-title[data-id='${taskId}'`
@@ -4786,7 +4718,8 @@ function editTaskUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex';
+  editTaskPanel.className = 'flex items-center';
+  editTitle.className = 'max-h-5';
   confirmTaskButton.className = 'bg-slate-300';
   deleteTaskButton.className = 'bg-red-300';
   editPriority.className = 'flex items-center';
@@ -4847,6 +4780,46 @@ function editTaskUI(projectId, taskId) {
 
   task[0].classList.add('hidden');
   editTitle.focus();
+}
+
+
+/***/ }),
+
+/***/ "./src/ui/renderTaskUpdate.js":
+/*!************************************!*\
+  !*** ./src/ui/renderTaskUpdate.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderTaskUpdate)
+/* harmony export */ });
+/* harmony import */ var _helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/formatDates */ "./src/helpers/formatDates.js");
+/* harmony import */ var _helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/priorityColor */ "./src/helpers/priorityColor.js");
+/* harmony import */ var _helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/dueDateCheck */ "./src/helpers/dueDateCheck.js");
+
+
+
+
+function renderTaskUpdate(title, dueDate, priority, taskId) {
+  const taskTitle = document.querySelectorAll(
+    `.task-title[data-id='${taskId}']`
+  );
+  const taskDueDate = document.querySelectorAll(
+    `.task-due-date[data-id='${taskId}']`
+  );
+  const taskPriority = document.querySelectorAll(
+    `.task-priority[data-id='${taskId}']`
+  );
+
+  taskTitle[0].textContent = title;
+  taskPriority[0].textContent = priority;
+  taskDueDate[0].textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(dueDate, 'relativeWords');
+  taskDueDate[0].setAttribute('data-date', dueDate);
+  (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(priority, taskPriority[0]);
+  (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate[0]);
 }
 
 
@@ -4933,23 +4906,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
 /* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
 /* harmony import */ var _helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/renderStoredProjects */ "./src/helpers/renderStoredProjects.js");
+/* harmony import */ var _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/renderOverview */ "./src/helpers/renderOverview.js");
 
 
 
 
 
 
-const main = document.getElementById('main');
+
+const sideNavProjects = document.getElementById('side-nav-projects');
 
 const projectAddButton = document.createElement('button');
 projectAddButton.id = 'project-add-button';
-projectAddButton.className = 'bg-slate-300';
+projectAddButton.className = 'w-1/2 bg-slate-300';
 projectAddButton.textContent = '+ Add Project';
 projectAddButton.addEventListener('click', _ui_addProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
-main.append(projectAddButton);
+const overviewButton = document.getElementById('overview-button');
+overviewButton.addEventListener('click', _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
-localStorage.clear();
+const sideNavProjectsButton = document.getElementById(
+  'side-nav-projects-button'
+);
+sideNavProjectsButton.addEventListener('click', () => {
+  sideNavProjects.classList.toggle('hidden');
+});
+
+sideNavProjects.append(projectAddButton);
+
 (0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__["default"])();
