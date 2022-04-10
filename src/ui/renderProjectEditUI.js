@@ -8,6 +8,9 @@ export default function renderProjectEditUI(projectId) {
   const sideNavProjectName = document.querySelectorAll(
     `.side-nav-project-name[data-id='${projectId}']`
   );
+  const mainViewProject = document.querySelectorAll(
+    `.project-container[data-id='${projectId}']`
+  );
 
   const projectEditPanel = document.createElement('div');
   const editName = document.createElement('input');
@@ -36,6 +39,7 @@ export default function renderProjectEditUI(projectId) {
     deleteProject(projectId);
     e3.target.parentNode.remove();
     sideNavProject[0].remove();
+    mainViewProject[0].remove();
   });
 
   projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);

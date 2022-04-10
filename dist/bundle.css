@@ -427,14 +427,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.absolute {
-  position: absolute;
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+.col-start-1 {
+  grid-column-start: 1;
+}
+.col-start-4 {
+  grid-column-start: 4;
+}
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+.row-start-1 {
+  grid-row-start: 1;
 }
 .mt-auto {
   margin-top: auto;
 }
 .flex {
   display: flex;
+}
+.grid {
+  display: grid;
 }
 .hidden {
   display: none;
@@ -448,20 +466,35 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-full {
   height: 100%;
 }
+.max-h-6 {
+  max-height: 1.5rem;
+}
+.max-h-5 {
+  max-height: 1.25rem;
+}
 .w-screen {
   width: 100vw;
 }
 .w-full {
   width: 100%;
 }
-.min-w-max {
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
+.w-1\/2 {
+  width: 50%;
+}
+.w-max {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.auto-rows-fr {
+  grid-auto-rows: minmax(0, 1fr);
 }
 .auto-rows-min {
   grid-auto-rows: -webkit-min-content;
   grid-auto-rows: min-content;
+}
+.grid-cols-8 {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -471,6 +504,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .gap-5 {
   gap: 1.25rem;
@@ -483,17 +519,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
 .bg-red-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .text-white {
   --tw-text-opacity: 1;

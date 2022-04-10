@@ -1,4 +1,4 @@
-import renderTaskEditUI from './renderTaskEditUI';
+import addTaskUI from './addTaskUI';
 
 export default function renderMainProjects(project) {
   const taskContainer = document.getElementById('task-container');
@@ -25,7 +25,7 @@ export default function renderMainProjects(project) {
   projectTaskAddButton.textContent = '+ Add Task';
 
   projectTaskAddButton.addEventListener('click', (e) => {
-    renderTaskEditUI(parseInt(e.target.getAttribute('data-id'), 10));
+    addTaskUI(parseInt(e.target.getAttribute('data-id'), 10));
   });
 
   projectInfo.append(projectNameDisplay);

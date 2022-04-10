@@ -1,9 +1,9 @@
 import Task from '../factories/Task';
 import mostRecentTask from '../helpers/mostRecentTask';
 import findProject from '../helpers/findProject';
-import addTaskDisplay from '../ui/renderMainTasks';
 import renderTaskEditUI from '../ui/renderTaskEditUI';
 import updateLocalStorage from '../helpers/updateLocalStorage';
+import renderMainTasks from '../ui/renderMainTasks';
 
 export default function addTask(projectId, title, dueDate, priority) {
   const project = findProject(projectId);
@@ -12,7 +12,7 @@ export default function addTask(projectId, title, dueDate, priority) {
 
   const task = mostRecentTask(project);
 
-  addTaskDisplay(project, task);
+  renderMainTasks(project, task);
   renderTaskEditUI(project.id, task.id);
 
   updateLocalStorage();
