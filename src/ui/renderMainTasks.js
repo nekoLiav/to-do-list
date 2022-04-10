@@ -20,16 +20,18 @@ export default function renderMainTasks(project, task) {
   taskPriority.setAttribute('data-id', task.id);
   taskEditButton.setAttribute('data-id', task.id);
 
-  taskInfo.className = 'flex items-center justify-between text-sm task';
-  taskTitle.className = 'task-title';
-  taskDueDate.className = 'task-due-date';
-  taskPriority.className = 'task-priority';
-  taskEditButton.className = 'p-1 rounded task-edit-button w-max bg-slate-300';
+  taskInfo.className =
+    'grid items-center text-sm rounded auto-cols-fr bg-slate-200 task';
+  taskTitle.className = 'col-span-3 col-start-1 ml-1 task-title';
+  taskDueDate.className = 'col-start-4 text-xs task-due-date place-self-center';
+  taskPriority.className = 'col-start-5 task-priority place-self-center';
+  taskEditButton.className =
+    'col-start-6 p-1 rounded place-self-end task-edit-button w-max bg-slate-200';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
   taskPriority.textContent = task.priority;
-  taskEditButton.textContent = 'Edit Task';
+  taskEditButton.textContent = 'Edit';
   priorityColor(task.priority, taskPriority);
   dueDateCheck(taskDueDate);
 

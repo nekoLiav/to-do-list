@@ -6,25 +6,25 @@
   <script src="https://kit.fontawesome.com/1b4e6ab51b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="flex flex-col w-full h-full bg-slate-100">
+<body class="flex flex-col w-full h-full bg-slate-200">
   <header id="header" class="flex items-center justify-center w-full h-20 bg-slate-700">
     <p id="header-text" class="text-xl font-bold text-white">Minimal To-Do</p>
   </header>
-  <div id="main" class="flex h-full gap-5 overflow-clip">
-    <div id="side-nav" class="flex flex-col w-64 min-w-max bg-slate-200">
+  <div id="main" class="flex h-full gap-5 p-5 overflow-clip">
+    <div id="side-nav" class="flex flex-col w-64 min-w-max bg-slate-300">
       <div id="side-nav-buttons" class="flex flex-col items-center gap-5 mt-5">
-        <button id="overview-button" class="w-1/2 p-1 rounded bg-slate-300">Overview</button>
-        <button id="today-button" class="w-1/2 p-1 rounded bg-slate-300">Today</button>
+        <button id="overview-button" class="w-1/2 p-1 rounded bg-slate-200">Overview</button>
+        <button id="today-button" class="w-1/2 p-1 rounded bg-slate-200">Today</button>
       </div>
       <div id="side-nav-projects-container" class="flex flex-col items-center mt-5">
-        <button id="side-nav-projects-button" class="w-1/2 p-1 rounded br-5 bg-slate-300">Projects</button>
-        <button id="project-add-button" class="hidden w-1/2 p-1 mt-1 text-sm rounded bg-slate-300">+ Add Task</button>
+        <button id="side-nav-projects-button" class="w-1/2 p-1 rounded br-5 bg-slate-200">Projects</button>
+        <button id="project-add-button" class="hidden w-1/2 p-1 mt-5 text-sm rounded bg-slate-200">+ Add Task</button>
         <div id="side-nav-projects" class="flex flex-col items-center hidden w-full gap-1 p-1 overflow-y-auto text-sm">
         </div>
       </div>
     </div>
-    <div id="main-content" class="w-1/2 bg-slate-200">
-      <div id="task-container" class="flex flex-col w-full h-full gap-5 overflow-y-auto bg-slate-200">
+    <div id="main-content" class="w-96 bg-slate-200">
+      <div id="task-container" class="flex flex-col w-full h-full gap-5 p-1 overflow-y-auto bg-slate-300">
       </div>
     </div>
   </div>

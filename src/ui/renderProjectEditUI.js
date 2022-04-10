@@ -19,8 +19,8 @@ export default function renderProjectEditUI(projectId) {
 
   projectEditPanel.className = 'flex flex-col items-center';
   editName.className = 'max-h-6';
-  confirmProjectButton.className = 'p-1 rounded bg-slate-300 w-max';
-  deleteProjectButton.className = 'p-1 bg-red-300 rounded w-max';
+  confirmProjectButton.className = 'p-1 rounded bg-slate-200 w-max';
+  deleteProjectButton.className = 'p-1 bg-red-200 rounded w-max';
 
   editName.type = 'text';
 

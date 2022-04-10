@@ -12,9 +12,9 @@ export default function renderSideNavProjects(project) {
   projectEditButton.setAttribute('data-id', project.id);
 
   sideNavProject.className =
-    'flex justify-between w-full p-1 rounded bg-slate-300 side-nav-project';
+    'flex justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
-  projectEditButton.className = 'bg-slate-300 w-max project-edit-button';
+  projectEditButton.className = 'bg-slate-200 w-max project-edit-button';
 
   sideNavProjectName.textContent = project.name;
   projectEditButton.textContent = 'Edit';
