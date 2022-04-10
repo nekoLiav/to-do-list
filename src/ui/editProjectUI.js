@@ -2,15 +2,11 @@ import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
 
 export default function editProjectUI(projectId) {
-  const projectContainer = document.querySelectorAll(
-    `.project-container[data-id='${projectId}']`
+  const sideNavProject = document.querySelectorAll(
+    `.side-nav-project[data-id='${projectId}']`
   );
-  const projectInfo = document.querySelectorAll(
-    `.project-info[data-id='${projectId}']`
-  );
-
-  const projectName = document.querySelectorAll(
-    `.project-name[data-id='${projectId}']`
+  const sideNavProjectName = document.querySelectorAll(
+    `.side-nav-project-name[data-id='${projectId}']`
   );
 
   const projectEditPanel = document.createElement('div');
@@ -18,32 +14,33 @@ export default function editProjectUI(projectId) {
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = 'flex';
+  projectEditPanel.className = '';
   editName.className = 'max-h-6';
   confirmProjectButton.className = 'bg-slate-300';
   deleteProjectButton.className = 'bg-red-300';
 
   editName.type = 'text';
 
-  editName.value = projectName[0].textContent;
+  editName.value = sideNavProjectName[0].textContent;
 
-  confirmProjectButton.textContent = 'Confirm Edit';
-  deleteProjectButton.textContent = 'Delete Project';
+  confirmProjectButton.textContent = 'Confirm';
+  deleteProjectButton.textContent = 'Delete';
 
   confirmProjectButton.addEventListener('click', (e2) => {
     editProject(projectId, editName.value);
     e2.target.parentNode.remove();
-    projectInfo[0].classList.remove('hidden');
+    sideNavProject[0].classList.remove('hidden');
   });
 
-  deleteProjectButton.addEventListener('click', () => {
+  deleteProjectButton.addEventListener('click', (e3) => {
     deleteProject(projectId);
-    projectContainer[0].remove();
+    e3.target.parentNode.remove();
+    sideNavProject[0].remove();
   });
 
   projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
 
-  projectInfo[0].insertAdjacentElement('afterend', projectEditPanel);
-  projectInfo[0].classList.add('hidden');
+  sideNavProject[0].insertAdjacentElement('afterend', projectEditPanel);
+  sideNavProject[0].classList.add('hidden');
   editName.focus();
 }
