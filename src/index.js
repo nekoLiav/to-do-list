@@ -5,6 +5,7 @@ import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './ui/renderSideNavInfo';
+import renderToday from './helpers/renderToday';
 
 const sideNavProjects = document.getElementById('side-nav-projects');
 
@@ -16,6 +17,9 @@ projectAddButton.addEventListener('click', addProjectUI);
 
 const overviewButton = document.getElementById('overview-button');
 overviewButton.addEventListener('click', renderOverview);
+
+const todayButton = document.getElementById('today-button');
+todayButton.addEventListener('click', renderToday);
 
 const sideNavProjectsButton = document.getElementById(
   'side-nav-projects-button'
