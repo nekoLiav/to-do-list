@@ -3629,20 +3629,40 @@ function toDate(argument) {
 
 /***/ }),
 
-/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/tailwind.css":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/tailwind.css ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/fontawesome.css":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/fontawesome.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
 
-/***/ "./src/tailwind.css":
-/*!**************************!*\
-  !*** ./src/tailwind.css ***!
-  \**************************/
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/solid.css":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/solid.css ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ (() => {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/tailwind.css":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/tailwind.css ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ (() => {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/assets/fontawesome/fontawesome.css":
+/*!************************************************!*\
+  !*** ./src/assets/fontawesome/fontawesome.css ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3650,19 +3670,137 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!../node_modules/postcss-loader/dist/cjs.js!./tailwind.css */ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/tailwind.css");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!../../../node_modules/postcss-loader/dist/cjs.js!./fontawesome.css */ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/fontawesome.css");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()((_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6___default()), options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6___default()) && (_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6___default().locals) ? (_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_fontawesome_css__WEBPACK_IMPORTED_MODULE_6___default().locals) : undefined);
+
+
+/***/ }),
+
+/***/ "./src/assets/fontawesome/solid.css":
+/*!******************************************!*\
+  !*** ./src/assets/fontawesome/solid.css ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!../../../node_modules/postcss-loader/dist/cjs.js!./solid.css */ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/fontawesome/solid.css");
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()((_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6___default()), options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6___default()) && (_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6___default().locals) ? (_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_solid_css__WEBPACK_IMPORTED_MODULE_6___default().locals) : undefined);
+
+
+/***/ }),
+
+/***/ "./src/assets/tailwind.css":
+/*!*********************************!*\
+  !*** ./src/assets/tailwind.css ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!../../node_modules/postcss-loader/dist/cjs.js!./tailwind.css */ "./node_modules/mini-css-extract-plugin/dist/loader.js??ruleSet[1].rules[0].use[1]!./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/postcss-loader/dist/cjs.js!./src/assets/tailwind.css");
 /* harmony import */ var _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_mini_css_extract_plugin_dist_loader_js_ruleSet_1_rules_0_use_1_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_0_use_2_node_modules_postcss_loader_dist_cjs_js_tailwind_css__WEBPACK_IMPORTED_MODULE_6__[__WEBPACK_IMPORT_KEY__]
@@ -4027,6 +4165,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
 /* harmony import */ var _ui_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ui/renderProjectEditUI */ "./src/ui/renderProjectEditUI.js");
 /* harmony import */ var _ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ui/renderSideNavProjects */ "./src/ui/renderSideNavProjects.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+
 
 
 
@@ -4041,6 +4181,7 @@ function addProject(projectName) {
 
   (0,_ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_5__["default"])(project);
   (0,_ui_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_4__["default"])(project.id);
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
@@ -4065,6 +4206,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
 /* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
 /* harmony import */ var _ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ui/renderMainTasks */ "./src/ui/renderMainTasks.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+
 
 
 
@@ -4081,8 +4224,47 @@ function addTask(projectId, title, dueDate, priority) {
 
   (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_5__["default"])(project, task);
   (0,_ui_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__["default"])(project.id, task.id);
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])();
+}
+
+
+/***/ }),
+
+/***/ "./src/core/completeTask.js":
+/*!**********************************!*\
+  !*** ./src/core/completeTask.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ completeTask)
+/* harmony export */ });
+/* harmony import */ var _helpers_findTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findTask */ "./src/helpers/findTask.js");
+/* harmony import */ var _editTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editTask */ "./src/core/editTask.js");
+
+
+
+function completeTask(projectId, taskId) {
+  const task = (0,_helpers_findTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, taskId);
+
+  if (task.complete === false) {
+    task.complete = true;
+  } else if (task.complete === true) {
+    task.complete = false;
+  }
+
+  (0,_editTask__WEBPACK_IMPORTED_MODULE_1__["default"])(
+    projectId,
+    taskId,
+    task.title,
+    task.dueDate,
+    task.priority,
+    task.complete
+  );
 }
 
 
@@ -4100,17 +4282,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ deleteProject)
 /* harmony export */ });
 /* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
-/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globals */ "./src/core/globals.js");
+
 
 
 
 
 function deleteProject(projectId) {
   const project = (0,_helpers_findProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId);
-  _globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.splice(_globals__WEBPACK_IMPORTED_MODULE_2__.toDoList.indexOf(project), 1);
+  _globals__WEBPACK_IMPORTED_MODULE_3__.toDoList.splice(_globals__WEBPACK_IMPORTED_MODULE_3__.toDoList.indexOf(project), 1);
 
-  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 
@@ -4129,7 +4315,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
 /* harmony import */ var _helpers_findTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/findTask */ "./src/helpers/findTask.js");
-/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+
 
 
 
@@ -4140,7 +4328,9 @@ function deleteTask(projectId, taskId) {
 
   project.tasks.splice(project.tasks.indexOf(task), 1);
 
-  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 
@@ -4160,6 +4350,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
 /* harmony import */ var _ui_renderProjectUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderProjectUpdate */ "./src/ui/renderProjectUpdate.js");
 /* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+
 
 
 
@@ -4170,6 +4362,7 @@ function editProject(projectId, name) {
   project.name = name;
 
   (0,_ui_renderProjectUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(name, projectId);
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
@@ -4191,18 +4384,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_findTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/findTask */ "./src/helpers/findTask.js");
 /* harmony import */ var _ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderTaskUpdate */ "./src/ui/renderTaskUpdate.js");
 /* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
 
 
 
 
-function editTask(projectId, taskId, title, dueDate, priority) {
+
+function editTask(
+  projectId,
+  taskId,
+  title,
+  dueDate,
+  priority,
+  complete
+) {
   const task = (0,_helpers_findTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, taskId);
 
   task.title = title;
   task.dueDate = dueDate;
   task.priority = priority;
+  task.complete = complete;
 
-  (0,_ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(title, dueDate, priority, taskId);
+  (0,_ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(title, dueDate, priority, complete, taskId);
+  (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_3__["default"])();
 
   (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
@@ -4261,11 +4465,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Task)
 /* harmony export */ });
 class Task {
-  constructor(title, dueDate, priority, checked) {
+  constructor(title, dueDate, priority, complete) {
     this.title = title;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.checked = checked;
+    this.complete = complete;
     this.id = Date.now();
   }
 }
@@ -4296,6 +4500,36 @@ function clearView() {
 
 /***/ }),
 
+/***/ "./src/helpers/correctVerbiage.js":
+/*!****************************************!*\
+  !*** ./src/helpers/correctVerbiage.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ correctVerbiage)
+/* harmony export */ });
+function correctVerbiage(taskCounter, projectCounter) {
+  let taskWord;
+  let projectWord;
+  if (taskCounter === 1) {
+    taskWord = 'task';
+  } else {
+    taskWord = 'tasks';
+  }
+  if (projectCounter === 1) {
+    projectWord = 'project';
+  } else {
+    projectWord = 'projects';
+  }
+  return { taskWord, projectWord };
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/countOverviewTasks.js":
 /*!*******************************************!*\
   !*** ./src/helpers/countOverviewTasks.js ***!
@@ -4308,12 +4542,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ countOverviewTasks)
 /* harmony export */ });
 /* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _correctVerbiage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./correctVerbiage */ "./src/helpers/correctVerbiage.js");
+
 
 
 function countOverviewTasks() {
-  const overviewButton = document.getElementById('overview-button');
+  const overviewInfo = document.getElementById('overview-info');
 
   let taskCounter = 0;
+  const projectCounter = _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.length;
 
   _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
     project.tasks.forEach(() => {
@@ -4321,13 +4558,11 @@ function countOverviewTasks() {
     });
   });
 
-  const infoOverview = document.createElement('p');
-
-  infoOverview.className = 'text-sm';
-
-  infoOverview.textContent = `${taskCounter} tasks in ${_core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.length} project(s)`;
-
-  overviewButton.append(infoOverview);
+  overviewInfo.textContent = `${taskCounter} ${
+    (0,_correctVerbiage__WEBPACK_IMPORTED_MODULE_1__["default"])(taskCounter, projectCounter).taskWord
+  } in ${projectCounter} ${
+    (0,_correctVerbiage__WEBPACK_IMPORTED_MODULE_1__["default"])(taskCounter, projectCounter).projectWord
+  }`;
 }
 
 
@@ -4344,14 +4579,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ countTodayTasks)
 /* harmony export */ });
-/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
-/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isToday/index.js");
 /* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _correctVerbiage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./correctVerbiage */ "./src/helpers/correctVerbiage.js");
+
 
 
 
 function countTodayTasks() {
-  const todayButton = document.getElementById('today-button');
+  const todayInfo = document.getElementById('today-info');
 
   let todayTasksCounter = 0;
 
@@ -4359,7 +4596,7 @@ function countTodayTasks() {
 
   _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
     project.tasks.forEach((task) => {
-      if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(task.dueDate)) && (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(task.dueDate))) {
+      if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(task.dueDate)) && (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_3__["default"])(new Date(task.dueDate))) {
         todayProjectsArray.push(project.id);
         todayTasksCounter += 1;
       }
@@ -4372,13 +4609,11 @@ function countTodayTasks() {
 
   const todayProjectsCounter = uniqueProjects.length;
 
-  const quantityOfTasksToday = document.createElement('p');
-
-  quantityOfTasksToday.className = 'text-sm';
-
-  quantityOfTasksToday.textContent = `${todayTasksCounter} tasks in ${todayProjectsCounter} project(s)`;
-
-  todayButton.append(quantityOfTasksToday);
+  todayInfo.textContent = `${todayTasksCounter} ${
+    (0,_correctVerbiage__WEBPACK_IMPORTED_MODULE_1__["default"])(todayTasksCounter, todayProjectsCounter).taskWord
+  } in ${todayProjectsCounter} ${
+    (0,_correctVerbiage__WEBPACK_IMPORTED_MODULE_1__["default"])(todayTasksCounter, todayProjectsCounter).projectWord
+  }`;
 }
 
 
@@ -4404,10 +4639,10 @@ function createLocalStorage() {
           name: 'Default Project',
           tasks: [
             {
-              title: 'Default Title',
+              title: 'Default Task Title',
               dueDate: '',
               priority: 'Low',
-              checked: false,
+              complete: false,
               id: 420,
             },
           ],
@@ -4601,17 +4836,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function priorityColor(taskPriority, taskPriorityElement) {
   if (taskPriority === 'Low') {
-    taskPriorityElement.classList.remove('text-red-400');
-    taskPriorityElement.classList.remove('text-yellow-400');
-    taskPriorityElement.classList.add('text-green-400');
+    taskPriorityElement.classList.remove('text-red-500');
+    taskPriorityElement.classList.remove('text-yellow-500');
+    taskPriorityElement.classList.add('text-green-500');
   } else if (taskPriority === 'Medium') {
-    taskPriorityElement.classList.remove('text-red-400');
-    taskPriorityElement.classList.remove('text-green-400');
-    taskPriorityElement.classList.add('text-yellow-400');
+    taskPriorityElement.classList.remove('text-red-500');
+    taskPriorityElement.classList.remove('text-green-500');
+    taskPriorityElement.classList.add('text-yellow-500');
   } else if (taskPriority === 'High') {
-    taskPriorityElement.classList.remove('text-green-400');
-    taskPriorityElement.classList.remove('text-yellow-400');
-    taskPriorityElement.classList.add('text-red-400');
+    taskPriorityElement.classList.remove('text-green-500');
+    taskPriorityElement.classList.remove('text-yellow-500');
+    taskPriorityElement.classList.add('text-red-500');
   }
 }
 
@@ -4645,6 +4880,41 @@ function renderOverview() {
     project.tasks.forEach((task) => {
       (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_2__["default"])(project, task);
     });
+  });
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/renderProject.js":
+/*!**************************************!*\
+  !*** ./src/helpers/renderProject.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderProject)
+/* harmony export */ });
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ui/renderMainProjects */ "./src/ui/renderMainProjects.js");
+/* harmony import */ var _ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/renderMainTasks */ "./src/ui/renderMainTasks.js");
+/* harmony import */ var _clearView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./clearView */ "./src/helpers/clearView.js");
+
+
+
+
+
+function renderProject(projectId) {
+  (0,_clearView__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    if (project.id === projectId) {
+      (0,_ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
+      project.tasks.forEach((task) => {
+        (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_2__["default"])(project, task);
+      });
+    }
   });
 }
 
@@ -4823,13 +5093,13 @@ function renderMainProjects(project) {
 
   projectContainer.className = 'flex flex-col w-full gap-1 project-container';
   projectInfo.className = 'flex project-info';
-  projectNameDisplay.className = 'w-full p-1 font-bold rounded project-name';
+  projectNameDisplay.className =
+    'w-full p-1 ml-5 font-bold text-white rounded project-name';
   projectTasks.className = 'flex flex-col w-full gap-1 project-tasks';
   projectTaskAddButton.className =
-    'p-1 text-sm rounded bg-slate-200 project-task-add-button w-max';
+    'w-8 h-6 p-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200 project-task-add-button';
 
   projectNameDisplay.textContent = project.name;
-  projectTaskAddButton.textContent = '+ Add Task';
 
   projectTaskAddButton.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
@@ -4860,6 +5130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/priorityColor */ "./src/helpers/priorityColor.js");
 /* harmony import */ var _helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/dueDateCheck */ "./src/helpers/dueDateCheck.js");
 /* harmony import */ var _renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
+/* harmony import */ var _core_completeTask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/completeTask */ "./src/core/completeTask.js");
+
 
 
 
@@ -4871,29 +5143,47 @@ function renderMainTasks(project, task) {
   );
 
   const taskInfo = document.createElement('div');
+  const taskCompleteButton = document.createElement('button');
   const taskTitle = document.createElement('p');
   const taskDueDate = document.createElement('p');
   const taskPriority = document.createElement('p');
   const taskEditButton = document.createElement('button');
 
   taskInfo.setAttribute('data-id', task.id);
+  taskCompleteButton.setAttribute('data-id', task.id);
   taskTitle.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-id', task.id);
+  taskDueDate.setAttribute('data-date', task.dueDate);
   taskPriority.setAttribute('data-id', task.id);
+  taskPriority.setAttribute('data-priority', task.priority);
   taskEditButton.setAttribute('data-id', task.id);
 
   taskInfo.className =
-    'grid items-center text-sm rounded auto-cols-fr bg-slate-200 task';
-  taskTitle.className = 'col-span-3 col-start-1 ml-1 task-title';
-  taskDueDate.className = 'col-start-4 text-xs task-due-date place-self-center';
+    'flex items-center gap-5 p-1 text-sm rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task';
+  taskCompleteButton.className =
+    'hidden w-8 h-6 rounded text-slate-400 task-complete-button bg-slate-700 fa-solid fa-circle-check';
+  taskTitle.className = 'mr-auto task-title';
+  taskDueDate.className =
+    'flex items-center h-full text-xs task-due-date place-self-center';
   taskPriority.className =
-    'col-start-5 task-priority place-self-center fa-solid fa-circle';
+    'mr-1 task-priority place-self-center fa-solid fa-circle';
   taskEditButton.className =
-    'col-start-6 p-5 pointer-events-none task-edit-button fa-solid fa-pen-to-square';
+    'hidden w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
+
+  if (task.complete === true) {
+    taskTitle.classList.add('line-through');
+    taskTitle.classList.add('text-slate-500');
+    taskCompleteButton.classList.add('text-green-500');
+    taskCompleteButton.classList.remove('text-slate-400');
+  } else {
+    taskTitle.classList.remove('line-through');
+    taskTitle.classList.remove('text-slate-500');
+    taskCompleteButton.classList.remove('text-green-500');
+    taskCompleteButton.classList.add('text-slate-400');
+  }
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(task.dueDate, 'relativeWords');
-  taskEditButton.textContent = 'Edit';
   (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(task.priority, taskPriority);
   (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate);
 
@@ -4903,10 +5193,12 @@ function renderMainTasks(project, task) {
   };
 
   taskEditButton.addEventListener('click', (e) => {
-    (0,_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__["default"])(
-      parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
-      parseInt(e.target.getAttribute('data-id'), 10)
+    const projectId = parseInt(
+      e.target.parentNode.parentNode.getAttribute('data-id'),
+      10
     );
+    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    (0,_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__["default"])(projectId, taskId);
   });
 
   taskDueDate.addEventListener('mouseenter', () => {
@@ -4914,7 +5206,41 @@ function renderMainTasks(project, task) {
     taskDueDate.addEventListener('mouseleave', mouseLeft);
   });
 
-  taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);
+  taskInfo.addEventListener('click', (e) => {
+    const taskId = e.target.getAttribute('data-id');
+    document.querySelectorAll('.task-edit-button').forEach((button) => {
+      if (button.getAttribute('data-id') === taskId) {
+        button.classList.toggle('hidden');
+      } else {
+        button.classList.add('hidden');
+      }
+    });
+    document.querySelectorAll('.task-complete-button').forEach((button) => {
+      if (button.getAttribute('data-id') === taskId) {
+        button.classList.toggle('hidden');
+      } else {
+        button.classList.add('hidden');
+      }
+    });
+  });
+
+  taskCompleteButton.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+    const projectId = parseInt(
+      e.target.parentNode.parentNode.getAttribute('data-id'),
+      10
+    );
+    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    (0,_core_completeTask__WEBPACK_IMPORTED_MODULE_4__["default"])(projectId, taskId);
+  });
+
+  taskInfo.append(
+    taskCompleteButton,
+    taskTitle,
+    taskDueDate,
+    taskPriority,
+    taskEditButton
+  );
   tasks[0].append(taskInfo);
 }
 
@@ -4950,35 +5276,40 @@ function renderProjectEditUI(projectId) {
 
   const projectEditPanel = document.createElement('div');
   const editName = document.createElement('input');
+  const actionButtons = document.createElement('div');
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = 'flex flex-col items-center';
-  editName.className = 'max-h-6';
-  confirmProjectButton.className = 'p-1 rounded bg-slate-200 w-max';
-  deleteProjectButton.className = 'p-1 bg-red-200 rounded w-max';
+  projectEditPanel.className =
+    'flex items-center w-full p-1 rounded bg-slate-200';
+  editName.className = 'text-sm rounded max-h-5';
+  actionButtons.className = 'flex w-full gap-1';
+  confirmProjectButton.className =
+    'w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 fa-circle-check fa-solid bg-slate-700';
+  deleteProjectButton.className =
+    'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-trash-can fa-solid';
 
   editName.type = 'text';
 
   editName.value = sideNavProjectName[0].textContent;
 
-  confirmProjectButton.textContent = 'Confirm';
-  deleteProjectButton.textContent = 'Delete';
-
   confirmProjectButton.addEventListener('click', (e2) => {
     (0,_core_editProject__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, editName.value);
-    e2.target.parentNode.remove();
+    e2.target.parentNode.parentNode.remove();
     sideNavProject[0].classList.remove('hidden');
   });
 
   deleteProjectButton.addEventListener('click', (e3) => {
     (0,_core_deleteProject__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId);
-    e3.target.parentNode.remove();
+    e3.target.parentNode.parentNode.remove();
     sideNavProject[0].remove();
-    mainViewProject[0].remove();
+    if (mainViewProject[0] !== undefined) {
+      mainViewProject[0].remove();
+    }
   });
 
-  projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
+  actionButtons.append(confirmProjectButton, deleteProjectButton);
+  projectEditPanel.append(editName, actionButtons);
 
   sideNavProject[0].insertAdjacentElement('afterend', projectEditPanel);
   sideNavProject[0].classList.add('hidden');
@@ -5027,7 +5358,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ renderSideNavProjects)
 /* harmony export */ });
-/* harmony import */ var _renderProjectEditUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderProjectEditUI */ "./src/ui/renderProjectEditUI.js");
+/* harmony import */ var _helpers_renderProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/renderProject */ "./src/helpers/renderProject.js");
+/* harmony import */ var _renderProjectEditUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderProjectEditUI */ "./src/ui/renderProjectEditUI.js");
+
 
 
 function renderSideNavProjects(project) {
@@ -5042,15 +5375,31 @@ function renderSideNavProjects(project) {
   projectEditButton.setAttribute('data-id', project.id);
 
   sideNavProject.className =
-    'flex justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
+    'flex items-center justify-between w-full p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
-  projectEditButton.className = 'bg-slate-200 w-max project-edit-button';
+  projectEditButton.className =
+    'hidden w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
 
   sideNavProjectName.textContent = project.name;
-  projectEditButton.textContent = 'Edit';
 
   projectEditButton.addEventListener('click', (e) => {
-    (0,_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
+    (0,_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_1__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  sideNavProject.addEventListener('click', (e) => {
+    const projectId = e.target.getAttribute('data-id');
+    document.querySelectorAll('.project-edit-button').forEach((button) => {
+      if (button.getAttribute('data-id') === projectId) {
+        button.classList.toggle('hidden');
+        (0,_helpers_renderProject__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(projectId, 10));
+      } else {
+        button.classList.add('hidden');
+      }
+    });
+  });
+
+  sideNavProject.addEventListener('blur', (e) => {
+    e.target.classList.add('hidden');
   });
 
   sideNavProject.append(sideNavProjectName, projectEditButton);
@@ -5091,6 +5440,7 @@ function renderTaskEditUI(projectId, taskId) {
   );
 
   const editTaskPanel = document.createElement('div');
+  const actionButtons = document.createElement('div');
   const confirmTaskButton = document.createElement('button');
   const deleteTaskButton = document.createElement('button');
   const editTitle = document.createElement('input');
@@ -5100,11 +5450,15 @@ function renderTaskEditUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex items-center';
-  editTitle.className = 'max-h-5';
-  confirmTaskButton.className = 'bg-slate-300';
-  deleteTaskButton.className = 'bg-red-300';
-  editPriority.className = 'flex items-center';
+  editTaskPanel.className = 'flex items-center gap-5 p-1 rounded bg-slate-200';
+  actionButtons.className = 'flex gap-1';
+  editTitle.className = 'mr-auto text-sm rounded max-h-5';
+  editDueDate.className = 'text-sm rounded';
+  editPriority.className = 'flex items-center justify-center gap-5';
+  confirmTaskButton.className =
+    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
+  deleteTaskButton.className =
+    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
@@ -5120,9 +5474,6 @@ function renderTaskEditUI(projectId, taskId) {
   priorityMed.id = 'Medium';
   priorityHigh.id = 'High';
 
-  confirmTaskButton.textContent = 'Confirm Edit';
-  deleteTaskButton.textContent = 'Delete Task';
-
   editTitle.value = taskTitle[0].textContent;
   editDueDate.value = taskDueDate[0].getAttribute('data-date');
 
@@ -5132,33 +5483,33 @@ function renderTaskEditUI(projectId, taskId) {
       taskId,
       editTitle.value,
       editDueDate.value,
-      (0,_helpers_priorityCheck__WEBPACK_IMPORTED_MODULE_2__["default"])()
+      (0,_helpers_priorityCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(projectId, taskId)
     );
-    e2.target.parentNode.remove();
+    e2.target.parentNode.parentNode.remove();
     task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     (0,_core_deleteTask__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId, taskId);
-    e3.target.parentNode.remove();
+    e3.target.parentNode.parentNode.remove();
     task[0].remove();
   });
 
   editPriority.append(priorityLow, priorityMed, priorityHigh);
 
-  editTaskPanel.append(
-    editTitle,
-    editDueDate,
-    editPriority,
-    confirmTaskButton,
-    deleteTaskButton
-  );
+  actionButtons.append(confirmTaskButton, deleteTaskButton);
+
+  editTaskPanel.append(editTitle, editDueDate, editPriority, actionButtons);
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
 
-  document.querySelector(
-    `input[id='${taskPriority[0].textContent}']`
-  ).checked = true;
+  const prioritySelectors = document.querySelectorAll(`input[name='priority']`);
+  prioritySelectors.forEach((selector) => {
+    if (taskPriority[0].getAttribute('data-priority') === selector.id) {
+      const selectedPriority = selector;
+      selectedPriority.checked = true;
+    }
+  });
 
   task[0].classList.add('hidden');
   editTitle.focus();
@@ -5185,7 +5536,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function renderTaskUpdate(title, dueDate, priority, taskId) {
+function renderTaskUpdate(
+  title,
+  dueDate,
+  priority,
+  complete,
+  taskId
+) {
+  const taskCompleteButton = document.querySelectorAll(
+    `.task-complete-button[data-id='${taskId}']`
+  );
   const taskTitle = document.querySelectorAll(
     `.task-title[data-id='${taskId}']`
   );
@@ -5196,10 +5556,22 @@ function renderTaskUpdate(title, dueDate, priority, taskId) {
     `.task-priority[data-id='${taskId}']`
   );
 
+  if (complete === true) {
+    taskCompleteButton[0].classList.remove('text-slate-400');
+    taskCompleteButton[0].classList.add('text-green-500');
+    taskTitle[0].classList.add('line-through');
+    taskTitle[0].classList.add('text-slate-500');
+  } else {
+    taskCompleteButton[0].classList.add('text-slate-400');
+    taskCompleteButton[0].classList.remove('text-green-500');
+    taskTitle[0].classList.remove('line-through');
+    taskTitle[0].classList.remove('text-slate-500');
+  }
+
   taskTitle[0].textContent = title;
-  taskPriority[0].textContent = priority;
   taskDueDate[0].textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(dueDate, 'relativeWords');
   taskDueDate[0].setAttribute('data-date', dueDate);
+  taskPriority[0].setAttribute('data-priority', priority);
   (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(priority, taskPriority[0]);
   (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate[0]);
 }
@@ -5283,14 +5655,16 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ "./src/tailwind.css");
-/* harmony import */ var _core_addProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/addProject */ "./src/core/addProject.js");
-/* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
-/* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
-/* harmony import */ var _helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/renderStoredProjects */ "./src/helpers/renderStoredProjects.js");
-/* harmony import */ var _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/renderOverview */ "./src/helpers/renderOverview.js");
-/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
-/* harmony import */ var _helpers_renderToday__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/renderToday */ "./src/helpers/renderToday.js");
+/* harmony import */ var _assets_tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/tailwind.css */ "./src/assets/tailwind.css");
+/* harmony import */ var _assets_fontawesome_solid_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/fontawesome/solid.css */ "./src/assets/fontawesome/solid.css");
+/* harmony import */ var _assets_fontawesome_fontawesome_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/fontawesome/fontawesome.css */ "./src/assets/fontawesome/fontawesome.css");
+/* harmony import */ var _core_addProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core/addProject */ "./src/core/addProject.js");
+/* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
+/* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
+/* harmony import */ var _helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/renderStoredProjects */ "./src/helpers/renderStoredProjects.js");
+/* harmony import */ var _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/renderOverview */ "./src/helpers/renderOverview.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+/* harmony import */ var _helpers_renderToday__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./helpers/renderToday */ "./src/helpers/renderToday.js");
 
 
 
@@ -5300,28 +5674,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const sideNavProjects = document.getElementById('side-nav-projects');
+
+
 const projectAddButton = document.getElementById('project-add-button');
-projectAddButton.addEventListener('click', () => (0,_core_addProject__WEBPACK_IMPORTED_MODULE_1__["default"])('New Project'));
+projectAddButton.addEventListener('click', () => (0,_core_addProject__WEBPACK_IMPORTED_MODULE_3__["default"])('New Project'));
 
 const overviewButton = document.getElementById('overview-button');
-overviewButton.addEventListener('click', _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__["default"]);
+overviewButton.addEventListener('click', _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_7__["default"]);
 
 const todayButton = document.getElementById('today-button');
-todayButton.addEventListener('click', _helpers_renderToday__WEBPACK_IMPORTED_MODULE_7__["default"]);
+todayButton.addEventListener('click', _helpers_renderToday__WEBPACK_IMPORTED_MODULE_9__["default"]);
 
-const sideNavProjectsButton = document.getElementById(
-  'side-nav-projects-button'
-);
-sideNavProjectsButton.addEventListener('click', () => {
-  projectAddButton.classList.toggle('hidden');
-  sideNavProjects.classList.toggle('hidden');
-});
-
-(0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_5__["default"])();
+(0,_helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(0,_helpers_renderOverview__WEBPACK_IMPORTED_MODULE_7__["default"])();
 
 })();
 
