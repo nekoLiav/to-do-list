@@ -24,14 +24,14 @@ export default function renderTaskEditUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex items-center gap-10 p-1 bg-slate-200';
+  editTaskPanel.className = 'flex items-center gap-5 p-1 rounded bg-slate-200';
   editTitle.className = 'mr-auto text-sm max-h-5';
-  editDueDate.className = '';
+  editDueDate.className = 'text-sm';
   editPriority.className = 'flex items-center justify-center gap-5';
   confirmTaskButton.className =
-    'w-12 p-2 text-green-500 rounded w-max bg-slate-700 fa-solid fa-circle-check';
+    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded bg-slate-700 fa-solid fa-circle-check';
   deleteTaskButton.className =
-    'w-12 p-2 text-red-500 rounded bg-slate-700 fa-solid fa-trash-can';
+    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded bg-slate-700 fa-solid fa-trash-can';
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';

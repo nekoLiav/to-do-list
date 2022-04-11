@@ -2,7 +2,7 @@ import { isValid, isToday } from 'date-fns/esm';
 import { toDoList } from '../core/globals';
 
 export default function countTodayTasks() {
-  const todayButton = document.getElementById('today-button');
+  const todayInfo = document.getElementById('today-info');
 
   let todayTasksCounter = 0;
 
@@ -23,11 +23,5 @@ export default function countTodayTasks() {
 
   const todayProjectsCounter = uniqueProjects.length;
 
-  const quantityOfTasksToday = document.createElement('p');
-
-  quantityOfTasksToday.className = 'text-sm';
-
-  quantityOfTasksToday.textContent = `${todayTasksCounter} tasks in ${todayProjectsCounter} project(s)`;
-
-  todayButton.append(quantityOfTasksToday);
+  todayInfo.textContent = `${todayTasksCounter} tasks in ${todayProjectsCounter} project(s)`;
 }

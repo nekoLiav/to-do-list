@@ -15,7 +15,7 @@ export default function renderSideNavProjects(project) {
     'flex items-center justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
   projectEditButton.className =
-    'w-12 p-2 rounded bg-slate-700 text-slate-50 fa-pen-to-square fa-solid project-edit-button';
+    'w-8 h-6 p-1 text-white rounded bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
 
   sideNavProjectName.textContent = project.name;
 

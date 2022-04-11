@@ -1,7 +1,7 @@
 import { toDoList } from '../core/globals';
 
 export default function countOverviewTasks() {
-  const overviewButton = document.getElementById('overview-button');
+  const overviewInfo = document.getElementById('overview-info');
 
   let taskCounter = 0;
 
@@ -11,11 +11,5 @@ export default function countOverviewTasks() {
     });
   });
 
-  const infoOverview = document.createElement('p');
-
-  infoOverview.className = 'text-sm';
-
-  infoOverview.textContent = `${taskCounter} tasks in ${toDoList.length} project(s)`;
-
-  overviewButton.append(infoOverview);
+  overviewInfo.textContent = `${taskCounter} tasks in ${toDoList.length} project(s)`;
 }

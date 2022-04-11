@@ -7,7 +7,6 @@ import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './helpers/renderSideNavInfo';
 import renderToday from './helpers/renderToday';
 
-const sideNavProjects = document.getElementById('side-nav-projects');
 const projectAddButton = document.getElementById('project-add-button');
 projectAddButton.addEventListener('click', () => addProject('New Project'));
 
@@ -16,14 +15,6 @@ overviewButton.addEventListener('click', renderOverview);
 
 const todayButton = document.getElementById('today-button');
 todayButton.addEventListener('click', renderToday);
-
-const sideNavProjectsButton = document.getElementById(
-  'side-nav-projects-button'
-);
-sideNavProjectsButton.addEventListener('click', () => {
-  projectAddButton.classList.toggle('hidden');
-  sideNavProjects.classList.toggle('hidden');
-});
 
 createLocalStorage();
 retrieveLocalStorage();

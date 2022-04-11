@@ -18,13 +18,12 @@ export default function renderMainProjects(project) {
   projectContainer.className = 'flex flex-col w-full gap-1 project-container';
   projectInfo.className = 'flex project-info';
   projectNameDisplay.className =
-    'w-full p-1 font-bold rounded text-slate-50 project-name';
+    'w-full p-1 ml-5 font-bold text-white rounded project-name';
   projectTasks.className = 'flex flex-col w-full gap-1 project-tasks';
   projectTaskAddButton.className =
-    'p-1 text-sm rounded bg-slate-200 project-task-add-button w-max';
+    'w-8 h-6 p-1 rounded fa-solid fa-plus bg-slate-200 project-task-add-button';
 
   projectNameDisplay.textContent = project.name;
-  projectTaskAddButton.textContent = '+ Add Task';
 
   projectTaskAddButton.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
