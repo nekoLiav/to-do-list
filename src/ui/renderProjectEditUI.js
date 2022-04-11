@@ -19,7 +19,7 @@ export default function renderProjectEditUI(projectId) {
   const deleteProjectButton = document.createElement('button');
 
   projectEditPanel.className =
-    'flex items-center w-full p-1 rounded bg-slate-200';
+    'flex items-center w-full gap-1 p-1 rounded bg-slate-200';
   editName.className = 'text-sm rounded max-h-5';
   actionButtons.className = 'flex w-full gap-1';
   confirmProjectButton.className =

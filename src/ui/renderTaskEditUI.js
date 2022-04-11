@@ -25,15 +25,16 @@ export default function renderTaskEditUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex items-center gap-5 p-1 rounded bg-slate-200';
+  editTaskPanel.className =
+    'flex items-center justify-between gap-5 p-1 rounded bg-slate-200';
   actionButtons.className = 'flex gap-1';
-  editTitle.className = 'mr-auto text-sm rounded max-h-5';
-  editDueDate.className = 'text-sm rounded';
-  editPriority.className = 'flex items-center justify-center gap-5';
+  editTitle.className = 'w-40 text-sm rounded max-h-5';
+  editDueDate.className = 'w-40 text-sm max-h-5';
+  editPriority.className = 'flex items-center justify-center gap-2';
   confirmTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
+    'items-center w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
   deleteTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
+    'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
