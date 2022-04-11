@@ -4,6 +4,7 @@ import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 import renderProjectEditUI from '../ui/renderProjectEditUI';
 import renderSideNavProjects from '../ui/renderSideNavProjects';
+import renderSideNavInfo from '../helpers/renderSideNavInfo';
 
 export default function addProject(projectName) {
   toDoList.push(new Project(projectName));
@@ -12,6 +13,7 @@ export default function addProject(projectName) {
 
   renderSideNavProjects(project);
   renderProjectEditUI(project.id);
+  renderSideNavInfo();
 
   updateLocalStorage();
 }
