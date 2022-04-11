@@ -17,6 +17,7 @@ export default function renderMainTasks(project, task) {
   taskInfo.setAttribute('data-id', task.id);
   taskTitle.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-id', task.id);
+  taskDueDate.setAttribute('data-date', task.dueDate);
   taskPriority.setAttribute('data-id', task.id);
   taskPriority.setAttribute('data-priority', task.priority);
   taskEditButton.setAttribute('data-id', task.id);
