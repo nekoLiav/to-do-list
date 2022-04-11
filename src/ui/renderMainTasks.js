@@ -18,20 +18,20 @@ export default function renderMainTasks(project, task) {
   taskTitle.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-id', task.id);
   taskPriority.setAttribute('data-id', task.id);
+  taskPriority.setAttribute('data-priority', task.priority);
   taskEditButton.setAttribute('data-id', task.id);
 
   taskInfo.className =
-    'grid items-center text-sm rounded auto-cols-fr bg-slate-200 task';
-  taskTitle.className = 'col-span-3 col-start-1 ml-1 task-title';
-  taskDueDate.className = 'col-start-4 text-xs task-due-date place-self-center';
+    'flex items-center gap-10 p-1 text-sm rounded bg-slate-200 task';
+  taskTitle.className = 'ml-1 mr-auto task-title';
+  taskDueDate.className = 'text-xs task-due-date place-self-center';
   taskPriority.className =
-    'col-start-5 task-priority place-self-center fa-solid fa-circle';
+    ' task-priority place-self-center fa-solid fa-circle';
   taskEditButton.className =
-    'col-start-6 p-1 rounded place-self-end task-edit-button w-max bg-slate-200';
+    'w-12 p-2 rounded task-edit-button text-slate-200 fa-solid bg-slate-700 fa-pen-to-square';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
-  taskEditButton.textContent = 'Edit';
   priorityColor(task.priority, taskPriority);
   dueDateCheck(taskDueDate);
 
@@ -41,10 +41,12 @@ export default function renderMainTasks(project, task) {
   };
 
   taskEditButton.addEventListener('click', (e) => {
-    renderTaskEditUI(
-      parseInt(e.target.parentNode.parentNode.getAttribute('data-id'), 10),
-      parseInt(e.target.getAttribute('data-id'), 10)
+    const projectId = parseInt(
+      e.target.parentNode.parentNode.getAttribute('data-id'),
+      10
     );
+    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    renderTaskEditUI(projectId, taskId);
   });
 
   taskDueDate.addEventListener('mouseenter', () => {

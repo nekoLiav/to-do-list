@@ -12,12 +12,12 @@ export default function renderSideNavProjects(project) {
   projectEditButton.setAttribute('data-id', project.id);
 
   sideNavProject.className =
-    'flex justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
+    'flex items-center justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
-  projectEditButton.className = 'bg-slate-200 w-max project-edit-button';
+  projectEditButton.className =
+    'w-12 p-2 rounded bg-slate-700 text-slate-50 fa-pen-to-square fa-solid project-edit-button';
 
   sideNavProjectName.textContent = project.name;
-  projectEditButton.textContent = 'Edit';
 
   projectEditButton.addEventListener('click', (e) => {
     renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));

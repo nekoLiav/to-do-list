@@ -17,7 +17,8 @@ export default function renderMainProjects(project) {
 
   projectContainer.className = 'flex flex-col w-full gap-1 project-container';
   projectInfo.className = 'flex project-info';
-  projectNameDisplay.className = 'w-full p-1 font-bold rounded project-name';
+  projectNameDisplay.className =
+    'w-full p-1 font-bold rounded text-slate-50 project-name';
   projectTasks.className = 'flex flex-col w-full gap-1 project-tasks';
   projectTaskAddButton.className =
     'p-1 text-sm rounded bg-slate-200 project-task-add-button w-max';

@@ -24,11 +24,14 @@ export default function renderTaskEditUI(projectId, taskId) {
   const priorityMed = document.createElement('input');
   const priorityHigh = document.createElement('input');
 
-  editTaskPanel.className = 'flex items-center';
-  editTitle.className = 'max-h-5';
-  confirmTaskButton.className = 'bg-slate-300';
-  deleteTaskButton.className = 'bg-red-300';
-  editPriority.className = 'flex items-center';
+  editTaskPanel.className = 'flex items-center gap-10 p-1 bg-slate-200';
+  editTitle.className = 'mr-auto text-sm max-h-5';
+  editDueDate.className = '';
+  editPriority.className = 'flex items-center justify-center gap-5';
+  confirmTaskButton.className =
+    'w-12 p-2 text-green-500 rounded w-max bg-slate-700 fa-solid fa-circle-check';
+  deleteTaskButton.className =
+    'w-12 p-2 text-red-500 rounded bg-slate-700 fa-solid fa-trash-can';
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
@@ -44,9 +47,6 @@ export default function renderTaskEditUI(projectId, taskId) {
   priorityMed.id = 'Medium';
   priorityHigh.id = 'High';
 
-  confirmTaskButton.textContent = 'Confirm Edit';
-  deleteTaskButton.textContent = 'Delete Task';
-
   editTitle.value = taskTitle[0].textContent;
   editDueDate.value = taskDueDate[0].getAttribute('data-date');
 
@@ -56,7 +56,7 @@ export default function renderTaskEditUI(projectId, taskId) {
       taskId,
       editTitle.value,
       editDueDate.value,
-      priorityCheck()
+      priorityCheck(projectId, taskId)
     );
     e2.target.parentNode.remove();
     task[0].classList.remove('hidden');
@@ -80,9 +80,13 @@ export default function renderTaskEditUI(projectId, taskId) {
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
 
-  document.querySelector(
-    `input[id='${taskPriority[0].textContent}']`
-  ).checked = true;
+  const prioritySelectors = document.querySelectorAll(`input[name='priority']`);
+  prioritySelectors.forEach((selector) => {
+    if (taskPriority[0].getAttribute('data-priority') === selector.id) {
+      const selectedPriority = selector;
+      selectedPriority.checked = true;
+    }
+  });
 
   task[0].classList.add('hidden');
   editTitle.focus();
