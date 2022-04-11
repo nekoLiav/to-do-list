@@ -14,35 +14,40 @@ export default function renderProjectEditUI(projectId) {
 
   const projectEditPanel = document.createElement('div');
   const editName = document.createElement('input');
+  const actionButtons = document.createElement('div');
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = 'flex flex-col items-center bg-slate-200';
-  editName.className = 'max-h-6';
-  confirmProjectButton.className = 'w-8 p-1 rounded bg-slate-200 w-max';
-  deleteProjectButton.className = 'w-8 p-1 bg-red-200 rounded w-max';
+  projectEditPanel.className =
+    'flex items-center w-full p-1 rounded bg-slate-200';
+  editName.className = 'text-sm max-h-5';
+  actionButtons.className = 'flex w-full gap-1';
+  confirmProjectButton.className =
+    'w-8 h-6 p-1 ml-auto text-green-500 rounded fa-circle-check fa-solid bg-slate-700';
+  deleteProjectButton.className =
+    'w-8 h-6 p-1 text-red-500 rounded bg-slate-700 fa-trash-can fa-solid';
 
   editName.type = 'text';
 
   editName.value = sideNavProjectName[0].textContent;
 
-  confirmProjectButton.textContent = 'Confirm';
-  deleteProjectButton.textContent = 'Delete';
-
   confirmProjectButton.addEventListener('click', (e2) => {
     editProject(projectId, editName.value);
-    e2.target.parentNode.remove();
+    e2.target.parentNode.parentNode.remove();
     sideNavProject[0].classList.remove('hidden');
   });
 
   deleteProjectButton.addEventListener('click', (e3) => {
     deleteProject(projectId);
-    e3.target.parentNode.remove();
+    e3.target.parentNode.parentNode.remove();
     sideNavProject[0].remove();
-    mainViewProject[0].remove();
+    if (mainViewProject[0] !== undefined) {
+      mainViewProject[0].remove();
+    }
   });
 
-  projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
+  actionButtons.append(confirmProjectButton, deleteProjectButton);
+  projectEditPanel.append(editName, actionButtons);
 
   sideNavProject[0].insertAdjacentElement('afterend', projectEditPanel);
   sideNavProject[0].classList.add('hidden');
