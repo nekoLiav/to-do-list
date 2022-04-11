@@ -1,3 +1,4 @@
+import renderProject from '../helpers/renderProject';
 import renderProjectEditUI from './renderProjectEditUI';
 
 export default function renderSideNavProjects(project) {
@@ -28,10 +29,15 @@ export default function renderSideNavProjects(project) {
     document.querySelectorAll('.project-edit-button').forEach((button) => {
       if (button.getAttribute('data-id') === projectId) {
         button.classList.toggle('hidden');
+        renderProject(parseInt(projectId, 10));
       } else {
         button.classList.add('hidden');
       }
     });
+  });
+
+  sideNavProject.addEventListener('blur', (e) => {
+    e.target.classList.add('hidden');
   });
 
   sideNavProject.append(sideNavProjectName, projectEditButton);
