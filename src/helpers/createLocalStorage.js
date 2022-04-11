@@ -7,10 +7,10 @@ export default function createLocalStorage() {
           name: 'Default Project',
           tasks: [
             {
-              title: 'Default Title',
+              title: 'Default Task Title',
               dueDate: '',
               priority: 'Low',
-              checked: false,
+              complete: false,
               id: 420,
             },
           ],

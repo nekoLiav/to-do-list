@@ -4,7 +4,11 @@ import editTask from './editTask';
 export default function completeTask(projectId, taskId) {
   const task = findTask(projectId, taskId);
 
-  task.complete = true;
+  if (task.complete === false) {
+    task.complete = true;
+  } else if (task.complete === true) {
+    task.complete = false;
+  }
 
   editTask(
     projectId,

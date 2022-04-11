@@ -2,6 +2,7 @@ import formatDates from '../helpers/formatDates';
 import priorityColor from '../helpers/priorityColor';
 import dueDateCheck from '../helpers/dueDateCheck';
 import renderTaskEditUI from './renderTaskEditUI';
+import completeTask from '../core/completeTask';
 
 export default function renderMainTasks(project, task) {
   const tasks = document.querySelectorAll(
@@ -9,12 +10,14 @@ export default function renderMainTasks(project, task) {
   );
 
   const taskInfo = document.createElement('div');
+  const taskCompleteButton = document.createElement('button');
   const taskTitle = document.createElement('p');
   const taskDueDate = document.createElement('p');
   const taskPriority = document.createElement('p');
   const taskEditButton = document.createElement('button');
 
   taskInfo.setAttribute('data-id', task.id);
+  taskCompleteButton.setAttribute('data-id', task.id);
   taskTitle.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-date', task.dueDate);
@@ -24,6 +27,8 @@ export default function renderMainTasks(project, task) {
 
   taskInfo.className =
     'flex items-center gap-5 p-1 text-sm rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task';
+  taskCompleteButton.className =
+    'hidden w-8 h-6 rounded text-slate-400 task-complete-button bg-slate-700 fa-solid fa-circle-check';
   taskTitle.className = 'mr-auto task-title';
   taskDueDate.className =
     'flex items-center h-full text-xs task-due-date place-self-center';
@@ -31,6 +36,18 @@ export default function renderMainTasks(project, task) {
     'mr-1 task-priority place-self-center fa-solid fa-circle';
   taskEditButton.className =
     'hidden w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
+
+  if (task.complete === true) {
+    taskTitle.classList.add('line-through');
+    taskTitle.classList.add('text-slate-500');
+    taskCompleteButton.classList.add('text-green-500');
+    taskCompleteButton.classList.remove('text-slate-400');
+  } else {
+    taskTitle.classList.remove('line-through');
+    taskTitle.classList.remove('text-slate-500');
+    taskCompleteButton.classList.remove('text-green-500');
+    taskCompleteButton.classList.add('text-slate-400');
+  }
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
@@ -65,8 +82,31 @@ export default function renderMainTasks(project, task) {
         button.classList.add('hidden');
       }
     });
+    document.querySelectorAll('.task-complete-button').forEach((button) => {
+      if (button.getAttribute('data-id') === taskId) {
+        button.classList.toggle('hidden');
+      } else {
+        button.classList.add('hidden');
+      }
+    });
   });
 
-  taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);
+  taskCompleteButton.addEventListener('click', (e) => {
+    e.stopImmediatePropagation();
+    const projectId = parseInt(
+      e.target.parentNode.parentNode.getAttribute('data-id'),
+      10
+    );
+    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    completeTask(projectId, taskId);
+  });
+
+  taskInfo.append(
+    taskCompleteButton,
+    taskTitle,
+    taskDueDate,
+    taskPriority,
+    taskEditButton
+  );
   tasks[0].append(taskInfo);
 }

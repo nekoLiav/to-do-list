@@ -20,3 +20,4 @@ createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
 renderSideNavInfo();
+renderOverview();
