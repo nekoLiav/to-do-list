@@ -28,7 +28,7 @@ export default function renderMainTasks(project, task) {
   taskPriority.className =
     ' task-priority place-self-center fa-solid fa-circle';
   taskEditButton.className =
-    'w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
+    'hidden w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');
@@ -52,6 +52,17 @@ export default function renderMainTasks(project, task) {
   taskDueDate.addEventListener('mouseenter', () => {
     taskDueDate.textContent = formatDates(task.dueDate);
     taskDueDate.addEventListener('mouseleave', mouseLeft);
+  });
+
+  taskInfo.addEventListener('click', (e) => {
+    const taskId = e.target.getAttribute('data-id');
+    document.querySelectorAll('.task-edit-button').forEach((button) => {
+      if (button.getAttribute('data-id') === taskId) {
+        button.classList.toggle('hidden');
+      } else {
+        button.classList.add('hidden');
+      }
+    });
   });
 
   taskInfo.append(taskTitle, taskDueDate, taskPriority, taskEditButton);

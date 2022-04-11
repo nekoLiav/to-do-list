@@ -15,12 +15,23 @@ export default function renderSideNavProjects(project) {
     'flex items-center justify-between w-full p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
   projectEditButton.className =
-    'w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
+    'hidden w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
 
   sideNavProjectName.textContent = project.name;
 
   projectEditButton.addEventListener('click', (e) => {
     renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
+  });
+
+  sideNavProject.addEventListener('click', (e) => {
+    const projectId = e.target.getAttribute('data-id');
+    document.querySelectorAll('.project-edit-button').forEach((button) => {
+      if (button.getAttribute('data-id') === projectId) {
+        button.classList.toggle('hidden');
+      } else {
+        button.classList.add('hidden');
+      }
+    });
   });
 
   sideNavProject.append(sideNavProjectName, projectEditButton);
