@@ -1,4 +1,6 @@
-import './tailwind.css';
+import './assets/tailwind.css';
+import './assets/fontawesome/solid.css';
+import './assets/fontawesome/fontawesome.css';
 import addProject from './core/addProject';
 import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
