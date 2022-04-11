@@ -15,6 +15,7 @@ export default function renderTaskEditUI(projectId, taskId) {
   );
 
   const editTaskPanel = document.createElement('div');
+  const actionButtons = document.createElement('div');
   const confirmTaskButton = document.createElement('button');
   const deleteTaskButton = document.createElement('button');
   const editTitle = document.createElement('input');
@@ -25,13 +26,14 @@ export default function renderTaskEditUI(projectId, taskId) {
   const priorityHigh = document.createElement('input');
 
   editTaskPanel.className = 'flex items-center gap-5 p-1 rounded bg-slate-200';
-  editTitle.className = 'mr-auto text-sm max-h-5';
-  editDueDate.className = 'text-sm';
+  actionButtons.className = 'flex gap-1';
+  editTitle.className = 'mr-auto text-sm rounded max-h-5';
+  editDueDate.className = 'text-sm rounded';
   editPriority.className = 'flex items-center justify-center gap-5';
   confirmTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded bg-slate-700 fa-solid fa-circle-check';
+    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
   deleteTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded bg-slate-700 fa-solid fa-trash-can';
+    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
@@ -58,25 +60,21 @@ export default function renderTaskEditUI(projectId, taskId) {
       editDueDate.value,
       priorityCheck(projectId, taskId)
     );
-    e2.target.parentNode.remove();
+    e2.target.parentNode.parentNode.remove();
     task[0].classList.remove('hidden');
   });
 
   deleteTaskButton.addEventListener('click', (e3) => {
     deleteTask(projectId, taskId);
-    e3.target.parentNode.remove();
+    e3.target.parentNode.parentNode.remove();
     task[0].remove();
   });
 
   editPriority.append(priorityLow, priorityMed, priorityHigh);
 
-  editTaskPanel.append(
-    editTitle,
-    editDueDate,
-    editPriority,
-    confirmTaskButton,
-    deleteTaskButton
-  );
+  actionButtons.append(confirmTaskButton, deleteTaskButton);
+
+  editTaskPanel.append(editTitle, editDueDate, editPriority, actionButtons);
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
 

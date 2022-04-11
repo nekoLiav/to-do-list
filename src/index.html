@@ -11,25 +11,28 @@
     <p class="text-xl font-bold text-white">Minimal To-Do</p>
   </header>
   <div class="flex h-full gap-5 p-5 overflow-clip">
-    <div class="flex flex-col p-1 w-96 bg-slate-700">
+    <div class="flex flex-col p-1 rounded w-96 bg-slate-700">
       <div class="flex flex-col items-center gap-2">
         <p class="w-full p-1 ml-5 font-bold text-white">Tasks</p>
         <div class="flex flex-col items-center w-full p-1">
-          <button id="overview-button" class="w-1/2 p-1 rounded bg-slate-200">Overview</button>
+          <button id="overview-button"
+            class="w-1/2 p-1 rounded active:bg-slate-300 hover:bg-slate-100 bg-slate-200">Overview</button>
           <p id="overview-info" class="text-sm text-white"></p>
         </div>
         <div class="flex flex-col items-center w-full p-1 rounded">
-          <button id="today-button" class="w-1/2 p-1 rounded bg-slate-200">Today</button>
+          <button id="today-button"
+            class="w-1/2 p-1 rounded active:bg-slate-300 hover:bg-slate-100 bg-slate-200">Today</button>
           <p id="today-info" class="text-sm text-white"></p>
         </div>
         <p class="w-full p-1 ml-5 font-bold text-white">Projects</p>
       </div>
       <div id="side-nav-projects" class="flex flex-col items-center w-full gap-1 mt-1 overflow-y-auto text-sm">
       </div>
-      <button id="project-add-button" class="w-8 h-6 p-1 mt-1 rounded fa-solid fa-plus bg-slate-200"></button>
+      <button id="project-add-button"
+        class="w-8 h-6 p-1 mt-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200"></button>
     </div>
-    <div class="w-full bg-slate-700">
-      <div id="task-container" class="flex flex-col w-1/2 h-full gap-2 p-1 overflow-y-auto bg-slate-700">
+    <div class="w-full rounded bg-slate-700">
+      <div id="task-container" class="flex flex-col w-1/2 h-full gap-2 p-1 overflow-y-auto rounded bg-slate-700">
       </div>
     </div>
   </div>

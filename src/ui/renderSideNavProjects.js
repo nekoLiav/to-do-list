@@ -12,10 +12,10 @@ export default function renderSideNavProjects(project) {
   projectEditButton.setAttribute('data-id', project.id);
 
   sideNavProject.className =
-    'flex items-center justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
+    'flex items-center justify-between w-full p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
   projectEditButton.className =
-    'w-8 h-6 p-1 text-white rounded bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
+    'w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid project-edit-button';
 
   sideNavProjectName.textContent = project.name;
 

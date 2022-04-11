@@ -20,12 +20,12 @@ export default function renderProjectEditUI(projectId) {
 
   projectEditPanel.className =
     'flex items-center w-full p-1 rounded bg-slate-200';
-  editName.className = 'text-sm max-h-5';
+  editName.className = 'text-sm rounded max-h-5';
   actionButtons.className = 'flex w-full gap-1';
   confirmProjectButton.className =
-    'w-8 h-6 p-1 ml-auto text-green-500 rounded fa-circle-check fa-solid bg-slate-700';
+    'w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 fa-circle-check fa-solid bg-slate-700';
   deleteProjectButton.className =
-    'w-8 h-6 p-1 text-red-500 rounded bg-slate-700 fa-trash-can fa-solid';
+    'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-trash-can fa-solid';
 
   editName.type = 'text';
 

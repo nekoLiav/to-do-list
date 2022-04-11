@@ -22,13 +22,13 @@ export default function renderMainTasks(project, task) {
   taskEditButton.setAttribute('data-id', task.id);
 
   taskInfo.className =
-    'flex items-center gap-5 p-1 text-sm rounded bg-slate-200 task';
+    'flex items-center gap-5 p-1 text-sm rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task';
   taskTitle.className = 'mr-auto task-title';
   taskDueDate.className = 'text-xs task-due-date place-self-center';
   taskPriority.className =
     ' task-priority place-self-center fa-solid fa-circle';
   taskEditButton.className =
-    'w-8 h-6 p-1 text-white rounded task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
+    'w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = formatDates(task.dueDate, 'relativeWords');

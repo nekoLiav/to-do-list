@@ -21,7 +21,7 @@ export default function renderMainProjects(project) {
     'w-full p-1 ml-5 font-bold text-white rounded project-name';
   projectTasks.className = 'flex flex-col w-full gap-1 project-tasks';
   projectTaskAddButton.className =
-    'w-8 h-6 p-1 rounded fa-solid fa-plus bg-slate-200 project-task-add-button';
+    'w-8 h-6 p-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200 project-task-add-button';
 
   projectNameDisplay.textContent = project.name;
 
