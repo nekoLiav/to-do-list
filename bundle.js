@@ -2618,6 +2618,111 @@ function isDate(value) {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/esm/isSameDay/index.js":
+/*!******************************************************!*\
+  !*** ./node_modules/date-fns/esm/isSameDay/index.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isSameDay)
+/* harmony export */ });
+/* harmony import */ var _startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../startOfDay/index.js */ "./node_modules/date-fns/esm/startOfDay/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+/**
+ * @name isSameDay
+ * @category Day Helpers
+ * @summary Are the given dates in the same day (and year and month)?
+ *
+ * @description
+ * Are the given dates in the same day (and year and month)?
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * @param {Date|Number} dateLeft - the first date to check
+ * @param {Date|Number} dateRight - the second date to check
+ * @returns {Boolean} the dates are in the same day (and year and month)
+ * @throws {TypeError} 2 arguments required
+ *
+ * @example
+ * // Are 4 September 06:00:00 and 4 September 18:00:00 in the same day?
+ * var result = isSameDay(new Date(2014, 8, 4, 6, 0), new Date(2014, 8, 4, 18, 0))
+ * //=> true
+ * 
+ * @example
+ * // Are 4 September and 4 October in the same day?
+ * var result = isSameDay(new Date(2014, 8, 4), new Date(2014, 9, 4))
+ * //=> false
+ * 
+ * @example
+ * // Are 4 September, 2014 and 4 September, 2015 in the same day?
+ * var result = isSameDay(new Date(2014, 8, 4), new Date(2015, 8, 4))
+ * //=> false
+ */
+
+function isSameDay(dirtyDateLeft, dirtyDateRight) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  var dateLeftStartOfDay = (0,_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
+  var dateRightStartOfDay = (0,_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
+  return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
+}
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/esm/isToday/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/esm/isToday/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ isToday)
+/* harmony export */ });
+/* harmony import */ var _isSameDay_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isSameDay/index.js */ "./node_modules/date-fns/esm/isSameDay/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+/**
+ * @name isToday
+ * @category Day Helpers
+ * @summary Is the given date today?
+ * @pure false
+ *
+ * @description
+ * Is the given date today?
+ *
+ * > ⚠️ Please note that this function is not present in the FP submodule as
+ * > it uses `Date.now()` internally hence impure and can't be safely curried.
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * @param {Date|Number} date - the date to check
+ * @returns {Boolean} the date is today
+ * @throws {TypeError} 1 argument required
+ *
+ * @example
+ * // If today is 6 October 2014, is 6 October 14:00:00 today?
+ * var result = isToday(new Date(2014, 9, 6, 14, 0))
+ * //=> true
+ */
+
+function isToday(dirtyDate) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+  return (0,_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, Date.now());
+}
+
+/***/ }),
+
 /***/ "./node_modules/date-fns/esm/isValid/index.js":
 /*!****************************************************!*\
   !*** ./node_modules/date-fns/esm/isValid/index.js ***!
@@ -3362,6 +3467,53 @@ var locale = {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/esm/startOfDay/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/date-fns/esm/startOfDay/index.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ startOfDay)
+/* harmony export */ });
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+/**
+ * @name startOfDay
+ * @category Day Helpers
+ * @summary Return the start of a day for the given date.
+ *
+ * @description
+ * Return the start of a day for the given date.
+ * The result will be in the local timezone.
+ *
+ * ### v2.0.0 breaking changes:
+ *
+ * - [Changes that are common for the whole library](https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#Common-Changes).
+ *
+ * @param {Date|Number} date - the original date
+ * @returns {Date} the start of a day
+ * @throws {TypeError} 1 argument required
+ *
+ * @example
+ * // The start of a day for 2 September 2014 11:55:00:
+ * const result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
+ * //=> Tue Sep 02 2014 00:00:00
+ */
+
+function startOfDay(dirtyDate) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
+/***/ }),
+
 /***/ "./node_modules/date-fns/esm/subMilliseconds/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/date-fns/esm/subMilliseconds/index.js ***!
@@ -3896,6 +4048,46 @@ function addProject(projectName) {
 
 /***/ }),
 
+/***/ "./src/core/addTask.js":
+/*!*****************************!*\
+  !*** ./src/core/addTask.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addTask)
+/* harmony export */ });
+/* harmony import */ var _factories_Task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../factories/Task */ "./src/factories/Task.js");
+/* harmony import */ var _helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/mostRecentTask */ "./src/helpers/mostRecentTask.js");
+/* harmony import */ var _helpers_findProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/findProject */ "./src/helpers/findProject.js");
+/* harmony import */ var _ui_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
+/* harmony import */ var _helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/updateLocalStorage */ "./src/helpers/updateLocalStorage.js");
+/* harmony import */ var _ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ui/renderMainTasks */ "./src/ui/renderMainTasks.js");
+
+
+
+
+
+
+
+function addTask(projectId, title, dueDate, priority) {
+  const project = (0,_helpers_findProject__WEBPACK_IMPORTED_MODULE_2__["default"])(projectId);
+
+  project.tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority));
+
+  const task = (0,_helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
+
+  (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_5__["default"])(project, task);
+  (0,_ui_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_3__["default"])(project.id, task.id);
+
+  (0,_helpers_updateLocalStorage__WEBPACK_IMPORTED_MODULE_4__["default"])();
+}
+
+
+/***/ }),
+
 /***/ "./src/core/deleteProject.js":
 /*!***********************************!*\
   !*** ./src/core/deleteProject.js ***!
@@ -4057,6 +4249,30 @@ class Project {
 
 /***/ }),
 
+/***/ "./src/factories/Task.js":
+/*!*******************************!*\
+  !*** ./src/factories/Task.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Task)
+/* harmony export */ });
+class Task {
+  constructor(title, dueDate, priority, checked) {
+    this.title = title;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.checked = checked;
+    this.id = Date.now();
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/clearView.js":
 /*!**********************************!*\
   !*** ./src/helpers/clearView.js ***!
@@ -4075,6 +4291,94 @@ function clearView() {
   taskContainer.forEach((child) => {
     child.remove();
   });
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/countOverviewTasks.js":
+/*!*******************************************!*\
+  !*** ./src/helpers/countOverviewTasks.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ countOverviewTasks)
+/* harmony export */ });
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+
+
+function countOverviewTasks() {
+  const overviewButton = document.getElementById('overview-button');
+
+  let taskCounter = 0;
+
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    project.tasks.forEach(() => {
+      taskCounter += 1;
+    });
+  });
+
+  const infoOverview = document.createElement('p');
+
+  infoOverview.className = 'text-sm';
+
+  infoOverview.textContent = `${taskCounter} tasks in ${_core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.length} project(s)`;
+
+  overviewButton.append(infoOverview);
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/countTodayTasks.js":
+/*!****************************************!*\
+  !*** ./src/helpers/countTodayTasks.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ countTodayTasks)
+/* harmony export */ });
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+
+
+
+function countTodayTasks() {
+  const todayButton = document.getElementById('today-button');
+
+  let todayTasksCounter = 0;
+
+  const todayProjectsArray = [];
+
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    project.tasks.forEach((task) => {
+      if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(task.dueDate)) && (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_2__["default"])(new Date(task.dueDate))) {
+        todayProjectsArray.push(project.id);
+        todayTasksCounter += 1;
+      }
+    });
+  });
+
+  const uniqueProjects = todayProjectsArray.filter(
+    (projectId, index) => todayProjectsArray.indexOf(projectId) === index
+  );
+
+  const todayProjectsCounter = uniqueProjects.length;
+
+  const quantityOfTasksToday = document.createElement('p');
+
+  quantityOfTasksToday.className = 'text-sm';
+
+  quantityOfTasksToday.textContent = `${todayTasksCounter} tasks in ${todayProjectsCounter} project(s)`;
+
+  todayButton.append(quantityOfTasksToday);
 }
 
 
@@ -4241,6 +4545,24 @@ function mostRecentProject() {
 
 /***/ }),
 
+/***/ "./src/helpers/mostRecentTask.js":
+/*!***************************************!*\
+  !*** ./src/helpers/mostRecentTask.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ mostRecentTask)
+/* harmony export */ });
+function mostRecentTask(project) {
+  return project.tasks[project.tasks.length - 1];
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/priorityCheck.js":
 /*!**************************************!*\
   !*** ./src/helpers/priorityCheck.js ***!
@@ -4329,6 +4651,30 @@ function renderOverview() {
 
 /***/ }),
 
+/***/ "./src/helpers/renderSideNavInfo.js":
+/*!******************************************!*\
+  !*** ./src/helpers/renderSideNavInfo.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderSideNavInfo)
+/* harmony export */ });
+/* harmony import */ var _countOverviewTasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./countOverviewTasks */ "./src/helpers/countOverviewTasks.js");
+/* harmony import */ var _countTodayTasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./countTodayTasks */ "./src/helpers/countTodayTasks.js");
+
+
+
+function renderSideNavInfo() {
+  (0,_countOverviewTasks__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  (0,_countTodayTasks__WEBPACK_IMPORTED_MODULE_1__["default"])();
+}
+
+
+/***/ }),
+
 /***/ "./src/helpers/renderStoredProjects.js":
 /*!*********************************************!*\
   !*** ./src/helpers/renderStoredProjects.js ***!
@@ -4348,6 +4694,49 @@ __webpack_require__.r(__webpack_exports__);
 function renderStoredProjects() {
   _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
     (0,_ui_renderSideNavProjects__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
+  });
+}
+
+
+/***/ }),
+
+/***/ "./src/helpers/renderToday.js":
+/*!************************************!*\
+  !*** ./src/helpers/renderToday.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ renderToday)
+/* harmony export */ });
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isValid/index.js");
+/* harmony import */ var date_fns_esm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns/esm */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var _core_globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/globals */ "./src/core/globals.js");
+/* harmony import */ var _clearView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clearView */ "./src/helpers/clearView.js");
+/* harmony import */ var _ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ui/renderMainProjects */ "./src/ui/renderMainProjects.js");
+/* harmony import */ var _ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ui/renderMainTasks */ "./src/ui/renderMainTasks.js");
+
+
+
+
+
+
+function renderToday() {
+  (0,_clearView__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  _core_globals__WEBPACK_IMPORTED_MODULE_0__.toDoList.forEach((project) => {
+    project.tasks.forEach((task) => {
+      if ((0,date_fns_esm__WEBPACK_IMPORTED_MODULE_4__["default"])(new Date(task.dueDate)) && (0,date_fns_esm__WEBPACK_IMPORTED_MODULE_5__["default"])(new Date(task.dueDate))) {
+        const projectDupeCheck = document.querySelectorAll(
+          `.project-container[data-id='${project.id}']`
+        );
+        if (projectDupeCheck[0] === undefined) {
+          (0,_ui_renderMainProjects__WEBPACK_IMPORTED_MODULE_2__["default"])(project);
+        }
+        (0,_ui_renderMainTasks__WEBPACK_IMPORTED_MODULE_3__["default"])(project, task);
+      }
+    });
   });
 }
 
@@ -4403,27 +4792,6 @@ function updateLocalStorage() {
 
 /***/ }),
 
-/***/ "./src/ui/addProjectUI.js":
-/*!********************************!*\
-  !*** ./src/ui/addProjectUI.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ addProjectUI)
-/* harmony export */ });
-/* harmony import */ var _core_addProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/addProject */ "./src/core/addProject.js");
-
-
-function addProjectUI() {
-  (0,_core_addProject__WEBPACK_IMPORTED_MODULE_0__["default"])('New Project');
-}
-
-
-/***/ }),
-
 /***/ "./src/ui/renderMainProjects.js":
 /*!**************************************!*\
   !*** ./src/ui/renderMainProjects.js ***!
@@ -4435,7 +4803,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ renderMainProjects)
 /* harmony export */ });
-/* harmony import */ var _renderTaskEditUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTaskEditUI */ "./src/ui/renderTaskEditUI.js");
+/* harmony import */ var _core_addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/addTask */ "./src/core/addTask.js");
 
 
 function renderMainProjects(project) {
@@ -4453,17 +4821,19 @@ function renderMainProjects(project) {
   projectTasks.setAttribute('data-id', project.id);
   projectTaskAddButton.setAttribute('data-id', project.id);
 
-  projectContainer.className = 'w-full auto-rows-min project-container';
-  projectInfo.className = 'flex gap-5 project-info';
-  projectNameDisplay.className = 'w-full bg-slate-200 project-name';
-  projectTasks.className = 'project-tasks';
-  projectTaskAddButton.className = 'bg-slate-300 project-task-add-button';
+  projectContainer.className = 'flex flex-col w-full gap-1 project-container';
+  projectInfo.className = 'flex project-info';
+  projectNameDisplay.className = 'w-full p-1 font-bold rounded project-name';
+  projectTasks.className = 'flex flex-col w-full gap-1 project-tasks';
+  projectTaskAddButton.className =
+    'p-1 text-sm rounded bg-slate-200 project-task-add-button w-max';
 
   projectNameDisplay.textContent = project.name;
   projectTaskAddButton.textContent = '+ Add Task';
 
   projectTaskAddButton.addEventListener('click', (e) => {
-    (0,_renderTaskEditUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
+    const projectId = parseInt(e.target.getAttribute('data-id'), 10);
+    (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'New Task', '', 'Low');
   });
 
   projectInfo.append(projectNameDisplay);
@@ -4512,16 +4882,18 @@ function renderMainTasks(project, task) {
   taskPriority.setAttribute('data-id', task.id);
   taskEditButton.setAttribute('data-id', task.id);
 
-  taskInfo.className = 'flex items-center justify-between gap-5 text-sm task';
-  taskTitle.className = 'task-title';
-  taskDueDate.className = 'task-due-date';
-  taskPriority.className = 'task-priority';
-  taskEditButton.className = 'task-edit-button w-max bg-slate-300';
+  taskInfo.className =
+    'grid items-center text-sm rounded auto-cols-fr bg-slate-200 task';
+  taskTitle.className = 'col-span-3 col-start-1 ml-1 task-title';
+  taskDueDate.className = 'col-start-4 text-xs task-due-date place-self-center';
+  taskPriority.className =
+    'col-start-5 task-priority place-self-center fa-solid fa-circle';
+  taskEditButton.className =
+    'col-start-6 p-5 pointer-events-none task-edit-button fa-solid fa-pen-to-square';
 
   taskTitle.textContent = task.title;
   taskDueDate.textContent = (0,_helpers_formatDates__WEBPACK_IMPORTED_MODULE_0__["default"])(task.dueDate, 'relativeWords');
-  taskPriority.textContent = task.priority;
-  taskEditButton.textContent = 'Edit Task';
+  taskEditButton.textContent = 'Edit';
   (0,_helpers_priorityColor__WEBPACK_IMPORTED_MODULE_1__["default"])(task.priority, taskPriority);
   (0,_helpers_dueDateCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate);
 
@@ -4572,16 +4944,19 @@ function renderProjectEditUI(projectId) {
   const sideNavProjectName = document.querySelectorAll(
     `.side-nav-project-name[data-id='${projectId}']`
   );
+  const mainViewProject = document.querySelectorAll(
+    `.project-container[data-id='${projectId}']`
+  );
 
   const projectEditPanel = document.createElement('div');
   const editName = document.createElement('input');
   const confirmProjectButton = document.createElement('button');
   const deleteProjectButton = document.createElement('button');
 
-  projectEditPanel.className = '';
+  projectEditPanel.className = 'flex flex-col items-center';
   editName.className = 'max-h-6';
-  confirmProjectButton.className = 'bg-slate-300';
-  deleteProjectButton.className = 'bg-red-300';
+  confirmProjectButton.className = 'p-1 rounded bg-slate-200 w-max';
+  deleteProjectButton.className = 'p-1 bg-red-200 rounded w-max';
 
   editName.type = 'text';
 
@@ -4600,6 +4975,7 @@ function renderProjectEditUI(projectId) {
     (0,_core_deleteProject__WEBPACK_IMPORTED_MODULE_1__["default"])(projectId);
     e3.target.parentNode.remove();
     sideNavProject[0].remove();
+    mainViewProject[0].remove();
   });
 
   projectEditPanel.append(editName, confirmProjectButton, deleteProjectButton);
@@ -4627,8 +5003,14 @@ function renderProjectUpdate(name, projectId) {
   const sideNavProjectName = document.querySelectorAll(
     `.side-nav-project-name[data-id='${projectId}']`
   );
+  const mainViewProject = document.querySelectorAll(
+    `.project-name[data-id='${projectId}']`
+  );
 
   sideNavProjectName[0].textContent = name;
+  if (mainViewProject[0] !== undefined) {
+    mainViewProject[0].textContent = name;
+  }
 }
 
 
@@ -4660,12 +5042,12 @@ function renderSideNavProjects(project) {
   projectEditButton.setAttribute('data-id', project.id);
 
   sideNavProject.className =
-    'flex justify-between w-full bg-slate-300 side-nav-project';
+    'flex justify-between w-full p-1 rounded bg-slate-200 side-nav-project';
   sideNavProjectName.className = 'side-nav-project-name';
-  projectEditButton.className = 'bg-slate-300 w-max project-edit-button';
+  projectEditButton.className = 'bg-slate-200 w-max project-edit-button';
 
   sideNavProjectName.textContent = project.name;
-  projectEditButton.textContent = 'Edit Project';
+  projectEditButton.textContent = 'Edit';
 
   projectEditButton.addEventListener('click', (e) => {
     (0,_renderProjectEditUI__WEBPACK_IMPORTED_MODULE_0__["default"])(parseInt(e.target.getAttribute('data-id'), 10));
@@ -4902,11 +5284,15 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tailwind_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tailwind.css */ "./src/tailwind.css");
-/* harmony import */ var _ui_addProjectUI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui/addProjectUI */ "./src/ui/addProjectUI.js");
+/* harmony import */ var _core_addProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/addProject */ "./src/core/addProject.js");
 /* harmony import */ var _helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/createLocalStorage */ "./src/helpers/createLocalStorage.js");
 /* harmony import */ var _helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/retrieveLocalStorage */ "./src/helpers/retrieveLocalStorage.js");
 /* harmony import */ var _helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/renderStoredProjects */ "./src/helpers/renderStoredProjects.js");
 /* harmony import */ var _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/renderOverview */ "./src/helpers/renderOverview.js");
+/* harmony import */ var _helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/renderSideNavInfo */ "./src/helpers/renderSideNavInfo.js");
+/* harmony import */ var _helpers_renderToday__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./helpers/renderToday */ "./src/helpers/renderToday.js");
+
+
 
 
 
@@ -4915,28 +5301,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const sideNavProjects = document.getElementById('side-nav-projects');
-
-const projectAddButton = document.createElement('button');
-projectAddButton.id = 'project-add-button';
-projectAddButton.className = 'w-1/2 bg-slate-300';
-projectAddButton.textContent = '+ Add Project';
-projectAddButton.addEventListener('click', _ui_addProjectUI__WEBPACK_IMPORTED_MODULE_1__["default"]);
+const projectAddButton = document.getElementById('project-add-button');
+projectAddButton.addEventListener('click', () => (0,_core_addProject__WEBPACK_IMPORTED_MODULE_1__["default"])('New Project'));
 
 const overviewButton = document.getElementById('overview-button');
 overviewButton.addEventListener('click', _helpers_renderOverview__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+const todayButton = document.getElementById('today-button');
+todayButton.addEventListener('click', _helpers_renderToday__WEBPACK_IMPORTED_MODULE_7__["default"]);
 
 const sideNavProjectsButton = document.getElementById(
   'side-nav-projects-button'
 );
 sideNavProjectsButton.addEventListener('click', () => {
+  projectAddButton.classList.toggle('hidden');
   sideNavProjects.classList.toggle('hidden');
 });
-
-sideNavProjects.append(projectAddButton);
 
 (0,_helpers_createLocalStorage__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_helpers_retrieveLocalStorage__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_helpers_renderStoredProjects__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
 })();
 
