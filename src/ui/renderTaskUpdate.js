@@ -8,36 +8,34 @@ export default function renderTaskUpdate(
   complete,
   taskId
 ) {
-  const taskCompleteButton = document.querySelectorAll(
+  const taskCompleteButton = document.querySelector(
     `.task-complete-button[data-id='${taskId}']`
   );
-  const taskTitle = document.querySelectorAll(
-    `.task-title[data-id='${taskId}']`
-  );
-  const taskDueDate = document.querySelectorAll(
+  const taskTitle = document.querySelector(`.task-title[data-id='${taskId}']`);
+  const taskDueDate = document.querySelector(
     `.task-due-date[data-id='${taskId}']`
   );
-  const taskPriority = document.querySelectorAll(
+  const taskPriority = document.querySelector(
     `.task-priority[data-id='${taskId}']`
   );
 
   if (complete === true || complete === 'true') {
-    taskCompleteButton[0].classList.remove('text-slate-400');
-    taskCompleteButton[0].classList.add('text-green-500');
-    taskTitle[0].classList.add('line-through');
-    taskTitle[0].classList.add('text-slate-500');
-    taskCompleteButton[0].setAttribute('data-complete', true);
+    taskCompleteButton.classList.remove('text-slate-400');
+    taskCompleteButton.classList.add('text-green-500');
+    taskTitle.classList.add('line-through');
+    taskTitle.classList.add('text-slate-500');
+    taskCompleteButton.setAttribute('data-complete', true);
   } else {
-    taskCompleteButton[0].classList.add('text-slate-400');
-    taskCompleteButton[0].classList.remove('text-green-500');
-    taskTitle[0].classList.remove('line-through');
-    taskTitle[0].classList.remove('text-slate-500');
-    taskCompleteButton[0].setAttribute('data-complete', false);
+    taskCompleteButton.classList.add('text-slate-400');
+    taskCompleteButton.classList.remove('text-green-500');
+    taskTitle.classList.remove('line-through');
+    taskTitle.classList.remove('text-slate-500');
+    taskCompleteButton.setAttribute('data-complete', false);
   }
 
-  taskTitle[0].textContent = title;
-  taskDueDate[0].textContent = formatDates(dueDate, 'relativeWords');
-  taskDueDate[0].setAttribute('data-date', dueDate);
-  taskPriority[0].setAttribute('data-priority', priority);
-  priorityColor(priority, taskPriority[0]);
+  taskTitle.textContent = title;
+  taskDueDate.textContent = formatDates(dueDate, 'relativeWords');
+  taskDueDate.setAttribute('data-date', dueDate);
+  taskPriority.setAttribute('data-priority', priority);
+  priorityColor(priority, taskPriority);
 }

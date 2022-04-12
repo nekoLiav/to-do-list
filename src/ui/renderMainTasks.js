@@ -1,5 +1,5 @@
-import formatDates from '../helpers/formatDates';
 import Element from '../factories/Element';
+import formatDates from '../helpers/formatDates';
 import styles from './tailwind';
 
 export default function renderMainTasks(project, task) {
