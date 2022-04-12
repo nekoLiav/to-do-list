@@ -4215,10 +4215,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function addTask(projectId, title, dueDate, priority) {
+function addTask(projectId, title, dueDate, priority, complete) {
   const project = (0,_helpers_findProject__WEBPACK_IMPORTED_MODULE_2__["default"])(projectId);
 
-  project.tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority));
+  project.tasks.push(new _factories_Task__WEBPACK_IMPORTED_MODULE_0__["default"](title, dueDate, priority, complete));
 
   const task = (0,_helpers_mostRecentTask__WEBPACK_IMPORTED_MODULE_1__["default"])(project);
 
@@ -4403,7 +4403,12 @@ function editTask(
   task.title = title;
   task.dueDate = dueDate;
   task.priority = priority;
-  task.complete = complete;
+
+  if (complete === 'false') {
+    task.complete = false;
+  } else if (complete === 'true') {
+    task.complete = true;
+  }
 
   (0,_ui_renderTaskUpdate__WEBPACK_IMPORTED_MODULE_1__["default"])(title, dueDate, priority, complete, taskId);
   (0,_helpers_renderSideNavInfo__WEBPACK_IMPORTED_MODULE_3__["default"])();
@@ -4809,15 +4814,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ priorityCheck)
 /* harmony export */ });
-function priorityCheck() {
-  const priorities = document.querySelectorAll(`input[name='priority']`);
-  let priorityText;
-  priorities.forEach((priority) => {
-    if (priority.checked) {
-      priorityText = priority.id;
-    }
-  });
-  return priorityText;
+function priorityCheck(taskId) {
+  const priorities = document.querySelectorAll(
+    `.task-priority[data-id='${taskId}']`
+  );
+  return priorities[0].getAttribute('data-priority');
 }
 
 
@@ -5103,7 +5104,7 @@ function renderMainProjects(project) {
 
   projectTaskAddButton.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-    (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'New Task', '', 'Low');
+    (0,_core_addTask__WEBPACK_IMPORTED_MODULE_0__["default"])(projectId, 'New Task', '', 'Low', false);
   });
 
   projectInfo.append(projectNameDisplay);
@@ -5151,6 +5152,7 @@ function renderMainTasks(project, task) {
 
   taskInfo.setAttribute('data-id', task.id);
   taskCompleteButton.setAttribute('data-id', task.id);
+  taskCompleteButton.setAttribute('data-complete', task.complete);
   taskTitle.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-id', task.id);
   taskDueDate.setAttribute('data-date', task.dueDate);
@@ -5159,27 +5161,29 @@ function renderMainTasks(project, task) {
   taskEditButton.setAttribute('data-id', task.id);
 
   taskInfo.className =
-    'flex items-center gap-5 p-1 text-sm rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task';
+    'flex items-center gap-5 p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task';
   taskCompleteButton.className =
-    'hidden w-8 h-6 rounded text-slate-400 task-complete-button bg-slate-700 fa-solid fa-circle-check';
-  taskTitle.className = 'mr-auto task-title';
+    '!hidden w-8 h-6 rounded text-slate-400 task-complete-button bg-slate-700 fa-solid fa-circle-check';
+  taskTitle.className = 'mr-auto text-sm task-title';
   taskDueDate.className =
     'flex items-center h-full text-xs task-due-date place-self-center';
   taskPriority.className =
-    'mr-1 task-priority place-self-center fa-solid fa-circle';
+    'mr-1 text-sm task-priority place-self-center fa-solid fa-flag';
   taskEditButton.className =
-    'hidden w-8 h-6 p-1 text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
+    '!hidden w-8 h-6 p-1 text-sm text-white rounded active:bg-slate-800 hover:bg-slate-600 task-edit-button fa-solid bg-slate-700 fa-pen-to-square';
 
   if (task.complete === true) {
     taskTitle.classList.add('line-through');
     taskTitle.classList.add('text-slate-500');
     taskCompleteButton.classList.add('text-green-500');
     taskCompleteButton.classList.remove('text-slate-400');
+    taskCompleteButton.setAttribute('data-complete', true);
   } else {
     taskTitle.classList.remove('line-through');
     taskTitle.classList.remove('text-slate-500');
     taskCompleteButton.classList.remove('text-green-500');
     taskCompleteButton.classList.add('text-slate-400');
+    taskCompleteButton.setAttribute('data-complete', false);
   }
 
   taskTitle.textContent = task.title;
@@ -5210,16 +5214,16 @@ function renderMainTasks(project, task) {
     const taskId = e.target.getAttribute('data-id');
     document.querySelectorAll('.task-edit-button').forEach((button) => {
       if (button.getAttribute('data-id') === taskId) {
-        button.classList.toggle('hidden');
+        button.classList.toggle('!hidden');
       } else {
-        button.classList.add('hidden');
+        button.classList.add('!hidden');
       }
     });
     document.querySelectorAll('.task-complete-button').forEach((button) => {
       if (button.getAttribute('data-id') === taskId) {
-        button.classList.toggle('hidden');
+        button.classList.toggle('!hidden');
       } else {
-        button.classList.add('hidden');
+        button.classList.add('!hidden');
       }
     });
   });
@@ -5281,7 +5285,7 @@ function renderProjectEditUI(projectId) {
   const deleteProjectButton = document.createElement('button');
 
   projectEditPanel.className =
-    'flex items-center w-full p-1 rounded bg-slate-200';
+    'flex items-center w-full gap-1 p-1 rounded bg-slate-200';
   editName.className = 'text-sm rounded max-h-5';
   actionButtons.className = 'flex w-full gap-1';
   confirmProjectButton.className =
@@ -5438,6 +5442,9 @@ function renderTaskEditUI(projectId, taskId) {
   const taskPriority = document.querySelectorAll(
     `.task-priority[data-id='${taskId}']`
   );
+  const taskCompleteButton = document.querySelectorAll(
+    `.task-complete-button[data-id='${taskId}']`
+  );
 
   const editTaskPanel = document.createElement('div');
   const actionButtons = document.createElement('div');
@@ -5445,34 +5452,36 @@ function renderTaskEditUI(projectId, taskId) {
   const deleteTaskButton = document.createElement('button');
   const editTitle = document.createElement('input');
   const editDueDate = document.createElement('input');
-  const editPriority = document.createElement('div');
-  const priorityLow = document.createElement('input');
-  const priorityMed = document.createElement('input');
-  const priorityHigh = document.createElement('input');
+  const priorityLow = document.createElement('button');
+  const priorityMed = document.createElement('button');
+  const priorityHigh = document.createElement('button');
 
-  editTaskPanel.className = 'flex items-center gap-5 p-1 rounded bg-slate-200';
-  actionButtons.className = 'flex gap-1';
-  editTitle.className = 'mr-auto text-sm rounded max-h-5';
-  editDueDate.className = 'text-sm rounded';
-  editPriority.className = 'flex items-center justify-center gap-5';
+  editTaskPanel.className =
+    'flex items-center justify-between p-1 text-sm rounded bg-slate-200';
+  actionButtons.className = 'flex gap-0.5';
+  editTitle.className = 'w-40 text-sm rounded max-h-5';
+  editDueDate.className = 'w-40 text-xs rounded max-h-5';
+  priorityLow.className =
+    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
+  priorityMed.className =
+    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
+  priorityHigh.className =
+    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
   confirmTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
+    'w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
   deleteTaskButton.className =
-    'flex items-center justify-center w-8 h-6 p-2 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
+    'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
+
+  priorityLow.id = 'Low';
+  priorityMed.id = 'Med';
+  priorityHigh.id = 'High';
+
+  priorityLow.setAttribute('data-id', taskId);
+  priorityMed.setAttribute('data-id', taskId);
+  priorityHigh.setAttribute('data-id', taskId);
 
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
-  priorityLow.type = 'radio';
-  priorityMed.type = 'radio';
-  priorityHigh.type = 'radio';
-
-  priorityLow.name = 'priority';
-  priorityMed.name = 'priority';
-  priorityHigh.name = 'priority';
-
-  priorityLow.id = 'Low';
-  priorityMed.id = 'Medium';
-  priorityHigh.id = 'High';
 
   editTitle.value = taskTitle[0].textContent;
   editDueDate.value = taskDueDate[0].getAttribute('data-date');
@@ -5483,7 +5492,8 @@ function renderTaskEditUI(projectId, taskId) {
       taskId,
       editTitle.value,
       editDueDate.value,
-      (0,_helpers_priorityCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(projectId, taskId)
+      (0,_helpers_priorityCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(taskId),
+      taskCompleteButton[0].getAttribute('data-complete')
     );
     e2.target.parentNode.parentNode.remove();
     task[0].classList.remove('hidden');
@@ -5495,19 +5505,24 @@ function renderTaskEditUI(projectId, taskId) {
     task[0].remove();
   });
 
-  editPriority.append(priorityLow, priorityMed, priorityHigh);
-
   actionButtons.append(confirmTaskButton, deleteTaskButton);
 
-  editTaskPanel.append(editTitle, editDueDate, editPriority, actionButtons);
+  editTaskPanel.append(
+    editTitle,
+    editDueDate,
+    priorityLow,
+    priorityMed,
+    priorityHigh,
+    actionButtons
+  );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
 
-  const prioritySelectors = document.querySelectorAll(`input[name='priority']`);
+  const prioritySelectors = document.querySelectorAll('.priority-selector');
+  const prioritySelected = taskPriority[0].getAttribute('data-priority');
   prioritySelectors.forEach((selector) => {
-    if (taskPriority[0].getAttribute('data-priority') === selector.id) {
-      const selectedPriority = selector;
-      selectedPriority.checked = true;
+    if (selector.id === prioritySelected) {
+      selector.classList.remove('!hidden');
     }
   });
 
@@ -5556,16 +5571,18 @@ function renderTaskUpdate(
     `.task-priority[data-id='${taskId}']`
   );
 
-  if (complete === true) {
+  if (complete === true || complete === 'true') {
     taskCompleteButton[0].classList.remove('text-slate-400');
     taskCompleteButton[0].classList.add('text-green-500');
     taskTitle[0].classList.add('line-through');
     taskTitle[0].classList.add('text-slate-500');
+    taskCompleteButton[0].setAttribute('data-complete', true);
   } else {
     taskCompleteButton[0].classList.add('text-slate-400');
     taskCompleteButton[0].classList.remove('text-green-500');
     taskTitle[0].classList.remove('line-through');
     taskTitle[0].classList.remove('text-slate-500');
+    taskCompleteButton[0].setAttribute('data-complete', false);
   }
 
   taskTitle[0].textContent = title;
