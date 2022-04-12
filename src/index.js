@@ -18,7 +18,6 @@ overviewButton.addEventListener('click', renderOverview);
 const todayButton = document.getElementById('today-button');
 todayButton.addEventListener('click', renderToday);
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
