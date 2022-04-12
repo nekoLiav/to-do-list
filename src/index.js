@@ -10,6 +10,7 @@ import renderSideNavInfo from './helpers/renderSideNavInfo';
 import renderToday from './helpers/renderToday';
 import priorityColor from './helpers/priorityColor';
 import hideUnusedDates from './helpers/hideUnusedDates';
+// import listeners from './ui/listeners';
 
 const projectAddButton = document.getElementById('project-add-button');
 projectAddButton.addEventListener('click', () => addProject('New Project'));
@@ -27,3 +28,4 @@ renderSideNavInfo();
 renderOverview();
 priorityColor();
 hideUnusedDates();
+// listeners();

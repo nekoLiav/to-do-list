@@ -1,32 +1,32 @@
 import Element from '../factories/Element';
-import { tailwind } from './tailwind';
+import styles from './tailwind';
 
 export default function renderMainProjects(project) {
   const mainProjects = Element(
     'div',
     {
-      class: tailwind.projectContainer,
+      class: styles.projectContainer,
       'data-id': project.id,
     },
     Element(
       'div',
-      { class: tailwind.projectInfo, 'data-id': project.id },
+      { class: styles.projectInfo, 'data-id': project.id },
       Element(
         'p',
         {
-          class: tailwind.projectName,
+          class: styles.projectName,
           'data-id': project.id,
         },
         project.name
       )
     ),
     Element('ul', {
-      class: tailwind.projectTasks,
+      class: styles.projectTasks,
       'data-id': project.id,
     }),
     Element('button', {
       id: 'task-add-button',
-      class: tailwind.taskAddButton,
+      class: styles.taskAddButton,
       'data-id': project.id,
     })
   );
