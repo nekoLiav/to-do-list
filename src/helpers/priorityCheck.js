@@ -1,10 +1,6 @@
-export default function priorityCheck() {
-  const priorities = document.querySelectorAll(`input[name='priority']`);
-  let priorityText;
-  priorities.forEach((priority) => {
-    if (priority.checked) {
-      priorityText = priority.id;
-    }
-  });
-  return priorityText;
+export default function priorityCheck(taskId) {
+  const priorities = document.querySelectorAll(
+    `.task-priority[data-id='${taskId}']`
+  );
+  return priorities[0].getAttribute('data-priority');
 }

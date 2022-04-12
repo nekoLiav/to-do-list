@@ -27,7 +27,7 @@ export default function renderMainProjects(project) {
 
   projectTaskAddButton.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-    addTask(projectId, 'New Task', '', 'Low');
+    addTask(projectId, 'New Task', '', 'Low', false);
   });
 
   projectInfo.append(projectNameDisplay);

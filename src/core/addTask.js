@@ -6,10 +6,10 @@ import updateLocalStorage from '../helpers/updateLocalStorage';
 import renderMainTasks from '../ui/renderMainTasks';
 import renderSideNavInfo from '../helpers/renderSideNavInfo';
 
-export default function addTask(projectId, title, dueDate, priority) {
+export default function addTask(projectId, title, dueDate, priority, complete) {
   const project = findProject(projectId);
 
-  project.tasks.push(new Task(title, dueDate, priority));
+  project.tasks.push(new Task(title, dueDate, priority, complete));
 
   const task = mostRecentTask(project);
 

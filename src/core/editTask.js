@@ -16,7 +16,12 @@ export default function editTask(
   task.title = title;
   task.dueDate = dueDate;
   task.priority = priority;
-  task.complete = complete;
+
+  if (complete === 'false') {
+    task.complete = false;
+  } else if (complete === 'true') {
+    task.complete = true;
+  }
 
   renderTaskUpdate(title, dueDate, priority, complete, taskId);
   renderSideNavInfo();

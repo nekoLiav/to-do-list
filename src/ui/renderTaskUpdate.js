@@ -22,16 +22,18 @@ export default function renderTaskUpdate(
     `.task-priority[data-id='${taskId}']`
   );
 
-  if (complete === true) {
+  if (complete === true || complete === 'true') {
     taskCompleteButton[0].classList.remove('text-slate-400');
     taskCompleteButton[0].classList.add('text-green-500');
     taskTitle[0].classList.add('line-through');
     taskTitle[0].classList.add('text-slate-500');
+    taskCompleteButton[0].setAttribute('data-complete', true);
   } else {
     taskCompleteButton[0].classList.add('text-slate-400');
     taskCompleteButton[0].classList.remove('text-green-500');
     taskTitle[0].classList.remove('line-through');
     taskTitle[0].classList.remove('text-slate-500');
+    taskCompleteButton[0].setAttribute('data-complete', false);
   }
 
   taskTitle[0].textContent = title;

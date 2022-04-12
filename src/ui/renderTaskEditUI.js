@@ -13,6 +13,9 @@ export default function renderTaskEditUI(projectId, taskId) {
   const taskPriority = document.querySelectorAll(
     `.task-priority[data-id='${taskId}']`
   );
+  const taskCompleteButton = document.querySelectorAll(
+    `.task-complete-button[data-id='${taskId}']`
+  );
 
   const editTaskPanel = document.createElement('div');
   const actionButtons = document.createElement('div');
@@ -20,35 +23,36 @@ export default function renderTaskEditUI(projectId, taskId) {
   const deleteTaskButton = document.createElement('button');
   const editTitle = document.createElement('input');
   const editDueDate = document.createElement('input');
-  const editPriority = document.createElement('div');
-  const priorityLow = document.createElement('input');
-  const priorityMed = document.createElement('input');
-  const priorityHigh = document.createElement('input');
+  const priorityLow = document.createElement('button');
+  const priorityMed = document.createElement('button');
+  const priorityHigh = document.createElement('button');
 
   editTaskPanel.className =
-    'flex items-center justify-between gap-5 p-1 rounded bg-slate-200';
-  actionButtons.className = 'flex gap-1';
+    'flex items-center justify-between p-1 text-sm rounded bg-slate-200';
+  actionButtons.className = 'flex gap-0.5';
   editTitle.className = 'w-40 text-sm rounded max-h-5';
-  editDueDate.className = 'w-40 text-sm max-h-5';
-  editPriority.className = 'flex items-center justify-center gap-2';
+  editDueDate.className = 'w-40 text-xs rounded max-h-5';
+  priorityLow.className =
+    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
+  priorityMed.className =
+    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
+  priorityHigh.className =
+    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector fa-solid fa-flag bg-slate-700';
   confirmTaskButton.className =
-    'items-center w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
+    'w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check';
   deleteTaskButton.className =
     'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can';
 
+  priorityLow.id = 'Low';
+  priorityMed.id = 'Med';
+  priorityHigh.id = 'High';
+
+  priorityLow.setAttribute('data-id', taskId);
+  priorityMed.setAttribute('data-id', taskId);
+  priorityHigh.setAttribute('data-id', taskId);
+
   editTitle.type = 'text';
   editDueDate.type = 'datetime-local';
-  priorityLow.type = 'radio';
-  priorityMed.type = 'radio';
-  priorityHigh.type = 'radio';
-
-  priorityLow.name = 'priority';
-  priorityMed.name = 'priority';
-  priorityHigh.name = 'priority';
-
-  priorityLow.id = 'Low';
-  priorityMed.id = 'Medium';
-  priorityHigh.id = 'High';
 
   editTitle.value = taskTitle[0].textContent;
   editDueDate.value = taskDueDate[0].getAttribute('data-date');
@@ -59,7 +63,8 @@ export default function renderTaskEditUI(projectId, taskId) {
       taskId,
       editTitle.value,
       editDueDate.value,
-      priorityCheck(projectId, taskId)
+      priorityCheck(taskId),
+      taskCompleteButton[0].getAttribute('data-complete')
     );
     e2.target.parentNode.parentNode.remove();
     task[0].classList.remove('hidden');
@@ -71,19 +76,24 @@ export default function renderTaskEditUI(projectId, taskId) {
     task[0].remove();
   });
 
-  editPriority.append(priorityLow, priorityMed, priorityHigh);
-
   actionButtons.append(confirmTaskButton, deleteTaskButton);
 
-  editTaskPanel.append(editTitle, editDueDate, editPriority, actionButtons);
+  editTaskPanel.append(
+    editTitle,
+    editDueDate,
+    priorityLow,
+    priorityMed,
+    priorityHigh,
+    actionButtons
+  );
 
   task[0].insertAdjacentElement('afterend', editTaskPanel);
 
-  const prioritySelectors = document.querySelectorAll(`input[name='priority']`);
+  const prioritySelectors = document.querySelectorAll('.priority-selector');
+  const prioritySelected = taskPriority[0].getAttribute('data-priority');
   prioritySelectors.forEach((selector) => {
-    if (taskPriority[0].getAttribute('data-priority') === selector.id) {
-      const selectedPriority = selector;
-      selectedPriority.checked = true;
+    if (selector.id === prioritySelected) {
+      selector.classList.remove('!hidden');
     }
   });
 
