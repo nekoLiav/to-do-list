@@ -3,7 +3,7 @@ import Element from '../factories/Element';
 import styles from './tailwind';
 
 export default function renderMainTasks(project, task) {
-  const mainTasks = Element(
+  const mainTask = Element(
     'div',
     {
       class: styles.taskInfo,
@@ -43,5 +43,5 @@ export default function renderMainTasks(project, task) {
     `.project-tasks[data-id='${project.id}']`
   );
 
-  projectTasksList.append(mainTasks);
+  projectTasksList.append(mainTask);
 }

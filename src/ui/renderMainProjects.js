@@ -2,7 +2,7 @@ import Element from '../factories/Element';
 import styles from './tailwind';
 
 export default function renderMainProjects(project) {
-  const mainProjects = Element(
+  const mainProject = Element(
     'div',
     {
       class: styles.projectContainer,
@@ -33,5 +33,5 @@ export default function renderMainProjects(project) {
 
   const taskContainer = document.getElementById('task-container');
 
-  taskContainer.append(mainProjects);
+  taskContainer.append(mainProject);
 }

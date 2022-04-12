@@ -101,4 +101,24 @@
 //     mainViewProject.remove();
 //   }
 // });
+
+// projectEditButton.addEventListener('click', (e) => {
+//   renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
+// });
+
+// sideNavProject.addEventListener('click', (e) => {
+//   const projectId = e.target.getAttribute('data-id');
+//   document.querySelectorAll('.project-edit-button').forEach((button) => {
+//     if (button.getAttribute('data-id') === projectId) {
+//       button.classList.toggle('hidden');
+//       renderProject(parseInt(projectId, 10));
+//     } else {
+//       button.classList.add('hidden');
+//     }
+//   });
+// });
+
+// sideNavProject.addEventListener('blur', (e) => {
+//   e.target.classList.add('hidden');
+// });
 // }

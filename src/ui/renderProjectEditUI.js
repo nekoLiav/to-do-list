@@ -8,9 +8,6 @@ export default function renderProjectEditUI(projectId) {
   const sideNavProjectName = document.querySelector(
     `.side-nav-project-name[data-id='${projectId}']`
   );
-  // const mainViewProject = document.querySelector(
-  //   `.project-container[data-id='${projectId}']`
-  // );
 
   const projectEdit = Element(
     'div',
