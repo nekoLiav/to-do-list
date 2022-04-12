@@ -8,6 +8,8 @@ import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './helpers/renderSideNavInfo';
 import renderToday from './helpers/renderToday';
+import priorityColor from './helpers/priorityColor';
+import hideUnusedDates from './helpers/hideUnusedDates';
 
 const projectAddButton = document.getElementById('project-add-button');
 projectAddButton.addEventListener('click', () => addProject('New Project'));
@@ -23,3 +25,5 @@ retrieveLocalStorage();
 renderStoredProjects();
 renderSideNavInfo();
 renderOverview();
+priorityColor();
+hideUnusedDates();

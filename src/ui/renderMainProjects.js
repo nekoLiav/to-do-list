@@ -11,10 +11,14 @@ export default function renderMainProjects(project) {
     Element(
       'div',
       { class: tailwind.projectInfo, 'data-id': project.id },
-      Element('p', {
-        class: tailwind.projectName,
-        'data-id': project.id,
-      })
+      Element(
+        'p',
+        {
+          class: tailwind.projectName,
+          'data-id': project.id,
+        },
+        project.name
+      )
     ),
     Element('ul', {
       class: tailwind.projectTasks,

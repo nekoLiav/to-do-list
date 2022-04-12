@@ -1,6 +1,6 @@
 import formatDates from '../helpers/formatDates';
 import priorityColor from '../helpers/priorityColor';
-import checkEmptyDueDate from '../helpers/dueDateCheck';
+// import checkEmptyDueDate from '../helpers/hideUnusedDates';
 
 export default function renderTaskUpdate(
   title,
@@ -41,5 +41,5 @@ export default function renderTaskUpdate(
   taskDueDate[0].setAttribute('data-date', dueDate);
   taskPriority[0].setAttribute('data-priority', priority);
   priorityColor(priority, taskPriority[0]);
-  checkEmptyDueDate(taskDueDate[0]);
+  // checkEmptyDueDate(taskDueDate[0]);
 }
