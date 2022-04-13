@@ -1,5 +1,7 @@
 import formatDates from '../helpers/formatDates';
+import checkComplete from '../helpers/checkComplete';
 import priorityColor from '../helpers/priorityColor';
+import hideUnusedDates from '../helpers/hideUnusedDates';
 
 export default function renderTaskUpdate(
   title,
@@ -27,5 +29,8 @@ export default function renderTaskUpdate(
   taskCompleteButton.setAttribute('data-complete', complete);
   taskCompleteButton.classList.toggle('text-slate-400');
   taskCompleteButton.classList.toggle('text-green-500');
-  priorityColor(priority, taskPriority);
+
+  checkComplete();
+  priorityColor();
+  hideUnusedDates();
 }
