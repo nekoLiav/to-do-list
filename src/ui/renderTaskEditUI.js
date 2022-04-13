@@ -30,7 +30,7 @@ export default function renderTaskEditUI(taskId) {
       'data-id': taskId,
     }),
     Element('button', {
-      id: 'Med',
+      id: 'Medium',
       class: styles.priorityMed,
       'data-id': taskId,
     }),

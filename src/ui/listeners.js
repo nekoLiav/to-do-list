@@ -9,7 +9,6 @@ import renderProject from '../helpers/renderProject';
 import renderTaskEditUI from './renderTaskEditUI';
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
-import priorityCheck from '../helpers/priorityCheck';
 import completeTask from '../core/completeTask';
 
 export default function listeners() {
@@ -80,7 +79,7 @@ taskContainer.addEventListener('click', (e) => {
       taskId,
       document.querySelector(`.edit-title[data-id='${taskId}']`).value,
       document.querySelector(`.edit-due-date[data-id='${taskId}']`).value,
-      priorityCheck(taskId),
+      document.querySelector('.priority-selector[data-selected="true"]').id,
       document
         .querySelector(`.task-complete-button[data-id='${taskId}']`)
         .getAttribute('data-complete')
@@ -99,7 +98,8 @@ taskContainer.addEventListener('click', (e) => {
   // task complete toggle
   if (
     e.target.classList.contains('task-info') ||
-    e.target.classList.contains('task-title')
+    e.target.classList.contains('task-title') ||
+    e.target.classList.contains('task-due-date')
   ) {
     document
       .querySelector(`.task-edit-button[data-id='${taskId}']`)
@@ -116,9 +116,9 @@ taskContainer.addEventListener('click', (e) => {
     if (e.target.id === 'Low') {
       e.target.classList.add('!hidden');
       e.target.setAttribute('data-selected', false);
-      document.getElementById('Med').classList.remove('!hidden');
-      document.getElementById('Med').setAttribute('data-selected', true);
-    } else if (e.target.id === 'Med') {
+      document.getElementById('Medium').classList.remove('!hidden');
+      document.getElementById('Medium').setAttribute('data-selected', true);
+    } else if (e.target.id === 'Medium') {
       e.target.classList.add('!hidden');
       e.target.setAttribute('data-selected', false);
       document.getElementById('High').classList.remove('!hidden');
