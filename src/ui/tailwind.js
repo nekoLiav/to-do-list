@@ -22,7 +22,7 @@ export default {
     'flex items-center justify-between w-full p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 side-project-container',
   sideProjectName: 'side-project-name',
   sideProjectEditButton:
-    'hidden w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid side-project-edit-button',
+    '!hidden w-8 h-6 p-1 text-white rounded hover:bg-slate-600 active:bg-slate-800 bg-slate-700 fa-pen-to-square fa-solid side-project-edit-button',
   /* edit task */
   editTaskPanel:
     'flex items-center justify-between p-1 text-sm rounded bg-slate-200',

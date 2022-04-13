@@ -1,6 +1,8 @@
 import Element from '../factories/Element';
-import formatDates from '../helpers/formatDates';
 import styles from './tailwind';
+import formatDates from '../helpers/formatDates';
+import priorityColor from '../helpers/priorityColor';
+import hideUnusedDates from '../helpers/hideUnusedDates';
 
 export default function renderMainTasks(project, task) {
   const mainTask = Element(
@@ -44,4 +46,7 @@ export default function renderMainTasks(project, task) {
   );
 
   projectTasksList.append(mainTask);
+
+  priorityColor();
+  hideUnusedDates();
 }

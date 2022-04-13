@@ -5,6 +5,7 @@ import renderToday from '../helpers/renderToday';
 import renderProjectEditUI from './renderProjectEditUI';
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
+import renderProject from '../helpers/renderProject';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
@@ -40,8 +41,20 @@ export default function listeners() {
         .querySelector(`.side-project-container[data-id='${projectId}']`)
         .remove();
     }
+    if (
+      e.target.classList.contains('side-project-container') ||
+      e.target.classList.contains('side-project-name')
+    ) {
+      document
+        .querySelector(`.side-project-edit-button[data-id='${projectId}']`)
+        .classList.toggle('!hidden');
+      renderProject(projectId);
+    }
   });
 }
+
+const taskContainer = document.getElementById('task-container');
+taskContainer.addEventListener('click', () => {});
 //   document.getElementById('task-add-button').addEventListener('click', (e) => {
 //     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
 //     addTask(projectId, 'New Task', '', 'Low', false);

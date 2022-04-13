@@ -6,8 +6,6 @@ import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './helpers/renderSideNavInfo';
-import priorityColor from './helpers/priorityColor';
-import hideUnusedDates from './helpers/hideUnusedDates';
 import listeners from './ui/listeners';
 
 localStorage.clear();
@@ -16,6 +14,4 @@ retrieveLocalStorage();
 renderStoredProjects();
 renderSideNavInfo();
 renderOverview();
-priorityColor();
-hideUnusedDates();
 listeners();
