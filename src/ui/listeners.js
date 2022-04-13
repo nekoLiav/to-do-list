@@ -1,11 +1,45 @@
 // /* eslint-disable no-param-reassign */
+import addProject from '../core/addProject';
+import renderOverview from '../helpers/renderOverview';
+import renderToday from '../helpers/renderToday';
 import renderProjectEditUI from './renderProjectEditUI';
+import editProject from '../core/editProject';
+import deleteProject from '../core/deleteProject';
 
 export default function listeners() {
-  document.querySelectorAll('.side-project-edit-button').forEach((element) => {
-    element.addEventListener('click', (e) => {
-      renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
-    });
+  const overviewButton = document.getElementById('overview-button');
+  overviewButton.addEventListener('click', renderOverview);
+
+  const todayButton = document.getElementById('today-button');
+  todayButton.addEventListener('click', renderToday);
+
+  const projectAddButton = document.getElementById('project-add-button');
+  projectAddButton.addEventListener('click', () => addProject('New Project'));
+
+  const sideNav = document.getElementById('side-nav');
+  sideNav.addEventListener('click', (e) => {
+    const projectId = parseInt(e.target.getAttribute('data-id'), 10);
+    if (e.target.classList.contains('side-project-edit-button')) {
+      renderProjectEditUI(projectId);
+    }
+    if (e.target.classList.contains('confirm-project-button')) {
+      editProject(projectId, document.querySelector('.edit-name').value);
+      document
+        .querySelector(`.project-edit-panel[data-id='${projectId}']`)
+        .remove();
+      document
+        .querySelector(`.side-project-container[data-id='${projectId}']`)
+        .classList.remove('hidden');
+    }
+    if (e.target.classList.contains('delete-project-button')) {
+      deleteProject(projectId);
+      document
+        .querySelector(`.project-edit-panel[data-id='${projectId}']`)
+        .remove();
+      document
+        .querySelector(`.side-project-container[data-id='${projectId}']`)
+        .remove();
+    }
   });
 }
 //   document.getElementById('task-add-button').addEventListener('click', (e) => {

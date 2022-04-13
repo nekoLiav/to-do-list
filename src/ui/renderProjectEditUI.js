@@ -1,7 +1,5 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
-import editProject from '../core/editProject';
-import deleteProject from '../core/deleteProject';
 
 export default function renderProjectEditUI(projectId) {
   const sideProjectContainer = document.querySelector(
@@ -36,35 +34,4 @@ export default function renderProjectEditUI(projectId) {
 
   sideProjectContainer.insertAdjacentElement('afterend', projectEdit);
   sideProjectContainer.classList.add('hidden');
-
-  const setupEditListeners = () => {
-    document
-      .querySelector('.confirm-project-button')
-      .addEventListener('click', () => {
-        editProject(
-          projectId,
-          document.querySelector(`.edit-name[data-id='${projectId}']`).value
-        );
-        document
-          .querySelector(`.project-edit-panel[data-id='${projectId}']`)
-          .remove();
-        document
-          .querySelector(`.side-project-container[data-id='${projectId}']`)
-          .classList.remove('hidden');
-      });
-
-    document
-      .querySelector('.delete-project-button')
-      .addEventListener('click', () => {
-        deleteProject(projectId);
-        document
-          .querySelector(`.project-edit-panel[data-id='${projectId}']`)
-          .remove();
-        document
-          .querySelector(`.side-project-container[data-id='${projectId}']`)
-          .remove();
-      });
-  };
-
-  setupEditListeners();
 }

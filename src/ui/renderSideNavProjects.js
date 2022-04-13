@@ -16,7 +16,7 @@ export default function renderSideNavProjects(project) {
     })
   );
 
-  const sideNavProjects = document.getElementById('side-nav-projects');
+  const sideProjects = document.getElementById('side-projects');
 
-  sideNavProjects.append(sideProject);
+  sideProjects.append(sideProject);
 }
