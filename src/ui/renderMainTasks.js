@@ -1,6 +1,7 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
 import formatDates from '../helpers/formatDates';
+import checkComplete from '../helpers/checkComplete';
 import priorityColor from '../helpers/priorityColor';
 import hideUnusedDates from '../helpers/hideUnusedDates';
 
@@ -47,6 +48,7 @@ export default function renderMainTasks(project, task) {
 
   projectTasksList.append(mainTask);
 
+  checkComplete();
   priorityColor();
   hideUnusedDates();
 }

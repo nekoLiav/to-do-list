@@ -25,11 +25,11 @@ export default function listeners() {
   const sideNav = document.getElementById('side-nav');
   sideNav.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-
+    // project edit
     if (e.target.classList.contains('side-project-edit-button')) {
       renderProjectEditUI(projectId);
     }
-
+    // project edit confirm
     if (e.target.classList.contains('confirm-project-button')) {
       editProject(projectId, document.querySelector('.edit-name').value);
       document
@@ -39,7 +39,7 @@ export default function listeners() {
         .querySelector(`.side-project-container[data-id='${projectId}']`)
         .classList.remove('hidden');
     }
-
+    // project delete
     if (e.target.classList.contains('delete-project-button')) {
       deleteProject(projectId);
       document
@@ -49,7 +49,7 @@ export default function listeners() {
         .querySelector(`.side-project-container[data-id='${projectId}']`)
         .remove();
     }
-
+    // project edit button toggle
     if (
       e.target.classList.contains('side-project-container') ||
       e.target.classList.contains('side-project-name')
@@ -69,11 +69,11 @@ taskContainer.addEventListener('click', (e) => {
     10
   );
   const taskId = parseInt(e.target.getAttribute('data-id'), 10);
-
+  // task edit
   if (e.target.classList.contains('task-edit-button')) {
     renderTaskEditUI(taskId);
   }
-
+  // task edit confirm
   if (e.target.classList.contains('confirm-task-button')) {
     editTask(
       projectId,
@@ -90,13 +90,13 @@ taskContainer.addEventListener('click', (e) => {
       .querySelector(`.task-info[data-id='${taskId}']`)
       .classList.remove('hidden');
   }
-
+  // task delete
   if (e.target.classList.contains('delete-task-button')) {
     deleteTask(projectId, taskId);
     document.querySelector(`.task-edit-panel[data-id='${taskId}']`).remove();
     document.querySelector(`.task-info[data-id='${taskId}']`).remove();
   }
-
+  // task complete toggle
   if (
     e.target.classList.contains('task-info') ||
     e.target.classList.contains('task-title')
