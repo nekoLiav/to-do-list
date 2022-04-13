@@ -17,7 +17,7 @@ export default function renderTaskUpdate(
   );
 
   taskTitle.textContent = title;
-  taskDueDate.textContent = formatDates(dueDate, 'relativeWords');
+  taskDueDate.textContent = formatDates(dueDate, 'relative');
   taskDueDate.setAttribute('data-date', dueDate);
   taskPriority.setAttribute('data-priority', priority);
   priorityColor(priority, taskPriority);
