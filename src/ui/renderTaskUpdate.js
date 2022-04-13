@@ -15,10 +15,17 @@ export default function renderTaskUpdate(
   const taskPriority = document.querySelector(
     `.task-priority[data-id='${taskId}']`
   );
+  const taskCompleteButton = document.querySelector(
+    `.task-complete-button[data-id='${taskId}']`
+  );
 
   taskTitle.textContent = title;
+  taskTitle.classList.toggle('line-through');
   taskDueDate.textContent = formatDates(dueDate, 'relative');
   taskDueDate.setAttribute('data-date', dueDate);
   taskPriority.setAttribute('data-priority', priority);
+  taskCompleteButton.setAttribute('data-complete', complete);
+  taskCompleteButton.classList.toggle('text-slate-400');
+  taskCompleteButton.classList.toggle('text-green-500');
   priorityColor(priority, taskPriority);
 }
