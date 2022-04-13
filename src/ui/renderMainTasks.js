@@ -31,7 +31,7 @@ export default function renderMainTasks(project, task) {
         'data-id': task.id,
         'data-date': task.dueDate,
       },
-      formatDates(task.dueDate, 'relativeWords')
+      formatDates(task.dueDate, 'relative')
     ),
     Element('p', {
       class: styles.taskPriority,

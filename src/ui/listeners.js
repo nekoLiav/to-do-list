@@ -6,6 +6,10 @@ import renderProjectEditUI from './renderProjectEditUI';
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
 import renderProject from '../helpers/renderProject';
+import renderTaskEditUI from './renderTaskEditUI';
+import editTask from '../core/editTask';
+import deleteTask from '../core/deleteTask';
+import priorityCheck from '../helpers/priorityCheck';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
@@ -54,7 +58,48 @@ export default function listeners() {
 }
 
 const taskContainer = document.getElementById('task-container');
-taskContainer.addEventListener('click', () => {});
+taskContainer.addEventListener('click', (e) => {
+  const projectId = parseInt(
+    e.target.parentNode.parentNode.parentNode.getAttribute('data-id'),
+    10
+  );
+  const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+  if (e.target.classList.contains('task-edit-button')) {
+    renderTaskEditUI(taskId);
+  }
+  if (e.target.classList.contains('confirm-task-button')) {
+    editTask(
+      projectId,
+      taskId,
+      document.querySelector(`.edit-title[data-id='${taskId}']`).value,
+      document.querySelector(`.edit-due-date[data-id='${taskId}']`).value,
+      priorityCheck(taskId),
+      document
+        .querySelector(`.task-complete-button[data-id='${taskId}']`)
+        .getAttribute('data-complete')
+    );
+    document.querySelector(`.task-edit-panel[data-id='${taskId}']`).remove();
+    document
+      .querySelector(`.task-info[data-id='${taskId}']`)
+      .classList.remove('hidden');
+  }
+  if (e.target.classList.contains('delete-task-button')) {
+    deleteTask(projectId, taskId);
+    document.querySelector(`.task-edit-panel[data-id='${taskId}']`).remove();
+    document.querySelector(`.task-info[data-id='${taskId}']`).remove();
+  }
+  if (
+    e.target.classList.contains('task-info') ||
+    e.target.classList.contains('task-title')
+  ) {
+    document
+      .querySelector(`.task-edit-button[data-id='${taskId}']`)
+      .classList.toggle('!hidden');
+    document
+      .querySelector(`.task-complete-button[data-id='${taskId}']`)
+      .classList.toggle('!hidden');
+  }
+});
 //   document.getElementById('task-add-button').addEventListener('click', (e) => {
 //     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
 //     addTask(projectId, 'New Task', '', 'Low', false);

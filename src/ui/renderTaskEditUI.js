@@ -10,14 +10,16 @@ export default function renderTaskEditUI(taskId) {
 
   const taskEdit = Element(
     'div',
-    { class: styles.editTaskPanel },
+    { class: styles.editTaskPanel, 'data-id': taskId },
     Element('input', {
       class: styles.editTitle,
+      'data-id': taskId,
       type: 'text',
       value: taskTitle.textContent,
     }),
     Element('input', {
       class: styles.editDueDate,
+      'data-id': taskId,
       value: taskDueDate.getAttribute('data-date'),
       type: 'datetime-local',
     }),
@@ -38,9 +40,9 @@ export default function renderTaskEditUI(taskId) {
     }),
     Element(
       'div',
-      { class: styles.projectEditActionButtons },
-      Element('button', { class: styles.confirmTaskButton }),
-      Element('button', { class: styles.deleteTaskButton })
+      { class: styles.taskEditActionButtons },
+      Element('button', { class: styles.confirmTaskButton, 'data-id': taskId }),
+      Element('button', { class: styles.deleteTaskButton, 'data-id': taskId })
     )
   );
 
