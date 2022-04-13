@@ -29,11 +29,11 @@ export default {
   editTitle: 'edit-title w-40 text-sm rounded max-h-5',
   editDueDate: 'edit-due-date w-40 text-xs rounded max-h-5',
   priorityLow:
-    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
   priorityMed:
-    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
   priorityHigh:
-    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
   taskEditActionButtons: 'flex gap-0.5',
   confirmTaskButton:
     'confirm-task-button w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check',

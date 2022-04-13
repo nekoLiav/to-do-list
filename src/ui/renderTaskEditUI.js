@@ -1,4 +1,5 @@
 import Element from '../factories/Element';
+import configurePrioritySelectors from '../helpers/configurePrioritySelectors';
 import styles from './tailwind';
 
 export default function renderTaskEditUI(taskId) {
@@ -49,4 +50,6 @@ export default function renderTaskEditUI(taskId) {
   taskInfo.insertAdjacentElement('afterend', taskEdit);
 
   taskInfo.classList.add('hidden');
+
+  configurePrioritySelectors(taskId);
 }

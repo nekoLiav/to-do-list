@@ -111,4 +111,23 @@ taskContainer.addEventListener('click', (e) => {
   if (e.target.classList.contains('task-complete-button')) {
     completeTask(projectId, taskId);
   }
+  // task priority toggle
+  if (e.target.classList.contains('priority-selector')) {
+    if (e.target.id === 'Low') {
+      e.target.classList.add('!hidden');
+      e.target.setAttribute('data-selected', false);
+      document.getElementById('Med').classList.remove('!hidden');
+      document.getElementById('Med').setAttribute('data-selected', true);
+    } else if (e.target.id === 'Med') {
+      e.target.classList.add('!hidden');
+      e.target.setAttribute('data-selected', false);
+      document.getElementById('High').classList.remove('!hidden');
+      document.getElementById('High').setAttribute('data-selected', true);
+    } else if (e.target.id === 'High') {
+      e.target.classList.add('!hidden');
+      e.target.setAttribute('data-selected', false);
+      document.getElementById('Low').classList.remove('!hidden');
+      document.getElementById('Low').setAttribute('data-selected', true);
+    }
+  }
 });

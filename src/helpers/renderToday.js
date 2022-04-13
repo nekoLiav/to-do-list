@@ -9,10 +9,10 @@ export default function renderToday() {
   toDoList.forEach((project) => {
     project.tasks.forEach((task) => {
       if (isValid(new Date(task.dueDate)) && isToday(new Date(task.dueDate))) {
-        const projectDupeCheck = document.querySelectorAll(
+        const projectDupeCheck = document.querySelector(
           `.project-container[data-id='${project.id}']`
         );
-        if (projectDupeCheck[0] === undefined) {
+        if (projectDupeCheck === undefined) {
           renderMainProjects(project);
         }
         renderMainTasks(project, task);
