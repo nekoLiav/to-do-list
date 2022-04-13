@@ -2,7 +2,7 @@ export default {
   /* main display projects */
   projectContainer: 'flex flex-col w-full gap-1',
   projectInfo: 'flex',
-  projectName: 'w-full p-1 ml-5 font-bold text-white rounded',
+  projectName: 'project-name w-full p-1 ml-5 font-bold text-white rounded',
   projectTasks: 'project-tasks flex flex-col w-full gap-1',
   taskAddButton:
     'w-8 h-6 p-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200',
@@ -40,11 +40,12 @@ export default {
   deleteTaskButton:
     'delete-task-button w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-trash-can',
   /* edit project */
-  projectEditPanel: 'flex items-center w-full gap-1 p-1 rounded bg-slate-200',
-  editName: 'text-sm rounded max-h-5',
+  projectEditPanel:
+    'project-edit-panel flex items-center w-full gap-1 p-1 rounded bg-slate-200',
+  editName: 'edit-name text-sm rounded max-h-5',
   projectEditActionButtons: 'flex w-full gap-1',
   confirmProjectButton:
-    'w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 fa-circle-check fa-solid bg-slate-700',
+    'confirm-project-button w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 fa-circle-check fa-solid bg-slate-700',
   deleteProjectButton:
-    'w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-trash-can fa-solid',
+    'delete-project-button w-8 h-6 p-1 text-red-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-trash-can fa-solid',
 };

@@ -1,9 +1,13 @@
 // /* eslint-disable no-param-reassign */
-// import addTask from '../core/addTask';
-// import renderTaskEditUI from './renderTaskEditUI';
-// import completeTask from '../core/completeTask';
+import renderProjectEditUI from './renderProjectEditUI';
 
-// export default function listeners() {
+export default function listeners() {
+  document.querySelectorAll('.side-project-edit-button').forEach((element) => {
+    element.addEventListener('click', (e) => {
+      renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
+    });
+  });
+}
 //   document.getElementById('task-add-button').addEventListener('click', (e) => {
 //     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
 //     addTask(projectId, 'New Task', '', 'Low', false);
@@ -100,10 +104,6 @@
 //   if (mainViewProject !== undefined) {
 //     mainViewProject.remove();
 //   }
-// });
-
-// projectEditButton.addEventListener('click', (e) => {
-//   renderProjectEditUI(parseInt(e.target.getAttribute('data-id'), 10));
 // });
 
 // sideNavProject.addEventListener('click', (e) => {
