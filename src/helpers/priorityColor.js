@@ -1,11 +1,11 @@
 import findTask from './findTask';
 
 export default function priorityColor(projectId, taskId) {
-  const task = findTask(projectId, taskId);
-
   const priorityElement = document.querySelector(
     `.task-priority[data-task-id='${taskId}']`
   );
+
+  const task = findTask(projectId, taskId);
 
   if (task.priority === 'low') {
     priorityElement.classList.remove('text-red-500');
