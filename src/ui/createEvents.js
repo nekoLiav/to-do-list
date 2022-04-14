@@ -21,8 +21,11 @@ export default function listeners() {
   const main = document.getElementById('main');
 
   overviewButton.addEventListener('click', populateOverview);
+
   todayButton.addEventListener('click', populateToday);
+
   projectAddButton.addEventListener('click', () => addProject('New Project'));
+
   side.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
     // project elements
@@ -65,6 +68,7 @@ export default function listeners() {
       populateProject(projectId);
     }
   });
+
   main.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
     const taskId = parseInt(e.target.getAttribute('data-task-id'), 10);
