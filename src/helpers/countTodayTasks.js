@@ -1,6 +1,7 @@
 import { isValid, isToday } from 'date-fns/esm';
 import { toDoList } from '../core/globals';
-import correctVerbiage from './correctVerbiage';
+import projectVerbiage from './projectVerbiage';
+import taskVerbiage from './taskVerbiage';
 
 export default function countTodayTasks() {
   const todayInfo = document.getElementById('today-info');
@@ -24,9 +25,7 @@ export default function countTodayTasks() {
 
   const todayProjectsCounter = uniqueProjects.length;
 
-  todayInfo.textContent = `${todayTasksCounter} ${
-    correctVerbiage(todayTasksCounter, todayProjectsCounter).taskWord
-  } in ${todayProjectsCounter} ${
-    correctVerbiage(todayTasksCounter, todayProjectsCounter).projectWord
-  }`;
+  todayInfo.textContent = `${todayTasksCounter} ${taskVerbiage(
+    todayTasksCounter
+  )} in ${todayProjectsCounter} ${projectVerbiage(todayProjectsCounter)}`;
 }

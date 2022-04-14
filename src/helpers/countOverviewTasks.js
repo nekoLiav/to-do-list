@@ -1,5 +1,6 @@
 import { toDoList } from '../core/globals';
-import correctVerbiage from './correctVerbiage';
+import projectVerbiage from './projectVerbiage';
+import taskVerbiage from './taskVerbiage';
 
 export default function countOverviewTasks() {
   const overviewInfo = document.getElementById('overview-info');
@@ -13,9 +14,7 @@ export default function countOverviewTasks() {
     });
   });
 
-  overviewInfo.textContent = `${taskCounter} ${
-    correctVerbiage(taskCounter, projectCounter).taskWord
-  } in ${projectCounter} ${
-    correctVerbiage(taskCounter, projectCounter).projectWord
-  }`;
+  overviewInfo.textContent = `${taskCounter} ${taskVerbiage(
+    taskCounter
+  )} in ${projectCounter} ${projectVerbiage(projectCounter)}`;
 }
