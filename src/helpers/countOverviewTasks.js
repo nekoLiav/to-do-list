@@ -5,16 +5,18 @@ import taskVerbiage from './taskVerbiage';
 export default function countOverviewTasks() {
   const overviewInfo = document.getElementById('overview-info');
 
-  let taskCounter = 0;
-  const projectCounter = toDoList.length;
-
-  toDoList.forEach((project) => {
-    project.tasks.forEach(() => {
-      taskCounter += 1;
+  const totalProjects = toDoList.length;
+  const totalTasks = () => {
+    let counter = 0;
+    toDoList.forEach((project) => {
+      project.tasks.forEach(() => {
+        counter += 1;
+      });
     });
-  });
+    return counter;
+  };
 
-  overviewInfo.textContent = `${taskCounter} ${taskVerbiage(
-    taskCounter
-  )} in ${projectCounter} ${projectVerbiage(projectCounter)}`;
+  overviewInfo.textContent = `${totalTasks()} ${taskVerbiage(
+    totalTasks()
+  )} in ${totalProjects} ${projectVerbiage(totalProjects)}`;
 }

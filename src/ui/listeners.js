@@ -1,11 +1,11 @@
 // /* eslint-disable no-param-reassign */
 import addProject from '../core/addProject';
-import renderOverview from '../helpers/renderOverview';
-import populateTodayView from '../helpers/populateTodayView';
+import populateOverview from '../helpers/populateOverview';
+import populateToday from '../helpers/populateToday';
 import renderProjectEditUI from './renderProjectEditUI';
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
-import renderProject from '../helpers/renderProject';
+import populateProject from '../helpers/populateProject';
 import renderTaskEditUI from './renderTaskEditUI';
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
@@ -20,8 +20,8 @@ export default function listeners() {
   const side = document.getElementById('side');
   const main = document.getElementById('main');
 
-  overviewButton.addEventListener('click', renderOverview);
-  todayButton.addEventListener('click', populateTodayView);
+  overviewButton.addEventListener('click', populateOverview);
+  todayButton.addEventListener('click', populateToday);
   projectAddButton.addEventListener('click', () => addProject('New Project'));
   side.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
@@ -62,7 +62,7 @@ export default function listeners() {
       e.target.classList.contains('side-project-name')
     ) {
       sideProjectEditButton.classList.toggle('!hidden');
-      renderProject(projectId);
+      populateProject(projectId);
     }
   });
   main.addEventListener('click', (e) => {

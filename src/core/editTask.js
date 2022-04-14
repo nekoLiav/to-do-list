@@ -1,7 +1,6 @@
+import findProject from '../helpers/findProject';
 import findTask from '../helpers/findTask';
-import renderTaskUpdate from '../ui/renderTaskUpdate';
-import updateLocalStorage from '../helpers/updateLocalStorage';
-import populateSideInfo from '../helpers/populateSideInfo';
+import updateTask from '../helpers/updateTask';
 
 export default function editTask(
   projectId,
@@ -11,6 +10,7 @@ export default function editTask(
   priority,
   complete
 ) {
+  const project = findProject(projectId);
   const task = findTask(projectId, taskId);
 
   task.title = title;
@@ -23,7 +23,5 @@ export default function editTask(
     task.complete = true;
   }
 
-  renderTaskUpdate(title, dueDate, priority, complete, taskId, projectId);
-  populateSideInfo();
-  updateLocalStorage();
+  updateTask(project, task);
 }

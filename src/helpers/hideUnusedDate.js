@@ -1,6 +1,6 @@
 import findTask from './findTask';
 
-export default function hideUnusedDates(projectId, taskId) {
+export default function hideUnusedDate(projectId, taskId) {
   const dueDateElement = document.querySelector(
     `.task-due-date[data-task-id='${taskId}']`
   );

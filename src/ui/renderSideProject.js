@@ -1,7 +1,7 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
 
-export default function renderSideProjects(project) {
+export default function renderSideProject(project) {
   const sideProject = Element(
     'div',
     { class: styles.sideProjectContainer, 'data-project-id': project.id },

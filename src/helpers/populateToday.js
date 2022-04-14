@@ -1,10 +1,10 @@
 import { isValid, isToday } from 'date-fns/esm';
 import { toDoList } from '../core/globals';
 import clearView from './clearView';
-import renderMainProjects from '../ui/renderMainProjects';
-import renderMainTasks from '../ui/renderMainTasks';
+import renderMainProject from '../ui/renderMainProject';
+import renderMainTasks from '../ui/renderMainTask';
 
-export default function populateTodayView() {
+export default function populateToday() {
   clearView();
   toDoList.forEach((project) => {
     project.tasks.forEach((task) => {
@@ -12,10 +12,10 @@ export default function populateTodayView() {
         const projectDupeCheck = document.querySelector(
           `.project-container[data-project-id='${project.id}']`
         );
-        if (projectDupeCheck === undefined) {
-          renderMainProjects(project);
+        if (projectDupeCheck === undefined || projectDupeCheck === null) {
+          renderMainProject(project);
         }
-        renderMainTasks(project, task);
+        renderMainTask(project, task);
       }
     });
   });

@@ -1,6 +1,6 @@
 import { isValid, formatDistanceToNowStrict, format } from 'date-fns/esm';
 
-export default function formatDates(dueDate, requestedFormat) {
+export default function formatDate(dueDate, requestedFormat) {
   let formattedDueDate;
   if (isValid(new Date(dueDate))) {
     if (requestedFormat === 'relative') {

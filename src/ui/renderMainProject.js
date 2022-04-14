@@ -2,7 +2,7 @@ import Element from '../factories/Element';
 import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
 import styles from './tailwind';
 
-export default function renderMainProjects(project) {
+export default function renderMainProject(project) {
   const mainProject = Element(
     'div',
     {
