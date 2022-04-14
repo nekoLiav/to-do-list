@@ -1,9 +1,7 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
 import formatDates from '../helpers/formatDate';
-import checkComplete from '../helpers/checkComplete';
-import priorityColor from '../helpers/priorityColor';
-import hideUnusedDate from '../helpers/hideUnusedDate';
+import updateTask from '../helpers/updateTask';
 
 export default function renderMainTask(project, task) {
   const mainTask = Element(
@@ -55,7 +53,5 @@ export default function renderMainTask(project, task) {
 
   projectTasksList.append(mainTask);
 
-  checkComplete(project.id, task.id);
-  priorityColor(project.id, task.id);
-  hideUnusedDate(project.id, task.id);
+  updateTask();
 }

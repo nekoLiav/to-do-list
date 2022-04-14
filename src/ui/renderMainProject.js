@@ -1,5 +1,5 @@
 import Element from '../factories/Element';
-import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
+import updateProject from '../helpers/updateProject';
 import styles from './tailwind';
 
 export default function renderMainProject(project) {
@@ -35,5 +35,5 @@ export default function renderMainProject(project) {
 
   main.append(mainProject);
 
-  checkEmptyTaskList(project.id);
+  updateProject();
 }
