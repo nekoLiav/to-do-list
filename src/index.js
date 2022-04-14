@@ -1,4 +1,4 @@
-import './assets/tailwind.css';
+import './tailwind.css';
 import './assets/fontawesome/solid.css';
 import './assets/fontawesome/fontawesome.css';
 import createLocalStorage from './helpers/createLocalStorage';
@@ -9,7 +9,6 @@ import renderSideInfo from './helpers/renderSideInfo';
 import listeners from './ui/listeners';
 import checkEmptyTaskList from './helpers/checkEmptyTaskList';
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
