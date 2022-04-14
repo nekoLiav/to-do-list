@@ -1,9 +1,15 @@
-export default function hideUnusedDates() {
-  document.querySelectorAll('.task-due-date').forEach((element) => {
-    if (element.getAttribute('data-date') === '') {
-      element.classList.add('hidden');
-    } else {
-      element.classList.remove('hidden');
-    }
-  });
+import findTask from './findTask';
+
+export default function hideUnusedDates(projectId, taskId) {
+  const dueDateElement = document.querySelector(
+    `.task-due-date[data-task-id='${taskId}']`
+  );
+
+  const task = findTask(projectId, taskId);
+
+  if (task.dueDate === '') {
+    dueDateElement.classList.add('hidden');
+  } else {
+    dueDateElement.classList.remove('hidden');
+  }
 }
