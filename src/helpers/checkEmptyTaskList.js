@@ -1,9 +1,15 @@
-export default function checkEmptyTaskList() {
-  document.querySelectorAll('.project-tasks').forEach((element) => {
-    if (element.childNodes.length === 0) {
-      element.classList.add('hidden');
-    } else {
-      element.classList.remove('hidden');
-    }
-  });
+import findProject from './findProject';
+
+export default function checkEmptyTaskList(projectId) {
+  const projectTasksList = document.querySelector(
+    `.project-tasks[data-project-id='${projectId}']`
+  );
+
+  const project = findProject(projectId);
+
+  if (project.tasks.length === 0) {
+    projectTasksList.classList.add('hidden');
+  } else {
+    projectTasksList.classList.remove('hidden');
+  }
 }
