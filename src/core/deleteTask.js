@@ -1,6 +1,6 @@
 import findProject from '../helpers/findProject';
 import findTask from '../helpers/findTask';
-import renderSideInfo from '../helpers/renderSideInfo';
+import populateSideInfo from '../helpers/populateSideInfo';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 
 export default function deleteTask(projectId, taskId) {
@@ -9,6 +9,6 @@ export default function deleteTask(projectId, taskId) {
 
   project.tasks.splice(project.tasks.indexOf(task), 1);
 
-  renderSideInfo();
+  populateSideInfo();
   updateLocalStorage();
 }

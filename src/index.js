@@ -5,15 +5,13 @@ import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
-import renderSideInfo from './helpers/renderSideInfo';
+import populateSideInfo from './helpers/populateSideInfo';
 import listeners from './ui/listeners';
-import checkEmptyTaskList from './helpers/checkEmptyTaskList';
 
 localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
-renderSideInfo();
+populateSideInfo();
 renderOverview();
-checkEmptyTaskList();
 listeners();

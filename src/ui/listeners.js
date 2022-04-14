@@ -1,7 +1,7 @@
 // /* eslint-disable no-param-reassign */
 import addProject from '../core/addProject';
 import renderOverview from '../helpers/renderOverview';
-import renderToday from '../helpers/renderToday';
+import populateTodayView from '../helpers/populateTodayView';
 import renderProjectEditUI from './renderProjectEditUI';
 import editProject from '../core/editProject';
 import deleteProject from '../core/deleteProject';
@@ -9,7 +9,7 @@ import renderProject from '../helpers/renderProject';
 import renderTaskEditUI from './renderTaskEditUI';
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
-import completeTask from '../core/completeTask';
+import toggleTaskComplete from '../helpers/toggleTaskComplete';
 import addTask from '../core/addTask';
 import priorityCheck from '../helpers/priorityCheck';
 
@@ -21,7 +21,7 @@ export default function listeners() {
   const main = document.getElementById('main');
 
   overviewButton.addEventListener('click', renderOverview);
-  todayButton.addEventListener('click', renderToday);
+  todayButton.addEventListener('click', populateTodayView);
   projectAddButton.addEventListener('click', () => addProject('New Project'));
   side.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
@@ -107,8 +107,7 @@ export default function listeners() {
         taskId,
         editTitle.value,
         editDueDate.value,
-        priorityCheck(projectId, taskId),
-        taskCompleteButton.getAttribute('data-complete')
+        priorityCheck(projectId, taskId)
       );
       taskEditPanel.remove();
       document
@@ -131,7 +130,7 @@ export default function listeners() {
       taskCompleteButton.classList.toggle('!hidden');
     }
     if (e.target.classList.contains('task-complete-button')) {
-      completeTask(projectId, taskId);
+      toggleTaskComplete(projectId, taskId);
     }
     // task priority toggle
     if (e.target.classList.contains('priority-selector')) {

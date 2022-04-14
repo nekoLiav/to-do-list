@@ -35,5 +35,5 @@ export default function renderMainProjects(project) {
 
   main.append(mainProject);
 
-  checkEmptyTaskList();
+  checkEmptyTaskList(project.id);
 }

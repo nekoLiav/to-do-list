@@ -1,7 +1,7 @@
 import findTask from '../helpers/findTask';
 import renderTaskUpdate from '../ui/renderTaskUpdate';
 import updateLocalStorage from '../helpers/updateLocalStorage';
-import renderSideInfo from '../helpers/renderSideInfo';
+import populateSideInfo from '../helpers/populateSideInfo';
 
 export default function editTask(
   projectId,
@@ -24,6 +24,6 @@ export default function editTask(
   }
 
   renderTaskUpdate(title, dueDate, priority, complete, taskId, projectId);
-  renderSideInfo();
+  populateSideInfo();
   updateLocalStorage();
 }

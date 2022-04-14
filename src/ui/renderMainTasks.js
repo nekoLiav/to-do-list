@@ -4,7 +4,6 @@ import formatDates from '../helpers/formatDates';
 import checkComplete from '../helpers/checkComplete';
 import priorityColor from '../helpers/priorityColor';
 import hideUnusedDates from '../helpers/hideUnusedDates';
-import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
 
 export default function renderMainTasks(project, task) {
   const mainTask = Element(
@@ -18,7 +17,6 @@ export default function renderMainTasks(project, task) {
       class: styles.taskCompleteButton,
       'data-task-id': task.id,
       'data-project-id': project.id,
-      'data-complete': task.complete,
     }),
     Element(
       'p',
@@ -43,7 +41,6 @@ export default function renderMainTasks(project, task) {
       class: styles.taskPriority,
       'data-task-id': task.id,
       'data-project-id': project.id,
-      'data-priority': task.priority,
     }),
     Element('button', {
       class: styles.taskEditButton,
@@ -58,8 +55,7 @@ export default function renderMainTasks(project, task) {
 
   projectTasksList.append(mainTask);
 
-  checkComplete();
+  checkComplete(project.id, task.id);
   priorityColor(project.id, task.id);
-  hideUnusedDates();
-  checkEmptyTaskList();
+  hideUnusedDates(project.id, task.id);
 }

@@ -1,7 +1,7 @@
 import countOverviewTasks from './countOverviewTasks';
 import countTodayTasks from './countTodayTasks';
 
-export default function renderSideInfo() {
+export default function populateSideInfo() {
   countOverviewTasks();
   countTodayTasks();
 }

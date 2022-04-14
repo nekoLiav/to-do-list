@@ -4,7 +4,7 @@ import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 import renderProjectEditUI from '../ui/renderProjectEditUI';
 import renderSideProjects from '../ui/renderSideProjects';
-import renderSideInfo from '../helpers/renderSideInfo';
+import populateSideInfo from '../helpers/populateSideInfo';
 import renderMainProjects from '../ui/renderMainProjects';
 
 export default function addProject(projectName) {
@@ -15,6 +15,6 @@ export default function addProject(projectName) {
   renderSideProjects(project);
   renderMainProjects(project);
   renderProjectEditUI(project.id);
-  renderSideInfo();
+  populateSideInfo();
   updateLocalStorage();
 }

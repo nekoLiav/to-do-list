@@ -4,7 +4,7 @@ import clearView from './clearView';
 import renderMainProjects from '../ui/renderMainProjects';
 import renderMainTasks from '../ui/renderMainTasks';
 
-export default function renderToday() {
+export default function populateTodayView() {
   clearView();
   toDoList.forEach((project) => {
     project.tasks.forEach((task) => {

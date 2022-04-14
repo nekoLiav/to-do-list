@@ -31,8 +31,8 @@ export default function renderTaskEditUI(projectId, taskId) {
       class: styles.editDueDate,
       'data-task-id': taskId,
       'data-project-id': projectId,
-      value: taskDueDate.getAttribute('data-date'),
       type: 'datetime-local',
+      value: taskDueDate.getAttribute('data-date'),
     }),
     Element('button', {
       class: styles.priorityLow,
