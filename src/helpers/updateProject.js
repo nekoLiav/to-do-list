@@ -3,11 +3,11 @@ import populateSideInfo from './populateSideInfo';
 import updateLocalStorage from './updateLocalStorage';
 
 export default function updateProject(project) {
-  const projectName = document.querySelector(
-    `.project-name[data-project-id='${project.id}']`
+  const sideProjectName = document.querySelector(
+    `.side-project-name[data-project-id='${project.id}']`
   );
 
-  projectName.textContent = project.name;
+  sideProjectName.textContent = project.name;
 
   checkEmptyTaskList(project.id);
   populateSideInfo();

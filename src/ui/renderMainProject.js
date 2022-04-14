@@ -35,5 +35,5 @@ export default function renderMainProject(project) {
 
   main.append(mainProject);
 
-  updateProject();
+  updateProject(project);
 }

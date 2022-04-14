@@ -53,5 +53,5 @@ export default function renderMainTask(project, task) {
 
   projectTasksList.append(mainTask);
 
-  updateTask();
+  updateTask(project, task);
 }
