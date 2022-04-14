@@ -3,8 +3,8 @@ import mostRecentProject from '../helpers/mostRecentProject';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 import { toDoList } from './globals';
 import renderProjectEditUI from '../ui/renderProjectEditUI';
-import renderSideNavProjects from '../ui/renderSideNavProjects';
-import renderSideNavInfo from '../helpers/renderSideNavInfo';
+import renderSideProjects from '../ui/renderSideProjects';
+import renderSideInfo from '../helpers/renderSideInfo';
 import renderMainProjects from '../ui/renderMainProjects';
 
 export default function addProject(projectName) {
@@ -12,9 +12,9 @@ export default function addProject(projectName) {
 
   const project = mostRecentProject();
 
-  renderSideNavProjects(project);
+  renderSideProjects(project);
   renderMainProjects(project);
   renderProjectEditUI(project.id);
-  renderSideNavInfo();
+  renderSideInfo();
   updateLocalStorage();
 }

@@ -4,8 +4,7 @@ import findProject from '../helpers/findProject';
 import renderTaskEditUI from '../ui/renderTaskEditUI';
 import updateLocalStorage from '../helpers/updateLocalStorage';
 import renderMainTasks from '../ui/renderMainTasks';
-import renderSideNavInfo from '../helpers/renderSideNavInfo';
-import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
+import renderSideInfo from '../helpers/renderSideInfo';
 
 export default function addTask(projectId) {
   const project = findProject(projectId);
@@ -16,7 +15,6 @@ export default function addTask(projectId) {
 
   renderMainTasks(project, task);
   renderTaskEditUI(task.id);
-  renderSideNavInfo();
-  checkEmptyTaskList();
+  renderSideInfo();
   updateLocalStorage();
 }

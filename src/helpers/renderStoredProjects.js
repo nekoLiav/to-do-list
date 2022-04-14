@@ -1,8 +1,8 @@
 import { toDoList } from '../core/globals';
-import renderSideNavProjects from '../ui/renderSideNavProjects';
+import renderSideProjects from '../ui/renderSideProjects';
 
 export default function renderStoredProjects() {
   toDoList.forEach((project) => {
-    renderSideNavProjects(project);
+    renderSideProjects(project);
   });
 }

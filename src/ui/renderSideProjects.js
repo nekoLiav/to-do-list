@@ -1,7 +1,7 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
 
-export default function renderSideNavProjects(project) {
+export default function renderSideProjects(project) {
   const sideProject = Element(
     'div',
     { class: styles.sideProjectContainer, 'data-id': project.id },
@@ -16,7 +16,7 @@ export default function renderSideNavProjects(project) {
     })
   );
 
-  const sideProjects = document.getElementById('side-projects');
+  const sideProjectAnchor = document.getElementById('side-project-anchor');
 
-  sideProjects.append(sideProject);
+  sideProjectAnchor.append(sideProject);
 }

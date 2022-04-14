@@ -5,7 +5,7 @@ import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
-import renderSideNavInfo from './helpers/renderSideNavInfo';
+import renderSideInfo from './helpers/renderSideInfo';
 import listeners from './ui/listeners';
 import checkEmptyTaskList from './helpers/checkEmptyTaskList';
 
@@ -13,7 +13,7 @@ localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
-renderSideNavInfo();
+renderSideInfo();
 renderOverview();
 checkEmptyTaskList();
 listeners();

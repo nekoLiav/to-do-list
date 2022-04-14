@@ -21,7 +21,7 @@ export default {
   /* side display projects */
   sideProjectContainer:
     'flex items-center justify-between w-full p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 side-project-container',
-  sideProjectName: 'side-project-name',
+  sideProjectName: 'side-project-name text-black text-sm',
   sideProjectEditButton:
     '!hidden w-8 h-6 p-1 text-white rounded hover:bg-slate-700 active:bg-slate-600 bg-slate-800 fa-pen-to-square fa-solid side-project-edit-button',
   /* edit task */
@@ -43,7 +43,8 @@ export default {
   /* edit project */
   projectEditPanel:
     'project-edit-panel flex items-center w-full gap-1 p-1 rounded bg-slate-200',
-  editName: 'edit-name max-w-[200px] sm:max-w-[170px] text-sm rounded max-h-5',
+  editName:
+    'edit-name text-black max-w-[200px] sm:max-w-[170px] text-sm rounded max-h-5',
   projectEditActionButtons: 'flex w-full gap-1',
   confirmProjectButton:
     'confirm-project-button w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-600 hover:bg-slate-700 fa-circle-check fa-solid bg-slate-800',
