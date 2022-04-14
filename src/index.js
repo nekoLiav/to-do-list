@@ -9,6 +9,7 @@ import renderSideNavInfo from './helpers/renderSideNavInfo';
 import listeners from './ui/listeners';
 import checkEmptyTaskList from './helpers/checkEmptyTaskList';
 
+localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();

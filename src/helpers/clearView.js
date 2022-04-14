@@ -1,7 +1,5 @@
 export default function clearView() {
-  const taskContainer = Array.from(
-    document.getElementById('task-container').children
-  );
+  const taskContainer = Array.from(document.getElementById('main').children);
   taskContainer.forEach((child) => {
     child.remove();
   });

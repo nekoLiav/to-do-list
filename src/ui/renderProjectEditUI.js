@@ -34,4 +34,6 @@ export default function renderProjectEditUI(projectId) {
 
   sideProjectContainer.insertAdjacentElement('afterend', projectEdit);
   sideProjectContainer.classList.add('hidden');
+
+  document.querySelector(`.edit-name[data-id='${projectId}']`).focus();
 }

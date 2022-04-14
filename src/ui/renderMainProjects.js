@@ -31,9 +31,9 @@ export default function renderMainProjects(project) {
     })
   );
 
-  const taskContainer = document.getElementById('task-container');
+  const main = document.getElementById('main');
 
-  taskContainer.append(mainProject);
+  main.append(mainProject);
 
   checkEmptyTaskList();
 }

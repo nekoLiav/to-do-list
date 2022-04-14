@@ -10,7 +10,7 @@ export default function renderMainTasks(project, task) {
   const mainTask = Element(
     'div',
     {
-      class: styles.taskInfo,
+      class: styles.taskContainer,
       'data-id': task.id,
     },
     Element('button', {

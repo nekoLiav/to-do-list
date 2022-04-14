@@ -16,15 +16,15 @@ export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
   const todayButton = document.getElementById('today-button');
   const projectAddButton = document.getElementById('project-add-button');
-  const sideNav = document.getElementById('side-nav');
-  const taskContainer = document.getElementById('task-container');
+  const side = document.getElementById('side');
+  const main = document.getElementById('main');
 
   overviewButton.addEventListener('click', renderOverview);
   todayButton.addEventListener('click', renderToday);
   projectAddButton.addEventListener('click', () => addProject('New Project'));
-  sideNav.addEventListener('click', (e) => {
+  side.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
-    // elements
+    // project elements
     const projectContainer = document.querySelector(
       `.project-container[data-id='${projectId}']`
     );
@@ -64,13 +64,13 @@ export default function listeners() {
       renderProject(projectId);
     }
   });
-  taskContainer.addEventListener('click', (e) => {
+  main.addEventListener('click', (e) => {
     const projectId = parseInt(
       e.target.parentNode.parentNode.parentNode.getAttribute('data-id'),
       10
     );
     const taskId = parseInt(e.target.getAttribute('data-id'), 10);
-    // elements
+    // task elements
     const editTitle = document.querySelector(
       `.edit-title[data-id='${taskId}']`
     );
@@ -86,13 +86,17 @@ export default function listeners() {
     const taskEditPanel = document.querySelector(
       `.task-edit-panel[data-id='${taskId}']`
     );
-    const taskInfo = document.querySelector(`.task-info[data-id='${taskId}']`);
+    const taskContainer = document.querySelector(
+      `.task-container[data-id='${taskId}']`
+    );
     const taskEditButton = document.querySelector(
       `.task-edit-button[data-id='${taskId}']`
     );
-    const priorityLow = document.getElementById('Low');
-    const priorityMedium = document.getElementById('Medium');
-    const priorityHigh = document.getElementById('High');
+    const priorityLow = document.querySelector(`#Low[data-id='${taskId}']`);
+    const priorityMedium = document.querySelector(
+      `#Medium[data-id='${taskId}']`
+    );
+    const priorityHigh = document.querySelector(`#High[data-id='${taskId}']`);
     // task edit
     if (e.target.classList.contains('task-edit-button')) {
       renderTaskEditUI(taskId);
@@ -109,18 +113,18 @@ export default function listeners() {
       );
       taskEditPanel.remove();
       document
-        .querySelector(`.task-info[data-id='${taskId}']`)
+        .querySelector(`.task-container[data-id='${taskId}']`)
         .classList.remove('hidden');
     }
     // task delete
     if (e.target.classList.contains('delete-task-button')) {
       deleteTask(projectId, taskId);
       taskEditPanel.remove();
-      taskInfo.remove();
+      taskContainer.remove();
     }
     // task complete toggle
     if (
-      e.target.classList.contains('task-info') ||
+      e.target.classList.contains('task-container') ||
       e.target.classList.contains('task-title') ||
       e.target.classList.contains('task-due-date')
     ) {
