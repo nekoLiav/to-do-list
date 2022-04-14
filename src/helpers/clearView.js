@@ -1,6 +1,7 @@
 export default function clearView() {
-  const taskContainer = Array.from(document.getElementById('main').children);
-  taskContainer.forEach((child) => {
-    child.remove();
+  const mainViewProjects = document.querySelectorAll('.project-container');
+
+  mainViewProjects.forEach((element) => {
+    element.remove();
   });
 }
