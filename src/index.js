@@ -7,11 +7,12 @@ import renderStoredProjects from './helpers/renderStoredProjects';
 import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './helpers/renderSideNavInfo';
 import listeners from './ui/listeners';
+import checkEmptyTaskList from './helpers/checkEmptyTaskList';
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();
 renderSideNavInfo();
 renderOverview();
+checkEmptyTaskList();
 listeners();

@@ -1,4 +1,5 @@
 import Element from '../factories/Element';
+import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
 import styles from './tailwind';
 
 export default function renderMainProjects(project) {
@@ -33,4 +34,6 @@ export default function renderMainProjects(project) {
   const taskContainer = document.getElementById('task-container');
 
   taskContainer.append(mainProject);
+
+  checkEmptyTaskList();
 }

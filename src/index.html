@@ -9,8 +9,9 @@
   <header class="flex items-center justify-center w-full h-20 bg-slate-700">
     <p class="text-xl font-bold text-white">Minimal To-Do</p>
   </header>
-  <div class="flex h-full gap-5 p-5 overflow-clip">
-    <div id="side-nav" class="flex flex-col p-1 rounded w-96 bg-slate-700">
+  <div class="flex flex-col h-full gap-5 p-5 sm:flex-row overflow-clip">
+    <div id="side-nav"
+      class="flex max-h-[333px] sm:max-h-full flex-col p-1 w-full rounded min-w-[256px] sm:w-96 bg-slate-700">
       <div class="flex flex-col items-center gap-1">
         <p class="w-full p-1 ml-5 font-bold text-white">Tasks</p>
         <div class="flex flex-col items-center w-full p-1">
@@ -30,8 +31,8 @@
       <button id="project-add-button"
         class="w-8 h-6 p-1 mt-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200"></button>
     </div>
-    <div class="w-full rounded bg-slate-700">
-      <div id="task-container" class="flex flex-col w-1/2 h-full gap-2 p-1 overflow-y-auto rounded bg-slate-700">
+    <div class="w-full h-full rounded sm: bg-slate-700">
+      <div id="task-container" class="flex-col w-full h-full gap-2 p-1 overflow-y-auto rounded bg-slate-700">
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import formatDates from '../helpers/formatDates';
 import checkComplete from '../helpers/checkComplete';
 import priorityColor from '../helpers/priorityColor';
 import hideUnusedDates from '../helpers/hideUnusedDates';
+import checkEmptyTaskList from '../helpers/checkEmptyTaskList';
 
 export default function renderMainTasks(project, task) {
   const mainTask = Element(
@@ -51,4 +52,5 @@ export default function renderMainTasks(project, task) {
   checkComplete();
   priorityColor();
   hideUnusedDates();
+  checkEmptyTaskList();
 }
