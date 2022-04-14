@@ -10,6 +10,5 @@ export default function deleteTask(projectId, taskId) {
   project.tasks.splice(project.tasks.indexOf(task), 1);
 
   renderSideNavInfo();
-
   updateLocalStorage();
 }

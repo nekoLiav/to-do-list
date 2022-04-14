@@ -25,7 +25,6 @@ export default function renderMainProjects(project) {
       'data-id': project.id,
     }),
     Element('button', {
-      id: 'task-add-button',
       class: styles.taskAddButton,
       'data-id': project.id,
     })

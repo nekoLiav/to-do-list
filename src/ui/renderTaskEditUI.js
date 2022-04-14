@@ -3,8 +3,8 @@ import configurePrioritySelectors from '../helpers/configurePrioritySelectors';
 import styles from './tailwind';
 
 export default function renderTaskEditUI(taskId) {
-  const taskInfo = document.querySelector(`.task-Info[data-id='${taskId}'`);
-  const taskTitle = document.querySelector(`.task-title[data-id='${taskId}'`);
+  const taskInfo = document.querySelector(`.task-Info[data-id='${taskId}']`);
+  const taskTitle = document.querySelector(`.task-title[data-id='${taskId}']`);
   const taskDueDate = document.querySelector(
     `.task-due-date[data-id='${taskId}']`
   );

@@ -10,124 +10,147 @@ import renderTaskEditUI from './renderTaskEditUI';
 import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
 import completeTask from '../core/completeTask';
+import addTask from '../core/addTask';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
-  overviewButton.addEventListener('click', renderOverview);
-
   const todayButton = document.getElementById('today-button');
-  todayButton.addEventListener('click', renderToday);
-
   const projectAddButton = document.getElementById('project-add-button');
-  projectAddButton.addEventListener('click', () => addProject('New Project'));
-
   const sideNav = document.getElementById('side-nav');
+  const taskContainer = document.getElementById('task-container');
+
+  overviewButton.addEventListener('click', renderOverview);
+  todayButton.addEventListener('click', renderToday);
+  projectAddButton.addEventListener('click', () => addProject('New Project'));
   sideNav.addEventListener('click', (e) => {
     const projectId = parseInt(e.target.getAttribute('data-id'), 10);
+    // elements
+    const projectContainer = document.querySelector(
+      `.project-container[data-id='${projectId}']`
+    );
+    const projectEditPanel = document.querySelector(
+      `.project-edit-panel[data-id='${projectId}']`
+    );
+    const editName = document.querySelector('.edit-name');
+    const sideProjectContainer = document.querySelector(
+      `.side-project-container[data-id='${projectId}']`
+    );
+    const sideProjectEditButton = document.querySelector(
+      `.side-project-edit-button[data-id='${projectId}']`
+    );
     // project edit
     if (e.target.classList.contains('side-project-edit-button')) {
       renderProjectEditUI(projectId);
     }
     // project edit confirm
     if (e.target.classList.contains('confirm-project-button')) {
-      editProject(projectId, document.querySelector('.edit-name').value);
-      document
-        .querySelector(`.project-edit-panel[data-id='${projectId}']`)
-        .remove();
-      document
-        .querySelector(`.side-project-container[data-id='${projectId}']`)
-        .classList.remove('hidden');
+      editProject(projectId, editName.value);
+      projectEditPanel.remove();
+      sideProjectContainer.classList.remove('hidden');
     }
     // project delete
     if (e.target.classList.contains('delete-project-button')) {
       deleteProject(projectId);
-      document
-        .querySelector(`.project-edit-panel[data-id='${projectId}']`)
-        .remove();
-      document
-        .querySelector(`.side-project-container[data-id='${projectId}']`)
-        .remove();
+      projectContainer.remove();
+      projectEditPanel.remove();
+      sideProjectContainer.remove();
     }
     // project edit button toggle
     if (
       e.target.classList.contains('side-project-container') ||
       e.target.classList.contains('side-project-name')
     ) {
-      document
-        .querySelector(`.side-project-edit-button[data-id='${projectId}']`)
-        .classList.toggle('!hidden');
+      sideProjectEditButton.classList.toggle('!hidden');
       renderProject(projectId);
     }
   });
-}
-
-const taskContainer = document.getElementById('task-container');
-taskContainer.addEventListener('click', (e) => {
-  const projectId = parseInt(
-    e.target.parentNode.parentNode.parentNode.getAttribute('data-id'),
-    10
-  );
-  const taskId = parseInt(e.target.getAttribute('data-id'), 10);
-  // task edit
-  if (e.target.classList.contains('task-edit-button')) {
-    renderTaskEditUI(taskId);
-  }
-  // task edit confirm
-  if (e.target.classList.contains('confirm-task-button')) {
-    editTask(
-      projectId,
-      taskId,
-      document.querySelector(`.edit-title[data-id='${taskId}']`).value,
-      document.querySelector(`.edit-due-date[data-id='${taskId}']`).value,
-      document.querySelector('.priority-selector[data-selected="true"]').id,
-      document
-        .querySelector(`.task-complete-button[data-id='${taskId}']`)
-        .getAttribute('data-complete')
+  taskContainer.addEventListener('click', (e) => {
+    const projectId = parseInt(
+      e.target.parentNode.parentNode.parentNode.getAttribute('data-id'),
+      10
     );
-    document.querySelector(`.task-edit-panel[data-id='${taskId}']`).remove();
-    document
-      .querySelector(`.task-info[data-id='${taskId}']`)
-      .classList.remove('hidden');
-  }
-  // task delete
-  if (e.target.classList.contains('delete-task-button')) {
-    deleteTask(projectId, taskId);
-    document.querySelector(`.task-edit-panel[data-id='${taskId}']`).remove();
-    document.querySelector(`.task-info[data-id='${taskId}']`).remove();
-  }
-  // task complete toggle
-  if (
-    e.target.classList.contains('task-info') ||
-    e.target.classList.contains('task-title') ||
-    e.target.classList.contains('task-due-date')
-  ) {
-    document
-      .querySelector(`.task-edit-button[data-id='${taskId}']`)
-      .classList.toggle('!hidden');
-    document
-      .querySelector(`.task-complete-button[data-id='${taskId}']`)
-      .classList.toggle('!hidden');
-  }
-  if (e.target.classList.contains('task-complete-button')) {
-    completeTask(projectId, taskId);
-  }
-  // task priority toggle
-  if (e.target.classList.contains('priority-selector')) {
-    if (e.target.id === 'Low') {
-      e.target.classList.add('!hidden');
-      e.target.setAttribute('data-selected', false);
-      document.getElementById('Medium').classList.remove('!hidden');
-      document.getElementById('Medium').setAttribute('data-selected', true);
-    } else if (e.target.id === 'Medium') {
-      e.target.classList.add('!hidden');
-      e.target.setAttribute('data-selected', false);
-      document.getElementById('High').classList.remove('!hidden');
-      document.getElementById('High').setAttribute('data-selected', true);
-    } else if (e.target.id === 'High') {
-      e.target.classList.add('!hidden');
-      e.target.setAttribute('data-selected', false);
-      document.getElementById('Low').classList.remove('!hidden');
-      document.getElementById('Low').setAttribute('data-selected', true);
+    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    // elements
+    const editTitle = document.querySelector(
+      `.edit-title[data-id='${taskId}']`
+    );
+    const editDueDate = document.querySelector(
+      `.edit-due-date[data-id='${taskId}']`
+    );
+    const prioritySelectorSelected = document.querySelector(
+      '.priority-selector[data-selected="true"]'
+    );
+    const taskCompleteButton = document.querySelector(
+      `.task-complete-button[data-id='${taskId}']`
+    );
+    const taskEditPanel = document.querySelector(
+      `.task-edit-panel[data-id='${taskId}']`
+    );
+    const taskInfo = document.querySelector(`.task-info[data-id='${taskId}']`);
+    const taskEditButton = document.querySelector(
+      `.task-edit-button[data-id='${taskId}']`
+    );
+    const priorityLow = document.getElementById('Low');
+    const priorityMedium = document.getElementById('Medium');
+    const priorityHigh = document.getElementById('High');
+    // task edit
+    if (e.target.classList.contains('task-edit-button')) {
+      renderTaskEditUI(taskId);
     }
-  }
-});
+    // task edit confirm
+    if (e.target.classList.contains('confirm-task-button')) {
+      editTask(
+        projectId,
+        taskId,
+        editTitle.value,
+        editDueDate.value,
+        prioritySelectorSelected.id,
+        taskCompleteButton.getAttribute('data-complete')
+      );
+      taskEditPanel.remove();
+      document
+        .querySelector(`.task-info[data-id='${taskId}']`)
+        .classList.remove('hidden');
+    }
+    // task delete
+    if (e.target.classList.contains('delete-task-button')) {
+      deleteTask(projectId, taskId);
+      taskEditPanel.remove();
+      taskInfo.remove();
+    }
+    // task complete toggle
+    if (
+      e.target.classList.contains('task-info') ||
+      e.target.classList.contains('task-title') ||
+      e.target.classList.contains('task-due-date')
+    ) {
+      taskEditButton.classList.toggle('!hidden');
+      taskCompleteButton.classList.toggle('!hidden');
+    }
+    if (e.target.classList.contains('task-complete-button')) {
+      completeTask(projectId, taskId);
+    }
+    // task priority toggle
+    if (e.target.classList.contains('priority-selector')) {
+      if (e.target.id === 'Low') {
+        e.target.classList.add('!hidden');
+        e.target.setAttribute('data-selected', false);
+        priorityMedium.classList.remove('!hidden');
+        priorityMedium.setAttribute('data-selected', true);
+      } else if (e.target.id === 'Medium') {
+        e.target.classList.add('!hidden');
+        e.target.setAttribute('data-selected', false);
+        priorityHigh.classList.remove('!hidden');
+        priorityHigh.setAttribute('data-selected', true);
+      } else if (e.target.id === 'High') {
+        e.target.classList.add('!hidden');
+        e.target.setAttribute('data-selected', false);
+        priorityLow.classList.remove('!hidden');
+        priorityLow.setAttribute('data-selected', true);
+      }
+    }
+    if (e.target.classList.contains('task-add-button')) {
+      addTask(parseInt(e.target.getAttribute('data-id'), 10));
+    }
+  });
+}

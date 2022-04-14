@@ -8,6 +8,5 @@ export default function deleteProject(projectId) {
   toDoList.splice(toDoList.indexOf(project), 1);
 
   renderSideNavInfo();
-
   updateLocalStorage();
 }

@@ -8,6 +8,7 @@ import renderOverview from './helpers/renderOverview';
 import renderSideNavInfo from './helpers/renderSideNavInfo';
 import listeners from './ui/listeners';
 
+localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 renderStoredProjects();

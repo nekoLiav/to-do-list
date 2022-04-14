@@ -10,6 +10,5 @@ export default function editProject(projectId, name) {
 
   renderProjectUpdate(name, projectId);
   renderSideNavInfo();
-
   updateLocalStorage();
 }

@@ -25,6 +25,5 @@ export default function editTask(
 
   renderTaskUpdate(title, dueDate, priority, complete, taskId);
   renderSideNavInfo();
-
   updateLocalStorage();
 }

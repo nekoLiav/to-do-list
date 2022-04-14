@@ -1,11 +1,11 @@
 export default {
   /* main display projects */
-  projectContainer: 'flex flex-col w-full gap-1',
+  projectContainer: 'project-container flex flex-col w-full gap-1',
   projectInfo: 'flex',
   projectName: 'project-name w-full p-1 ml-5 font-bold text-white rounded',
   projectTasks: 'project-tasks flex flex-col w-full gap-1',
   taskAddButton:
-    'w-8 h-6 p-1 rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200',
+    'w-8 h-6 p-1 task-add-button rounded hover:bg-slate-100 active:bg-slate-300 fa-solid fa-plus bg-slate-200',
   /* main display tasks */
   taskInfo:
     'flex items-center gap-5 p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task-info',
