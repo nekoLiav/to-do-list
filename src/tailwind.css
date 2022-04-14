@@ -2,10 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+#project-add-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f067';
+}
+.side-project-edit-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f044';
+}
+.confirm-project-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f058';
+}
+.delete-project-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f1f8';
+}
+.task-add-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f067';
+}
+.task-edit-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f044';
+}
+.task-complete-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f058';
+}
+.confirm-task-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f058';
+}
+.delete-task-button::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f1f8';
+}
+.task-priority::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f024';
+}
+.low::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f024';
+}
+.medium::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f024';
+}
+.high::before {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f024';
+}
+#overview-button::after {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f518';
+}
+#today-button::after {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f017';
+}
+
 ::-webkit-datetime-edit {
   display: none;
 }
-
 ::-webkit-calendar-picker-indicator {
   cursor: pointer;
   margin: 0;

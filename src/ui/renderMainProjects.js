@@ -7,27 +7,27 @@ export default function renderMainProjects(project) {
     'div',
     {
       class: styles.projectContainer,
-      'data-id': project.id,
+      'data-project-id': project.id,
     },
     Element(
       'div',
-      { class: styles.projectInfo, 'data-id': project.id },
+      { class: styles.projectInfo, 'data-project-id': project.id },
       Element(
         'p',
         {
           class: styles.projectName,
-          'data-id': project.id,
+          'data-project-id': project.id,
         },
         project.name
       )
     ),
     Element('ul', {
       class: styles.projectTasks,
-      'data-id': project.id,
+      'data-project-id': project.id,
     }),
     Element('button', {
       class: styles.taskAddButton,
-      'data-id': project.id,
+      'data-project-id': project.id,
     })
   );
 

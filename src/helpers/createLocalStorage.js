@@ -9,7 +9,7 @@ export default function createLocalStorage() {
             {
               title: 'Default Task Title',
               dueDate: '',
-              priority: 'Low',
+              priority: 'low',
               complete: false,
               id: 420,
             },

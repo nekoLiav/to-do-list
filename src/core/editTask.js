@@ -23,7 +23,7 @@ export default function editTask(
     task.complete = true;
   }
 
-  renderTaskUpdate(title, dueDate, priority, complete, taskId);
+  renderTaskUpdate(title, dueDate, priority, complete, taskId, projectId);
   renderSideInfo();
   updateLocalStorage();
 }

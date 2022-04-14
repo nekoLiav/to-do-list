@@ -10,7 +10,7 @@ export default function renderToday() {
     project.tasks.forEach((task) => {
       if (isValid(new Date(task.dueDate)) && isToday(new Date(task.dueDate))) {
         const projectDupeCheck = document.querySelector(
-          `.project-container[data-id='${project.id}']`
+          `.project-container[data-project-id='${project.id}']`
         );
         if (projectDupeCheck === undefined) {
           renderMainProjects(project);

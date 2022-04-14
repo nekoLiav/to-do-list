@@ -11,18 +11,21 @@ export default function renderMainTasks(project, task) {
     'div',
     {
       class: styles.taskContainer,
-      'data-id': task.id,
+      'data-task-id': task.id,
+      'data-project-id': project.id,
     },
     Element('button', {
       class: styles.taskCompleteButton,
-      'data-id': task.id,
+      'data-task-id': task.id,
+      'data-project-id': project.id,
       'data-complete': task.complete,
     }),
     Element(
       'p',
       {
         class: styles.taskTitle,
-        'data-id': task.id,
+        'data-task-id': task.id,
+        'data-project-id': project.id,
       },
       task.title
     ),
@@ -30,27 +33,33 @@ export default function renderMainTasks(project, task) {
       'p',
       {
         class: styles.taskDueDate,
-        'data-id': task.id,
+        'data-task-id': task.id,
+        'data-project-id': project.id,
         'data-date': task.dueDate,
       },
       formatDates(task.dueDate, 'relative')
     ),
     Element('p', {
       class: styles.taskPriority,
-      'data-id': task.id,
+      'data-task-id': task.id,
+      'data-project-id': project.id,
       'data-priority': task.priority,
     }),
-    Element('button', { class: styles.taskEditButton, 'data-id': task.id })
+    Element('button', {
+      class: styles.taskEditButton,
+      'data-task-id': task.id,
+      'data-project-id': project.id,
+    })
   );
 
   const projectTasksList = document.querySelector(
-    `.project-tasks[data-id='${project.id}']`
+    `.project-tasks[data-project-id='${project.id}']`
   );
 
   projectTasksList.append(mainTask);
 
   checkComplete();
-  priorityColor();
+  priorityColor(project.id, task.id);
   hideUnusedDates();
   checkEmptyTaskList();
 }

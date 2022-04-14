@@ -3,18 +3,18 @@ import styles from './tailwind';
 
 export default function renderProjectEditUI(projectId) {
   const sideProjectContainer = document.querySelector(
-    `.side-project-container[data-id='${projectId}']`
+    `.side-project-container[data-project-id='${projectId}']`
   );
   const sideProjectName = document.querySelector(
-    `.side-project-name[data-id='${projectId}']`
+    `.side-project-name[data-project-id='${projectId}']`
   );
 
   const projectEdit = Element(
     'div',
-    { class: styles.projectEditPanel, 'data-id': projectId },
+    { class: styles.projectEditPanel, 'data-project-id': projectId },
     Element('input', {
       class: styles.editName,
-      'data-id': projectId,
+      'data-project-id': projectId,
       type: 'text',
       value: sideProjectName.textContent,
     }),
@@ -23,11 +23,11 @@ export default function renderProjectEditUI(projectId) {
       { class: styles.projectEditActionButtons },
       Element('button', {
         class: styles.confirmProjectButton,
-        'data-id': projectId,
+        'data-project-id': projectId,
       }),
       Element('button', {
         class: styles.deleteProjectButton,
-        'data-id': projectId,
+        'data-project-id': projectId,
       })
     )
   );
@@ -35,5 +35,5 @@ export default function renderProjectEditUI(projectId) {
   sideProjectContainer.insertAdjacentElement('afterend', projectEdit);
   sideProjectContainer.classList.add('hidden');
 
-  document.querySelector(`.edit-name[data-id='${projectId}']`).focus();
+  document.querySelector(`.edit-name[data-project-id='${projectId}']`).focus();
 }

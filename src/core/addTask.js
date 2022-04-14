@@ -9,12 +9,12 @@ import renderSideInfo from '../helpers/renderSideInfo';
 export default function addTask(projectId) {
   const project = findProject(projectId);
 
-  project.tasks.push(new Task('New Task', '', 'Low', false));
+  project.tasks.push(new Task('New Task', '', 'low', false));
 
   const task = mostRecentTask(project);
 
   renderMainTasks(project, task);
-  renderTaskEditUI(task.id);
+  renderTaskEditUI(projectId, task.id);
   renderSideInfo();
   updateLocalStorage();
 }

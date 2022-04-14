@@ -49,4 +49,5 @@ module.exports = {
     watchFiles: ['src/**/*.html', 'public/**/*'],
   },
   mode: 'production',
+  devtool: 'source-map',
 };

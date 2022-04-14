@@ -4,15 +4,15 @@ import styles from './tailwind';
 export default function renderSideProjects(project) {
   const sideProject = Element(
     'div',
-    { class: styles.sideProjectContainer, 'data-id': project.id },
+    { class: styles.sideProjectContainer, 'data-project-id': project.id },
     Element(
       'p',
-      { class: styles.sideProjectName, 'data-id': project.id },
+      { class: styles.sideProjectName, 'data-project-id': project.id },
       project.name
     ),
     Element('button', {
       class: styles.sideProjectEditButton,
-      'data-id': project.id,
+      'data-project-id': project.id,
     })
   );
 

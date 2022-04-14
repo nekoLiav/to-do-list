@@ -8,17 +8,20 @@ export default function renderTaskUpdate(
   dueDate,
   priority,
   complete,
-  taskId
+  taskId,
+  projectId
 ) {
-  const taskTitle = document.querySelector(`.task-title[data-id='${taskId}']`);
+  const taskTitle = document.querySelector(
+    `.task-title[data-task-id='${taskId}']`
+  );
   const taskDueDate = document.querySelector(
-    `.task-due-date[data-id='${taskId}']`
+    `.task-due-date[data-task-id='${taskId}']`
   );
   const taskPriority = document.querySelector(
-    `.task-priority[data-id='${taskId}']`
+    `.task-priority[data-task-id='${taskId}']`
   );
   const taskCompleteButton = document.querySelector(
-    `.task-complete-button[data-id='${taskId}']`
+    `.task-complete-button[data-task-id='${taskId}']`
   );
 
   taskTitle.textContent = title;
@@ -31,6 +34,6 @@ export default function renderTaskUpdate(
   taskCompleteButton.classList.toggle('text-green-500');
 
   checkComplete();
-  priorityColor();
+  priorityColor(projectId, taskId);
   hideUnusedDates();
 }

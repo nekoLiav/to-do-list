@@ -11,6 +11,7 @@ import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
 import completeTask from '../core/completeTask';
 import addTask from '../core/addTask';
+import priorityCheck from '../helpers/priorityCheck';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
@@ -23,20 +24,20 @@ export default function listeners() {
   todayButton.addEventListener('click', renderToday);
   projectAddButton.addEventListener('click', () => addProject('New Project'));
   side.addEventListener('click', (e) => {
-    const projectId = parseInt(e.target.getAttribute('data-id'), 10);
+    const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
     // project elements
     const projectContainer = document.querySelector(
-      `.project-container[data-id='${projectId}']`
+      `.project-container[data-project-id='${projectId}']`
     );
     const projectEditPanel = document.querySelector(
-      `.project-edit-panel[data-id='${projectId}']`
+      `.project-edit-panel[data-project-id='${projectId}']`
     );
     const editName = document.querySelector('.edit-name');
     const sideProjectContainer = document.querySelector(
-      `.side-project-container[data-id='${projectId}']`
+      `.side-project-container[data-project-id='${projectId}']`
     );
     const sideProjectEditButton = document.querySelector(
-      `.side-project-edit-button[data-id='${projectId}']`
+      `.side-project-edit-button[data-project-id='${projectId}']`
     );
     // project edit
     if (e.target.classList.contains('side-project-edit-button')) {
@@ -65,41 +66,39 @@ export default function listeners() {
     }
   });
   main.addEventListener('click', (e) => {
-    const projectId = parseInt(
-      e.target.parentNode.parentNode.parentNode.getAttribute('data-id'),
-      10
-    );
-    const taskId = parseInt(e.target.getAttribute('data-id'), 10);
+    const projectId = parseInt(e.target.getAttribute('data-project-id'), 10);
+    const taskId = parseInt(e.target.getAttribute('data-task-id'), 10);
     // task elements
     const editTitle = document.querySelector(
-      `.edit-title[data-id='${taskId}']`
+      `.edit-title[data-task-id='${taskId}']`
     );
     const editDueDate = document.querySelector(
-      `.edit-due-date[data-id='${taskId}']`
-    );
-    const prioritySelectorSelected = document.querySelector(
-      '.priority-selector[data-selected="true"]'
+      `.edit-due-date[data-task-id='${taskId}']`
     );
     const taskCompleteButton = document.querySelector(
-      `.task-complete-button[data-id='${taskId}']`
+      `.task-complete-button[data-task-id='${taskId}']`
     );
     const taskEditPanel = document.querySelector(
-      `.task-edit-panel[data-id='${taskId}']`
+      `.task-edit-panel[data-task-id='${taskId}']`
     );
     const taskContainer = document.querySelector(
-      `.task-container[data-id='${taskId}']`
+      `.task-container[data-task-id='${taskId}']`
     );
     const taskEditButton = document.querySelector(
-      `.task-edit-button[data-id='${taskId}']`
+      `.task-edit-button[data-task-id='${taskId}']`
     );
-    const priorityLow = document.querySelector(`#Low[data-id='${taskId}']`);
+    const priorityLow = document.querySelector(
+      `.low[data-task-id='${taskId}']`
+    );
     const priorityMedium = document.querySelector(
-      `#Medium[data-id='${taskId}']`
+      `.medium[data-task-id='${taskId}']`
     );
-    const priorityHigh = document.querySelector(`#High[data-id='${taskId}']`);
+    const priorityHigh = document.querySelector(
+      `.high[data-task-id='${taskId}']`
+    );
     // task edit
     if (e.target.classList.contains('task-edit-button')) {
-      renderTaskEditUI(taskId);
+      renderTaskEditUI(projectId, taskId);
     }
     // task edit confirm
     if (e.target.classList.contains('confirm-task-button')) {
@@ -108,12 +107,12 @@ export default function listeners() {
         taskId,
         editTitle.value,
         editDueDate.value,
-        prioritySelectorSelected.id,
+        priorityCheck(projectId, taskId),
         taskCompleteButton.getAttribute('data-complete')
       );
       taskEditPanel.remove();
       document
-        .querySelector(`.task-container[data-id='${taskId}']`)
+        .querySelector(`.task-container[data-task-id='${taskId}']`)
         .classList.remove('hidden');
     }
     // task delete
@@ -136,17 +135,17 @@ export default function listeners() {
     }
     // task priority toggle
     if (e.target.classList.contains('priority-selector')) {
-      if (e.target.id === 'Low') {
+      if (e.target.classList.contains('low')) {
         e.target.classList.add('!hidden');
         e.target.setAttribute('data-selected', false);
         priorityMedium.classList.remove('!hidden');
         priorityMedium.setAttribute('data-selected', true);
-      } else if (e.target.id === 'Medium') {
+      } else if (e.target.classList.contains('medium')) {
         e.target.classList.add('!hidden');
         e.target.setAttribute('data-selected', false);
         priorityHigh.classList.remove('!hidden');
         priorityHigh.setAttribute('data-selected', true);
-      } else if (e.target.id === 'High') {
+      } else if (e.target.classList.contains('high')) {
         e.target.classList.add('!hidden');
         e.target.setAttribute('data-selected', false);
         priorityLow.classList.remove('!hidden');
@@ -154,7 +153,7 @@ export default function listeners() {
       }
     }
     if (e.target.classList.contains('task-add-button')) {
-      addTask(parseInt(e.target.getAttribute('data-id'), 10));
+      addTask(parseInt(e.target.getAttribute('data-project-id'), 10));
     }
   });
 }
