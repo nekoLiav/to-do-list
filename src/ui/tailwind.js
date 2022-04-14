@@ -27,13 +27,13 @@ export default {
   editTaskPanel:
     'task-edit-panel flex items-center justify-between p-1 text-sm rounded bg-slate-200',
   editTitle: 'edit-title w-40 text-sm rounded max-h-5',
-  editDueDate: 'edit-due-date w-40 text-xs rounded max-h-5',
+  editDueDate: 'edit-due-date bg-slate-200 w-6 text-xs rounded',
   priorityLow:
-    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-green-500 rounded priority-selector fa-solid fa-flag',
   priorityMed:
-    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-yellow-500 rounded priority-selector fa-solid fa-flag',
   priorityHigh:
-    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector hover:bg-slate-600 active:bg-slate-800 fa-solid fa-flag bg-slate-700',
+    '!hidden w-8 h-6 p-1 text-red-500 rounded priority-selector fa-solid fa-flag',
   taskEditActionButtons: 'flex gap-0.5',
   confirmTaskButton:
     'confirm-task-button w-8 h-6 p-1 text-green-500 rounded active:bg-slate-800 hover:bg-slate-600 bg-slate-700 fa-solid fa-circle-check',
