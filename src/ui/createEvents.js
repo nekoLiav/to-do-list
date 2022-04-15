@@ -11,7 +11,6 @@ import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
 import toggleTaskComplete from '../helpers/toggleTaskComplete';
 import addTask from '../core/addTask';
-import priorityCheck from '../helpers/priorityCheck';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
@@ -100,6 +99,9 @@ export default function listeners() {
     const priorityHigh = document.querySelector(
       `.high[data-task-id='${taskId}']`
     );
+    const prioritySelected = document.querySelector(
+      `.priority-selector[data-task-id='${taskId}'][data-selected='true']`
+    );
     // task edit
     if (e.target.classList.contains('task-edit-button')) {
       renderTaskEditUI(projectId, taskId);
@@ -111,12 +113,10 @@ export default function listeners() {
         taskId,
         editTitle.value,
         editDueDate.value,
-        priorityCheck(projectId, taskId)
+        prioritySelected.getAttribute('data-priority')
       );
       taskEditPanel.remove();
-      document
-        .querySelector(`.task-container[data-task-id='${taskId}']`)
-        .classList.remove('hidden');
+      taskContainer.classList.remove('hidden');
     }
     // task delete
     if (e.target.classList.contains('delete-task-button')) {
