@@ -7,9 +7,11 @@ export default function checkEmptyTaskList(projectId) {
 
   const project = findProject(projectId);
 
-  if (project.tasks.length === 0) {
-    projectTasksList.classList.add('hidden');
-  } else {
-    projectTasksList.classList.remove('hidden');
+  if (projectTasksList !== null) {
+    if (project.tasks.length === 0) {
+      projectTasksList.classList.add('hidden');
+    } else {
+      projectTasksList.classList.remove('hidden');
+    }
   }
 }

@@ -1,6 +1,6 @@
 import checkEmptyTaskList from './checkEmptyTaskList';
 import populateSideInfo from './populateSideInfo';
-import updateLocalStorage from './updateLocalStorage';
+import updateLocalStorage from '../local-storage/updateLocalStorage';
 
 export default function updateProject(project) {
   const sideProjectName = document.querySelector(

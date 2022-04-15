@@ -1,6 +1,6 @@
 import './tailwind.css';
-import createLocalStorage from './helpers/createLocalStorage';
-import retrieveLocalStorage from './helpers/retrieveLocalStorage';
+import createLocalStorage from './local-storage/createLocalStorage';
+import retrieveLocalStorage from './local-storage/retrieveLocalStorage';
 import populateStoredProjects from './helpers/populateStoredProjects';
 import populateOverview from './helpers/populateOverview';
 import populateSideInfo from './helpers/populateSideInfo';

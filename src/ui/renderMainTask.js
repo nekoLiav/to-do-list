@@ -1,6 +1,6 @@
 import Element from '../factories/Element';
 import styles from './tailwind';
-import formatDates from '../helpers/formatDate';
+import formatDate from '../helpers/formatDate';
 import updateTask from '../helpers/updateTask';
 
 export default function renderMainTask(project, task) {
@@ -33,7 +33,7 @@ export default function renderMainTask(project, task) {
         'data-project-id': project.id,
         'data-date': task.dueDate,
       },
-      formatDates(task.dueDate, 'relative')
+      formatDate(task.dueDate, 'relative')
     ),
     Element('p', {
       class: styles.taskPriority,
