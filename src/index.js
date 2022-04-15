@@ -1,6 +1,5 @@
 import './tailwind.css';
 import './assets/fontawesome/solid.css';
-import './assets/fontawesome/fontawesome.css';
 import createLocalStorage from './helpers/createLocalStorage';
 import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import populateStoredProjects from './helpers/populateStoredProjects';
