@@ -1,4 +1,5 @@
 import Element from '../factories/Element';
+import populateSideInfo from '../helpers/populateSideInfo';
 import styles from './tailwind';
 
 export default function renderSideProject(project) {
@@ -19,4 +20,6 @@ export default function renderSideProject(project) {
   const sideProjectAnchor = document.getElementById('side-project-anchor');
 
   sideProjectAnchor.append(sideProject);
+
+  populateSideInfo();
 }
