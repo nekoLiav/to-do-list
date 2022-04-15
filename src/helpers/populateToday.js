@@ -2,7 +2,7 @@ import { isValid, isToday } from 'date-fns/esm';
 import { toDoList } from '../core/globals';
 import clearView from './clearView';
 import renderMainProject from '../ui/renderMainProject';
-import renderMainTasks from '../ui/renderMainTask';
+import renderMainTask from '../ui/renderMainTask';
 
 export default function populateToday() {
   clearView();
