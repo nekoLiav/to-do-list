@@ -46,7 +46,6 @@ export default function renderMainTask(project, task) {
       'data-project-id': project.id,
     })
   );
-
   const projectTasksList = document.querySelector(
     `.project-tasks[data-project-id='${project.id}']`
   );

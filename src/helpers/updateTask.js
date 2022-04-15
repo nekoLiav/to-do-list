@@ -4,6 +4,7 @@ import priorityColor from './priorityColor';
 import hideUnusedDate from './hideUnusedDate';
 import populateSideInfo from './populateSideInfo';
 import updateLocalStorage from '../local-storage/updateLocalStorage';
+import checkEmptyTaskList from './checkEmptyTaskList';
 
 export default function updateTask(project, task) {
   const taskTitle = document.querySelector(
@@ -20,6 +21,7 @@ export default function updateTask(project, task) {
   checkComplete(project.id, task.id);
   priorityColor(project.id, task.id);
   hideUnusedDate(project.id, task.id);
+  checkEmptyTaskList(project.id);
   populateSideInfo();
   updateLocalStorage();
 }
