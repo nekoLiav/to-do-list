@@ -6,12 +6,11 @@ import retrieveLocalStorage from './helpers/retrieveLocalStorage';
 import populateStoredProjects from './helpers/populateStoredProjects';
 import populateOverview from './helpers/populateOverview';
 import populateSideInfo from './helpers/populateSideInfo';
-import listeners from './ui/listeners';
+import createEvents from './ui/createEvents';
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 populateStoredProjects();
 populateSideInfo();
 populateOverview();
-listeners();
+createEvents();
