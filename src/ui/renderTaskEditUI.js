@@ -38,16 +38,19 @@ export default function renderTaskEditUI(projectId, taskId) {
       class: styles.priorityLow,
       'data-task-id': taskId,
       'data-project-id': projectId,
+      'data-priority': 'low',
     }),
     Element('button', {
       class: styles.priorityMed,
       'data-task-id': taskId,
       'data-project-id': projectId,
+      'data-priority': 'medium',
     }),
     Element('button', {
       class: styles.priorityHigh,
       'data-task-id': taskId,
       'data-project-id': projectId,
+      'data-priority': 'high',
     }),
     Element(
       'div',
