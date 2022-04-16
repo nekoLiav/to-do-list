@@ -9,7 +9,7 @@ export default {
     'w-8 h-6 p-1 task-add-button flex justify-center items-center rounded hover:bg-slate-100 active:bg-slate-300 bg-slate-200',
   /* main display tasks */
   taskContainer:
-    'flex items-center gap-5 p-1 rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task-container',
+    'flex items-center gap-5 p-1 sm:min-w-[364px] sm:max-w-[512px] w-full rounded cursor-pointer hover:bg-slate-100 active:bg-slate-300 bg-slate-200 task-container',
   taskCompleteButton:
     '!hidden flex justify-center items-center w-8 h-6 rounded text-slate-400 task-complete-button bg-slate-800 hover:bg-slate-700 active:bg-slate-600',
   taskTitle: 'mr-auto text-sm task-title',

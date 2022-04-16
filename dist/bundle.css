@@ -520,8 +520,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .overflow-clip {
   overflow: clip;
 }
+.overflow-y-auto {
+  overflow-y: auto;
+}
 .rounded {
   border-radius: 0.25rem;
+}
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 .bg-slate-800 {
   --tw-bg-opacity: 1;
@@ -530,10 +537,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-slate-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
-}
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 .p-1 {
   padding: 0.25rem;
@@ -704,6 +707,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 24rem;
   }
 
+  .sm\:min-w-\[364px\] {
+    min-width: 364px;
+  }
+
+  .sm\:max-w-\[512px\] {
+    max-width: 512px;
+  }
+
   .sm\:max-w-\[170px\] {
     max-width: 170px;
   }
@@ -713,5 +724,3 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-
-/*# sourceMappingURL=bundle.css.map*/

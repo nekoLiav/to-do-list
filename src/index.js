@@ -6,7 +6,6 @@ import populateOverview from './helpers/populateOverview';
 import populateSideInfo from './helpers/populateSideInfo';
 import createEvents from './ui/createEvents';
 
-localStorage.clear();
 createLocalStorage();
 retrieveLocalStorage();
 populateStoredProjects();
