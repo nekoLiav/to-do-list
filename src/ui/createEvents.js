@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 // /* eslint-disable no-param-reassign */
 import addProject from '../core/addProject';
 import populateOverview from '../helpers/populateOverview';
@@ -11,6 +12,7 @@ import editTask from '../core/editTask';
 import deleteTask from '../core/deleteTask';
 import toggleTaskComplete from '../helpers/toggleTaskComplete';
 import addTask from '../core/addTask';
+import formatDate from '../helpers/formatDate';
 
 export default function listeners() {
   const overviewButton = document.getElementById('overview-button');
@@ -159,4 +161,28 @@ export default function listeners() {
       addTask(parseInt(e.target.getAttribute('data-project-id'), 10));
     }
   });
+  main.addEventListener(
+    'mouseenter',
+    (e) => {
+      if (e.target.classList.contains('task-due-date')) {
+        e.target.textContent = formatDate(
+          e.target.getAttribute('data-date'),
+          'Pp'
+        );
+      }
+    },
+    true
+  );
+  main.addEventListener(
+    'mouseleave',
+    (e) => {
+      if (e.target.classList.contains('task-due-date')) {
+        e.target.textContent = formatDate(
+          e.target.getAttribute('data-date'),
+          'relative'
+        );
+      }
+    },
+    true
+  );
 }

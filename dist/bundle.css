@@ -445,14 +445,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-auto {
   margin-right: auto;
 }
+.mt-auto {
+  margin-top: auto;
+}
 .mr-1 {
   margin-right: 0.25rem;
 }
 .ml-auto {
   margin-left: auto;
-}
-.mt-auto {
-  margin-top: auto;
 }
 .flex {
   display: flex;
@@ -472,23 +472,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-6 {
   height: 1.5rem;
 }
-.h-\[50px\] {
-  height: 50px;
-}
 .max-h-\[333px\] {
   max-height: 333px;
 }
 .max-h-5 {
   max-height: 1.25rem;
-}
-.max-h-\[50px\] {
-  max-height: 50px;
-}
-.max-h-full {
-  max-height: 100%;
-}
-.max-h-20 {
-  max-height: 5rem;
 }
 .w-full {
   width: 100%;
@@ -502,41 +490,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-6 {
   width: 1.5rem;
 }
-.w-min {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-}
-.w-24 {
-  width: 6rem;
-}
-.w-48 {
-  width: 12rem;
-}
 .min-w-\[256px\] {
   min-width: 256px;
-}
-.min-w-min {
-  min-width: -webkit-min-content;
-  min-width: -moz-min-content;
-  min-width: min-content;
-}
-.min-w-max {
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
 }
 .max-w-\[200px\] {
   max-width: 200px;
 }
-.grow {
-  flex-grow: 1;
-}
 .cursor-pointer {
   cursor: pointer;
-}
-.flex-row-reverse {
-  flex-direction: row-reverse;
 }
 .flex-col {
   flex-direction: column;
@@ -546,9 +507,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .items-center {
   align-items: center;
-}
-.justify-end {
-  justify-content: flex-end;
 }
 .justify-center {
   justify-content: center;
@@ -573,9 +531,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .place-self-center {
   place-self: center;
-}
-.justify-self-start {
-  justify-self: start;
 }
 .overflow-clip {
   overflow: clip;
