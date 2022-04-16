@@ -50,4 +50,7 @@ export default {
     'confirm-project-button flex justify-center items-center w-8 h-6 p-1 ml-auto text-green-500 rounded active:bg-slate-600 hover:bg-slate-700 bg-slate-800',
   deleteProjectButton:
     'delete-project-button flex justify-center items-center w-8 h-6 p-1 text-red-500 rounded active:bg-slate-600 hover:bg-slate-700 bg-slate-800',
+  /* footer */
+  selfIconImg: 'order-1 h-20',
+  odinIconImg: 'order-3 h-20',
 };
