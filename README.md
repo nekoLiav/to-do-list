@@ -1,4 +1,4 @@
-# Minimal To-Do
+# to-do-list
 
 [LIVE DEMO](https://nekoliav.github.io/minimal-to-do/)
 
