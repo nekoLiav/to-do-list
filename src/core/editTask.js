@@ -1,3 +1,4 @@
+import firebaseSetProject from '../firebase/firebaseSetProject';
 import findProject from '../helpers/findProject';
 import findTask from '../helpers/findTask';
 import updateTask from '../helpers/updateTask';
@@ -23,5 +24,6 @@ export default function editTask(
     task.complete = true;
   }
 
+  firebaseSetProject(project);
   updateTask(project, task);
 }
