@@ -3,7 +3,6 @@ import checkComplete from './checkComplete';
 import priorityColor from './priorityColor';
 import hideUnusedDate from './hideUnusedDate';
 import populateSideInfo from './populateSideInfo';
-import updateLocalStorage from '../local-storage/updateLocalStorage';
 import checkEmptyTaskList from './checkEmptyTaskList';
 
 export default function updateTask(project, task) {
@@ -23,5 +22,4 @@ export default function updateTask(project, task) {
   hideUnusedDate(project.id, task.id);
   checkEmptyTaskList(project.id);
   populateSideInfo();
-  updateLocalStorage();
 }

@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development",
+    "emulate": "firebase emulators:start --only firestore"
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
-    "date-fns": "^2.28.0"
+    "date-fns": "^2.28.0",
+    "firebase": "^9.8.1"
   }
 }
